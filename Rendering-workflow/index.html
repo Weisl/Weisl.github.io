@@ -9,24 +9,25 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Presenting your work - Documentation</title>
+  <title>Iterate on the look - Documentation</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
   <link rel="stylesheet" href="../css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Presenting your work";
+    var mkdocs_page_name = "Iterate on the look";
     var mkdocs_page_input_path = "Rendering-workflow.md";
     var mkdocs_page_url = null;
   </script>
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
   <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
+  
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -40,7 +41,7 @@
         <a href=".." class="icon icon-home"> Documentation</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -52,13 +53,15 @@
                 </ul>
                 <p class="caption"><span class="caption-text">Cam-Manager</span></p>
                 <ul class="current">
-                    <li class="toctree-l1"><a class="reference internal" href="../Cam-Manager_Overview/">Addon Overview</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../Cam-Manager_Overview/">Overview</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../image_plane/">Re-creating real world assets</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../UI/">The UI</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../composition/">Finding a composition</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../composition/">Camera Setup</a>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Presenting your work</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../image_plane/">Model with image planes</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Iterate on the look</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#render-slots">Render Slots</a>
     </li>
@@ -99,7 +102,7 @@
         
       
     
-    <li>Presenting your work</li>
+    <li>Iterate on the look</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -107,20 +110,19 @@
   
   <hr/>
 </div>
-
           <div role="main">
             <div class="section">
               
                 <h1 id="camera-lighting">Camera Lighting</h1>
 <p>Customize the overall lighting conditions by assigning individual world materials (HDRIs) to each camera. Further, you can adjust the exposure for each camera, compensating for darker camera angles or world materials.</p>
-<p><img alt="img" src="../images/HDRI_select.gif" />
+<p><img alt="img" src="../images/presentation_select_hdri.gif" />
 Assign different world materials (HDRIs) to individual cameras. The background will automatically be swapped accordingly when switching cameras. This allows you to easily iterate different lighting conditions and evaluate materials.</p>
 <p>This system is limited to world material and exposure. This means it's not suitable for more complex lighting changes that require different scene lights to be changed.</p>
 <h2 id="render-slots">Render Slots</h2>
-<p>Don't overwrite your previous render from a different camera by accident. Assign different render slots per camera. Changing the camera will also change to the proper render sloth in the render viewer. </p>
-<p><img alt="img" src="../images/Render_To_Slots.gif" />
+<p>Don't overwrite your previous render from a different camera by accident. Assign different render slots per camera. Changing the camera will also change to the proper render sloth in the render viewer.</p>
+<p><img alt="img" src="../images/presentation_toggle_camera_hdri_slots.gif" />
 Assign different render slots easily to different cameras.</p>
-<p><img alt="img" src="../images/slot_render.gif" />
+<p><img alt="img" src="../images/presentation_render_to_slot.gif" />
 Save render slot per camera and render directly from the Cam-Manager window.</p>
               
             </div>
@@ -132,7 +134,7 @@ Save render slot per camera and render directly from the Cam-Manager window.</p>
         <a href="../renaming/" class="btn btn-neutral float-right" title="Overview">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../composition/" class="btn btn-neutral" title="Finding a composition"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../image_plane/" class="btn btn-neutral" title="Model with image planes"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -155,18 +157,17 @@ Save render slot per camera and render directly from the Cam-Manager window.</p>
   </div>
 
   <div class="rst-versions" role="note" aria-label="versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
-    
-    
-      <span><a href="../composition/" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-      <span><a href="../renaming/" style="color: #fcfcfc">Next &raquo;</a></span>
-    
-  </span>
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../image_plane/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../renaming/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
 </div>
     <script>var base_url = '..';</script>
-    <script src="../js/theme_extra.js" defer></script>
     <script src="../js/theme.js" defer></script>
       <script src="../search/main.js" defer></script>
     <script defer>
