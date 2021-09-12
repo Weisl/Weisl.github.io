@@ -9,25 +9,24 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Overview - Documentation</title>
+  <title>Addon Overview - Documentation</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
   <link rel="stylesheet" href="../css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Overview";
+    var mkdocs_page_name = "Addon Overview";
     var mkdocs_page_input_path = "Cam-Manager_Overview.md";
     var mkdocs_page_url = null;
   </script>
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
   <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
-  
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -41,7 +40,7 @@
         <a href=".." class="icon icon-home"> Documentation</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -53,41 +52,27 @@
                 </ul>
                 <p class="caption"><span class="caption-text">Cam-Manager</span></p>
                 <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Overview</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Addon Overview</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#what-is-cam-manager">What is Cam-Manager?</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#feature-overview">Feature Overview</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#why-cam-manager">Why Cam-Manager?</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#use-case-i-camera-setup">Use Case I: Camera Setup</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#use-case-ii-model-with-image-planes">Use Case II: Model with Image Planes</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#use-case-iii-iterate-on-the-look">Use Case III: Iterate on the Look</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#the-ui">The UI</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#behind-the-curtain">Behind the curtain</a>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#download-and-installation">Download and Installation</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#stores">Stores:</a>
     </li>
-        </ul>
+    <li class="toctree-l2"><a class="reference internal" href="#overview-panel-shift-c">Overview Panel (Shift + C)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#the-developer">The Developer</a>
+    <li class="toctree-l2"><a class="reference internal" href="#scene-properties">Scene Properties</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#camera-pie-alt-c">Camera Pie (Alt + C)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#toggle-cameras-ctrl-shift-leftright-arrow">Toggle Cameras (Ctrl + Shift + Left/Right Arrow)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#preferences">Preferences</a>
     </li>
     </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../UI/">The UI</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../image_plane/">Re-creating real world assets</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../composition/">Camera Setup</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../composition/">Finding a composition</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../image_plane/">Model with image planes</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Rendering-workflow/">Iterate on the look</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../Rendering-workflow/">Presenting your work</a>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Simple Renaming Panel (Free)</span></p>
@@ -124,7 +109,7 @@
         
       
     
-    <li>Overview</li>
+    <li>Addon Overview</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -132,100 +117,75 @@
   
   <hr/>
 </div>
+
           <div role="main">
             <div class="section">
               
-                <h1 id="overview">Overview</h1>
-<p><img alt="img" src="../images/cam-Manager.jpg" /></p>
-<h2 id="what-is-cam-manager">What is Cam-Manager?</h2>
-<p>Cam-Manager is an addon to <strong>organize scene cameras</strong> and tweak their settings directly from the 3D view. The mission of this addon is to <strong>bring all camera-related relevant settings and information</strong> as close <strong>to the user</strong> as possible. Camera handling should become as simple and fast as using a smartphone camera.</p>
-<h2 id="feature-overview">Feature Overview</h2>
-<ul>
-<li>View <strong>all cameras and common camera settings at a glance</strong>: Compare different camera settings when doing your adjustments or when renaming your cameras.</li>
-<li><strong>Toggle Cameras</strong> with hotkeys (default: Ctrl + Shift + Arrow Left/Right) and from the different addon overview panels.</li>
-<li><strong>Slick and efficient UI</strong></li>
-<li><strong>Camera Resolution</strong>: Assign different resolutions to each camera</li>
-<li>
-<p>Lock/Unlock Camera: <strong>Lock/Unlock</strong> all camera transformations instantly from both the overview panel or pie menu</p>
-</li>
-<li>
-<p>Render Slots: Assign different render slots to different cameras to avoid overwriting other camera renders.</p>
-</li>
-<li>
-<p>Camera Collection: Create or specify an existing camera collection to easily assign individual or all cameras to it. Keep them organized in the Outliner and quickly hide/show all of them.</p>
-</li>
-<li>
-<p>Background Image Settings: Toggle the <strong>background image on/off, adjust opacity</strong> or change the render order directly <strong>from the 3D view</strong> (Pie menu).</p>
-</li>
-<li>
-<p>Resolution from Background Image: Set the camera <strong>resolution from</strong> the camera <strong>background image</strong>.</p>
-</li>
-<li>
-<p>World Material: Assign different <strong>world materials per Camera</strong>.</p>
-</li>
-<li>Exposure: Compensate lighting intensity changes from cameras by assigning a <strong>camera-specific exposure</strong> value.</li>
-<li>Change hotkeys to your likings from the addon preferences. </li>
-</ul>
-<h2 id="why-cam-manager">Why Cam-Manager?</h2>
-<p><strong>Stay Organized:</strong>
-See all the cameras and their most important values at one glance and adjust the values if needed.</p>
-<p><strong>Quick:</strong>
-All the functionality is at your fingertips and can be accessed from the 3D View. No need to scroll through different windows and panels. Find all the relevant information at one spot. No need to scan through different menus and windows.  </p>
-<p><strong>Easy to use:</strong>
-The overview panel is a simple and well-structured spreadsheet and the operators are self-explanatory, with additional descriptions, if needed.</p>
-<p><strong>Continuous Support:</strong>
-The addon is well documented. All buttons, tools, and values have useful description texts when hovering. Development is still ongoing. Share your feedback, opinions, use-cases, needs and help me to improve the tool even further. </p>
-<h2 id="use-case-i-camera-setup">Use Case I: Camera Setup</h2>
-<p><img alt="img" src="../images/efficiency_lock_unlock_camera.gif" />
-Lock/Unlock your camera transformations from the 3D View.</p>
-<p><img alt="img" src="../images/efficiency_viewport_settings_display.gif" />
-Adjust viewport settings from the 3D view, display composition guides, darken the off-camera area, and hide all overlays.</p>
-<p><img alt="img" src="../images/efficiency_depth_of_field.gif" />
-Tweak the camera settings like focal length and depth of field directly from the 3D View.</p>
-<h2 id="use-case-ii-model-with-image-planes">Use Case II: Model with Image Planes</h2>
-<p>A common workflow for recreating real-world objects like machines and architecture is to use camera background images. This workflow can be cumbersome with the default blender since different camera resolutions are not supported and viewport adjustment require multiple steps. Cam-Manager provides multiple tools to improve this workflow.</p>
-<p><img alt="img" src="../images/Image_planes_toggle_cams.gif" />
-Quickly toggle through different cameras with different resolutions (Ctrl + Shift + Left/Right Arrow) or via the overview panel.</p>
-<p><img alt="img" src="../images/image_planes_viewport_settings.gif" />
-Change the viewport settings of the Background image from the viewport. Cam-Manager helps you compare the model and the image plane regularly by keeping your focus in the 3D View.</p>
-<p><img alt="img" src="../images/image_plane_set_resolution.gif" />
-Assign the camera resolution from the current background image.</p>
-<h2 id="use-case-iii-iterate-on-the-look">Use Case III: Iterate on the Look</h2>
-<p>Test your product and scene from different angles and in different lighting conditions. Cam-Manager will support you to quickly try out your ideas and iterate them.</p>
-<p><img alt="img" src="../images/presentation_select_hdri.gif" />
-Assign the world material easily from the overview panel. Updates to the active camera are immediately applied to the scene.</p>
-<p><img alt="img" src="../images/presentation_toggle_camera_hdri_slots.gif" />
-Toggle through cameras with different world materials, exposure values, and render slots.</p>
-<p><img alt="img" src="../images/presentation_render_to_slot.gif" />
-Assign the render slot and render. Avoid overwriting your previous camera shot!</p>
-<h2 id="the-ui">The UI</h2>
-<ul>
-<li><strong>Overview Panel:</strong> The overview panel presents you with the most important settings for <strong>all scene cameras at a glance</strong> while providing an easy and quick way to rename them and change common settings. The adjustment possibilities go beyond the blender default settings. Cam-Manager enables you to assign custom resolutions, world materials, and render slots per camera.</li>
-<li><strong>Pie menu:</strong> Adjust your camera settings from the 3D view! The pie menu exposes the most common camera settings - like focal length and depth of field - for the currently active scene camera. You can further lock/unlock your camera, adjust background image settings, hide/show composition guides, and gizmos instantaneously.</li>
-<li><strong>Scene Properties Panel</strong> It is a compacter version of the camera overview panel and can be found in the scene properties panel. It also allows you to rename cameras, change their visibility and locking states and assign them to the specified camera collection quickly.</li>
-</ul>
-<p><img alt="img" src="../images/ui_Cam-Manager_Overview_Panel.jpg" />
-<img alt="img" src="../images/ui_pie_02.jpg" /></p>
-<h2 id="behind-the-curtain">Behind the curtain</h2>
-<p>Blender stores the current resolution, exposure, and world material as global value in the scene and not as components of the camera. When switching the camera, the addon will set the current scene values to those stored per camera by the addon. This works perfectly when switching cameras with the tools provided by this addon. It will not work when changing the camera manually or when using other addons. This is unfortunately a limitation coming from blender implementation of cameras.</p>
-<p><img alt="img" src="../images/overview_behind_the_curtain.gif" />
-Due to this limitation in the blender architecture, it is not possible to preview multiple cameras with different resolutions at the same time.</p>
+                <h1 id="cam-manager-overview">Cam-Manager Overview</h1>
+<p><img alt="img" src="../images/cam-Manager.png" /></p>
+<p>Cam-Manager is an add-on to improve efficiency and organization with multiple cameras. It empowers you to quickly present your work - from product design to modeling/texturing work. It is a powerful tool to tweak the composition and framing of your artwork or when working with image planes.
+The addon includes different overview panels (in the 3d view and scene properties), a pie menu for quickly tweaking the active camera, different tools to assign and adjust camera-specific resolution, world materials, render slots, and more. Further, it allows you to customize the shortcuts to your needs.</p>
+<div class="admonition warning inline end">
+<p class="admonition-title">Warning</p>
+<p><strong>This addon does not provide special tools for animation. </strong> It is designed for the workflows presented in the following pages: working with image planes, setting up the camera framing and improving composition as well as quickly presenting your work as static images. </p>
+</div>
 <h2 id="download-and-installation">Download and Installation</h2>
 <p>Please purchase the Cam-Manager from any of the provided stores.
-The addon can be installed by going to <b> File &gt; User Preferences &gt; addons</b>. Click at <b>Install from File </b> and specify the downloaded zip file in the newly opened window.
-<b>Cam-Manager</b> should now appear in your addons window and can be activated. Please contact me in case you run into any issues here.</p>
+The addon can be installed by going to <b> File &gt; User Preferences &gt; Add-ons</b>. Click at <b>Install from File </b> and specify the downloaded zip file in the newly opened window.
+<b>Cam-Manager</b> should now appear in your add-ons window and can be activated. Please contact me in case you run into any issues here. </p>
 <p><img alt="img" src="../img/install_addon.jpg" /></p>
 <p>Once installed, you can use the auto-updater in the user preferences to get the latest version of the addon.</p>
 <p><img alt="img" src="../images/preferences.jpg" /></p>
-<h3 id="stores">Stores:</h3>
-<ul>
-<li><a href="https://blendermarket.com/creators/matthias-patscheider" title="Blender Market">Blender Market</a></li>
-<li><a href="https://www.artstation.com/matthias-patscheider/store" title="Artstation Marketplace">Artstation Marketplace</a></li>
-<li><a href="https://gumroad.com/weisl" title="Gumroad">Gumroad</a></li>
-</ul>
-<h2 id="the-developer">The Developer</h2>
-<p>Hello, my name is Matthias Patscheider. I have always been interested in pipelines and coding. 
-I have been writing small scripts and addons all my professional life and even before. Working on these tools in my spare time is a welcome change to my everyday job as a 3D Environment Artists at Remedy. A lot of the tools are born from personal needs and try to solve real-world issues  I face both at work and in personal projects. In this case, the core was initially developed for this project (https://www.artstation.com/artwork/D55b8o). I needed the possibility to change the resolution per camera and adjust the display setting of background images directly from the viewport. Since then, I have expanded it to a general-purpose camera tool.  </p>
+<h2 id="overview-panel-shift-c">Overview Panel (Shift + C)</h2>
+<p>This is the core of the addon. The menu lists all cameras in your scene. It provides a quick overview of the most important settings and an easy way to adjusting them. Additionally - extending the default blender camera setting - you can assign camera-specific resolution, render slots, and world materials. 
+<img alt="img" src="../images/Cam-Manager_Overview_Panel.png" /></p>
+<p><strong>Features Overview:</strong>
+<img alt="img" src="../images/Cam_overview_panel.jpg" /></p>
+<ol>
+    <li>Toggle the active camera</li>
+    <li>Rename cameras</li>
+    <li>Toggle visibility, selection, and locking of cameras</li>
+    <li>Adjust specific settings like focal length and clipping planes per camera</li>
+    <li>Change output resolution per camera</li>
+    <li>Copy camera resolution from the assigned background image</li>
+    <li>Set the world material (HDRI) per camera to adjust the lighting</li>
+    <li>Set exposure value per camera</li>
+    <li>Move camera to the specified camera collection</li>
+    <li>Assing individual render slots per camera</li>
+    <li>Render any camera directly from this menu</li>
+    <li>Set and assign to Camera Collection</li>
+    <li>Settings: Automatically save renders and set the output folder</li>
+</ol>
+
+<h2 id="scene-properties">Scene Properties</h2>
+<p>A compacter version of the camera overview panel can be found in the scene properties panel. It allows you to rename cameras, change their visibility and locking states and assign them to the specified camera collection quickly.</p>
+<p><img alt="img" src="../images/camera_scene_panel.jpg" /></p>
+<h2 id="camera-pie-alt-c">Camera Pie (Alt + C)</h2>
+<p>This pie menu is intended to tweak the currently active camera. It is split into 4 areas.</p>
+<p><img alt="img" src="../images/pie_02.png" /></p>
+<p><strong>Features Overview:</strong></p>
+<p><img alt="img" src="../images/pie_detail.jpg" /></p>
+<ol>
+    <li>Render and Background Image: Assign a render slot and render directly from the pie menu. Further, this area contains functionalities to adjust the visibility of background images and toggle them on/off quickly. </li>
+    <li>Camera: Tweak camera-specific values like focal length, exposure, clipping planes, and depth of field. </li>
+    <li>Viewport: Quickly show and hide composition guides, UI elements and darken the area outside the final frame.  </li>
+    <li>Quick Access: Quickly toggle between cameras, lock/unlock, select or lock the current camera to view.  </li>
+
+</ol>
+
+<h2 id="toggle-cameras-ctrl-shift-leftright-arrow">Toggle Cameras (Ctrl + Shift + Left/Right Arrow)</h2>
+<p>Ctrl + Shift + Left/Right Arrow allows you to quickly toggle between the scene cameras. All camera-specific settings like resolution and world material will automatically be applied.</p>
+<div class="admonition warning inline end">
+<p class="admonition-title">Warning</p>
+<p>All camera-specific settings - provided by this addon - like world material, exposure, camera resolution and render slot will not be updated when changing the active camera in the scene properties manually. Use the hotkeys and buttons provided by the addon to switch the cameras. </p>
+</div>
+<p><img alt="img" src="../images/1SkaAPOA0x.gif" />
+Camera toggle using hotkeys: The resolution is stored for each camera. The cameras can be toggled both from the viewport - as seen here - or while looking through the camera.</p>
+<p><img alt="img" src="../images/HDRI_switch_cam.gif" />
+Camera toggle using the scene properties panel.</p>
+<h2 id="preferences">Preferences</h2>
+<p>The preferences provide easy customization for the hotkeys. Easily adjust them to your personal needs. You can also use the auto-updater to automatically update your addon without downloading the zip files from the store pages.
+<img alt="img" src="../images/preferences.jpg" /></p>
               
             </div>
           </div>
@@ -233,7 +193,7 @@ I have been writing small scripts and addons all my professional life and even b
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../UI/" class="btn btn-neutral float-right" title="The UI">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../image_plane/" class="btn btn-neutral float-right" title="Re-creating real world assets">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -259,17 +219,18 @@ I have been writing small scripts and addons all my professional life and even b
   </div>
 
   <div class="rst-versions" role="note" aria-label="versions">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../UI/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../image_plane/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
 </div>
     <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
     <script src="../js/theme.js" defer></script>
       <script src="../search/main.js" defer></script>
     <script defer>
