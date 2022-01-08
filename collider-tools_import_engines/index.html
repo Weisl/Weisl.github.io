@@ -82,6 +82,8 @@
                     </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Game Engine Support</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#naming-presets">Naming Presets </a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#other">Other </a>
     </li>
     </ul>
@@ -140,12 +142,44 @@
             <div class="section">
               
                 <h1 id="game-engines">Game Engines</h1>
-<p>The Collider Tools addon covers only the blender side of creating collisions. It does not provide any special importers for 3rd party game engines. The export format in all this cases is fbx. </p>
+<p>The Collider Tools addon covers only the blender side of creating collisions. It does not provide any special importers for 3rd party game engines. The export format in all these cases is fbx. </p>
 <p><img alt="img" src="../images/CollisionTools_engines.jpg" /></p>
 <ul>
-<li><a href="../collider-tools_ue_guidline/">Unreal Engine</a></li>
-<li><a href="../collider-tools_unity_guidline/">Unity</a></li>
+<li><a href="../collider-tools_ue_guidline/">Unreal Engine Guide</a></li>
+<li><a href="../collider-tools_unity_guidline/">Unity Guide</a></li>
 </ul>
+<h2 id="naming-presets">Naming Presets <a name="naming_preset"></a></h2>
+<p>Collider Tools supports naming presets saved as simple .py files on the file system. You can save naming settings, quickly toggle them if for working on different projects or engines and share the preset files with colleagues.</p>
+<p><img alt="img" src="../images/Naming_Presets.gif" width="600" /></p>
+<p>The presets are stored as simple '.py' files stored in the same location as user preferences, addons etc. in Appdata. Path:
+<code>C:\Users\ [ Use Name ]  \AppData\Roaming\Blender Foundation\Blender\ [ Blender Version ] \scripts\presets\collider_tools</code></p>
+<p><img alt="img" src="../images/fileSystem_presets.jpg" width="800" /></p>
+<p>This makes it easy to distribute naming patterns with your team. You can download the Unreal Engine and Default Preset files from here. </p>
+<ul>
+<li>Unreal Engine Naming Preset: <a href="https://weisl.github.io//files//UE.py">Download</a> | <a href="../files/UE.py">View</a> </li>
+<li>Default Naming Preset: <a href="https://weisl.github.io//files//default.py">Download</a> | <a href="../files/default.py">View</a></li>
+</ul>
+<p>The presets files are very simple, this is the example of the UE.py file:</p>
+<pre><code>{
+import bpy
+prefs = bpy.context.preferences.addons['collider_tools'].preferences
+
+prefs.naming_position = 'PREFIX'
+prefs.separator = '_'
+prefs.basename = 'geo'
+prefs.replace_name = False
+prefs.colPreSuffix = ''
+prefs.optionalSuffix = ''
+prefs.IgnoreShapeForComplex = True
+prefs.colSimpleComplex = ''
+prefs.colSimple = ''
+prefs.colComplex = 'Complex'
+prefs.boxColSuffix = 'UBX'
+prefs.convexColSuffix = 'UCX'
+prefs.sphereColSuffix = 'USP'
+prefs.meshColSuffix = ''
+}
+</code></pre>
 <h2 id="other">Other <a name="ProprietaryEngine"></a></h2>
 <p>The naming options should allow the Collider Tools addon to be used with a large variety of engines and pipelines. Feel free to contact me if you need help incorporating the addon in your pipeline and proprietary engine. </p>
               
