@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Collider Shapes - Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  <link href="../extra.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Collider Shapes";
+    var mkdocs_page_input_path = "collision_shapes.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Cam Manager</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../cam_Overview/">Overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../cam_UI/">The UI</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../cam_dolly_zoom/">Dolly Zoom</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../cam_composition/">Composition</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../cam_image_plane/">Precise Modeling</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../cam_Rendering_workflow/">Presentation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../cam_release_nodes/">Release Nodes</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Collider Tools</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_overview/">Overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_ui/">The UI</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Collider Shapes</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#collision-creation">Collision Creation</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#box-collision">Box Collision</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sphere-collision">Sphere Collision</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#convex-collision">Convex Collision</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#convex-cylindrical-collision">Convex (Cylindrical) Collision</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#mesh-collision">Mesh Collision</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#convert">Convert</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#mesh-to-collider">Mesh to Collider</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#collider-to-mesh">Collider to Mesh</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#overlay-settings-inputs-and-keys"> Overlay Settings, Inputs and Keys</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#value-input-modal">Value Input (Modal)</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_auto_convex/">Auto Convex</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_physics_materials/">Physics Materials</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_import_engines/">Game Engine Support</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_ue_guidline/">UE Guide</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_unity_guidline/">Unity Guide</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_release_nodes/">Release Nodes</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Simple Renaming Panel (Free)</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../renaming/">Overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../renaming_variables/">Renaming Variables</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../renaming_release_nodes/">Release Nodes</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Collider Tools &raquo;</li>
+        
+      
+    
+    <li>Collider Shapes</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="collision-shapes">Collision Shapes</h1>
+<p>An overview of all the supported Collision shapes of the Collider Tools addon.</p>
+<p><img alt="img" src="../images/CollisionTools_shapes.jpg" /></p>
+<h2 id="collision-creation">Collision Creation</h2>
+<p>Collider Tools supports a wide variety of collision shapes and settings to create them. </p>
+<h3 id="box-collision">Box Collision</h3>
+<p>Box collisions are simple, efficient, and cover a wide range of use-cases.</p>
+<p><img alt="img" src="../images/creation_box_collision_small.gif" width="600" /></p>
+<h3 id="sphere-collision">Sphere Collision</h3>
+<p>Sphere Collisions are the most efficient type of Collision shapes. Sphere collisions are usually represented by a mathematical description (location and radius) rather than polygons. The sphere meshes created by the addon are intended as a visual representation. Sphere collisions will become more expensive if they are imported as convex shapes or mesh shapes.</p>
+<p>The sphere generation uses the TODO: algorithm. This algorithm is very fast but does not provide a consistently good result. Especially simple box meshes cause an inefficient result. The results become better with more complex collisions. </p>
+<p><img alt="img" src="../images/creation_sphere_Collision_small.gif" width="600" /></p>
+<h3 id="convex-collision">Convex Collision</h3>
+<p>Convex shapes are versatile while being efficient. They can be used to represent most objects, especially for engines that don't support triangle mesh collisions  </p>
+<p><img alt="img" src="../images/creation_convex_hull_small.gif" width="600" /></p>
+<h3 id="convex-cylindrical-collision">Convex (Cylindrical) Collision</h3>
+<p>There is no special cylindrical collision type. This is only a tool to help create a clean cylindrical convex shape. Cylindrical shapes are very common shapes, especially in manmade structures. Physics engines will interpret them as simple convex colliders.</p>
+<p><img alt="img" src="../images/creation_cylindrical_collision_small.gif" width="600" /></p>
+<h3 id="mesh-collision">Mesh Collision</h3>
+<p>Mesh Collisions are the most complex type of collision. Use them carefully, minimize the triangle count as much as possible and use them (only) for static objects. </p>
+<p><img alt="img" src="../images/creation_mesh_collision_small.gif" width="600" /></p>
+<h2 id="convert">Convert</h2>
+<p>You can convert any mesh to be a collider as well as any collider to be a regular mesh.</p>
+<h3 id="mesh-to-collider">Mesh to Collider</h3>
+<p>You can convert any mesh to be a collider. The conversion applies the same properties as to other collisions created with the operators from above.  The objects will be renamed, added to the collision collection, and can be hidden/selected as all the other colliders.</p>
+<p><img alt="img" src="../images/convert_MeshToCollider_small.gif" width="600" /></p>
+<h3 id="collider-to-mesh">Collider to Mesh</h3>
+<p>Collider to Mesh will remove all the collider-specific properties and materials. Convert to Mesh opens a pop-up window to set the new object name.</p>
+<p><img alt="img" src="../images/convert_ColliderToMesh_small.gif" width="600" /></p>
+<h2 id="overlay-settings-inputs-and-keys"><a name="OverlaySettings"></a> Overlay Settings, Inputs and Keys</h2>
+<p>This table contains all settings exposed to the user during the creation of a collider. </p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Name</th>
+<th>Inputs</th>
+<th>Settings</th>
+<th>Supported</th>
+<th>Regenerate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Esc,<br>RMB</strong></td>
+<td>Cancel</td>
+<td></td>
+<td>Cancel will abroad the current operation and remove the temporary colliders of this operation</td>
+<td>All</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>Enter,<br>LMB</strong></td>
+<td>Finish</td>
+<td></td>
+<td>Applies the current operation</td>
+<td>All</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>H</strong></td>
+<td>Hide After <br> Creation</td>
+<td>Bool</td>
+<td>The collisions will be hidden after finishing the creation.</td>
+<td>All</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>P</strong></td>
+<td>Use Modifier Stack</td>
+<td>Bool</td>
+<td>If Use Modifier Stack is enabled, the collision will be generated based on the visible mesh, taking changes from the modifier stack into account.</td>
+<td>All <br></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>W</strong></td>
+<td>Display <br> Wireframe</td>
+<td>Enum</td>
+<td><strong>Off:</strong> There is no wireframe preview on the collision mesh <br><strong>Preview:</strong> The wireframes are only visible during the generation <br><strong>Always:</strong> The wireframes remain visible afterwards</td>
+<td>All</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>V</strong></td>
+<td>Viewport<br>  Mode</td>
+<td>Enum</td>
+<td><strong>OBJECT:</strong> Show Object Color <br> <strong>MATERIAL:</strong> Show Material Color <br><strong>SINGLE:</strong> Show Single Color <br><br></td>
+<td>All</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>G/L</strong></td>
+<td>Global/Local</td>
+<td>Enum</td>
+<td><strong>Global</strong>: The object rotation is ignored and the collision is generated based on the world transformation of the vertices. <br> The result will be the same as when appying the rotation of the object and calling the collision operator with Local Space. <br> <strong>Local</strong>: The object rotation is taken into account.</td>
+<td>Box, <br> Cylinder</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>X/Y/Z</strong></td>
+<td>Cylinder <br>  Orientation</td>
+<td>Enum</td>
+<td></td>
+<td>Cylinder</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>T</strong></td>
+<td>Collision <br>  type</td>
+<td>Enum</td>
+<td>SIMPLE_COMPLEX: <br> SIMPLE: <br> COMPLEX</td>
+<td>All</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>C</strong></td>
+<td>Collision <br>  Shape</td>
+<td>Enum</td>
+<td><strong>BOX</strong> <br> <strong>SPHERE</strong> <br> <strong>CONVEX</strong> <br> <strong>TRIANGLE</strong> <br> <strong>MESH</strong> <br> The shapes are used for the naming.</td>
+<td>Convert <br>  to</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>A</strong></td>
+<td>Alpha</td>
+<td>Modal</td>
+<td>Object Opacity</td>
+<td>All</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>S</strong></td>
+<td>Shrink <br>  Inflate</td>
+<td>Modal</td>
+<td>Non-destructive shrink or inflate of the geometry based on the face normal. The operation uses the displace modifier and is therefore non-destructive and can be adjusted at a later point.</td>
+<td>All</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>D</strong></td>
+<td>Decimate</td>
+<td>Modal</td>
+<td>Adds a decimate modifier to reduce the geometry density. The values go from 1 to 0, 1 means the object remains unchanged while 0 means it will be reduced to the minimum.</td>
+<td>Convex <br> Mesh <br>  Convert <br> V-hacd</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>R</strong></td>
+<td>Sphere <br> resolution</td>
+<td>Modal</td>
+<td>Segments and Rings of the Sphere (Rings = Segments / 2)</td>
+<td>Sphere</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>E</strong></td>
+<td>Segments</td>
+<td>Modal</td>
+<td>The amount of segments used to describe the circular shape of the cylinder.</td>
+<td>Cylinder</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="value-input-modal">Value Input (Modal)</h3>
+<p>Some settings, like shrink/inflate, use the mouse movement for changing the settings. The sensitivity and way how the mouse movement affects the settings can be adjusted by pressing manipulator keys like <strong>Ctrl</strong>, <strong>Shift</strong>, and <strong>Alt</strong>. </p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ctrl</strong></td>
+<td>Snap</td>
+<td>Round value</td>
+</tr>
+<tr>
+<td><strong>Shift</strong></td>
+<td>Tweak</td>
+<td>The mouse movement is more precise to allow for smaller changes.</td>
+</tr>
+<tr>
+<td><strong>Alt</strong></td>
+<td>Ignore</td>
+<td>All input is ignored. You can move the mouse back to allow for bigger value changes.</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../collider-tools_auto_convex/" class="btn btn-neutral float-right" title="Auto Convex">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../collider-tools_ui/" class="btn btn-neutral" title="The UI"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../collider-tools_ui/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../collider-tools_auto_convex/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

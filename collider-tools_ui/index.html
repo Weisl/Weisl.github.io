@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>The UI - Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  <link href="../extra.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "The UI";
+    var mkdocs_page_input_path = "collider-tools_ui.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Cam Manager</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../cam_Overview/">Overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../cam_UI/">The UI</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../cam_dolly_zoom/">Dolly Zoom</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../cam_composition/">Composition</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../cam_image_plane/">Precise Modeling</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../cam_Rendering_workflow/">Presentation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../cam_release_nodes/">Release Nodes</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Collider Tools</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_overview/">Overview</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">The UI</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#pie-menu-shift-ctrl-c">Pie Menu (Shift + Ctrl + C)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#collision-panel">Collision Panel</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#viewport-overlays">Viewport Overlays</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#preferences">Preferences</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../collision_shapes/">Collider Shapes</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_auto_convex/">Auto Convex</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_physics_materials/">Physics Materials</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_import_engines/">Game Engine Support</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_ue_guidline/">UE Guide</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_unity_guidline/">Unity Guide</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_release_nodes/">Release Nodes</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Simple Renaming Panel (Free)</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../renaming/">Overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../renaming_variables/">Renaming Variables</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../renaming_release_nodes/">Release Nodes</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Collider Tools &raquo;</li>
+        
+      
+    
+    <li>The UI</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="the-ui">The UI</h1>
+<p>The Collider Tools addon has a simple but powerful UI. The main elements of the UI are the Pie Menu, The Collider Panel in the properties panel (N-panel), the preferences for lesson often used settings, and the Viewport elements appearing during the creation. </p>
+<h2 id="pie-menu-shift-ctrl-c">Pie Menu (Shift + Ctrl + C)</h2>
+<p>The pie menu can be accessed by pressing <strong>Shift + Ctrl + C</strong> in the 3D viewport. It is the fastest and most convenient way to generate colliders. </p>
+<p><img alt="img" src="../images/CollisionTools_pie_02.jpg" /></p>
+<ol>
+<li>Start the collider creation operation (Box, Convex, Cylindrical, Sphere, Mesh). </li>
+<li>Visibility and Selection. Show/Hide and Select/Unselect colliders. You can group colliders by complexity and change the visibility or selection for each group or all. </li>
+<li>Convert mesh to collider and collider to mesh. You can also convert every mesh to be a collider. All collider-specific properties and naming conventions will be applied to the converted mesh. You can also convert any collider to be a regular mesh. This removes all collider-specific properties from the mesh. </li>
+</ol>
+<h2 id="collision-panel">Collision Panel</h2>
+<p>The Collision Panel is located in the properties panel (or N-Panel) and offers the same functionality as the pie menu and more.</p>
+<p><img alt="img" src="../images/CollisionTools_properties_panel.jpg" /></p>
+<ol>
+<li><strong>Visibility and Selection:</strong> Show/Hide and Select/Unselect colliders</li>
+<li><strong>Physics Materials:</strong> Filter and assign physics materials to newly created colliders</li>
+<li><strong>Create Colliders:</strong> Start the collider creation operation (Box, Convex, Cylindrical, Sphere, Mesh)</li>
+<li><strong>Auto Convex:</strong> Start the auto convex collider creation. This required the V-hacd executable to be assigned. See: <a href="../collider-tools_auto_convex/">Auto Convex</a></li>
+<li><strong>Conversion: Mesh &lt;-&gt; Collider:</strong> Convert any regular mesh to a collider or the other way around</li>
+</ol>
+<h2 id="viewport-overlays">Viewport Overlays</h2>
+<p>Most operations of this addon will enter a special mode, the so-called modal operator in Blender. This happens for any of the collider shape tools, the auto convex, and the conversion operation from mesh to collider. You can use different keys and mouse movements to modify the generation of the colliders. The options presented are operator sensitive, meaning that not all operators will show the same options. The current values and the keys to manipulate the values are shown in the viewport overlay as seen below. The following list contains all keys and settings for the different operators as well.  </p>
+<p><img alt="img" src="../images/Overlay_small.gif" width="800" /></p>
+<ul>
+<li><strong>Operators Settings:</strong> Properties are reset every time the operator is called. </li>
+<li><strong>Persistent Settings:</strong> Value changes will be remembered in future operator calls. </li>
+</ul>
+<p><a href="../collision_shapes/#OverlaySettings">Table of all Overlay settings</a></p>
+<h2 id="preferences">Preferences</h2>
+<p>The preferences contain customization various options like naming, addon keymap, addon theme and auto convex collider generation. </p>
+<ul>
+<li><strong>Settings:</strong> Change the naming pattern used to name the colliders as well as other generic settings; should they be linked to a "Collision" collection</li>
+<li><strong>Theme:</strong> Change the colors of collision groups (Simple, Complex, Simple_Complex) as well as the UI colors and size of the Viewport Overlay appearing during the collider creation.</li>
+<li><strong>Keymap:</strong>Change the hotkeys for the Pie Menu (Shift + Ctrl + C) to any key combination you want
+-<strong>Auto Convex:</strong> Contains all settings related to Auto Convex collider generation. </li>
+</ul>
+<p><img alt="img" src="../images/col_preferences_keymap.jpg" width="500" />
+<img alt="img" src="../images/col_preferences_settings.jpg" width="500" />
+<img alt="img" src="../images/col_preferences_ui.jpg" width="500" />
+<img alt="img" src="../images/col_preferences_auto_convex.jpg" width="500" /></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../collision_shapes/" class="btn btn-neutral float-right" title="Collider Shapes">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../collider-tools_overview/" class="btn btn-neutral" title="Overview"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../collider-tools_overview/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../collision_shapes/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

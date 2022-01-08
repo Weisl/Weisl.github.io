@@ -1,0 +1,29 @@
+.caption-text {
+  color: #3d80b8;
+  font-weight: bold;
+  font-size: 120%;
+}
+figure{
+  float: left;
+  width: 33.33%;
+  padding: 1px;
+}
+.wy-nav-content{
+    max-width: 1200px !important;
+}
+
+
+.wy-table-responsive table td, .wy-table-responsive table th {
+    white-space: inherit;
+    padding: 6px 8px !important;
+}
+
+}
+tr {
+    word-break: break-all;
+    overflow-wrap: break-word !important;
+}
+td {
+    word-break: break-all;
+    overflow-wrap: break-word !important;
+}
