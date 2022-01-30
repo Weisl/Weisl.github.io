@@ -18,6 +18,10 @@ figure{
     padding: 6px 8px !important;
 }
 
+img[alt$="<"] {
+  float: left;
+}
+
 }
 tr {
     word-break: break-all;
