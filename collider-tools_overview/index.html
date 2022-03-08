@@ -161,7 +161,7 @@
 <p><strong>The early bird sale will be valid at until the 31st of March.</strong></p>
 <h2 id="what-is-collider-tools">What is Collider Tools?</h2>
 <p>Collider Tools is a Blender addon to <strong>create physics colliders</strong> for <strong>games and real-time applications</strong>.
-The addon offers a lot of tools for <strong>creating the most common collider types</strong> like <strong>Box, Sphere, Convex, Convex (cylindrical), Auto Convex</strong>, and <strong>Mesh</strong> quickly and easily within Blender. These colliders can then be <strong>imported</strong> to engines like <strong>UE, Unity</strong>, and others.<br />
+The addon offers a lot of tools for <strong>creating the most common collider types</strong> like <strong>Box, Sphere, Convex, Convex (cylindrical), Auto Convex (Windows only)</strong>, and <strong>Mesh</strong> quickly and easily within Blender. These colliders can then be <strong>imported</strong> to engines like <strong>UE, Unity</strong>, and others.<br />
 The addon offers big flexibility and controllability by using the <strong>selection</strong>, both in <strong>Object</strong> and <strong>Edit-mode</strong>, as well as offering settings like <strong>global</strong> or <strong>local space</strong> generation.
 Further, the addon supports the generation based on both the <strong>original mesh (pre-modifier stack)</strong> and the <strong>evaluated mesh (post-modifier stack)</strong>. 
 Collider Tools offers functionality for organizing the colliders, showing, hiding, and selecting them and tools to automatically generate multiple convex shapes to represent complex meshes (convex decomposition)</p>
@@ -181,7 +181,7 @@ Collider Tools offers functionality for organizing the colliders, showing, hidin
 <li>Assign materials to be used as <strong>physics materials</strong> in engines.</li>
 <li>Convert <strong>meshes to colliders</strong> and <strong>colliders to meshes</strong>.</li>
 <li>Support for different collision groups: <strong>complex, simple, simple-complex</strong>.</li>
-<li>Support for <strong>auto convex</strong>, convex decomposition, collider creation using <a href="https://github.com/kmammou/v-hacd">V-hacd</a> library. Convex decomposition allows representing complex shapes with multiple convex shapes that could otherwise only be represented with Mesh collisions.</li>
+<li>Support for <strong>Auto convex (Windows only)</strong>, convex decomposition, collider creation using <a href="https://github.com/kmammou/v-hacd">V-hacd</a> library. Convex decomposition allows representing complex shapes with multiple convex shapes that could otherwise only be represented with Mesh collisions.</li>
 </ul>
 <h2 id="video">Video</h2>
 <p><strong>Coming Soon!</strong></p>
@@ -234,15 +234,6 @@ Collider Tools combines the speed and comfort of in-engine tools like the UE col
 The addon can be installed by going to <b> File &gt; User Preferences &gt; addons</b>. Click at <b>Install from File </b> and specify the downloaded zip file in the newly opened window.
 <b>Collider Tools</b> should now appear in your addons window and can be activated. Please contact me in case you run into any issues here.</p>
 <p><img alt="img" src="../img/install_addon.jpg" width="600" /></p>
-<h2 id="pie-menu">Pie Menu:</h2>
-<h2 id="roadmap">Roadmap</h2>
-<p>There is no set timeline for this and no guarantee that the features will be implemented, it will depend on the success of the addon and my workload. </p>
-<ul>
-<li>Oriented bounding box: Automatic detection of the orientation. </li>
-<li>Create a collider around the entire selection and not only per object</li>
-<li>Make the resolution of sphere and cylinder collisions relative to their size.</li>
-<li>Display triangle count for convex and mesh colliders</li>
-</ul>
               
             </div>
           </div>
