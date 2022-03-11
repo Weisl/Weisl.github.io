@@ -65,7 +65,7 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../cam_Rendering_workflow/">Presentation</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../cam_release_nodes/">Release Notes</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../cam_release_notes/">Release Notes</a>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Collider Tools</span></p>
@@ -118,7 +118,7 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../collider-tools_unity_guidline/">Unity Guide</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_release_nodes/">Release Nodes</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_release_notes/">Release Notes</a>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Simple Renaming Panel (Free)</span></p>
@@ -127,7 +127,7 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../renaming_variables/">Renaming Variables</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../renaming_release_nodes/">Release Notes</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../renaming_release_notes/">Release Notes</a>
                     </li>
                 </ul>
       </div>
@@ -177,7 +177,7 @@
 <p><img alt="img" src="../images/creation_box_collision_small.gif" width="600" /></p>
 <h3 id="sphere-collision">Sphere Collision</h3>
 <p>Sphere Collisions are the most efficient type of Collision shapes. Sphere collisions are usually represented by a mathematical description (location and radius) rather than polygons. The sphere meshes created by the addon are intended as a visual representation. Sphere collisions will become more expensive if they are imported as convex shapes or mesh shapes.</p>
-<p>The sphere generation uses the TODO: algorithm. This algorithm is very fast but does not provide a consistently good result. Especially simple box meshes cause an inefficient result. The results become better with more complex collisions. </p>
+<p>The sphere generation uses a fast algorithm that does not always provide the optimal result. This happens especially for simple box meshes. The results become better with more complex collisions. Improving or replacing the algorithm is planned for future releases. </p>
 <p><img alt="img" src="../images/creation_sphere_Collision_small.gif" width="600" /></p>
 <h3 id="convex-collision">Convex Collision</h3>
 <p>Convex shapes are versatile while being efficient. They can be used to represent most objects, especially for engines that don't support triangle mesh collisions  </p>
