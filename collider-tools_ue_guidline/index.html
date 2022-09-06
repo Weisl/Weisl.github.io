@@ -39,11 +39,7 @@
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> Documentation</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
+        
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
@@ -78,21 +74,29 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../collider-tools_auto_convex/">Auto Convex</a>
                     </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_groups/">Collider Groups</a>
+                    </li>
                     <li class="toctree-l1"><a class="reference internal" href="../collider-tools_physics_materials/">Physics Materials</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../collider-tools_import_engines/">Game Engine Support</a>
                     </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">UE Guide</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
+    <li class="toctree-l2"><a class="reference internal" href="#unreal-engine-overview">Unreal Engine Overview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#blender-overview">Blender Overview</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#setup-simple-collision">Setup Simple Collision</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#setup-complex-collision">Setup Complex Collision</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#mesh-collision-use-complex-collision-as-simple">Mesh Collision: Use Complex Collision As Simple</a>
+    <li class="toctree-l2"><a class="reference internal" href="#advanced">Advanced</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#mesh-collision-use-complex-collision-as-simple">Mesh Collision: Use Complex Collision As Simple</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#physics-materials-for-complex-collisions">Physics Materials for Complex Collisions:</a>
+    <li class="toctree-l3"><a class="reference internal" href="#physics-materials-for-complex-collisions">Physics Materials for Complex Collisions:</a>
+    </li>
+        </ul>
     </li>
     </ul>
                     </li>
@@ -147,15 +151,11 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="unreal-engine">Unreal Engine<a name="UnrelEngine"></a></h1>
-<p>UE4 and UE5 support the import of Simple and partially Complex collisions. </p>
-<p><strong>UE4</strong> 
-<img alt="img" src="../images/Ue4_collision.jpg" />
-Supported Simple Collision shapes imported to UE4.  </p>
-<p><strong>UE5</strong> 
-<img alt="img" src="../images/UE5_Collisions.jpg" />
-Supported Simple Collision shapes imported to UE5.  </p>
-<h2 id="overview">Overview</h2>
+                <h1 id="_1"><img alt="" src="../images/ColliderTools_banner_1_1_ue.jpg" /> <a name="UnrelEngine"></a></h1>
+<p><strong>UE4</strong> and <strong>UE5</strong> support the import of Simple and partially Complex collisions. </p>
+<p><img alt="img" src="../images/UE5UE4_Collisions.jpg" />
+Supported Simple Collision shapes imported to UE4 and UE5.  </p>
+<h2 id="unreal-engine-overview">Unreal Engine Overview</h2>
 <p>UE differentiates between 2 types of colliders: Simple and Complex Collisions. Simple Collisions will be the focus of this guide. Complex Collisions in UE use usually visual mesh geometry.</p>
 <blockquote>
 <p>In Unreal Engine, you have access to simple and complex collision shapes. Simple Collisions are primitives like cubes, spheres, capsules, and convex hulls. Complex Collision is the trimesh of a given object. By default, Unreal Engine creates both simple and complex shapes, then, based on what the user wants (complex query versus simple query), the physics solver will use the corresponding shape for scene queries and collision tests.</p>
@@ -211,6 +211,7 @@ Supported Simple Collision shapes imported to UE5.  </p>
 <p class="admonition-title">Warning</p>
 <p>Unreal Engine does not support mesh colliders for simple collisions. They are therefore missing from the list above. You can either split the shape in convex collisions (e.g., auto convex) or use Complex Collision as Simple Collision. Complex Collisions are not supported for dynamic objects.</p>
 </div>
+<h2 id="blender-overview">Blender Overview</h2>
 <p>The following image illustrates the addon preferences to achieve the needed naming. This should be the addon's default settings. </p>
 <p><img alt="img" src="../images/col_engines_ue_naming.jpg" width="600" /></p>
 <p>You can see an example of how the naming could look at the top with the given settings. In this case: UBX_Suzanne_001, assuming the original mesh was named Suzanne. </p>
@@ -251,7 +252,8 @@ Supported Simple Collision shapes imported to UE5.  </p>
 </ol>
 <p><img alt="img" src="../images/ShowCollisions_complex.jpg" width="300" /></p>
 <p><img alt="img" src="../images/UE_Assign_complex.gif" width="800" /></p>
-<h2 id="mesh-collision-use-complex-collision-as-simple">Mesh Collision: Use Complex Collision As Simple</h2>
+<h2 id="advanced">Advanced</h2>
+<h3 id="mesh-collision-use-complex-collision-as-simple">Mesh Collision: Use Complex Collision As Simple</h3>
 <p>It is indirectly possible to have Mesh Colliders by forcing the Simple Collision to Use the Complex Collision and replacing the Complex Collision as described before. The setting can be found in the <strong>Static Mesh Editor</strong> -&gt; <strong>Collision</strong> -&gt; <strong>Collision Complexity</strong></p>
 <p><img alt="img" src="../images/simple_as_complex.jpg" width="400" /></p>
 <div class="admonition warning inline end">
@@ -264,14 +266,16 @@ Supported Simple Collision shapes imported to UE5.  </p>
 <p>The following image shows how the shapes are expected to look. I did more tests than shown here:</p>
 <p><img alt="img" src="../images/custom_complex_01.jpg" width="450" />
 <img alt="img" src="../images/custom_complex_02.jpg" width="450" /></p>
-<h2 id="physics-materials-for-complex-collisions">Physics Materials for Complex Collisions:</h2>
+<h3 id="physics-materials-for-complex-collisions">Physics Materials for Complex Collisions:</h3>
 <div class="admonition warning inline end">
 <p class="admonition-title">Warning</p>
 <p>Physics material for Complex Collisions are not part of the colliders but rather the standard materials of the asset. It does not make sense trying to support any specific features for it in a Blender addon.</p>
 </div>
-<p><a href="https://docs.unrealengine.com/4.27/en-US/InteractiveExperiences/Physics/PhysicalMaterials/PhysMatUserGuide/">UE4 Documentation: Physical Materials User Guide</a></p>
-<p>Create Custom Collision Types:
-<a href="https://docs.unrealengine.com/4.27/en-US/InteractiveExperiences/Physics/Collision/HowTo/AddCustomCollisionType/">UE4 Documentation: Add Custom Collision Types</a></p>
+<p>More Info:</p>
+<ul>
+<li><a href="https://docs.unrealengine.com/4.27/en-US/InteractiveExperiences/Physics/PhysicalMaterials/PhysMatUserGuide/">UE4 Documentation: Physical Materials User Guide</a></li>
+<li><a href="https://docs.unrealengine.com/4.27/en-US/InteractiveExperiences/Physics/Collision/HowTo/AddCustomCollisionType/">UE4 Documentation: Add Custom Collision Types</a></li>
+</ul>
               
             </div>
           </div>
@@ -318,7 +322,6 @@ Supported Simple Collision shapes imported to UE5.  </p>
     <script>var base_url = '..';</script>
     <script src="../js/theme_extra.js" defer></script>
     <script src="../js/theme.js" defer></script>
-      <script src="../search/main.js" defer></script>
     <script defer>
         window.onload = function () {
             SphinxRtdTheme.Navigation.enable(true);

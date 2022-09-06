@@ -39,11 +39,7 @@
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> Documentation</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
+        
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
@@ -77,6 +73,8 @@
                     <li class="toctree-l1"><a class="reference internal" href="../collision_shapes/">Collider Shapes</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../collider-tools_auto_convex/">Auto Convex</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_groups/">Collider Groups</a>
                     </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Physics Materials</a>
     <ul class="current">
@@ -140,7 +138,13 @@
                 <h1 id="physics-materials">Physics Materials</h1>
 <p>Some engines support physics materials for colliders. They can be used to differentiate different materials on impact and trigger different sound effects, or VFX based on the materials (e.g., different footprints and step sounds based on the ground material)</p>
 <p>Collider Tools uses Blenders internal material system to specify the physics materials. You can specify the physics material used from a drop-down menu in the properties panel. Further, you can specify a filter. E.g., you can filter all materials that contain the string "COL_". Only materials that contain "COL_" in their name will be shown in the drop-down menu. You can also change the material later on like for any regular mesh object. </p>
-<p><img alt="img" src="../images/collision_physics_material.jpg" width="350" /></p>
+<p><img alt="Side panel for physics materials" src="../images/Ui_panel_physics_materials.jpg" width="250" /></p>
+<p>New physics materials can be created with the <strong>Add Physics Material</strong> button. This creates a regular material. The advantage of creating it from here is that you can directly set the name and color. </p>
+<p><img alt="Animation of creating new physics materials" src="../images/create_physics_material_small.gif" width="250" /></p>
+<p>Default settings for physics material are set in the preferences in the Presets tab. They are saved and loaded with all other preset settings. A default material with the here specified name is created when blender gets started. </p>
+<p><img alt="preferences related to physics materials" src="../images/preferences_material.jpg" width="600" /></p>
+<p>Toggle Physics Material and Collider Group display</p>
+<p><img alt="Toggle Physics Material and Collider Group display" src="../images/toggle_group_material_view.gif_small.gif" width="600" /></p>
               
             </div>
           </div>
@@ -151,7 +155,7 @@
         <a href="../collider-tools_import_engines/" class="btn btn-neutral float-right" title="Game Engine Support">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../collider-tools_auto_convex/" class="btn btn-neutral" title="Auto Convex"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../collider-tools_groups/" class="btn btn-neutral" title="Collider Groups"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -177,7 +181,7 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../collider-tools_auto_convex/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../collider-tools_groups/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../collider-tools_import_engines/" style="color: #fcfcfc">Next &raquo;</a></span>
@@ -187,7 +191,6 @@
     <script>var base_url = '..';</script>
     <script src="../js/theme_extra.js" defer></script>
     <script src="../js/theme.js" defer></script>
-      <script src="../search/main.js" defer></script>
     <script defer>
         window.onload = function () {
             SphinxRtdTheme.Navigation.enable(true);

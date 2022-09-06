@@ -39,11 +39,7 @@
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> Documentation</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
+        
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
@@ -78,6 +74,8 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../collider-tools_auto_convex/">Auto Convex</a>
                     </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_groups/">Collider Groups</a>
+                    </li>
                     <li class="toctree-l1"><a class="reference internal" href="../collider-tools_physics_materials/">Physics Materials</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../collider-tools_import_engines/">Game Engine Support</a>
@@ -88,9 +86,23 @@
                     </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Release Notes</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#100">1.0.0</a>
+    <li class="toctree-l2"><a class="reference internal" href="#11">1.1</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#feuatures">Feuatures</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes">Fixes</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#101-hotfix">1.0.1 Hotfix</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_1">Fixes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#feuatures_1">Feuatures</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#100">1.0.0</a>
     </li>
     </ul>
                     </li>
@@ -142,18 +154,49 @@
             <div class="section">
               
                 <h1 id="release-notes">Release Notes</h1>
-<h3 id="100">1.0.0</h3>
-<p><strong>Initial Release</strong></p>
+<h3 id="11">1.1</h3>
+<p>It's a major release, adding cool new features and improving the overall experience a lot. </p>
+<h4 id="feuatures">Feuatures</h4>
+<ul>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/61">#61</a> Collision Creation: Create a Single Bounding Collision from the Selection </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/152">#152</a> Arbitrarily oriented minimum bounding box </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/170">#170</a> Don't Render Colliders </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/166">#166</a> Restructure Preferences </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/148">#148</a> Delete collider from menu </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/157">#157</a> Physics Materials Rework </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/161">#161</a> Create new Physics Material </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/128">#128</a> Change visibility to be a toggle instead of an action. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/122">#122</a> Add x-ray toggle for collider creation. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/65">#65</a> Rename Collider mesh data. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/176">#176</a> Add Physics material menu and Display menu to hotkeys. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/224">#224</a> Center Pivots of collider objects. </li>
+
+</ul>
+
+<h4 id="fixes">Fixes</h4>
+<ul>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/177">#177</a> Cleanup old preset naming. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/183">#183</a> Error on unregister. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/165">#165</a> Error when cancelling Convert to Collider. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/151">#151</a> Use selection instead of Active Object if active object is not a valid target object. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/141">#141</a> Convert to Collider: Navigation doesn't work. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/123">#123</a> Modal collider creation doesn't stop, even if there are 0 colliders in the collider list. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/51">#51</a> UX: Improve Delta Multiplication for number inputs (alpha, displace, decimate) and add Shift and Control for further control. </li>
+</ul>
+
 <h3 id="101-hotfix">1.0.1 Hotfix</h3>
-<h4>Fixes</h4>
+<h4 id="fixes_1">Fixes</h4>
 <ul>
 <li><a href="https://github.com/Weisl/Collider-Tools/issues/143">#143</a> Downloading V-hacd results in "not found 404". </li>
 </ul>
 
-<h4>Feuatures</h4>
+<h4 id="feuatures_1">Feuatures</h4>
 <ul>
 <li><a href="https://github.com/Weisl/Collider-Tools/issues/140">#140</a> Naming Presets: Download different Engine presets directly from the Preferences </li>
 </ul>
+
+<h3 id="100">1.0.0</h3>
+<p><strong>Initial Release</strong></p>
               
             </div>
           </div>
@@ -200,7 +243,6 @@
     <script>var base_url = '..';</script>
     <script src="../js/theme_extra.js" defer></script>
     <script src="../js/theme.js" defer></script>
-      <script src="../search/main.js" defer></script>
     <script defer>
         window.onload = function () {
             SphinxRtdTheme.Navigation.enable(true);

@@ -39,11 +39,7 @@
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> Documentation</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
+        
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
@@ -74,9 +70,17 @@
                     </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">The UI</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#pie-menu-shift-ctrl-c">Pie Menu (Shift + Ctrl + C)</a>
+    <li class="toctree-l2"><a class="reference internal" href="#the-side-panel">The Side Panel</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#collision-panel">Collision Panel</a>
+    <li class="toctree-l2"><a class="reference internal" href="#popups">Popups</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#pie-menu-shift-ctrl-c">Pie Menu (Shift + Ctrl + C)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#collider-groups-shift-p">Collider Groups (Shift + P)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#physics-materials-shift-ctrl-p">Physics Materials (Shift + Ctrl + P)</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#viewport-overlays">Viewport Overlays</a>
     </li>
@@ -87,6 +91,8 @@
                     <li class="toctree-l1"><a class="reference internal" href="../collision_shapes/">Collider Shapes</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../collider-tools_auto_convex/">Auto Convex</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_groups/">Collider Groups</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../collider-tools_physics_materials/">Physics Materials</a>
                     </li>
@@ -145,9 +151,22 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="the-ui">The UI</h1>
-<p>The Collider Tools addon has a simple but powerful UI. The main elements of the UI are the Pie Menu, The Collider Panel in the properties panel (N-panel), the preferences for lesson often used settings, and the Viewport elements appearing during the creation. </p>
-<h2 id="pie-menu-shift-ctrl-c">Pie Menu (Shift + Ctrl + C)</h2>
+                <h1 id="_1"><img alt="img" src="../images/ColliderTools_banner_1_1_ui.jpg" /></h1>
+<h2 id="the-side-panel">The Side Panel</h2>
+<p>The Collider Tools addon has a simple but powerful UI. The main elements of the UI are the Pie Menu, The Collider Panel in the properties panel (N-panel), the preferences for lesson often used settings, and the Viewport elements appearing during the creation.
+The Collision Panel is located in the properties panel (or N-Panel) and offers the same functionality as the pie menu and more.</p>
+<p><img alt="img" src="../images/CollisionTools_properties_panel.jpg" /></p>
+<ol>
+<li><strong>Presets:</strong> Presets are used for naming and grouping of colliders. They can be created and modified from the preferences.</li>
+<li><strong>Shapes:</strong> Start the collider creation operation (Box, Convex, Cylindrical Convex, Sphere, Mesh)</li>
+<li><strong>Auto Convex:</strong> Start the auto convex collider creation. This required the V-hacd executable to be assigned. See: <a href="../collider-tools_auto_convex/">Auto Convex</a></li>
+<li><strong>Convert:</strong> Convert meshes to collider and vise versa. Regenerate the naming based on the prefab settings.</li>
+<li><strong>Display:</strong> Change display settings to be either wireframe or solid</li>
+<li><strong>Collider Groups:</strong> Group, select, show and hide colliders</li>
+<li><strong>Physics Materials:</strong> Filter, create and assign physics materials</li>
+</ol>
+<h2 id="popups">Popups</h2>
+<h3 id="pie-menu-shift-ctrl-c">Pie Menu (Shift + Ctrl + C)</h3>
 <p>The pie menu can be accessed by pressing <strong>Shift + Ctrl + C</strong> in the 3D viewport. It is the fastest and most convenient way to generate colliders. </p>
 <p><img alt="img" src="../images/CollisionTools_pie_02.jpg" /></p>
 <ol>
@@ -156,19 +175,15 @@
 <li>Convert mesh to collider and collider to mesh. You can also convert every mesh to be a collider. All collider-specific properties and naming conventions will be applied to the converted mesh. You can also convert any collider to be a regular mesh. This removes all collider-specific properties from the mesh. </li>
 <li><a href="../collider-tools_auto_convex/">Auto Convex</a></li>
 </ol>
-<h2 id="collision-panel">Collision Panel</h2>
-<p>The Collision Panel is located in the properties panel (or N-Panel) and offers the same functionality as the pie menu and more.</p>
-<p><img alt="img" src="../images/CollisionTools_properties_panel.jpg" /></p>
-<ol>
-<li><strong>Visibility and Selection:</strong> Show/Hide and Select/Unselect colliders</li>
-<li><strong>Physics Materials:</strong> Filter and assign physics materials to newly created colliders</li>
-<li><strong>Create Colliders:</strong> Start the collider creation operation (Box, Convex, Cylindrical, Sphere, Mesh)</li>
-<li><strong>Auto Convex:</strong> Start the auto convex collider creation. This required the V-hacd executable to be assigned. See: <a href="../collider-tools_auto_convex/">Auto Convex</a></li>
-<li><strong>Conversion: Mesh &lt;-&gt; Collider:</strong> Convert any regular mesh to a collider or the other way around</li>
-</ol>
+<h3 id="collider-groups-shift-p">Collider Groups (Shift + P)</h3>
+<p>The Collider Groups panel can also be called as popup. Hotkeys are specified in the addon preferences.</p>
+<p><img alt="" src="../images/Ui_popup_groups.jpg" width="275" /></p>
+<h3 id="physics-materials-shift-ctrl-p">Physics Materials (Shift + Ctrl + P)</h3>
+<p>The Physics Materials panel can also be called as popup. Hotkeys are specified in the addon preferences.</p>
+<p><img alt="" src="../images/Ui_popup_physics_materials.jpg" width="275" /></p>
 <h2 id="viewport-overlays">Viewport Overlays</h2>
 <p>Most operations of this addon will enter a special mode, the so-called modal operator in Blender. This happens for any of the collider shape tools, the auto convex, and the conversion operation from mesh to collider. You can use different keys and mouse movements to modify the generation of the colliders. The options presented are operator sensitive, meaning that not all operators will show the same options. The current values and the keys to manipulate the values are shown in the viewport overlay as seen below. The following list contains all keys and settings for the different operators as well.  </p>
-<p><img alt="img" src="../images/Overlay_small.gif" width="800" /></p>
+<p><img alt="img" src="../images/Overlay_small.gif" width="600" /></p>
 <ul>
 <li><strong>Operators Settings:</strong> Properties are reset every time the operator is called. </li>
 <li><strong>Persistent Settings:</strong> Value changes will be remembered in future operator calls. </li>
@@ -177,15 +192,12 @@
 <h2 id="preferences">Preferences</h2>
 <p>The preferences contain customization various options like naming, addon keymap, addon theme and auto convex collider generation. </p>
 <ul>
-<li><strong>Settings:</strong> Change the naming pattern used to name the colliders as well as other generic settings; should they be linked to a "Collision" collection</li>
-<li><strong>Theme:</strong> Change the colors of collision groups (Simple, Complex, Simple_Complex) as well as the UI colors and size of the Viewport Overlay appearing during the collider creation.</li>
-<li><strong>Keymap:</strong>Change the hotkeys for the Pie Menu (Shift + Ctrl + C) to any key combination you want
--<strong>Auto Convex:</strong> Contains all settings related to Auto Convex collider generation. </li>
+<li><strong>General:</strong> Containing Generic settings like should they be linked to a "Collision" collection or not.</li>
+<li><strong>Presets:</strong> Change the naming pattern used to name the colliders as well as other.</li>
+<li><strong>Ui:</strong> Change the UI font sizes and colors as well as the Collider Tools tab name. You can also change the collision group colors from here.</li>
+<li><strong>Keymap:</strong> Change the hotkeys for the Popup menus.</li>
+<li><strong>Auto Convex:</strong> Contains all settings related to Auto Convex collider generation.</li>
 </ul>
-<p><img alt="img" src="../images/col_preferences_keymap.jpg" width="500" />
-<img alt="img" src="../images/col_preferences_settings.jpg" width="500" />
-<img alt="img" src="../images/col_preferences_ui.jpg" width="500" />
-<img alt="img" src="../images/col_preferences_auto_convex.jpg" width="500" /></p>
               
             </div>
           </div>
@@ -232,7 +244,6 @@
     <script>var base_url = '..';</script>
     <script src="../js/theme_extra.js" defer></script>
     <script src="../js/theme.js" defer></script>
-      <script src="../search/main.js" defer></script>
     <script defer>
         window.onload = function () {
             SphinxRtdTheme.Navigation.enable(true);
