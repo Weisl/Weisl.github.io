@@ -152,58 +152,78 @@
             <div class="section">
               
                 <h1 id="_1"><img alt="Banner image for the collider tools overview selction" src="../images/ColliderTools_banner_1_1.jpg" /></h1>
-<p>Quick and easy collider creation for games! </p>
+<p>Quick and easy collider creation for games!</p>
 <div class="admonition warning inline end">
 <p class="admonition-title">Warning</p>
-<p>Version 1.1 is currently in the beta testing stage. Contact me if you bought the addon and want to help me test the next release version. </p>
 </div>
+<p>Version 1.1 is currently in the beta testing stage. Contact me if you bought the addon and want to help me test the next
+release version.</p>
 <ul>
 <li><a href="https://blendermarket.com/products/collider-tools" title="Blender Market">Blender Market</a></li>
 <li><a href="https://weisl.gumroad.com/l/collider-tools" title="Gumroad">Gumroad</a></li>
 </ul>
 <h2 id="what-is-collider-tools">What is Collider Tools?</h2>
 <p>Collider Tools is a Blender addon to <strong>create physics colliders</strong> for <strong>games and real-time applications</strong>.
-The addon offers a lot of tools for <strong>creating the most common collider types</strong> like <strong>Box, Sphere, Convex, Convex (cylindrical), Auto Convex (Windows only)</strong>, <strong>Mesh</strong> and <strong>Oriented Minimum BBox</strong> quickly and easily within Blender. These colliders can then be <strong>imported</strong> to engines like <strong>UE, Unity</strong>, and others.<br />
-The addon offers big flexibility and controllability by using the <strong>selection</strong>, both in <strong>Object</strong> and <strong>Edit-mode</strong>, as well as offering settings like <strong>global</strong> or <strong>local space</strong> collider generation. Further, colliders can now be generated <strong>per object</strong> or around the <strong>entire selection</strong>. </p>
-<p>Further, the addon supports the generation based on both the <strong>original mesh (pre-modifier stack)</strong> and the <strong>evaluated mesh (post-modifier stack)</strong>. 
-Collider Tools offers functionality for organizing the colliders, showing, hiding, and selecting them and tools to automatically generate multiple convex shapes to represent complex meshes (convex decomposition)</p>
+The addon offers a lot of tools for <strong>creating the most common collider types</strong> like <strong>Box, Sphere, Convex, Convex (
+cylindrical), Auto Convex (Windows only)</strong>, <strong>Mesh</strong> and <strong>Oriented Minimum BBox</strong> quickly and easily within Blender.
+These colliders can then be <strong>imported</strong> to engines like <strong>UE, Unity</strong>, and others.<br />
+The addon offers big flexibility and controllability by using the <strong>selection</strong>, both in <strong>Object</strong> and <strong>Edit-mode</strong>,
+as well as offering settings like <strong>global</strong> or <strong>local space</strong> collider generation. Further, colliders can now be
+generated <strong>per object</strong> or around the <strong>entire selection</strong>.</p>
+<p>Further, the addon supports the generation based on both the <strong>original mesh (pre-modifier stack)</strong> and the <strong>evaluated
+mesh (post-modifier stack)</strong>.
+Collider Tools offers functionality for organizing the colliders, showing, hiding, and selecting them and tools to
+automatically generate multiple convex shapes to represent complex meshes (convex decomposition)</p>
 <h2 id="video">Video</h2>
-<iframe width="800" height="600"
-    src="https://www.youtube.com/embed/VfE2QvR6xjE"
-allowfullscreen></iframe>
+<iframe width="840" height="473" src="https://www.youtube.com/embed/VfE2QvR6xjE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <h2 id="feature-overview">Feature Overview</h2>
 <ul>
 <li>Quick and simple creation of collider objects.</li>
 <li>Support for <strong>Sphere, Box, Convex, Convex Cylinder</strong> and <strong>Mesh</strong> shapes.</li>
-<li>Support for <strong>Oriented Minimum Bounding Box</strong> generation, an automatically oriented box collider to have the lowest volume possible. My implementation is based on code from <a href="https://gist.github.com/iyadahmed"><strong>Iyad Ahmed</strong></a>.</li>
+<li>Support for <strong>Oriented Minimum Bounding Box</strong> generation, an automatically oriented box collider to have the lowest
+  volume possible. My implementation is based on code from <a href="https://gist.github.com/iyadahmed"><strong>Iyad
+  Ahmed</strong></a>.</li>
 <li>Support for <strong>Object-</strong> and <strong>Edit-mode</strong>, including <strong>multi-object Edit-mode</strong>.</li>
-<li>Collider creation per <strong>individual object</strong> or around the <strong>entire selection</strong>. </li>
-<li>Custom colliders can be used in engines like <strong>UE4-5, Unity,</strong> and other engines with a flexible naming scheme. </li>
-<li>Support for <strong>Edit mode selection</strong>. Create collision only surrounding the selected geometry of each object. Works with <strong>multi-edit</strong> and <strong>modifier stack</strong>. </li>
-<li>Support for creating <strong>world-aligned</strong> and <strong>object-aligned</strong> collisions for Boxes and Cylinders.  </li>
+<li>Collider creation per <strong>individual object</strong> or around the <strong>entire selection</strong>.</li>
+<li>Custom colliders can be used in engines like <strong>UE4-5, Unity,</strong> and other engines with a flexible naming scheme.</li>
+<li>Support for <strong>Edit mode selection</strong>. Create collision only surrounding the selected geometry of each object. Works
+  with <strong>multi-edit</strong> and <strong>modifier stack</strong>.</li>
+<li>Support for creating <strong>world-aligned</strong> and <strong>object-aligned</strong> collisions for Boxes and Cylinders.</li>
 <li>Support for collision creation based on <strong>pre</strong> or <strong>post-modifier</strong> stack mesh data.</li>
-<li>Change creation settings from the 3D Viewport. The collider creation works with modal operators, allowing for user input during the creation.</li>
+<li>Change creation settings from the 3D Viewport. The collider creation works with modal operators, allowing for user
+  input during the creation.</li>
 <li><strong>Flexible naming</strong> options to support different engine and pipeline needs.</li>
 <li>Consistent and clean UI overlay in the 3D viewport during the collider creation.</li>
 <li>Assign materials to be used as <strong>physics materials</strong> in engines.</li>
 <li>Convert <strong>meshes to colliders</strong> and <strong>colliders to meshes</strong>.</li>
 <li><strong>Regenerate Names</strong> to change the collider naming according to the current collider preset.</li>
-<li>Support for different collider groups: 3 Groups can be used to group, select and name colliders according to their functionality or just for overview.</li>
-<li>Support for <strong>Auto convex (Windows only)</strong>, convex decomposition, collider creation using <a href="https://github.com/kmammou/v-hacd">V-hacd</a> library. Convex decomposition allows representing complex shapes with multiple convex shapes that could otherwise only be represented with Mesh collisions.</li>
+<li>Support for different collider groups: 3 Groups can be used to group, select and name colliders according to their
+  functionality or just for overview.</li>
+<li>Support for <strong>Auto convex (Windows only)</strong>, convex decomposition, collider creation
+  using <a href="https://github.com/kmammou/v-hacd">V-hacd</a> library. Convex decomposition allows representing complex shapes
+  with multiple convex shapes that could otherwise only be represented with Mesh collisions.</li>
 </ul>
 <p><img alt="Example gif illustrating the function of collider tools" src="../images/creation_box_collision_small.gif" /></p>
 <h2 id="why-collider-tools">Why Collider Tools?</h2>
-<p>Collider tool removes the biggest obstacle for creating colliders in Blender, its lack of specialized tools. It makes the tedious and time-consuming process of creating colliders much faster and easier. 
-Collider Tools combines the speed and comfort of in-engine tools like the UE collision tools with the power and flexibility of Blender.</p>
+<p>Collider tool removes the biggest obstacle for creating colliders in Blender, its lack of specialized tools. It makes
+the tedious and time-consuming process of creating colliders much faster and easier.
+Collider Tools combines the speed and comfort of in-engine tools like the UE collision tools with the power and
+flexibility of Blender.</p>
 <p>There are reasons for using Collider Tools over in engine solutions:</p>
 <ul>
-<li>Creating the colliders in Blender with Collider Tools provides more control than in Engine tools. You can use the full power of Blender to manipulate, adjust the colliders if needed. This can be useful for all kinds of more complex shapes like railings, hollow objects, arches, etc. </li>
-<li>Creating Compound colliders (multiple colliders for one asset), is much faster with Collider tools than in engine tools since you can use the selection (Object and Edit Mode) for the collider generation. </li>
-<li>Not all engines over as powerful tools for creating colliders. </li>
-<li>Collider Tools is quick and easy and can be used to create all kinds of collisions from simple box colliders to very complex compound collider setups.</li>
-<li>It offers a simple UI and brings the important settings directly into the 3D Viewport, offering more adjustment options than in engine tools: decimate, shrink/flatten.</li>
-<li>It is convenient creating assets and colliders in one application. You can consider them early on and update both, assets and colliders at the same time if needed. </li>
+<li>Creating the colliders in Blender with Collider Tools provides more control than in Engine tools. You can use the full
+  power of Blender to manipulate, adjust the colliders if needed. This can be useful for all kinds of more complex
+  shapes like railings, hollow objects, arches, etc.</li>
+<li>Creating Compound colliders (multiple colliders for one asset), is much faster with Collider tools than in engine
+  tools since you can use the selection (Object and Edit Mode) for the collider generation.</li>
+<li>Not all engines over as powerful tools for creating colliders.</li>
+<li>Collider Tools is quick and easy and can be used to create all kinds of collisions from simple box colliders to very
+  complex compound collider setups.</li>
+<li>It offers a simple UI and brings the important settings directly into the 3D Viewport, offering more adjustment
+  options than in engine tools: decimate, shrink/flatten.</li>
+<li>It is convenient creating assets and colliders in one application. You can consider them early on and update both,
+  assets and colliders at the same time if needed.</li>
 </ul>
 <h2 id="testimonials">Testimonials</h2>
 <p>What other artists from the games industry say about collider tools:</p>
@@ -247,8 +267,10 @@ Collider Tools combines the speed and comfort of in-engine tools like the UE col
 <li><a href="https://blendermarket.com/products/collider-tools" title="Blender Market">Blender Market</a></li>
 <li><a href="https://weisl.gumroad.com/l/collider-tools" title="Gumroad">Gumroad</a></li>
 </ul>
-<p>After downloading, the addon can be installed by going to <b> File &gt; User Preferences &gt; addons</b>. Click at <b>Install from File </b> and specify the downloaded zip file in the newly opened window.
-<b>Collider Tools</b> should now appear in your addons window and can be activated. Please contact me in case you run into any issues here.</p>
+<p>After downloading, the addon can be installed by going to <b> File &gt; User Preferences &gt; addons</b>. Click at <b>
+Install from File </b> and specify the downloaded zip file in the newly opened window.
+<b>Collider Tools</b> should now appear in your addons window and can be activated. Please contact me in case you run
+into any issues here.</p>
 <p><img alt="Illustration of how to install collider tools" src="../img/install_addon.jpg" width="600" /></p>
               
             </div>
