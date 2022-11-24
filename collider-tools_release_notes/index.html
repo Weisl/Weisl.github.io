@@ -69,7 +69,7 @@
                     </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Release Notes</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#11">1.1</a>
+    <li class="toctree-l2"><a class="reference internal" href="#12">1.2</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#feuatures">Feuatures</a>
     </li>
@@ -77,11 +77,19 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#101-hotfix">1.0.1 Hotfix</a>
+    <li class="toctree-l2"><a class="reference internal" href="#11">1.1</a>
         <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#feuatures_1">Feuatures</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#fixes_1">Fixes</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#feuatures_1">Feuatures</a>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#101-hotfix">1.0.1 Hotfix</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_2">Fixes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#feuatures_2">Feuatures</a>
     </li>
         </ul>
     </li>
@@ -154,11 +162,35 @@
             <div class="section">
               
                 <h1 id="release-notes">Release Notes</h1>
+<h3 id="12">1.2</h3>
+<p>This release focuses on updating the Auto Convex library and all settings associated with it. </p>
+<h4 id="feuatures">Feuatures</h4>
+<ul>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/188">#188</a>  Add support for VHACD 4.1 Auto Convex</li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/213">#213</a>  Expose defaults to the N-Panel: Use Modifier Stack, Transform Space, Creation Mode, Default User Group, Cylinder Orientation, Cylinder Segments, Sphere Segments</li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/284">#284</a>  Move display settings to preferences</li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/216">#216</a>  Add operator button to toggle wireframe display in collider object viewport display settings enhancement New feature or request </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/217">#217</a>  Mesh to collider, should the parent name be used if a parent exists </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/247">#247</a>  Add weld before inflate/deflate </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/265">#265</a>  Code: Store addon specific settings in addon properties </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/269">#269</a>  Add convex hull modifier after decimating convex collisions </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/270">#270</a>  Import objs for V-HACD </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/282">#282</a>  Cleanup Modal Inputs </li>
+</ul>
+
+<h4 id="fixes">Fixes</h4>
+<ul>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/#288">#288</a> Material list index not found </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/#262">#262</a> Mesh to Collider: Should be smarter about prefix/suffix </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/#258">#258</a> Rename when changing collider group </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/#237">#237</a> Indicate Convert affects the entire Object and ignores Edit mode selection </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/#244">#244</a> Convert to collider, doesn't set group object color </li>
+</ul>
+
 <h3 id="11">1.1</h3>
 <p>This is a major release, adding cool new features, simplifying the code base and improving the overall experience for
-the
-user a lot.</p>
-<h4 id="feuatures">Feuatures</h4>
+the user a lot.</p>
+<h4 id="feuatures_1">Feuatures</h4>
 <ul>
 <li><a href="https://github.com/Weisl/Collider-Tools/issues/61">#61</a> Collision Creation: Create a Single Bounding Collision from the Selection </li>
 <li><a href="https://github.com/Weisl/Collider-Tools/issues/152">#152</a> Collision Creation: Add arbitrarily oriented minimum bounding box which allows you to create an automatically oriented box collider with the lowest volume possible.</li>
@@ -179,7 +211,7 @@ user a lot.</p>
 <li><a href="https://github.com/Weisl/Collider-Tools/issues/176">#176</a> Add Physics material menu and Display Menu to customizable hotkeys. </li>
 </ul>
 
-<h4 id="fixes">Fixes</h4>
+<h4 id="fixes_1">Fixes</h4>
 <ul>
 <li><a href="https://github.com/Weisl/Collider-Tools/issues/177">#177</a> Cleanup old preset naming. </li>
 <li><a href="https://github.com/Weisl/Collider-Tools/issues/183">#183</a> Fix error on unregister. </li>
@@ -195,12 +227,12 @@ user a lot.</p>
 </ul>
 
 <h3 id="101-hotfix">1.0.1 Hotfix</h3>
-<h4 id="fixes_1">Fixes</h4>
+<h4 id="fixes_2">Fixes</h4>
 <ul>
 <li><a href="https://github.com/Weisl/Collider-Tools/issues/143">#143</a> Downloading V-hacd results in "not found 404". </li>
 </ul>
 
-<h4 id="feuatures_1">Feuatures</h4>
+<h4 id="feuatures_2">Feuatures</h4>
 <ul>
 <li><a href="https://github.com/Weisl/Collider-Tools/issues/140">#140</a> Naming Presets: Download different Engine presets directly from the Preferences </li>
 </ul>

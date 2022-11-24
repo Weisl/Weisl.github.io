@@ -147,9 +147,10 @@
 <p>Auto Convex is currently only supported for Windows. It uses the external V-HACD .exe to work. It should work out of the box starting from version 1.1. Follow the instructions at the end of this page for earlier versions. </p>
 </div>
 <p>Auto Convex is a helpful tool for generating convex colliders of a complex mesh. It works well for complex, organic shapes, like rocks, statues, rubble and debris. It is not the magic one click solution for each asset but a helpful tool especially for organic assets!</p>
-<p><img alt="Example of Auto Convex Collider generation and how different depth settings affect the number of created colliders." src="../images/CollisionTools_Auto_convex.jpg" /></p>
+<p><img alt="Example of Auto Convex Collider generation and how different depth settings affect the number of created colliders." src="../images/CollisionTools_Auto_convex.jpg" />
+Attribute to: <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a></p>
 <h3 id="basic-parameters">Basic Parameters</h3>
-<p>The amount convex hulls and their complexity can mostly be controlled by 2 simple values. Those parameters are exposed to the Collider Tools panel.</p>
+<p>The amount convex hulls and their complexity can mostly be controlled by following values. The parameters are exposed to the Collider Tools panel:</p>
 <table>
 <thead>
 <tr>
@@ -161,30 +162,42 @@
 </thead>
 <tbody>
 <tr>
-<td>Depth</td>
-<td>maximum number of clipping stages. During each split stage, all the model parts (with a concavity higher than the user-defined threshold) are clipped according to the "best" clipping plane</td>
-<td>3</td>
-<td>1-32</td>
+<td>Shrinkwrap</td>
+<td>Whether or not to shrinkwrap output to source mesh</td>
+<td>False</td>
+<td>False/True</td>
+</tr>
+<tr>
+<td>Hulls</td>
+<td>Maximum number of output convex hulls</td>
+<td>8</td>
+<td>1-4096</td>
 </tr>
 <tr>
 <td>Verts per Piece</td>
-<td>controls the maximum number of triangles per convex-hull</td>
+<td>Maximum number of vertices in the output convex hull</td>
 <td>16</td>
-<td>4-1024</td>
+<td>8-1024</td>
+</tr>
+<tr>
+<td>Voxel Resolution</td>
+<td>Total number of voxels to use.</td>
+<td>100000</td>
+<td>100000-10000000</td>
 </tr>
 </tbody>
 </table>
-<p><img alt="img" src="../images/auto_convex_panel_01.jpg" width="250" /></p>
+<p><img alt="img" src="../images/AutoConvex_Operation_02.jpg" width="250" /></p>
 <p>The parameter description is coming from the original library used: <a href="https://github.com/kmammou/v-hacd">Github: V-hacd</a></p>
-<p><img alt="img" src="../images/auto_convex_small.gif" width="600" /></p>
+<p><img alt="img" src="../images/autoConvexMountain_small.gif" width="600" /></p>
 <h3 id="advanced-parameters">Advanced Parameters</h3>
 <p>The advanced parameters can be found in the addon preferences in <strong>Auto Convex</strong>. You can directly access the preferences by pressing the gear button next to "Auto Convex".</p>
-<p><img alt="img" src="../images/auto_convex_preferences_02.jpg" width="600" /></p>
+<p><img alt="img" src="../images/AutoConvex_Preferences.jpg" width="600" /></p>
 <ul>
 <li><strong>Overwrite Executable:</strong> Specify a path to another V-hacd executable if you want to use a custom build.</li>
 <li><strong>Temporary Data Path</strong> Data path to store temporary files like meshes and log files sused by V-HACD to generate Auto Convex colliders.</li>
 </ul>
-<p>Followind table contains more information on the individual parameters:</p>
+<p>Following table contains more information on the individual parameters:</p>
 <table>
 <thead>
 <tr>
@@ -196,74 +209,40 @@
 </thead>
 <tbody>
 <tr>
-<td>resolution</td>
-<td>maximum number of voxels generated during the voxelization stage</td>
-<td>100,000</td>
-<td>10,000-64,000,000</td>
+<td>Volumne Error Percentage</td>
+<td>Volume error allowed as a percentage. Default is 1%.</td>
+<td>0.01</td>
+<td>0.001-10</td>
 </tr>
 <tr>
-<td>concavity</td>
-<td>maximum concavity</td>
-<td>0.0025</td>
-<td>0.0-1.0</td>
+<td>Min Voxel Edge Size</td>
+<td>Minimum size of a voxel edge. Default value is 2 voxels</td>
+<td>2.0</td>
+<td>1.0-32.0</td>
 </tr>
 <tr>
-<td>planeDownsampling</td>
-<td>controls the granularity of the search for the "best" clipping plane</td>
+<td>Maximum recursion depth</td>
+<td>The recursion depth has reached a maximum limit specified by the user.  A value of 12 results in a maximum of 4,096 convex hulls</td>
 <td>4</td>
-<td>1-16</td>
+<td>2-64</td>
 </tr>
 <tr>
-<td>convexhullDownsampling</td>
-<td>controls the precision of the convex-hull generation process during the clipping plane selection stage</td>
-<td>4</td>
-<td>1-16</td>
+<td>Fill Mode</td>
+<td>Fill Mode defines the method used for finding the interior voxels used for the auto convex collider creation</td>
+<td>Raycast</td>
+<td>Raycast/Flood/Surface</td>
 </tr>
 <tr>
-<td>alpha</td>
-<td>controls the bias toward clipping along symmetry planes</td>
-<td>0.05</td>
-<td>0.0-1.0</td>
-</tr>
-<tr>
-<td>beta</td>
-<td>controls the bias toward clipping along revolution axes</td>
-<td>0.05</td>
-<td>0.0-1.0</td>
-</tr>
-<tr>
-<td>gamma</td>
-<td>maximum allowed concavity during the merge stage</td>
-<td>0.00125</td>
-<td>0.0-1.0</td>
-</tr>
-<tr>
-<td>pca</td>
-<td>enable/disable normalizing the mesh before applying the convex decomposition</td>
-<td>0</td>
-<td>0-1</td>
-</tr>
-<tr>
-<td>mode</td>
-<td>0: voxel-based approximate convex decomposition, 1: tetrahedron-based approximate convex decomposition</td>
-<td>0</td>
-<td>0-1</td>
-</tr>
-<tr>
-<td>maxNumVerticesPerCH</td>
-<td>controls the maximum number of triangles per convex-hull</td>
-<td>64</td>
-<td>4-1024</td>
-</tr>
-<tr>
-<td>minVolumePerCH</td>
-<td>controls the adaptive sampling of the generated convex-hulls</td>
-<td>0.0001</td>
-<td>0.0-0.01</td>
+<td>Optimal Split Plane</td>
+<td>If false, splits hulls in the middle. If true, tries to find optimal split plane location.</td>
+<td>False</td>
+<td>True/False</td>
 </tr>
 </tbody>
 </table>
 <p>The parameter description is coming from the original library used: <a href="https://github.com/kmammou/v-hacd">Github: V-hacd</a></p>
+<p>Click this link to find detailed documentation for how to use the library:
+<a href="https://docs.google.com/presentation/d/1OZ4mtZYrGEC8qffqb8F7Le2xzufiqvaPpRbLHKKgTIM/edit#slide=id.g123758ab003_0_310">Voxelized Hierarchical Convex Decomposition - V-HACD version 4</a></p>
 <h2 id="installation-pre-11">Installation (pre 1.1)</h2>
 <p><img alt="img" src="../images/auto_convex_setup.jpg" width="600" /></p>
 <ol>
