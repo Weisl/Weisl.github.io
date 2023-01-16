@@ -173,30 +173,34 @@
 <p>An overview of all the supported Collision shapes of the Collider Tools addon. Collider Tools supports a wide variety of collision shapes and settings to create them. </p>
 <h3 id="box-collider">Box Collider</h3>
 <p>Box colliders are simple, efficient, and cover a wide range of use-cases.</p>
-<p><img alt="Gif showing the creation of a box collider" src="../images/Cubes_02_small.gif" width="600" /></p>
-<p>Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a></p>
+<p><img alt="Gif showing the creation of a box collider" src="../images/Cubes_02_small.gif" width="600" />
+Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a></p>
 <h3 id="sphere-collider">Sphere Collider</h3>
 <p>Sphere colliders are the most efficient Collision shape. Sphere collisions are usually represented by a mathematical description (location and radius) rather than polygons. The sphere meshes created by the addon are intended as a visual representation. Sphere collisions will become more expensive if they are imported as convex shapes or mesh shapes.</p>
 <p>The sphere generation uses a fast algorithm that does not always provide the optimal result. This happens especially for simple box meshes. The results become better with more complex collisions. Improving or replacing the algorithm is planned for future releases. </p>
-<p><img alt="Gif showing the creation of a sphere collider" src="../images/Sphere_01_small.gif" width="600" /></p>
-<p>Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a></p>
+<p><img alt="Gif showing the creation of a sphere collider" src="../images/Sphere_01_small.gif" width="600" />
+Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a></p>
 <h3 id="convex-collider">Convex Collider</h3>
 <p>Convex shapes are versatile while being efficient. They can be used to represent most objects, especially for engines that don't support triangle mesh collisions  </p>
-<p><img alt="Gif showing the creation of a convex collider" src="../images/Convex_01_small.gif" width="600" /></p>
-<p>Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a> </p>
+<p><img alt="Gif showing the creation of a convex collider" src="../images/Convex_01_small.gif" width="600" />
+Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a></p>
 <h3 id="convex-cylindrical-collider">Convex (Cylindrical) Collider</h3>
 <p>There is no special cylindrical collision shape. This is only a tool to help create a clean cylindrical convex shape. Cylindrical shapes are very common shapes, especially in manmade structures. Physics engines will interpret them as simple convex colliders.</p>
 <p><img alt="Gif showing the creation of a cylindrical convex collider" src="../images/cylinder_collider_small.gif" width="600" /></p>
 <p><img alt="Gif showing the creation of a cylindrical convex collider" src="../images/cylinderCombined_small.gif" width="600" /></p>
+<div class="admonition warning inline end">
+<p class="admonition-title">Warning</p>
+<p>Currently, only GLOBAL space is supported when using the entire selection (Creation Mode: <strong>SELECTION</strong>) for cylindrical collider generation. All other parameter combinations should work as expected.</p>
+</div>
 <h3 id="mesh-collider">Mesh Collider</h3>
 <p>Mesh Collisions are the most complex collider shape to compute for a physics engine. Use them carefully, minimize the triangle count as much as possible and use them (only) for static objects. </p>
-<p><img alt="Gif showing the creation of a mesh collider" src="../images/Mesh_02_small.gif" width="600" /></p>
-<p>Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a></p>
+<p><img alt="Gif showing the creation of a mesh collider" src="../images/Mesh_02_small.gif" width="600" />
+Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a></p>
 <h3 id="oriented-minimum-box-collider">Oriented Minimum Box Collider</h3>
 <p>Oriented Minimum Box Colliders are automatically oriented boxes with the smallest size possible. The computation is more complex and may be slow for meshes with a high vertex count. The output mesh is the same as regular box colliders, and it's indistinguishable to the engine how it was created. </p>
 <p>The implementation is based on Code from <a href="https://gist.github.com/iyadahmed"><strong>Iyad Ahmed</strong></a>. Iyad was so kind and gave me permission of using it.  </p>
-<p><img alt="Gif showing the creation of an oriented minimum box collider" src="../images/OABBox_small.gif" width="600" /></p>
-<p>Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a> </p>
+<p><img alt="Gif showing the creation of an oriented minimum box collider" src="../images/OABBox_small.gif" width="600" />
+Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a></p>
 <h2 id="convert">Convert</h2>
 <p>You can convert any mesh to be a collider as well as any collider to be a regular mesh object.</p>
 <h3 id="mesh-to-collider">Mesh to Collider</h3>
@@ -247,7 +251,7 @@
 <td>Yes</td>
 </tr>
 <tr>
-<td><strong>P</strong></td>
+<td><strong>C</strong></td>
 <td>Toggle X Ray</td>
 <td>Bool</td>
 <td>Transparent scene display. Allows selecting through items</td>
@@ -386,15 +390,15 @@
 </tbody>
 </table>
 <h2 id="shape-creation">Shape Creation</h2>
-<p>Collider Tools supports a wide variety of collision shapes and settings to create them. You can find all the details in the documentation. The collider creation works based on the selection, both for <strong>Object-</strong> and <strong>Edit-mode</strong>. This also includes multi-object Edit-mode support.</p>
-<p><img alt="An animation illustrating the collider creation based on edit and object mode selection" src="../images/OOBBOX-object_small.gif" width="600" /></p>
-<p>Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a></p>
-<p>Generate collider per object.</p>
-<p><img alt="An animation illustrating the collider creation based on edit and object mode selection" src="../images/EditMode_autoConvex_small.gif" width="600" /></p>
-<p>Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a></p>
-<p>Generate collider based on the Edit Mode selection. </p>
-<p><img alt="An a nimation illustrating the collider creation based on edit and object mode selection" src="../images/books_small.gif" width="600" /></p>
-<p>Scene by <a href="https://www.monorender.com/">Carlo Bergonzini</a></p>
+<p>Collider Tools supports a wide variety of collision shapes and settings to create them. You can find all the details in the documentation. The collider creation works based on the selection, both for <strong>Object</strong> and <strong>Edit-mode</strong>. This also includes multi-object Edit-mode support.</p>
+<p><img alt="An animation illustrating the collider creation based on edit and object mode selection" src="../images/OOBBOX-object_small.gif" width="600" />
+Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a></p>
+<p>Generate collider based on the <strong>Object Mode</strong> selection.</p>
+<p><img alt="An animation illustrating the collider creation based on edit and object mode selection" src="../images/EditMode_autoConvex_small.gif" width="600" />
+Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a></p>
+<p>Generate collider based on the <strong>Edit Mode</strong> selection.</p>
+<p><img alt="An animation illustrating the collider creation based on edit and object mode selection" src="../images/books_small.gif" width="600" />
+Scene by <a href="https://www.monorender.com/">Carlo Bergonzini</a></p>
 <p>Colliders can be generated per object or around the entire selection - both in object mode and multi object edit mode.</p>
 <h2 id="info-console">Info Console</h2>
 <p>The system console can be opened from Blenders main menu -&gt; <strong>Windows</strong> -&gt; <strong>Toggle System Console</strong> and contains information about the computation time. The information displayed here is very basic, but could be extended in the future. This feature was implemented for being able to compare computation times. </p>
