@@ -63,6 +63,12 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Release Notes</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#131">1.3.1</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes">Fixes</a>
+    </li>
+        </ul>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#13">1.3</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#features">Features</a>
@@ -75,7 +81,7 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#fixes">Fixes</a>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_1">Fixes</a>
     </li>
         </ul>
     </li>
@@ -83,13 +89,13 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#features_1">Features</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#fixes_1">Fixes</a>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_2">Fixes</a>
     </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#122">1.2.2</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#fixes_2">Fixes</a>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_3">Fixes</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#known-issues">Known Issues</a>
     </li>
@@ -97,7 +103,7 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#121">1.2.1</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#fixes_3">Fixes</a>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_4">Fixes</a>
     </li>
         </ul>
     </li>
@@ -105,7 +111,7 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#features_2">Features</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#fixes_4">Fixes</a>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_5">Fixes</a>
     </li>
         </ul>
     </li>
@@ -113,13 +119,13 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#features_3">Features</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#fixes_5">Fixes</a>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_6">Fixes</a>
     </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#101-hotfix">1.0.1 Hotfix</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#fixes_6">Fixes</a>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_7">Fixes</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#features_4">Features</a>
     </li>
@@ -181,6 +187,14 @@
             <div class="section" itemprop="articleBody">
               
                 <div><h1 id="release-notes">Release Notes</h1>
+<h3 id="131">1.3.1</h3>
+<p>Version 1.3.1 is a hotfix release that resolves a crash issue caused by missing default physic material.</p>
+<h4 id="fixes">Fixes</h4>
+<ul>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/399">#399</a> Disable physics material tag by default. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/398">#398</a> Crash because of missing default material. </li>
+</ul>
+
 <h3 id="13">1.3</h3>
 <p>This release improves Physics Materials handling and UX. The physics material system is rewritten for stability and enhanced UI/UX. A simplified default UI is introduced, while the full Physics Material List can be enabled through preferences. 
 Further, original object materials can now be maintained for 'Add Mesh' and 'Convert to Collider'. See the list below for the full changes. </p>
@@ -213,7 +227,7 @@ Further, original object materials can now be maintained for 'Add Mesh' and 'Con
 <li><a href="https://github.com/Weisl/Collider-Tools/issues/384">#384</a> Improved the display of the currently active physics material. </li>
 </ul>
 
-<h4 id="fixes">Fixes</h4>
+<h4 id="fixes_1">Fixes</h4>
 <ul>
 <li><a href="https://github.com/Weisl/Collider-Tools/issues/321">#321</a> Resolved the issue where creating presets was broken. </li>
 <li><a href="https://github.com/Weisl/Collider-Tools/issues/396">#396</a> Fixed a crash caused by an out-of-index active physics material. </li>
@@ -234,14 +248,14 @@ Further, original object materials can now be maintained for 'Add Mesh' and 'Con
 <li><a href="https://github.com/Weisl/Collider-Tools/issues/340">#340</a> Show indication that settings are disabled in the pie menu when they are not supported for the current combination of settings </li>
 </ul>
 
-<h4 id="fixes_1">Fixes</h4>
+<h4 id="fixes_2">Fixes</h4>
 <ul>
 <li><a href="https://github.com/Weisl/Collider-Tools/issues/321">#321</a> Creating Preset is broken </li>
 </ul>
 
 <h3 id="122">1.2.2</h3>
 <p>This release is fixing some major hotkey issues.</p>
-<h4 id="fixes_2">Fixes</h4>
+<h4 id="fixes_3">Fixes</h4>
 <ul>
 <li><a href="https://github.com/Weisl/Collider-Tools/issues/310">#310</a> Collider tools seems to destroy the default keymap for 'N' and 'T' </li>
 <li><a href="https://github.com/Weisl/Collider-Tools/issues/308">#308</a> Addon keymap changes are lost after restarting Blender</li>
@@ -256,7 +270,7 @@ Further, original object materials can now be maintained for 'Add Mesh' and 'Con
 
 <h3 id="121">1.2.1</h3>
 <p>This release focuses on bug fixes for Auto Convex/Convex on older Blender versions and cylindrical collider creation.</p>
-<h4 id="fixes_3">Fixes</h4>
+<h4 id="fixes_4">Fixes</h4>
 <ul>
 <li><a href="https://github.com/Weisl/Collider-Tools/issues/303">#303</a> Support Convex and Auto Convex for older Blender versions (2.93) </li>
 <li><a href="https://github.com/Weisl/Collider-Tools/issues/299">#299</a> Cylindrical collider generation is broken in SELECTION mode GLOBAL space</li>
@@ -279,7 +293,7 @@ Further, original object materials can now be maintained for 'Add Mesh' and 'Con
 <li><a href="https://github.com/Weisl/Collider-Tools/issues/282">#282</a>  Cleanup Modal Inputs </li>
 </ul>
 
-<h4 id="fixes_4">Fixes</h4>
+<h4 id="fixes_5">Fixes</h4>
 <ul>
 <li><a href="https://github.com/Weisl/Collider-Tools/issues/288">#288</a> Material list index not found </li>
 <li><a href="https://github.com/Weisl/Collider-Tools/issues/262">#262</a> Mesh to Collider: Should be smarter about prefix/suffix </li>
@@ -312,7 +326,7 @@ the user a lot.</p>
 <li><a href="https://github.com/Weisl/Collider-Tools/issues/176">#176</a> Add Physics material menu and Display Menu to customizable hotkeys. </li>
 </ul>
 
-<h4 id="fixes_5">Fixes</h4>
+<h4 id="fixes_6">Fixes</h4>
 <ul>
 <li><a href="https://github.com/Weisl/Collider-Tools/issues/177">#177</a> Cleanup old preset naming. </li>
 <li><a href="https://github.com/Weisl/Collider-Tools/issues/183">#183</a> Fix error on unregister. </li>
@@ -328,7 +342,7 @@ the user a lot.</p>
 </ul>
 
 <h3 id="101-hotfix">1.0.1 Hotfix</h3>
-<h4 id="fixes_6">Fixes</h4>
+<h4 id="fixes_7">Fixes</h4>
 <ul>
 <li><a href="https://github.com/Weisl/Collider-Tools/issues/143">#143</a> Downloading V-hacd results in "not found 404". </li>
 </ul>
