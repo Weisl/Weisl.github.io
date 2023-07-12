@@ -57,13 +57,15 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#convex-cylindrical-collider">Convex (Cylindrical) Collider</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#capsule-collider">Capsule Collider</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#mesh-collider">Mesh Collider</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#oriented-minimum-box-collider">Oriented Minimum Box Collider</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#convert">Convert</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#mesh-to-collider">Mesh to Collider</a>
+    <li class="toctree-l3"><a class="reference internal" href="#object-to-collider">Object to Collider</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#collider-to-mesh">Collider to Mesh</a>
     </li>
@@ -173,6 +175,8 @@ Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a></p>
 <p class="admonition-title">Warning</p>
 <p>Currently, only GLOBAL space is supported when using the entire selection (Creation Mode: <strong>SELECTION</strong>) for cylindrical collider generation. All other parameter combinations should work as expected.</p>
 </div>
+<h3 id="capsule-collider">Capsule Collider</h3>
+<p>Capsule colliders are a simple and efficient type to describe the collider of an object. Due to their efficiency they are often used to create the colliders of characters.</p>
 <h3 id="mesh-collider">Mesh Collider</h3>
 <p>Mesh Collisions are the most complex collider shape to compute for a physics engine. Use them carefully, minimize the triangle count as much as possible and use them (only) for static objects. </p>
 <p><img alt="Gif showing the creation of a mesh collider" src="../images/Mesh_02_small.gif" width="600">
@@ -184,7 +188,7 @@ Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a></p>
 Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a></p>
 <h2 id="convert">Convert</h2>
 <p>You can convert any mesh to be a collider as well as any collider to be a regular mesh object.</p>
-<h3 id="mesh-to-collider">Mesh to Collider</h3>
+<h3 id="object-to-collider">Object to Collider</h3>
 <p>You can convert any mesh object to be a collider. The conversion applies the same properties as to other collisions created with the operators from above.  The objects will be renamed, added to the collision collection, and can be hidden/selected as all the other colliders.</p>
 <h3 id="collider-to-mesh">Collider to Mesh</h3>
 <p>Collider to Mesh will remove all the collider-specific properties and materials. Convert to Mesh opens a pop-up window to set the new object name and to assign another material.</p>
@@ -244,7 +248,15 @@ Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a></p>
 <td>Keep Original Materials</td>
 <td>Bool</td>
 <td>Use the original materials of the origin meshes instead replacing them with physics materials.</td>
-<td>Mesh <br> Convert to Mesh</td>
+<td>Mesh <br> Re-Meshed <br> Convert to Mesh</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>N</strong></td>
+<td>Keep Original Name</td>
+<td>Bool</td>
+<td>Use the name of the original object.</td>
+<td>Convert to Mesh</td>
 <td>Yes</td>
 </tr>
 <tr>
@@ -264,6 +276,14 @@ Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a></p>
 <td>Yes</td>
 </tr>
 <tr>
+<td><strong>M</strong></td>
+<td>Creation Mode</td>
+<td>Enum</td>
+<td><strong>INDIVIDUAL</strong> Generation per object <br> <strong>SELECTION</strong> Generation around the entire selection. <br> <strong>LOOSEMESH</strong> Generation around mesh islands that are not connected to each other.</td>
+<td>Cylinder</td>
+<td>Yes</td>
+</tr>
+<tr>
 <td><strong>T</strong></td>
 <td>Collision <br>  Group</td>
 <td>Enum</td>
@@ -275,7 +295,7 @@ Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a></p>
 <td><strong>Q</strong></td>
 <td>Collision <br>  Shape</td>
 <td>Enum</td>
-<td><strong>BOX</strong> <br> <strong>SPHERE</strong> <br> <strong>CONVEX</strong> <br> <strong>MESH</strong> <br> The shapes are used for the naming.</td>
+<td><strong>BOX</strong> <br> <strong>SPHERE</strong> <br> <strong>CONVEX</strong> <br> <strong>CAPSULE</strong> <br> <strong>MESH</strong> <br> The shapes are used for the naming.</td>
 <td>Convert <br>  to</td>
 <td>No</td>
 </tr>
@@ -300,7 +320,7 @@ Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a></p>
 <td>Decimate</td>
 <td>Modal</td>
 <td>Adds a decimate modifier to reduce the geometry density. The values go from 1 to 0, 1 means the object remains unchanged while 0 means it will be reduced to the minimum.</td>
-<td>Convex <br> Mesh <br>  Convert <br> V-hacd</td>
+<td>Convex <br> Mesh <br> Re-Meshed  <br>  Convert <br> V-hacd</td>
 <td>Yes</td>
 </tr>
 <tr>
@@ -313,10 +333,34 @@ Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a></p>
 </tr>
 <tr>
 <td><strong>E</strong></td>
-<td>Segments</td>
+<td>Cylinder Segments</td>
 <td>Modal</td>
 <td>The amount of segments used to describe the circular shape of the cylinder.</td>
 <td>Cylinder</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>R</strong></td>
+<td>Capsule Segments</td>
+<td>Modal</td>
+<td>The amount of segments used to describe the circular shape of the capsule .</td>
+<td>Capsule</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>R</strong></td>
+<td>Voxel Size</td>
+<td>Modal</td>
+<td>The voyel size for the remeshing of the collider .</td>
+<td>Re-meshed</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>H</strong></td>
+<td>Height Multiplier</td>
+<td>Modal</td>
+<td>The height multiplier is used to adjust the capsule height manually.</td>
+<td>Capsule</td>
 <td>Yes</td>
 </tr>
 </tbody>

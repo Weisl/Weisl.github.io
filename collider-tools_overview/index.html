@@ -140,12 +140,12 @@
 </ul>
 <h2 id="what-is-collider-tools">What is Collider Tools?</h2>
 <p>Collider Tools is a Blender addon to <strong>create physics colliders</strong> for <strong>games and real-time applications</strong>.
-The addon offers a lot of tools for <strong>creating the most common collider types</strong> like <strong>Box, Sphere, Convex, Convex (
-cylindrical), Auto Convex (Windows only)</strong>, <strong>Mesh</strong> and <strong>Oriented Minimum BBox</strong> quickly and easily within Blender.
+The addon offers a lot of tools for <strong>creating the most common collider types</strong> like <strong>Box, Sphere, Capsule (Beta), Convex, Convex (
+cylindrical), Auto Convex (Windows only)</strong>, <strong>Mesh</strong>, <strong>Re-Meshed</strong> and <strong>Oriented Minimum BBox</strong> quickly and easily within Blender.
 These colliders can then be <strong>imported</strong> to engines like <strong>UE, Unity</strong>, and others.<br>
 The addon offers big flexibility and controllability by using the <strong>selection</strong>, both in <strong>Object</strong> and <strong>Edit-mode</strong>,
 as well as offering settings like <strong>global</strong> or <strong>local space</strong> collider generation. Further, colliders can now be
-generated <strong>per object</strong> or around the <strong>entire selection</strong>.</p>
+generated <strong>per object</strong> around the <strong>entire selection</strong> or based on <strong>loose parts</strong> - mesh islands, object parts that are not connected to each other.</p>
 <p>Further, the addon supports the generation based on both the <strong>original mesh (pre-modifier stack)</strong> and the <strong>evaluated
 mesh (post-modifier stack)</strong>.
 Collider Tools offers functionality for organizing the colliders, showing, hiding, and selecting them and tools to
@@ -156,12 +156,12 @@ automatically generate multiple convex shapes to represent complex meshes (conve
 <h2 id="feature-overview">Feature Overview</h2>
 <ul>
 <li>Quick and simple creation of collider objects.</li>
-<li>Support for <strong>Sphere, Box, Convex, Convex Cylinder</strong> and <strong>Mesh</strong> shapes.</li>
+<li>Support for <strong>Sphere, Box, Capsule (Beta), Convex, Convex Cylinder, Re-Meshed</strong> and <strong>Mesh</strong> shapes.</li>
 <li>Support for <strong>Oriented Minimum Bounding Box</strong> generation, an automatically oriented box collider to have the lowest
   volume possible. My implementation is based on code from <a href="https://gist.github.com/iyadahmed"><strong>Iyad
   Ahmed</strong></a>.</li>
 <li>Support for <strong>Object-</strong> and <strong>Edit-mode</strong>, including <strong>multi-object Edit-mode</strong>.</li>
-<li>Collider creation per <strong>individual object</strong> or around the <strong>entire selection</strong>.</li>
+<li>Collider creation per <strong>individual object</strong>, around the <strong>entire selection</strong> or based on <strong>loose parts</strong>.</li>
 <li>Custom colliders can be used in engines like <strong>UE4-5, Unity,</strong> and other engines with a flexible naming scheme.</li>
 <li>Support for <strong>Edit mode selection</strong>. Create collision only surrounding the selected geometry of each object. Works
   with <strong>multi-edit</strong> and <strong>modifier stack</strong>.</li>
