@@ -1,53 +1,59 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Collider Shapes - Documentation</title>
-    <link rel="stylesheet" href="../css/theme.css" />
-    <link rel="stylesheet" href="../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
-        <link href="../extra.css" rel="stylesheet" />
-    
-      <script>
-        // Current page data
-        var mkdocs_page_name = "Collider Shapes";
-        var mkdocs_page_input_path = "collision_shapes.md";
-        var mkdocs_page_url = null;
-      </script>
-    
-    <script src="../js/jquery-3.6.0.min.js" defer></script>
-    <!--[if lt IE 9]>
-      <script src="../js/html5shiv.min.js"></script>
-    <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-      <script>hljs.initHighlightingOnLoad();</script> 
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Collider Shapes - Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  <link href="../extra.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Collider Shapes";
+    var mkdocs_page_input_path = "collision_shapes.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
 
   <div class="wy-grid-for-nav">
+
+    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> Documentation
-        </a>
+        <a href=".." class="icon icon-home"> Documentation</a>
+        
       </div>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
-                </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Collider Tools</span></p>
-              <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_overview/">Overview</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_ui/">The UI</a>
-                  </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Collider Shapes</a>
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Collider Tools</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_overview/">Overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_ui/">The UI</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Collider Shapes</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#box-collider">Box Collider</a>
     </li>
@@ -86,91 +92,106 @@
     <li class="toctree-l2"><a class="reference internal" href="#info-console">Info Console</a>
     </li>
     </ul>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_auto_convex/">Auto Convex</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_groups/">Collider Groups</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_physics_materials/">Physics Materials</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_import_engines/">Game Engine Support</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_ue_guidline/">UE Guide</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_unity_guidline/">Unity Guide</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_release_notes/">Release Notes</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Cam Manager</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../cam_Overview/">Overview</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../cam_UI/">The UI</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../cam_dolly_zoom/">Dolly Zoom</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../cam_composition/">Composition</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../cam_image_plane/">Precise Modeling</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../cam_Rendering_workflow/">Presentation</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../cam_release_notes/">Release Notes</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Simple Renaming Panel (Free)</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../renaming/">Overview</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../renaming_variables/">Renaming Variables</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../renaming_release_notes/">Release Notes</a>
-                  </li>
-              </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_auto_convex/">Auto Convex</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_groups/">Collider Groups</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_physics_materials/">Physics Materials</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_import_engines/">Game Engine Support</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_ue_guidline/">UE Guide</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_unity_guidline/">Unity Guide</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_release_notes/">Release Notes</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Cam Manager</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../cam_Overview/">Overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../cam_UI/">The UI</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../cam_dolly_zoom/">Dolly Zoom</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../cam_composition/">Composition</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../cam_image_plane/">Precise Modeling</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../cam_Rendering_workflow/">Presentation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../cam_release_notes/">Release Notes</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Simple Renaming Panel (Free)</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../renaming/">Overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../renaming_UI/">The UI</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../renaming_variables/">Renaming Variables</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../renaming_release_notes/">Release Notes</a>
+                    </li>
+                </ul>
       </div>
     </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">Documentation</a>
-        
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Documentation</a>
       </nav>
+
+      
       <div class="wy-nav-content">
-        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
           <li>Collider Tools &raquo;</li>
-      <li>Collider Shapes</li>
+        
+      
+    
+    <li>Collider Shapes</li>
     <li class="wy-breadcrumbs-aside">
+      
     </li>
   </ul>
+  
   <hr/>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <div class="section" itemprop="articleBody">
+
+          <div role="main">
+            <div class="section">
               
-                <div><h1 id="_1"><img alt="Banner for collider shapes" src="../images/ColliderTools_banner_1_1_shapes.jpg"></h1>
+                <h1 id="_1"><img alt="Banner for collider shapes" src="../images/ColliderTools_banner_1_1_shapes.jpg" /></h1>
 <p>An overview of all the supported Collision shapes of the Collider Tools addon. Collider Tools supports a wide variety of collision shapes and settings to create them. </p>
 <h3 id="box-collider">Box Collider</h3>
 <p>Box colliders are simple, efficient, and cover a wide range of use-cases.</p>
-<p><img alt="Gif showing the creation of a box collider" src="../images/Cubes_02_small.gif" width="600">
+<p><img alt="Gif showing the creation of a box collider" src="../images/Cubes_02_small.gif" width="600" />
 Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a></p>
 <h3 id="sphere-collider">Sphere Collider</h3>
 <p>Sphere colliders are the most efficient Collision shape. Sphere collisions are usually represented by a mathematical description (location and radius) rather than polygons. The sphere meshes created by the addon are intended as a visual representation. Sphere collisions will become more expensive if they are imported as convex shapes or mesh shapes.</p>
 <p>The sphere generation uses a fast algorithm that does not always provide the optimal result. This happens especially for simple box meshes. The results become better with more complex collisions. Improving or replacing the algorithm is planned for future releases. </p>
-<p><img alt="Gif showing the creation of a sphere collider" src="../images/Sphere_01_small.gif" width="600">
+<p><img alt="Gif showing the creation of a sphere collider" src="../images/Sphere_01_small.gif" width="600" />
 Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a></p>
 <h3 id="convex-collider">Convex Collider</h3>
 <p>Convex shapes are versatile while being efficient. They can be used to represent most objects, especially for engines that don't support triangle mesh collisions  </p>
-<p><img alt="Gif showing the creation of a convex collider" src="../images/Convex_01_small.gif" width="600">
+<p><img alt="Gif showing the creation of a convex collider" src="../images/Convex_01_small.gif" width="600" />
 Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a></p>
 <h3 id="convex-cylindrical-collider">Convex (Cylindrical) Collider</h3>
 <p>There is no special cylindrical collision shape. This is only a tool to help create a clean cylindrical convex shape. Cylindrical shapes are very common shapes, especially in manmade structures. Physics engines will interpret them as simple convex colliders.</p>
-<p><img alt="Gif showing the creation of a cylindrical convex collider" src="../images/cylinder_collider_small.gif" width="600"></p>
-<p><img alt="Gif showing the creation of a cylindrical convex collider" src="../images/cylinderCombined_small.gif" width="600"></p>
+<p><img alt="Gif showing the creation of a cylindrical convex collider" src="../images/cylinder_collider_small.gif" width="600" /></p>
+<p><img alt="Gif showing the creation of a cylindrical convex collider" src="../images/cylinderCombined_small.gif" width="600" /></p>
 <div class="admonition warning inline end">
 <p class="admonition-title">Warning</p>
 <p>Currently, only GLOBAL space is supported when using the entire selection (Creation Mode: <strong>SELECTION</strong>) for cylindrical collider generation. All other parameter combinations should work as expected.</p>
@@ -179,12 +200,12 @@ Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a></p>
 <p>Capsule colliders are a simple and efficient type to describe the collider of an object. Due to their efficiency they are often used to create the colliders of characters.</p>
 <h3 id="mesh-collider">Mesh Collider</h3>
 <p>Mesh Collisions are the most complex collider shape to compute for a physics engine. Use them carefully, minimize the triangle count as much as possible and use them (only) for static objects. </p>
-<p><img alt="Gif showing the creation of a mesh collider" src="../images/Mesh_02_small.gif" width="600">
+<p><img alt="Gif showing the creation of a mesh collider" src="../images/Mesh_02_small.gif" width="600" />
 Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a></p>
 <h3 id="oriented-minimum-box-collider">Oriented Minimum Box Collider</h3>
 <p>Oriented Minimum Box Colliders are automatically oriented boxes with the smallest size possible. The computation is more complex and may be slow for meshes with a high vertex count. The output mesh is the same as regular box colliders, and it's indistinguishable to the engine how it was created. </p>
 <p>The implementation is based on Code from <a href="https://gist.github.com/iyadahmed"><strong>Iyad Ahmed</strong></a>. Iyad was so kind and gave me permission of using it.  </p>
-<p><img alt="Gif showing the creation of an oriented minimum box collider" src="../images/OABBox_small.gif" width="600">
+<p><img alt="Gif showing the creation of an oriented minimum box collider" src="../images/OABBox_small.gif" width="600" />
 Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a></p>
 <h2 id="convert">Convert</h2>
 <p>You can convert any mesh to be a collider as well as any collider to be a regular mesh object.</p>
@@ -194,9 +215,9 @@ Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a></p>
 <p>Collider to Mesh will remove all the collider-specific properties and materials. Convert to Mesh opens a pop-up window to set the new object name and to assign another material.</p>
 <h3 id="regenerate-name">Regenerate Name</h3>
 <p>Regenerate collider names based on preset. It works best when colliders created in version 1.1 or later. In older versions it will fall back to the default values of box collision and group 1 for the naming. </p>
-<p><img alt="Gif showing the conversion of a mesh to a collider" src="../images/convert_MeshToCollider_small.gif" width="300">
-<img alt="Gif showing the conversion of a collider to a mesh" src="../images/convert_ColliderToMesh_small.gif" width="300">
-<img alt="Gif showing the regeneration of a collider name" src="../images/regenerate_name_small.gif" width="350"></p>
+<p><img alt="Gif showing the conversion of a mesh to a collider" src="../images/convert_MeshToCollider_small.gif" width="300" />
+<img alt="Gif showing the conversion of a collider to a mesh" src="../images/convert_ColliderToMesh_small.gif" width="300" />
+<img alt="Gif showing the regeneration of a collider name" src="../images/regenerate_name_small.gif" width="350" /></p>
 <h2 id="creation-overlay"><a name="OverlaySettings"></a> Creation Overlay</h2>
 <p>This table contains all settings exposed to the user during the creation of a collider. </p>
 <table>
@@ -395,7 +416,7 @@ Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a></p>
 </table>
 <h3 id="collider-display-settings">Collider Display Settings</h3>
 <p>Display settings are now part of the preferences. </p>
-<p><img alt="img" src="../images/Preferences_display.jpg" width="400"></p>
+<p><img alt="img" src="../images/Preferences_display.jpg" width="400" /></p>
 <table>
 <thead>
 <tr>
@@ -424,35 +445,43 @@ Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a></p>
 </table>
 <h2 id="shape-creation">Shape Creation</h2>
 <p>Collider Tools supports a wide variety of collision shapes and settings to create them. You can find all the details in the documentation. The collider creation works based on the selection, both for <strong>Object</strong> and <strong>Edit-mode</strong>. This also includes multi-object Edit-mode support.</p>
-<p><img alt="An animation illustrating the collider creation based on edit and object mode selection" src="../images/OOBBOX-object_small.gif" width="600">
+<p><img alt="An animation illustrating the collider creation based on edit and object mode selection" src="../images/OOBBOX-object_small.gif" width="600" />
 Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a></p>
 <p>Generate collider based on the <strong>Object Mode</strong> selection.</p>
-<p><img alt="An animation illustrating the collider creation based on edit and object mode selection" src="../images/EditMode_autoConvex_small.gif" width="600">
+<p><img alt="An animation illustrating the collider creation based on edit and object mode selection" src="../images/EditMode_autoConvex_small.gif" width="600" />
 Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a></p>
 <p>Generate collider based on the <strong>Edit Mode</strong> selection.</p>
-<p><img alt="An animation illustrating the collider creation based on edit and object mode selection" src="../images/books_small.gif" width="600">
+<p><img alt="An animation illustrating the collider creation based on edit and object mode selection" src="../images/books_small.gif" width="600" />
 Scene by <a href="https://www.monorender.com/">Carlo Bergonzini</a></p>
 <p>Colliders can be generated per object or around the entire selection - both in object mode and multi object edit mode.</p>
 <h2 id="info-console">Info Console</h2>
 <p>The system console can be opened from Blenders main menu -&gt; <strong>Windows</strong> -&gt; <strong>Toggle System Console</strong> and contains information about the computation time. The information displayed here is very basic, but could be extended in the future. This feature was implemented for being able to compare computation times. </p>
-<p><img alt="img" src="../images/system_console.jpg" width="600"></p></div>
+<p><img alt="img" src="../images/system_console.jpg" width="600" /></p>
               
             </div>
-          </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../collider-tools_ui/" class="btn btn-neutral float-left" title="The UI"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
         <a href="../collider-tools_auto_convex/" class="btn btn-neutral float-right" title="Auto Convex">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../collider-tools_ui/" class="btn btn-neutral" title="The UI"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
     </div>
+  
 
   <hr/>
 
   <div role="contentinfo">
     <!-- Copyright etc -->
+    
   </div>
 
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-          
+      
         </div>
       </div>
 
@@ -460,7 +489,7 @@ Scene by <a href="https://www.monorender.com/">Carlo Bergonzini</a></p>
 
   </div>
 
-  <div class="rst-versions" role="note" aria-label="Versions">
+  <div class="rst-versions" role="note" aria-label="versions">
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     

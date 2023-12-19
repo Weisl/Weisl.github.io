@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Precise Modeling - Documentation</title>
+  <title>The UI - Documentation</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Precise Modeling";
-    var mkdocs_page_input_path = "cam_image_plane.md";
+    var mkdocs_page_name = "The UI";
+    var mkdocs_page_input_path = "renaming_UI.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -71,7 +71,7 @@
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Cam Manager</span></p>
-                <ul class="current">
+                <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../cam_Overview/">Overview</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../cam_UI/">The UI</a>
@@ -80,15 +80,7 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../cam_composition/">Composition</a>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Precise Modeling</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#quick-background-image-setting">Quick Background Image Setting</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#resolution-from-background-image">Resolution from Background Image</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#dolly-zoom">Dolly Zoom</a>
-    </li>
-    </ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../cam_image_plane/">Precise Modeling</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../cam_Rendering_workflow/">Presentation</a>
                     </li>
@@ -96,10 +88,12 @@
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Simple Renaming Panel (Free)</span></p>
-                <ul>
+                <ul class="current">
                     <li class="toctree-l1"><a class="reference internal" href="../renaming/">Overview</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../renaming_UI/">The UI</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">The UI</a>
+    <ul class="current">
+    </ul>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../renaming_variables/">Renaming Variables</a>
                     </li>
@@ -127,11 +121,11 @@
     
       
         
-          <li>Cam Manager &raquo;</li>
+          <li>Simple Renaming Panel (Free) &raquo;</li>
         
       
     
-    <li>Precise Modeling</li>
+    <li>The UI</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -143,35 +137,43 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="precise-modeling">Precise Modeling</h1>
-<p><img alt="img" src="../images/Image_planes_toggle_cams.gif" /></p>
-<p>Toggle through cameras with different background images and resolutions. </p>
-<div class="admonition info inline end">
-<p class="admonition-title">Info</p>
-<p>Check out my artstation <a href="https://www.artstation.com/matthias-patscheider/blog" title="Blog">blog</a> and <a href="https://www.artstation.com/artwork/D55b8o" title="Artstation Project">final project</a> on Artstation for more information on the workflow outlined in this</p>
-</div>
-<p>Having different camera resolutions makes the work with different image planes much easier. You can quickly toggle between the cameras without changing the scene settings every time you change the camera.</p>
-<h2 id="quick-background-image-setting">Quick Background Image Setting</h2>
-<p><img alt="img" src="../images/image_planes_viewport_settings.gif" width="600" /></p>
-<p>Adjust the background image visibility directly from the 3D view. </p>
-<p>You can toggle the background image on/off directly from the viewport and quickly adjust the opacity. I used these features a lot for my spinning mule project.   </p>
-<div class="admonition note inline end">
-<p class="admonition-title">Note</p>
-<p>The pie menu only considers the first Background Image per camera. This limitation was added to avoid huge lists of background images in the pie menu. </p>
-</div>
-<h2 id="resolution-from-background-image">Resolution from Background Image</h2>
-<p>This feature allows you to easily set the camera resolution based on the assigned background image. The feature is available from:</p>
+                <h2 id="renaming-panel">Renaming Panel</h2>
+<p>The renaming panel is the heart of the application. It provides you with a simple and an advanced UI option. It can either be found in the properties panel or by pressing the user defined hotkey. </p>
+<p><img alt="img" src="../img/mainPanel.jpg" /></p>
 <ul>
-    <li>Overview Panel (Shift + C)</li>
-    <li>Camera Pie (Alt + C)</li>
-    <li>Properties Panel: Camera data </li>
+<li> Choose which kind of objects you want to rename:</li>
+<li> Changes affect selected or all</li>
+<li> Replace names with a new name</li>
+<li> Search and replace </li>
+<li> Search and select </li>
+<li> Match case for the search and replace</li>
+<li> Use regular expressions to improve your search</li>
+<li> Add prefixes </li>
+<li> Add suffixes </li>
+<li> Numerate objects</li>
+<li> Trim string </li>
+<li> Data: Keeping the object data names clear and organized can be painful in blender, this button simply renames the data according to the objects and adds a specified suffix.</li>
 </ul>
 
-<p><img alt="img" src="../images/image_plane_set_resolution.gif" width="600" /></p>
-<p>Quickly assigning the proper resolution from the background image. </p>
-<h2 id="dolly-zoom">Dolly Zoom</h2>
-<p>A huge issue when working with image planes it to adjust the camera position, rotation and focal lenght. The dolly zoom is a useful tool to keep the target at the same position when adjusting distance and focal lenght. </p>
-<p><img alt="img" src="../images/dollyZoom_mill_resized.gif" /></p>
+<h2 id="type-suffix-prefix">Type Suffix Prefix</h2>
+<p>The suffix prefix panel is collapsed as it is not used as regularly as the main renaming panel. The panel is used to add prefixes or suffixes based on the object type. It's a quick way to add e.g., "_geo" to meshes, "_empt" to empties, and "_cam" to cameras with one single click. The presets allow you to easily save different naming conventions for different projects.</p>
+<p><img alt="img" src="../img/sufPrebyTypePanel.jpg" /></p>
+<p><img alt="img" src="../img/popup.jpg" /></p>
+<ul>
+<li> Choose between Suffix and Prefix</li>
+<li> Geometry: all meshes</li>
+<li >Material: all materials</li>
+<li> Empty:  all empty objects </li>
+<li> Curve: all curves</li>
+<li> Armature: all armatures objects (not bones)</li>
+<li> Group: all groups</li>
+<li> Lattice: all lattices</li>
+<li> Data: all object data</li>
+<li> Surfaces: all surface objects</li> 
+<li> Cameras : all cameras </li>
+<li> Lights: all lights </li>
+<li> Bones: all bones </li>
+</ul>
               
             </div>
           </div>
@@ -179,10 +181,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../cam_Rendering_workflow/" class="btn btn-neutral float-right" title="Presentation">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../renaming_variables/" class="btn btn-neutral float-right" title="Renaming Variables">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../cam_composition/" class="btn btn-neutral" title="Composition"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../renaming/" class="btn btn-neutral" title="Overview"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -208,10 +210,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../cam_composition/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../renaming/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../cam_Rendering_workflow/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../renaming_variables/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

@@ -1,156 +1,185 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Presentation - Documentation</title>
-    <link rel="stylesheet" href="../css/theme.css" />
-    <link rel="stylesheet" href="../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
-        <link href="../extra.css" rel="stylesheet" />
-    
-      <script>
-        // Current page data
-        var mkdocs_page_name = "Presentation";
-        var mkdocs_page_input_path = "cam_Rendering_workflow.md";
-        var mkdocs_page_url = null;
-      </script>
-    
-    <script src="../js/jquery-3.6.0.min.js" defer></script>
-    <!--[if lt IE 9]>
-      <script src="../js/html5shiv.min.js"></script>
-    <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-      <script>hljs.initHighlightingOnLoad();</script> 
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Presentation - Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  <link href="../extra.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Presentation";
+    var mkdocs_page_input_path = "cam_Rendering_workflow.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
 
   <div class="wy-grid-for-nav">
+
+    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> Documentation
-        </a>
+        <a href=".." class="icon icon-home"> Documentation</a>
+        
       </div>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
-                </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Collider Tools</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_overview/">Overview</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_ui/">The UI</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../collision_shapes/">Collider Shapes</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_auto_convex/">Auto Convex</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_groups/">Collider Groups</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_physics_materials/">Physics Materials</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_import_engines/">Game Engine Support</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_ue_guidline/">UE Guide</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_unity_guidline/">Unity Guide</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_release_notes/">Release Notes</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Cam Manager</span></p>
-              <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../cam_Overview/">Overview</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../cam_UI/">The UI</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../cam_dolly_zoom/">Dolly Zoom</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../cam_composition/">Composition</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../cam_image_plane/">Precise Modeling</a>
-                  </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Presentation</a>
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Collider Tools</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_overview/">Overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_ui/">The UI</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../collision_shapes/">Collider Shapes</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_auto_convex/">Auto Convex</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_groups/">Collider Groups</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_physics_materials/">Physics Materials</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_import_engines/">Game Engine Support</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_ue_guidline/">UE Guide</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_unity_guidline/">Unity Guide</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_release_notes/">Release Notes</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Cam Manager</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../cam_Overview/">Overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../cam_UI/">The UI</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../cam_dolly_zoom/">Dolly Zoom</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../cam_composition/">Composition</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../cam_image_plane/">Precise Modeling</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Presentation</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#render-slots">Render Slots</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#save-renderings">Save Renderings</a>
     </li>
     </ul>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../cam_release_notes/">Release Notes</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Simple Renaming Panel (Free)</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../renaming/">Overview</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../renaming_variables/">Renaming Variables</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../renaming_release_notes/">Release Notes</a>
-                  </li>
-              </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../cam_release_notes/">Release Notes</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Simple Renaming Panel (Free)</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../renaming/">Overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../renaming_UI/">The UI</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../renaming_variables/">Renaming Variables</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../renaming_release_notes/">Release Notes</a>
+                    </li>
+                </ul>
       </div>
     </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">Documentation</a>
-        
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Documentation</a>
       </nav>
+
+      
       <div class="wy-nav-content">
-        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
           <li>Cam Manager &raquo;</li>
-      <li>Presentation</li>
+        
+      
+    
+    <li>Presentation</li>
     <li class="wy-breadcrumbs-aside">
+      
     </li>
   </ul>
+  
   <hr/>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <div class="section" itemprop="articleBody">
+
+          <div role="main">
+            <div class="section">
               
-                <div><h1 id="presentation">Presentation</h1>
+                <h1 id="presentation">Presentation</h1>
 <p>Customize the overall lighting conditions by assigning individual world materials (HDRIs) to each camera. Further, you can adjust the exposure for each camera, compensating for darker camera angles or world materials.</p>
-<p><img alt="img" src="../images/presentation_select_hdri.gif"></p>
+<p><img alt="img" src="../images/presentation_select_hdri.gif" /></p>
 <p>Assign different world materials (HDRIs) to individual cameras. The background will automatically be swapped accordingly when switching cameras. This allows you to easily iterate different lighting conditions and evaluate materials.</p>
 <p>This system is limited to world material and exposure. This means it's not suitable for more complex lighting changes that require different scene lights to be changed.</p>
 <h2 id="render-slots">Render Slots</h2>
 <p>Don't overwrite your previous render from a different camera by accident. Assign different render slots per camera. Changing the camera will also change to the proper render sloth in the render viewer.</p>
-<p><img alt="img" src="../images/presentation_toggle_camera_hdri_slots.gif" width="600"></p>
+<p><img alt="img" src="../images/presentation_toggle_camera_hdri_slots.gif" width="600" /></p>
 <p>Assign different render slots easily to different cameras.</p>
-<p><img alt="img" src="../images/presentation_render_to_slot.gif" width="600"></p>
+<p><img alt="img" src="../images/presentation_render_to_slot.gif" width="600" /></p>
 <p>Save render slot per camera and render directly from the Cam-Manager window.</p>
 <h2 id="save-renderings">Save Renderings</h2>
-<p><img alt="img" src="../images/save_renderings_compressed.gif"></p>
-<p>Use the camera names to save the images direclty to the specified directory.</p></div>
+<p><img alt="img" src="../images/save_renderings_compressed.gif" /></p>
+<p>Use the camera names to save the images direclty to the specified directory.</p>
               
             </div>
-          </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../cam_image_plane/" class="btn btn-neutral float-left" title="Precise Modeling"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
         <a href="../cam_release_notes/" class="btn btn-neutral float-right" title="Release Notes">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../cam_image_plane/" class="btn btn-neutral" title="Precise Modeling"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
     </div>
+  
 
   <hr/>
 
   <div role="contentinfo">
     <!-- Copyright etc -->
+    
   </div>
 
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-          
+      
         </div>
       </div>
 
@@ -158,7 +187,7 @@
 
   </div>
 
-  <div class="rst-versions" role="note" aria-label="Versions">
+  <div class="rst-versions" role="note" aria-label="versions">
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
