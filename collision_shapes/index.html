@@ -67,6 +67,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#mesh-collider">Mesh Collider</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#re-meshed-collider">Re-Meshed Collider</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#oriented-minimum-box-collider">Oriented Minimum Box Collider</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#convert">Convert</a>
@@ -104,6 +106,8 @@
                     <li class="toctree-l1"><a class="reference internal" href="../collider-tools_ue_guidline/">UE Guide</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../collider-tools_unity_guidline/">Unity Guide</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_godot_guidline/">Godot Guide</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../collider-tools_release_notes/">Release Notes</a>
                     </li>
@@ -202,6 +206,8 @@ Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a></p>
 <p>Mesh Collisions are the most complex collider shape to compute for a physics engine. Use them carefully, minimize the triangle count as much as possible and use them (only) for static objects. </p>
 <p><img alt="Gif showing the creation of a mesh collider" src="../images/Mesh_02_small.gif" width="600" />
 Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a></p>
+<h3 id="re-meshed-collider">Re-Meshed Collider</h3>
+<p>Re-Meshed Colliders voxelate the target mesh before generating the collider mesh. This can be handly when a complex object consists of a lot of intersacting parts and therefore a lot of unnecessary geometry. This approach removes interior faces. In combination with decimation, this can create more efficient final collider meshes than regular mesh colliders that use the unchanged target. </p>
 <h3 id="oriented-minimum-box-collider">Oriented Minimum Box Collider</h3>
 <p>Oriented Minimum Box Colliders are automatically oriented boxes with the smallest size possible. The computation is more complex and may be slow for meshes with a high vertex count. The output mesh is the same as regular box colliders, and it's indistinguishable to the engine how it was created. </p>
 <p>The implementation is based on Code from <a href="https://gist.github.com/iyadahmed"><strong>Iyad Ahmed</strong></a>. Iyad was so kind and gave me permission of using it.  </p>

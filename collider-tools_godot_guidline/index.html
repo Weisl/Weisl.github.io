@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Unity Guide - Documentation</title>
+  <title>Godot Guide - Documentation</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Unity Guide";
-    var mkdocs_page_input_path = "collider-tools_unity_guidline.md";
+    var mkdocs_page_name = "Godot Guide";
+    var mkdocs_page_input_path = "collider-tools_godot_guidline.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -65,17 +65,27 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../collider-tools_ue_guidline/">UE Guide</a>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Unity Guide</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_unity_guidline/">Unity Guide</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Godot Guide</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a>
+    <li class="toctree-l2"><a class="reference internal" href="#documentation-references">Documentation References</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#other">Other</a>
+    <li class="toctree-l2"><a class="reference internal" href="#supported-collider-types">Supported Collider Types</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#setup-in-blender">Setup in Blender</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#primitive-collider-shapes-wip">Primitive Collider Shapes (WIP)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#other-shapes">Other Shapes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#simulated-objects-wip">Simulated Objects (WIP)</a>
     </li>
     </ul>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_godot_guidline/">Godot Guide</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../collider-tools_release_notes/">Release Notes</a>
                     </li>
@@ -133,7 +143,7 @@
         
       
     
-    <li>Unity Guide</li>
+    <li>Godot Guide</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -145,64 +155,63 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="_1"><img alt="" src="../images/ColliderTools_banner_1_1_unity.jpg" /> <a name="Unity"></a></h1>
-<p>The collider import and setup in Unity is very simple. The following documentation is a guide on how to get the collisions from Blender to Unity. It will also reference the well-written Unity documentation, for more information on the Physics system in Unity and how the colliders are used by it. </p>
-<p><img alt="img" src="../images/Unity.jpg" /></p>
+                <h1 id="_1"><img alt="Header Image" src="../images/ColliderTools_banner_godot.jpg" /> <a name="Unity"></a></h1>
 <h2 id="overview">Overview</h2>
-<p>You can find detailed information on the collision setup in Unity in their documentation. </p>
+<p>This guide provides instructions on setting up assets in Blender and importing them into Godot for collision purposes. It covers the usage of Convex and Mesh collider types, which are supported by the Collider Tools addon.</p>
+<h2 id="documentation-references">Documentation References</h2>
 <ul>
-<li><a href="https://docs.unity3d.com/Manual/CollidersOverview.html">Unity Documentation: Colliders</a></li>
-<li><a href="https://docs.unity3d.com/Manual/class-Rigidbody.html">Unity Documentation: Rigidbody</a></li>
+<li><a href="https://docs.godotengine.org/en/stable/tutorials/physics/collision_shapes_3d.html#">Godot Documentation: Collision shapes (3D)</a></li>
+<li><a href="https://docs.godotengine.org/en/4.0/tutorials/assets_pipeline/importing_scenes.html#create-collisions-col-convcol-colonly-convcolonly">Godot 4.0 Documentation: Collider suffixes</a></li>
+<li><a href="https://docs.godotengine.org/en/4.0/tutorials/assets_pipeline/importing_scenes.html#rigid-body-rigid">Godot 4.0 Documentation: Rigid Body</a></li>
 </ul>
-<p>Unity supports the following Collider shapes relevant to this addon:</p>
+<h2 id="supported-collider-types">Supported Collider Types</h2>
+<p>The only collider types that are currently supported by this addon are Convex and Mesh. They can easily be generated with the addon and imported into the game engine.  </p>
 <ul>
-<li><a href="https://docs.unity3d.com/Manual/class-BoxCollider.html">Unity Documentation: Box Collider</a></li>
-<li><a href="https://docs.unity3d.com/Manual/class-SphereCollider.html">Unity Documentation: Sphere Collider</a></li>
-<li><a href="https://docs.unity3d.com/Manual/class-MeshCollider.html">Unity Documentation: Mesh Collider</a></li>
+<li><a href="https://docs.godotengine.org/en/stable/tutorials/physics/collision_shapes_3d.html#convex-collision-shapes">Convex</a></li>
+<li><a href="https://docs.godotengine.org/en/stable/tutorials/physics/collision_shapes_3d.html#concave-or-trimesh-collision-shapes">Mesh</a></li>
 </ul>
-<div class="admonition note inline end">
-<p class="admonition-title">Note</p>
-<p>Convex Colliders are also handled by the Mesh Collider Component. The Mesh Collider has a checkbox to select convex shapes. 
-Convex Mesh Colliders are limited to 255 triangles.</p>
-</div>
-<h2 id="setup">Setup</h2>
+<p>Godot uses object suffixes, known as <strong>Import Hints</strong>, to specify different properties per object on import. These hints tell Godot the intended use of an object as a collider.</p>
+<ul>
+<li><strong>-colonly</strong>:  Imports the object as a <strong>Mesh Collider</strong></li>
+<li><strong>-convcolonly</strong>:  Imports the object as a <strong>Convex Collider</strong></li>
+<li><strong>-col</strong>: Imports the object as both a visual mesh and a mesh collider.</li>
+<li><strong>-convcol</strong>: Imports the object as both a visual mesh and a convex collider.</li>
+</ul>
+<h3 id="setup-in-blender">Setup in Blender</h3>
 <ol>
-<li>
-<p>There are no setup requirements or naming guidelines for exporting colliders to Unity. you can set them up according to your project guidelines or preferences.</p>
-<p><img alt="img" src="../images/Unity_blender_Setup.jpg" width="600" /></p>
-</li>
-<li>
-<p>Export the asset as fbx, together with all its colliders.</p>
-</li>
-<li>Import the asset to Unity. You can use the same export/import settings as usual.</li>
-<li>
-<p>Drag the asset into the scene. The colliders are visible.</p>
-<p><img alt="img" src="../images/Unity_scene.jpg" width="600" /></p>
-</li>
-<li>
-<p>Disable <strong>Mesh Renderer</strong> for all colliders meshes. Select the colliders from Hierarchy, go to the <strong>Inspector</strong> and remove the checkbox from the <strong>Mesh Renderer</strong>  </p>
-</li>
-<li>
-<p>Add Collider Component to the collider mesh. Go to the <strong>Inspector</strong> -&gt; <strong>Add Component</strong> -&gt; <strong>Box Collider</strong> (or whatever collider type you have)</p>
-<p><img alt="img" src="../images/Unity_component_collider.jpg" width="600" /></p>
-</li>
-<li>
-<p><strong>(optional)</strong> Is it a dynamic object? If so, add Rigidbody component to the asset parent. To do so, go to <strong>Inspector</strong> -&gt; <strong>Add Component</strong> -&gt; <strong>Rigidbody</strong></p>
-<p><img alt="img" src="../images/Unity_component_Rigid_body.jpg" width="600" /></p>
-</li>
-<li>
-<p><strong>(optional)</strong> The collider component has a Physics Matreial input <strong>Material</strong> that can be used to assign Physics materials to collisons. See: <a href="https://docs.unity3d.com/Manual/class-PhysicMaterial.html">Unity Documentation: Physic Material</a> for more information on physics materials.</p>
-<p><img alt="img" src="../images/PhysicsMaterials.jpg" width="400" /></p>
-</li>
+<li><strong>Name the Assets Correctly:</strong> Ensure assets in Blender are named using the corresponding suffixes, specified above.</li>
+<li><strong>Export with Collisions:</strong> Export the asset from Blender with the colliders.</li>
+<li><strong>Import into Godot:</strong> Import the exported asset into Godot.</li>
 </ol>
-<h2 id="other">Other</h2>
-<p><img alt="img" src="../images/unity_convex_collision_optimization.jpg" width="600" /></p>
+<p>I recommend separating visual mesh and collision. This allows for more optimized collision meshes</p>
+<p>Following image illustrates the setup in Blender for <strong>-colonly, -convcolonly</strong>. Here we separate between visual mesh and collision. This allows us to optimize the collision and should be the prefered way to go. The suffix will be added automatically when creating colliders with Collider Tools and using the Godot preset.</p>
+<p><img alt="img" src="../images/godot_collider_only.png" width="600" /></p>
+<p>Alternatively you can also use the visual mesh as collider: </p>
+<p>Following image illustrates the setup in Blender for <strong>-col, -convcol</strong>. These suffix types define that the objects are used both as visual mesh and as collider.</p>
+<p><img alt="img" src="../images/Godot-Visualt_Collider.png" width="600" /></p>
+<p><img alt="img" src="../images/Godot_monkeys.jpg" /></p>
+<p>Once imported into Godot, the scene setup should include a visible Mesh with a StaticBody3D component and a CollisionShape3D component. The CollisionShape3D will be set to either concave or convex, depending on the suffix used.</p>
+<h2 id="primitive-collider-shapes-wip">Primitive Collider Shapes (WIP)</h2>
 <div class="admonition warning inline end">
 <p class="admonition-title">Warning</p>
-<p>It appears that Unity is optimizing all the <strong>Convex</strong> Mesh Collider geometry even if the triangle max of 255 is not reached. See example above.</p>
+<p>Setting up primitive collider types in Godot requires a specific approach. This process is not supported by the Collider Tool addon and must be done manually.</p>
 </div>
-<p>The following image shows an example with more complexity. Only the parent contains a Rigidbody component. All colliders in the hierarchy below will function as 1 compound collider. Unity supports multi-edit for all selected entities. You can easily disable Mesh Renderer for all colliders at once and assign the correct collider type based on the naming. In this case, consistent naming comes in handy. </p>
-<p><img alt="img" src="../images/Unity_collision_compound_shape_small.gif" width="1000" /></p>
+<p>Supported primitive shapes in Godot include:</p>
+<ul>
+<li><a href="https://docs.godotengine.org/en/stable/classes/class_sphereshape3d.html">Sphere</a></li>
+<li><a href="https://docs.godotengine.org/en/stable/classes/class_boxshape3d.html">Box</a></li>
+<li><a href="https://docs.godotengine.org/en/stable/classes/class_boxshape3d.html">Capsule</a></li>
+<li><a href="https://docs.godotengine.org/en/stable/classes/class_cylindershape3d.html">Cylinder</a></li>
+</ul>
+<h2 id="other-shapes">Other Shapes</h2>
+<p>Godot also offers specialized collision shapes for specific use cases. These include: The SeparationRay type can be imported in a similar way to the primitive collider types. </p>
+<ul>
+<li><a href="https://docs.godotengine.org/en/stable/classes/class_heightmapshape3d.html">HeightMapShape3D</a></li>
+<li><a href="https://docs.godotengine.org/en/stable/classes/class_separationrayshape3d.html">SeparationRayShape3D</a></li>
+<li><a href="https://docs.godotengine.org/en/stable/classes/class_worldboundaryshape3d.html">WorldBoundaryShape3D</a></li>
+</ul>
+<p>These shapes should be considered for more advanced and specific collision requirements.</p>
+<h2 id="simulated-objects-wip">Simulated Objects (WIP)</h2>
               
             </div>
           </div>
@@ -210,10 +219,10 @@ Convex Mesh Colliders are limited to 255 triangles.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../collider-tools_godot_guidline/" class="btn btn-neutral float-right" title="Godot Guide">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../collider-tools_release_notes/" class="btn btn-neutral float-right" title="Release Notes">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../collider-tools_ue_guidline/" class="btn btn-neutral" title="UE Guide"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../collider-tools_unity_guidline/" class="btn btn-neutral" title="Unity Guide"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -239,10 +248,10 @@ Convex Mesh Colliders are limited to 255 triangles.</p>
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../collider-tools_ue_guidline/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../collider-tools_unity_guidline/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../collider-tools_godot_guidline/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../collider-tools_release_notes/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
