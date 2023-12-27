@@ -79,11 +79,19 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#primitive-collider-shapes-wip">Primitive Collider Shapes (WIP)</a>
+    <li class="toctree-l2"><a class="reference internal" href="#primitive-collider-shapes">Primitive Collider Shapes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#simulated-objects">Simulated Objects</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#setup-in-blender_1">Setup in Blender</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#in-godot">In Godot</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#physics-materials">Physics Materials</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#other-shapes">Other Shapes</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#simulated-objects-wip">Simulated Objects (WIP)</a>
     </li>
     </ul>
                     </li>
@@ -162,7 +170,6 @@
 <ul>
 <li><a href="https://docs.godotengine.org/en/stable/tutorials/physics/collision_shapes_3d.html#">Godot Documentation: Collision shapes (3D)</a></li>
 <li><a href="https://docs.godotengine.org/en/4.0/tutorials/assets_pipeline/importing_scenes.html#create-collisions-col-convcol-colonly-convcolonly">Godot 4.0 Documentation: Collider suffixes</a></li>
-<li><a href="https://docs.godotengine.org/en/4.0/tutorials/assets_pipeline/importing_scenes.html#rigid-body-rigid">Godot 4.0 Documentation: Rigid Body</a></li>
 </ul>
 <h2 id="supported-collider-types">Supported Collider Types</h2>
 <p>The only collider types that are currently supported by this addon are Convex and Mesh. They can easily be generated with the addon and imported into the game engine.  </p>
@@ -191,10 +198,11 @@
 <p><img alt="img" src="../images/Godot-Visualt_Collider.png" width="600" /></p>
 <p><img alt="img" src="../images/Godot_monkeys.jpg" /></p>
 <p>Once imported into Godot, the scene setup should include a visible Mesh with a StaticBody3D component and a CollisionShape3D component. The CollisionShape3D will be set to either concave or convex, depending on the suffix used.</p>
-<h2 id="primitive-collider-shapes-wip">Primitive Collider Shapes (WIP)</h2>
+<h2 id="primitive-collider-shapes">Primitive Collider Shapes</h2>
 <div class="admonition warning inline end">
 <p class="admonition-title">Warning</p>
-<p>Setting up primitive collider types in Godot requires a specific approach. This process is not supported by the Collider Tool addon and must be done manually.</p>
+<p>The import instructions from the Godot documentation did not work for me. I was not able to import primitive types from Blender. Empties are always imported as Node3D instead of the CollisionShape. 
+Setting up primitive collider types in Godot requires a specific approach. This process is not supported by the Collider Tool addon and must be done manually.</p>
 </div>
 <p>Supported primitive shapes in Godot include:</p>
 <ul>
@@ -203,6 +211,46 @@
 <li><a href="https://docs.godotengine.org/en/stable/classes/class_boxshape3d.html">Capsule</a></li>
 <li><a href="https://docs.godotengine.org/en/stable/classes/class_cylindershape3d.html">Cylinder</a></li>
 </ul>
+<h2 id="simulated-objects">Simulated Objects</h2>
+<p>Simulated objects are object affected by the 3D physics simulation. They can be moved by forces like gravity and be pushed around. </p>
+<ul>
+<li><a href="https://docs.godotengine.org/en/4.0/tutorials/assets_pipeline/importing_scenes.html#rigid-body-rigid">Godot 4.0 Documentation: Rigid Body</a></li>
+</ul>
+<p>This is the required hierarchy for simulated objects to work in Godot:</p>
+<ul>
+<li><strong>Rigidbody parent</strong><ul>
+<li><strong>Visual Mesh</strong></li>
+<li><strong>Collider</strong></li>
+<li>(optional) additional Colliders</li>
+</ul>
+</li>
+</ul>
+<p><img alt="img" src="../images/GodotRidigHierarchy.jpg" width="800" /></p>
+<p>Visual mesh and colliders need to be direct children of the Rigid Body. I can have an arbitrary number of colliders directly parented to the Rigid body.</p>
+<h3 id="setup-in-blender_1">Setup in Blender</h3>
+<ul>
+<li>Apply <strong>-rigid</strong> directly to the visual mesh of the object. This assigns a Rigid Body component in Godot and a CollisionShape3D.</li>
+<li>Do not add additional suffixes! Avoid <strong>-col, -convcol, -colonly, and -convcolonly</strong>: These add a StaticBody3D and conflict with -rigid.</li>
+<li>Avoid additional Colliders: Do not attach extra colliders to the object with -rigid. As they will also add StaticBody3D components in Godot.</li>
+</ul>
+<p><img alt="" src="../images/Godot_Rigid_correct.jpg" width="600" /></p>
+<p>This setup will create a rigid body with a visual mesh and a mesh collider in Godot. </p>
+<p><img alt="" src="../images/Godot_Rigid_wrong.jpg" width="600" /></p>
+<p>Custom Colliders can not be imported with a rigid body currently. </p>
+<h3 id="in-godot">In Godot</h3>
+<ul>
+<li><strong>Default Type</strong>: The default is a Concave Collider, not ideal for simulated meshes.</li>
+<li><strong>Manual Adjustment</strong>: Change the collider type to Convex manually, or add a different primitive collider.</li>
+</ul>
+<p><img alt="" src="../images/GodotRigid.jpg" width="800" /></p>
+<h2 id="physics-materials">Physics Materials</h2>
+<p>Physics Materials hold physics-related properties of a surface, in the case of Godot its primarily roughness and bounciness. 
+Godot supports per-shape physics material assignment. </p>
+<p>Physics Materials can be assigned to the individual CollisionShape object.</p>
+<div class="admonition warning inline end">
+<p class="admonition-title">Warning</p>
+<p>The Godot default importer does not support the automated import of physics materials. </p>
+</div>
 <h2 id="other-shapes">Other Shapes</h2>
 <p>Godot also offers specialized collision shapes for specific use cases. These include: The SeparationRay type can be imported in a similar way to the primitive collider types. </p>
 <ul>
@@ -211,7 +259,6 @@
 <li><a href="https://docs.godotengine.org/en/stable/classes/class_worldboundaryshape3d.html">WorldBoundaryShape3D</a></li>
 </ul>
 <p>These shapes should be considered for more advanced and specific collision requirements.</p>
-<h2 id="simulated-objects-wip">Simulated Objects (WIP)</h2>
               
             </div>
           </div>
