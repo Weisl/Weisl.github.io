@@ -82,7 +82,7 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#why-cam-manager">Why Cam-Manager?</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#behind-the-curtain">Behind the curtain</a>
+    <li class="toctree-l2"><a class="reference internal" href="#how-it-works">How it works</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#download-and-installation">Download and Installation</a>
     </li>
@@ -152,7 +152,6 @@
             <div class="section">
               
                 <h1 id="overview">Overview</h1>
-<p><img alt="img" src="../images/cam-Manager.jpg" /></p>
 <h2 id="what-is-cam-manager">What is Cam-Manager?</h2>
 <p>Cam-Manager is an addon to <strong>organize scene cameras</strong> and tweak their settings directly from the 3D view. The mission of this addon is to <strong>bring all camera-related relevant settings and information</strong> as close <strong>to the user</strong> as possible. Camera handling should become as simple and fast as using a smartphone camera.</p>
 <h2 id="feature-overview">Feature Overview</h2>
@@ -182,39 +181,6 @@
 <li>Exposure: Compensate lighting intensity changes from cameras by assigning a <strong>camera-specific exposure</strong> value.</li>
 <li>Change hotkeys to your likings from the addon preferences.</li>
 </ul>
-<p><a href="../cam_UI/">
-    <figure markdown>
-      <img alt="Image title" src="../images/cam_overview_UI.jpg" />
-      <figcaption>The UI</figcaption>
-    </figure>
-</a></p>
-<p><a href="../cam_dolly_zoom/">
-    <figure markdown>
-      <img alt="Image title" src="../images/cam-Manager.jpg" />
-      <figcaption>Dolly-Zoom</figcaption>
-    </figure>
-</a></p>
-<p><a href="../cam_composition/">
-    <figure markdown>
-      <img alt="Image title" src="../images/cam_overview_Composition.jpg" />
-      <figcaption>Scene Composition</figcaption>
-    </figure>
-</a></p>
-<p><a href="../cam_image_plane/">
-    <figure markdown>
-      <img alt="Image title" src="../images/cam_overview_PrecisionModelling.jpg" />
-      <figcaption>Image Planes</figcaption>
-    </figure>
-</a></p>
-<p><a href="../cam_Rendering_workflow/">
-    <figure markdown>
-      <img alt="Image title" src="../images/cam_overview_Rendering.jpg" />
-      <figcaption>Rendering</figcaption>
-    </figure>
-</a></p>
-<figure>
-<p><img alt="Image title" src="../images/white_800x600.jpg" /></p>
-</figure>
 <h2 id="why-cam-manager">Why Cam-Manager?</h2>
 <p><strong>Stay Organized:</strong>
 See all the cameras and their most important values at one glance and adjust the values if needed.</p>
@@ -224,7 +190,7 @@ All the functionality is at your fingertips and can be accessed from the 3D View
 The overview panel is a simple and well-structured spreadsheet and the operators are self-explanatory, with additional descriptions, if needed.</p>
 <p><strong>Continuous Support:</strong>
 The addon is well documented. All buttons, tools, and values have useful description texts when hovering. Development is still ongoing. Share your feedback, opinions, use-cases, needs and help me to improve the tool even further. </p>
-<h2 id="behind-the-curtain">Behind the curtain</h2>
+<h2 id="how-it-works">How it works</h2>
 <p>Blender stores the current resolution, exposure, and world material as global value in the scene and not as components of the camera. When switching the camera, the addon will set the current scene values to those stored per camera by the addon. This works perfectly when switching cameras with the tools provided by this addon. It will not work when changing the camera manually or when using other addons. This is unfortunately a limitation coming from blender implementation of cameras.</p>
 <p><img alt="img" src="../images/overview_behind_the_curtain.gif" width="600" /></p>
 <p>Due to this limitation in the blender architecture, it is not possible to preview multiple cameras with different resolutions at the same time.</p>
