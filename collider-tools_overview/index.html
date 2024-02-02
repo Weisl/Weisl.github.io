@@ -163,9 +163,9 @@
 </ul>
 <h2 id="what-is-collider-tools">What is Collider Tools?</h2>
 <p>Collider Tools is a Blender addon to <strong>create physics colliders</strong> for <strong>games and real-time applications</strong>.
-The addon offers a lot of tools for <strong>creating the most common collider types</strong> like <strong>Box, Sphere, Capsule (Beta), Convex, Convex (
-cylindrical), Auto Convex (Windows only)</strong>, <strong>Mesh</strong>, <strong>Re-Meshed</strong> and <strong>Oriented Minimum BBox</strong> quickly and easily within Blender.
-These colliders can then be <strong>imported</strong> to engines like <strong>UE, Unity</strong>, and others.<br />
+The addon offers a lot of tools for <strong>creating the most common collider types</strong> like <strong>Box, Sphere, Capsule, Convex, Convex (
+cylindrical), Auto Convex (Windows and Linux only)</strong>, <strong>Mesh</strong>, <strong>Re-Meshed</strong> and <strong>Oriented Minimum BBox</strong> quickly and easily within Blender.
+These colliders can then be <strong>imported</strong> to engines like <strong>UE, Unity</strong>, <strong>Godot</strong> and other.<br />
 The addon offers big flexibility and controllability by using the <strong>selection</strong>, both in <strong>Object</strong> and <strong>Edit-mode</strong>,
 as well as offering settings like <strong>global</strong> or <strong>local space</strong> collider generation. Further, colliders can now be
 generated <strong>per object</strong> around the <strong>entire selection</strong> or based on <strong>loose parts</strong> - mesh islands, object parts that are not connected to each other.</p>
@@ -179,27 +179,29 @@ automatically generate multiple convex shapes to represent complex meshes (conve
 <h2 id="feature-overview">Feature Overview</h2>
 <ul>
 <li>Quick and simple creation of collider objects.</li>
-<li>Support for <strong>Sphere, Box, Capsule (Beta), Convex, Convex Cylinder, Re-Meshed</strong> and <strong>Mesh</strong> shapes.</li>
+<li>Support for <strong>Sphere, Box, Capsule, Convex, Convex Cylinder, Re-Meshed</strong> and <strong>Mesh</strong> shapes.</li>
 <li>Support for <strong>Oriented Minimum Bounding Box</strong> generation, an automatically oriented box collider to have the lowest
   volume possible. My implementation is based on code from <a href="https://gist.github.com/iyadahmed"><strong>Iyad
   Ahmed</strong></a>.</li>
 <li>Support for <strong>Object-</strong> and <strong>Edit-mode</strong>, including <strong>multi-object Edit-mode</strong>.</li>
 <li>Collider creation per <strong>individual object</strong>, around the <strong>entire selection</strong> or based on <strong>loose parts</strong>.</li>
-<li>Custom colliders can be used in engines like <strong>UE4-5, Unity,</strong> and other engines with a flexible naming scheme.</li>
+<li>Custom colliders can be used in engines like <strong>UE4-5, Unity, Godot</strong> and other engines with a flexible naming scheme.</li>
 <li>Support for <strong>Edit mode selection</strong>. Create collision only surrounding the selected geometry of each object. Works
   with <strong>multi-edit</strong> and <strong>modifier stack</strong>.</li>
-<li>Support for creating <strong>world-aligned</strong> and <strong>object-aligned</strong> collisions for Boxes and Cylinders.</li>
+<li>Support for creating <strong>world-aligned</strong> and <strong>object-aligned</strong> collisions for primitive collider types like Boxes, Cylinders and Capsules.</li>
 <li>Support for collision creation based on <strong>pre</strong> or <strong>post-modifier</strong> stack mesh data.</li>
 <li>Change creation settings from the 3D Viewport. The collider creation works with modal operators, allowing for user
   input during the creation.</li>
 <li><strong>Flexible naming</strong> options to support different engine and pipeline needs.</li>
 <li>Consistent and clean UI overlay in the 3D viewport during the collider creation.</li>
-<li>Assign materials to be used as <strong>physics materials</strong> in engines.</li>
+<li>Assign and organize materials to be used as <strong>physics materials</strong> in engines.</li>
 <li>Convert <strong>meshes to colliders</strong> and <strong>colliders to meshes</strong>.</li>
+<li>Assign <strong>Rigid Body</strong> naming.</li>
 <li><strong>Regenerate Names</strong> to change the collider naming according to the current collider preset.</li>
+<li><strong>Collider from Naming</strong>. Did you create your colliders with another software? No problem, detect the collider types based on the naming and use the full power of this tool.</li>
 <li>Support for different collider groups: 3 Groups can be used to group, select and name colliders according to their
   functionality or just for overview.</li>
-<li>Support for <strong>Auto convex (Windows only)</strong>, convex decomposition, collider creation
+<li>Support for <strong>Auto convex (Windows and Ubuntu(64bit) only)</strong>, convex decomposition, collider creation
   using <a href="https://github.com/kmammou/v-hacd">V-hacd</a> library. Convex decomposition allows representing complex shapes
   with multiple convex shapes that could otherwise only be represented with Mesh collisions.</li>
 </ul>
