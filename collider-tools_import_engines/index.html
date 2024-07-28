@@ -1,157 +1,137 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  
-  <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Game Engine Support - Documentation</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
-
-  <link rel="stylesheet" href="../css/theme.css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
-  <link href="../extra.css" rel="stylesheet" />
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "Game Engine Support";
-    var mkdocs_page_input_path = "collider-tools_import_engines.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Game Engine Support - Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Game Engine Support";
+        var mkdocs_page_input_path = "collider-tools_import_engines.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> Documentation</a>
-        
+          <a href=".." class="icon icon-home"> Documentation
+        </a>
       </div>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
-                    </li>
-                </ul>
-                <p class="caption"><span class="caption-text">Collider Tools</span></p>
-                <ul class="current">
-                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_overview/">Overview</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_ui/">The UI</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../collision_shapes/">Collider Shapes</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_auto_convex/">Auto Convex</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_groups/">Collider Groups</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_physics_materials/">Physics Materials</a>
-                    </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Game Engine Support</a>
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Collider Tools</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_ui/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collision_shapes/">Collider Shapes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_auto_convex/">Auto Convex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_groups/">Collider Groups</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_physics_materials/">Physics Materials</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Game Engine Support</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#naming-presets">Naming Presets </a>
+    <li class="toctree-l2"><a class="reference internal" href="#naming-presets">Naming Presets</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#distributing-presets">Distributing Presets</a>
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#other">Other </a>
+    <li class="toctree-l2"><a class="reference internal" href="#other">Other</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#presets-for-collider-tools-before-11">Presets for Collider Tools (before 1.1)</a>
     </li>
         </ul>
     </li>
     </ul>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_ue_guidline/">UE Guide</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_unity_guidline/">Unity Guide</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_godot_guidline/">Godot Guide</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_release_notes/">Release Notes</a>
-                    </li>
-                </ul>
-                <p class="caption"><span class="caption-text">Cam Manager</span></p>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../cam_Overview/">Overview</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../cam_UI/">The UI</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../cam_dolly_zoom/">Dolly Zoom</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../cam_composition/">Composition</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../cam_image_plane/">Precise Modeling</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../cam_Rendering_workflow/">Presentation</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../cam_release_notes/">Release Notes</a>
-                    </li>
-                </ul>
-                <p class="caption"><span class="caption-text">Simple Renaming Panel (Free)</span></p>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../renaming/">Overview</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../renaming_UI/">The UI</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../renaming_variables/">Renaming Variables</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../renaming_release_notes/">Release Notes</a>
-                    </li>
-                </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_ue_guidline/">UE Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_unity_guidline/">Unity Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_godot_guidline/">Godot Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cam Manager</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../cam_Overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cam_UI/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cam_dolly_zoom/">Dolly Zoom</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cam_composition/">Composition</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cam_image_plane/">Precise Modeling</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cam_Rendering_workflow/">Presentation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cam_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Simple Renaming Panel (Free)</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../renaming/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../renaming_UI/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../renaming_variables/">Renaming Variables</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../renaming_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
       </div>
     </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">Documentation</a>
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Documentation</a>
+        
       </nav>
-
-      
       <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="..">Docs</a> &raquo;</li>
-    
-      
-        
-          <li>Collider Tools &raquo;</li>
-        
-      
-    
-    <li>Game Engine Support</li>
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Collider Tools</li>
+      <li class="breadcrumb-item active">Game Engine Support</li>
     <li class="wy-breadcrumbs-aside">
-      
     </li>
   </ul>
-  
   <hr/>
 </div>
-
-          <div role="main">
-            <div class="section">
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
               
-                <h1 id="_1"><img alt="img" src="../images/ColliderTools_banner_1_1_engines.jpg" /></h1>
+                <div><h1 id="_1"><img alt="img" src="../images/ColliderTools_banner_1_1_engines.jpg"></h1>
 <p>The Collider Tools addon covers only the blender side of creating collisions. It does not provide any special importers for 3rd party game engines.</p>
 <ul>
 <li><a href="../collider-tools_ue_guidline/">Unreal Engine Guide</a> </li>
@@ -163,9 +143,9 @@
 <li>UE-default (read-only)</li>
 <li>Unity (read-only)</li>
 </ul>
-<p><img alt="img" src="../images/collider_presets.gif" width="200" /></p>
+<p><img alt="img" src="../images/collider_presets.gif" width="200"></p>
 <p>Presets can be created and deleted. You can change a preset by creating a preset with the same name.
-<img alt="img" src="../images/Naming_Presets.gif" width="600" /></p>
+<img alt="img" src="../images/Naming_Presets.gif" width="600"></p>
 <h3 id="distributing-presets">Distributing Presets</h3>
 <p>The easiest way to distribute the presets is to share the preset '.py' files. You can open the preset directory by pressing the folder icon in either the side panel or the preferences (see gifs above). You can also find the files under following path (Windows): </p>
 <p>Windows: <code>C:\Users\ [ Use Name ]  \AppData\Roaming\Blender Foundation\Blender\ [ Blender Version ] \scripts\presets\collider_tools</code></p>
@@ -209,32 +189,24 @@ prefs.physics_material_filter = 'COL'
 <ul>
 <li>Unreal Engine Naming Preset: <a href="https://weisl.github.io//files//UE.py">Download</a> | <a href="../files/UE.py">View</a> </li>
 <li>Default Naming Preset: <a href="https://weisl.github.io//files//default.py">Download</a> | <a href="../files/default.py">View</a></li>
-</ul>
+</ul></div>
               
             </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../collider-tools_physics_materials/" class="btn btn-neutral float-left" title="Physics Materials"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../collider-tools_ue_guidline/" class="btn btn-neutral float-right" title="UE Guide">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../collider-tools_physics_materials/" class="btn btn-neutral" title="Physics Materials"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <!-- Copyright etc -->
-    
   </div>
 
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-      
+          
         </div>
       </div>
 
@@ -242,7 +214,7 @@ prefs.physics_material_filter = 'COL'
 
   </div>
 
-  <div class="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" role="note" aria-label="Versions">
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
@@ -253,13 +225,14 @@ prefs.physics_material_filter = 'COL'
     
   </span>
 </div>
-    <script>var base_url = '..';</script>
-    <script src="../js/theme_extra.js" defer></script>
-    <script src="../js/theme.js" defer></script>
-    <script defer>
-        window.onload = function () {
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+    <script>
+        jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
-        };
+        });
     </script>
 
 </body>

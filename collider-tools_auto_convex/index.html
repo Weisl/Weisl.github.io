@@ -1,61 +1,54 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  
-  <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Auto Convex - Documentation</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
-
-  <link rel="stylesheet" href="../css/theme.css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
-  <link href="../extra.css" rel="stylesheet" />
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "Auto Convex";
-    var mkdocs_page_input_path = "collider-tools_auto_convex.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Auto Convex - Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Auto Convex";
+        var mkdocs_page_input_path = "collider-tools_auto_convex.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> Documentation</a>
-        
+          <a href=".." class="icon icon-home"> Documentation
+        </a>
       </div>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
-                    </li>
-                </ul>
-                <p class="caption"><span class="caption-text">Collider Tools</span></p>
-                <ul class="current">
-                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_overview/">Overview</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_ui/">The UI</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../collision_shapes/">Collider Shapes</a>
-                    </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Auto Convex</a>
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Collider Tools</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_ui/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collision_shapes/">Collider Shapes</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Auto Convex</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#basic-parameters">Basic Parameters</a>
     </li>
@@ -64,94 +57,81 @@
     <li class="toctree-l2"><a class="reference internal" href="#installation-pre-11">Installation (pre 1.1)</a>
     </li>
     </ul>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_groups/">Collider Groups</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_physics_materials/">Physics Materials</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_import_engines/">Game Engine Support</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_ue_guidline/">UE Guide</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_unity_guidline/">Unity Guide</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_godot_guidline/">Godot Guide</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_release_notes/">Release Notes</a>
-                    </li>
-                </ul>
-                <p class="caption"><span class="caption-text">Cam Manager</span></p>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../cam_Overview/">Overview</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../cam_UI/">The UI</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../cam_dolly_zoom/">Dolly Zoom</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../cam_composition/">Composition</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../cam_image_plane/">Precise Modeling</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../cam_Rendering_workflow/">Presentation</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../cam_release_notes/">Release Notes</a>
-                    </li>
-                </ul>
-                <p class="caption"><span class="caption-text">Simple Renaming Panel (Free)</span></p>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../renaming/">Overview</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../renaming_UI/">The UI</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../renaming_variables/">Renaming Variables</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../renaming_release_notes/">Release Notes</a>
-                    </li>
-                </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_groups/">Collider Groups</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_physics_materials/">Physics Materials</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_import_engines/">Game Engine Support</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_ue_guidline/">UE Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_unity_guidline/">Unity Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_godot_guidline/">Godot Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cam Manager</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../cam_Overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cam_UI/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cam_dolly_zoom/">Dolly Zoom</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cam_composition/">Composition</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cam_image_plane/">Precise Modeling</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cam_Rendering_workflow/">Presentation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cam_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Simple Renaming Panel (Free)</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../renaming/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../renaming_UI/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../renaming_variables/">Renaming Variables</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../renaming_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
       </div>
     </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">Documentation</a>
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Documentation</a>
+        
       </nav>
-
-      
       <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="..">Docs</a> &raquo;</li>
-    
-      
-        
-          <li>Collider Tools &raquo;</li>
-        
-      
-    
-    <li>Auto Convex</li>
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Collider Tools</li>
+      <li class="breadcrumb-item active">Auto Convex</li>
     <li class="wy-breadcrumbs-aside">
-      
     </li>
   </ul>
-  
   <hr/>
 </div>
-
-          <div role="main">
-            <div class="section">
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
               
-                <h1 id="auto-convex-shape">Auto Convex Shape</h1>
+                <div><h1 id="auto-convex-shape">Auto Convex Shape</h1>
 <div class="admonition warning inline end">
 <p class="admonition-title">Warning</p>
 <p>Auto Convex is currently only supported for Windows and Ubuntu(64bit). It uses the external V-HACD library to work. Ubuntu support was added in version 1.5</p>
 </div>
 <p>Auto Convex is a helpful tool for generating convex colliders of a complex mesh. It works well for complex, organic shapes, like rocks, statues, rubble and debris. It is not the magic one click solution for each asset but a helpful tool especially for organic assets!</p>
-<p><img alt="Example of Auto Convex Collider generation and how different depth settings affect the number of created colliders." src="../images/CollisionTools_Auto_convex.jpg" /></p>
+<p><img alt="Example of Auto Convex Collider generation and how different depth settings affect the number of created colliders." src="../images/CollisionTools_Auto_convex.jpg"></p>
 <h3 id="basic-parameters">Basic Parameters</h3>
 <p>The most important values to control the amount of convex hulls and their complexity can be controlled in a popup window. It appears when calling the operator and contains following settings:</p>
 <table>
@@ -190,12 +170,12 @@
 </tr>
 </tbody>
 </table>
-<p><img alt="img" src="../images/AutoConvexSettings.gif" width="250" /></p>
+<p><img alt="img" src="../images/AutoConvexSettings.gif" width="250"></p>
 <p>The parameter description is coming from the original library used: <a href="https://github.com/kmammou/v-hacd">Github: V-hacd</a></p>
-<p><img alt="img" src="../images/auto_convex_small.gif" width="600" /></p>
+<p><img alt="img" src="../images/auto_convex_small.gif" width="600"></p>
 <h3 id="advanced-parameters">Advanced Parameters</h3>
 <p>The advanced parameters can be found in the addon preferences in <strong>Auto Convex</strong>. You can directly access the preferences by pressing the gear button next to "Auto Convex".</p>
-<p><img alt="img" src="../images/AutoConvex_Preferences.jpg" width="600" /></p>
+<p><img alt="img" src="../images/AutoConvex_Preferences.jpg" width="600"></p>
 <ul>
 <li><strong>Overwrite Executable:</strong> Specify a path to another V-hacd executable if you want to use a custom build.</li>
 <li><strong>Temporary Data Path</strong> Data path to store temporary files like meshes and log files sused by V-HACD to generate Auto Convex colliders.</li>
@@ -247,38 +227,30 @@
 <p>Click this link to find detailed documentation for how to use the library:
 <a href="https://docs.google.com/presentation/d/1OZ4mtZYrGEC8qffqb8F7Le2xzufiqvaPpRbLHKKgTIM/edit#slide=id.g123758ab003_0_310">Voxelized Hierarchical Convex Decomposition - V-HACD version 4</a></p>
 <h2 id="installation-pre-11">Installation (pre 1.1)</h2>
-<p><img alt="img" src="../images/auto_convex_setup.jpg" width="600" /></p>
+<p><img alt="img" src="../images/auto_convex_setup.jpg" width="600"></p>
 <ol>
 <li>Download the V-hacd executable from the link below (Download V-hacd). (optional) Copy the downloaded executable to another directory on your hard drive.</li>
 <li>Press the small folder icon of the 'V-hacd exe' input to open a file browser. Select the V-hacd.exe you have just downloaded before and confirm with 'Accept'.</li>
 <li>(optional) The auto convex collider requires temporary files to be stored on your pc to allow for the communication of Blender and the V-hacd executable. You can change the directory for storing the temporary data from here.</li>
 <li>(optional) See the Github page of the V-HACD for more information on the executable.</li>
-</ol>
+</ol></div>
               
             </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../collision_shapes/" class="btn btn-neutral float-left" title="Collider Shapes"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../collider-tools_groups/" class="btn btn-neutral float-right" title="Collider Groups">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../collision_shapes/" class="btn btn-neutral" title="Collider Shapes"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <!-- Copyright etc -->
-    
   </div>
 
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-      
+          
         </div>
       </div>
 
@@ -286,7 +258,7 @@
 
   </div>
 
-  <div class="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" role="note" aria-label="Versions">
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
@@ -297,13 +269,14 @@
     
   </span>
 </div>
-    <script>var base_url = '..';</script>
-    <script src="../js/theme_extra.js" defer></script>
-    <script src="../js/theme.js" defer></script>
-    <script defer>
-        window.onload = function () {
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+    <script>
+        jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
-        };
+        });
     </script>
 
 </body>

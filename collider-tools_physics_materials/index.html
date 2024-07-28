@@ -1,187 +1,159 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  
-  <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Physics Materials - Documentation</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
-
-  <link rel="stylesheet" href="../css/theme.css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
-  <link href="../extra.css" rel="stylesheet" />
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "Physics Materials";
-    var mkdocs_page_input_path = "collider-tools_physics_materials.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Physics Materials - Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Physics Materials";
+        var mkdocs_page_input_path = "collider-tools_physics_materials.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> Documentation</a>
-        
+          <a href=".." class="icon icon-home"> Documentation
+        </a>
       </div>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
-                    </li>
-                </ul>
-                <p class="caption"><span class="caption-text">Collider Tools</span></p>
-                <ul class="current">
-                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_overview/">Overview</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_ui/">The UI</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../collision_shapes/">Collider Shapes</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_auto_convex/">Auto Convex</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_groups/">Collider Groups</a>
-                    </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Physics Materials</a>
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Collider Tools</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_ui/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collision_shapes/">Collider Shapes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_auto_convex/">Auto Convex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_groups/">Collider Groups</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Physics Materials</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#_1"></a>
     </li>
     </ul>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_import_engines/">Game Engine Support</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_ue_guidline/">UE Guide</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_unity_guidline/">Unity Guide</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_godot_guidline/">Godot Guide</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../collider-tools_release_notes/">Release Notes</a>
-                    </li>
-                </ul>
-                <p class="caption"><span class="caption-text">Cam Manager</span></p>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../cam_Overview/">Overview</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../cam_UI/">The UI</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../cam_dolly_zoom/">Dolly Zoom</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../cam_composition/">Composition</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../cam_image_plane/">Precise Modeling</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../cam_Rendering_workflow/">Presentation</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../cam_release_notes/">Release Notes</a>
-                    </li>
-                </ul>
-                <p class="caption"><span class="caption-text">Simple Renaming Panel (Free)</span></p>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../renaming/">Overview</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../renaming_UI/">The UI</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../renaming_variables/">Renaming Variables</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../renaming_release_notes/">Release Notes</a>
-                    </li>
-                </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_import_engines/">Game Engine Support</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_ue_guidline/">UE Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_unity_guidline/">Unity Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_godot_guidline/">Godot Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider-tools_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cam Manager</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../cam_Overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cam_UI/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cam_dolly_zoom/">Dolly Zoom</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cam_composition/">Composition</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cam_image_plane/">Precise Modeling</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cam_Rendering_workflow/">Presentation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cam_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Simple Renaming Panel (Free)</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../renaming/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../renaming_UI/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../renaming_variables/">Renaming Variables</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../renaming_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
       </div>
     </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">Documentation</a>
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Documentation</a>
+        
       </nav>
-
-      
       <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="..">Docs</a> &raquo;</li>
-    
-      
-        
-          <li>Collider Tools &raquo;</li>
-        
-      
-    
-    <li>Physics Materials</li>
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Collider Tools</li>
+      <li class="breadcrumb-item active">Physics Materials</li>
     <li class="wy-breadcrumbs-aside">
-      
     </li>
   </ul>
-  
   <hr/>
 </div>
-
-          <div role="main">
-            <div class="section">
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
               
-                <h1 id="physics-materials">Physics Materials</h1>
+                <div><h1 id="physics-materials">Physics Materials</h1>
 <p>Some game engines support physics materials for colliders, allowing differentiation of various materials upon impact and triggering corresponding sound effects or visual effects (VFX). For example, different footprints and step sounds can be generated based on the ground material.</p>
 <p>Collider Tools offers two modes to cater to different user preferences. In the preferences, you can select either the simple mode or the advanced mode.</p>
 <p>In the simple mode, you can define a single physics material, making it ideal for quick and straightforward setups. This mode allows you to specify the essential properties of the material, such as its name, color, and other relevant settings.</p>
 <p>On the other hand, the advanced mode provides a comprehensive list of physics materials, along with a range of operations to create, add, and assign different physics materials to objects. This mode is well-suited for complex projects that require multiple materials with specific characteristics. It offers a more detailed and extensive control over the physics materials, enabling precise customization and fine-tuning for each material.</p>
-<p><img alt="Simple physic materials panel" src="../images/mat_simple.jpg" width="250" />
-<img alt="Advanced physic materials panel" src="../images/mat_advanced.jpg" width="250" /></p>
+<p><img alt="Simple physic materials panel" src="../images/mat_simple.jpg" width="250">
+<img alt="Advanced physic materials panel" src="../images/mat_advanced.jpg" width="250"></p>
 <p>Collider Tools utilizes Blender's internal material system to define physics materials. You can easily specify the desired physics material from a convenient drop-down menu in the properties panel. Additionally, a filtering option is available, enabling you to display only materials that contain a specific string, such as "COL_". This simplifies the material selection process by showing relevant options. Furthermore, you can modify the material at any time, just like any other regular mesh object.</p>
 <h2 id="_1"></h2>
-<p><img alt="Side panel for physics materials" src="../images/Ui_panel_physics_materials.jpg" width="250" /></p>
+<p><img alt="Side panel for physics materials" src="../images/Ui_panel_physics_materials.jpg" width="250"></p>
 <p>New physics materials can be created with the <strong>Add Physics Material</strong> button. Physics materials are standard Blender materials. The advantage of creating them from here is that you can directly set all important settings like the name and color. The color is randomly generated by default and can be alternated by the user. The random coloring can be disabled from the preferences. </p>
-<p><img alt="Animation of creating new physics materials" src="../images/Mat_Create_New.gif" width="350" /></p>
+<p><img alt="Animation of creating new physics materials" src="../images/Mat_Create_New.gif" width="350"></p>
 <p>Default settings for physics material are set in the preferences in the Presets tab. They are saved and loaded with all other preset settings. A default material with the here specified name is created when blender gets started. </p>
-<p><img alt="preferences related to physics materials" src="../images/Mat_preferences.jpg" width="600" /></p>
+<p><img alt="preferences related to physics materials" src="../images/Mat_preferences.jpg" width="600"></p>
 <p>Toggle Physics Material and Collider Group display</p>
-<p><img alt="Toggle Physics Material and Collider Group display" src="../images/toggle_group_material_view.gif_small.gif" width="600" /></p>
+<p><img alt="Toggle Physics Material and Collider Group display" src="../images/toggle_group_material_view.gif_small.gif" width="600"></p></div>
               
             </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../collider-tools_groups/" class="btn btn-neutral float-left" title="Collider Groups"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../collider-tools_import_engines/" class="btn btn-neutral float-right" title="Game Engine Support">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../collider-tools_groups/" class="btn btn-neutral" title="Collider Groups"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <!-- Copyright etc -->
-    
   </div>
 
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-      
+          
         </div>
       </div>
 
@@ -189,7 +161,7 @@
 
   </div>
 
-  <div class="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" role="note" aria-label="Versions">
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
@@ -200,13 +172,14 @@
     
   </span>
 </div>
-    <script>var base_url = '..';</script>
-    <script src="../js/theme_extra.js" defer></script>
-    <script src="../js/theme.js" defer></script>
-    <script defer>
-        window.onload = function () {
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+    <script>
+        jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
-        };
+        });
     </script>
 
 </body>
