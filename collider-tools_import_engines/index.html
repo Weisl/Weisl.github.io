@@ -96,7 +96,7 @@
                   <li class="toctree-l1"><a class="reference internal" href="../cam_release_notes/">Release Notes</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Simple Renaming Panel (Free)</span></p>
+              <p class="caption"><span class="caption-text">Simple Renaming (Free)</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../renaming/">Overview</a>
                   </li>
@@ -148,10 +148,10 @@
 <img alt="img" src="../images/Naming_Presets.gif" width="600"></p>
 <h3 id="distributing-presets">Distributing Presets</h3>
 <p>The easiest way to distribute the presets is to share the preset '.py' files. You can open the preset directory by pressing the folder icon in either the side panel or the preferences (see gifs above). You can also find the files under following path (Windows): </p>
-<p>Windows: <code>C:\Users\ [ Use Name ]  \AppData\Roaming\Blender Foundation\Blender\ [ Blender Version ] \scripts\presets\collider_tools</code></p>
+<p>Windows: <code>C:\Users\ [ Use Name ]  \AppData\Roaming\Blender Foundation\Blender\ [ Blender Version ] \scripts\presets\simple_collider</code></p>
 <p>The presets files are very simple, this is the example of the UE.py file:</p>
 <pre><code>import bpy
-prefs = bpy.context.preferences.addons['collider_tools'].preferences
+prefs = bpy.context.preferences.addons['simple_collider'].preferences
 
 prefs.naming_position = 'PREFIX'
 prefs.replace_name = False

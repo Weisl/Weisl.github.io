@@ -1,5 +1,5 @@
 import bpy
-prefs = bpy.context.preferences.addons['collider_tools'].preferences
+prefs = bpy.context.preferences.addons['simple_collider'].preferences
 
 prefs.naming_position = 'PREFIX'
 prefs.separator = '_'
