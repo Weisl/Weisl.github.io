@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Renaming Variables - Documentation</title>
+    <title>Overview - Documentation</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,8 +13,8 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Renaming Variables";
-        var mkdocs_page_input_path = "renaming_variables.md";
+        var mkdocs_page_name = "Overview";
+        var mkdocs_page_input_path = "camera_manager_Overview.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -66,8 +66,16 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Simple Camera Manager</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../camera_manager_Overview/">Overview</a>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Overview</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#what-is-simple-camera-manager">What is Simple Camera Manager?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#feature-overview">Feature Overview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#why-simple-camera-manager">Why Simple Camera Manager?</a>
+    </li>
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../camera_manager_UI/">The UI</a>
                   </li>
@@ -88,24 +96,12 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Simple Renaming (Free)</span></p>
-              <ul class="current">
+              <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../renaming_overview/">Overview</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../renaming_UI/">The UI</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Renaming Variables</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#system-and-number-variables">System and Number Variables</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#user-variables">User Variables</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#object-variables">Object Variables</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#note">Note:</a>
-    </li>
-        </ul>
-    </li>
-    </ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../renaming_variables/">Renaming Variables</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../renaming_release_notes/">Release Notes</a>
                   </li>
@@ -124,8 +120,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Simple Renaming (Free)</li>
-      <li class="breadcrumb-item active">Renaming Variables</li>
+          <li class="breadcrumb-item">Simple Camera Manager</li>
+      <li class="breadcrumb-item active">Overview</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -134,146 +130,43 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <div><h1 id="renaming-variables">Renaming Variables</h1>
-<p>The <strong>Simple Renaming</strong> tool introduces powerful renaming variables, making it easier and more flexible to create customized naming schemes. These variables allow for dynamic renaming while keeping the process quick and efficient. The "@" symbol is used to define variables, avoiding conflicts with other common symbols like "$". You can easily generate these variables by clicking a button next to the input field or typing them directly. With a range of predefined variables, the tool adapts to various Blender project needs.</p>
-<h2 id="system-and-number-variables">System and Number Variables</h2>
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>@d</code></td>
-<td>date</td>
-<td>Current date (UTC timezone).</td>
-</tr>
-<tr>
-<td><code>@i</code></td>
-<td>time</td>
-<td>Current time (UTC timezone).</td>
-</tr>
-<tr>
-<td><code>@f</code></td>
-<td>filename</td>
-<td>User's filename of the blend file. Ignored if the file hasn’t been saved.</td>
-</tr>
-<tr>
-<td><code>@r</code></td>
-<td>random</td>
-<td>Random letter combination, 6 characters long.</td>
-</tr>
-<tr>
-<td><code>@n</code></td>
-<td>number</td>
-<td>Iterating number with padding zeros (e.g., 003). Length defined in preferences.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="user-variables">User Variables</h2>
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>@h</code></td>
-<td>high poly</td>
-<td>User-defined for high poly meshes.</td>
-</tr>
-<tr>
-<td><code>@l</code></td>
-<td>low poly</td>
-<td>User-defined for low poly meshes.</td>
-</tr>
-<tr>
-<td><code>@b</code></td>
-<td>cage</td>
-<td>User-defined for bake cage meshes.</td>
-</tr>
-<tr>
-<td><code>@u1</code></td>
-<td>user var</td>
-<td>User-defined variable.</td>
-</tr>
-<tr>
-<td><code>@u2</code></td>
-<td>user var</td>
-<td>User-defined variable.</td>
-</tr>
-<tr>
-<td><code>@u3</code></td>
-<td>user var</td>
-<td>User-defined variable.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="object-variables">Object Variables</h2>
-<p>These variables are supported in Object mode.</p>
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>@p</code></td>
-<td>parent name</td>
-<td>Parent name. If no parent exists, the object name is used.</td>
-</tr>
-<tr>
-<td><code>@o</code></td>
-<td>object name</td>
-<td>Name of the current object.</td>
-</tr>
-<tr>
-<td><code>@a</code></td>
-<td>active object</td>
-<td>Name of the active object.</td>
-</tr>
-<tr>
-<td><code>@m</code></td>
-<td>object data</td>
-<td>Object data name.</td>
-</tr>
-<tr>
-<td><code>@t</code></td>
-<td>object type</td>
-<td>Object type, e.g., MESH, CURVE, LIGHT.</td>
-</tr>
-<tr>
-<td><code>@c</code></td>
-<td>collection</td>
-<td>All linked collection names.</td>
-</tr>
-</tbody>
-</table>
-<p>You can use any number of renaming variables in any input field, and combine them with regular strings.</p>
-<p><strong>Example:</strong>
-<code>@f_@t_object_@i</code><br>
-This would output <code>[filename]_[objecttype]_object_[time]</code>.</p>
-<h3 id="note">Note:</h3>
-<p>Be cautious when using renaming variables in the Search input, as it only compares strings. For example, using the <code>@d</code> (date) variable will only find objects with the current date in the same format.</p>
-<p>By deactivating automatic numeration and using the custom number variable <code>@n</code>, you can rename multiple objects with an increasing number in the middle of the string. </p>
-<p><strong>Example:</strong>
-<code>object_001_high, object_002_high, object_003_high</code><br>
-This is useful for tasks like baking multiple high-poly objects onto a single low-poly object in Marmoset or Substance.</p></div>
+                <div><h1 id="simple-camera-manager">Simple Camera Manager</h1>
+<h2 id="what-is-simple-camera-manager">What is Simple Camera Manager?</h2>
+<p><img alt="SimpleBranding16.jpg" src="../images/simple_cam/SimpleBranding16.jpg"></p>
+<p><strong>Simple Camera Manager</strong> helps you organize and adjust scene cameras directly in the 3D view, bringing all camera controls to your fingertips for fast and intuitive handling.</p>
+<ul>
+<li><a href="https://blendermarket.com/creators/matthias-patscheider" title="Blender Market">Blender Market</a></li>
+<li><a href="https://gumroad.com/weisl" title="Gumroad">Gumroad</a></li>
+</ul>
+<h2 id="feature-overview">Feature Overview</h2>
+<ul>
+<li><strong>All Cameras at a Glance</strong>: See and compare all your cameras and their settings in one place.</li>
+<li><strong>Quick Camera Switching</strong>: Toggle between cameras with hotkeys (default: Ctrl + Shift + Arrow Left/Right) or directly from the addon panels.</li>
+<li><strong>Slick and Efficient UI</strong>: A clean interface that keeps everything within reach.</li>
+<li><strong>Custom Camera Resolutions</strong>: Assign different resolutions to each camera.</li>
+<li><strong>Lock/Unlock Cameras</strong>: Instantly lock or unlock all camera transformations from the overview panel or pie menu.</li>
+<li><strong>Render Slots</strong>: Assign different render slots to different cameras to avoid overwriting renders.</li>
+<li><strong>Camera Collection</strong>: Organize your cameras by grouping them in collections for easy management.</li>
+<li><strong>Background Image Settings</strong>: Control background image settings directly from the 3D view—toggle, adjust opacity, or change render order.</li>
+<li><strong>Resolution from Background Image</strong>: Set the camera resolution based on the background image.</li>
+<li><strong>World Material Control</strong>: Assign different world materials to each camera.</li>
+<li><strong>Exposure Adjustments</strong>: Assign specific exposure values to compensate for lighting changes between cameras.</li>
+<li><strong>Flexible Hotkeys</strong>: Customize hotkeys from the addon preferences.</li>
+<li><img alt="SimpleBranding16.jpg" src="../images/simple_cam/SimpleBranding17.jpg"></li>
+</ul>
+<h2 id="why-simple-camera-manager">Why Simple Camera Manager?</h2>
+<ul>
+<li><strong>Stay Organized</strong>: See all your cameras and their key settings at a glance, and make adjustments as needed.</li>
+<li><strong>Quick Access</strong>: All functions are easily accessible from the 3D View—no need to dig through menus.</li>
+<li><strong>User-Friendly</strong>: The interface is simple, and the tools are easy to understand, with helpful descriptions where needed.</li>
+<li><strong>Continuous Support</strong>: The addon is well-documented, with ongoing development. Share your feedback to help improve it further.</li>
+</ul></div>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../renaming_UI/" class="btn btn-neutral float-left" title="The UI"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../renaming_release_notes/" class="btn btn-neutral float-right" title="Release Notes">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../collider_release_notes/" class="btn btn-neutral float-left" title="Release Notes"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../camera_manager_UI/" class="btn btn-neutral float-right" title="The UI">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -296,10 +189,10 @@ This is useful for tasks like baking multiple high-poly objects onto a single lo
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../renaming_UI/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../collider_release_notes/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../renaming_release_notes/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../camera_manager_UI/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

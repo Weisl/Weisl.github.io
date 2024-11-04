@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Renaming Variables - Documentation</title>
+    <title>The UI - Documentation</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,8 +13,8 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Renaming Variables";
-        var mkdocs_page_input_path = "renaming_variables.md";
+        var mkdocs_page_name = "The UI";
+        var mkdocs_page_input_path = "camera_manager_UI.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -66,10 +66,22 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Simple Camera Manager</span></p>
-              <ul>
+              <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../camera_manager_Overview/">Overview</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../camera_manager_UI/">The UI</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">The UI</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#overview-panel-shift-c">Overview Panel (Shift + C)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#scene-properties">Scene Properties</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#active-camera-pie-alt-c">Active Camera Pie (Alt + C)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#toggle-cameras-ctrl-shift-leftright-arrow">Toggle Cameras (Ctrl + Shift + Left/Right Arrow)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#preferences">Preferences</a>
+    </li>
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../camera_manager_dolly_zoom/">Dolly Zoom</a>
                   </li>
@@ -88,24 +100,12 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Simple Renaming (Free)</span></p>
-              <ul class="current">
+              <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../renaming_overview/">Overview</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../renaming_UI/">The UI</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Renaming Variables</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#system-and-number-variables">System and Number Variables</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#user-variables">User Variables</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#object-variables">Object Variables</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#note">Note:</a>
-    </li>
-        </ul>
-    </li>
-    </ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../renaming_variables/">Renaming Variables</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../renaming_release_notes/">Release Notes</a>
                   </li>
@@ -124,8 +124,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Simple Renaming (Free)</li>
-      <li class="breadcrumb-item active">Renaming Variables</li>
+          <li class="breadcrumb-item">Simple Camera Manager</li>
+      <li class="breadcrumb-item active">The UI</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -134,146 +134,61 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <div><h1 id="renaming-variables">Renaming Variables</h1>
-<p>The <strong>Simple Renaming</strong> tool introduces powerful renaming variables, making it easier and more flexible to create customized naming schemes. These variables allow for dynamic renaming while keeping the process quick and efficient. The "@" symbol is used to define variables, avoiding conflicts with other common symbols like "$". You can easily generate these variables by clicking a button next to the input field or typing them directly. With a range of predefined variables, the tool adapts to various Blender project needs.</p>
-<h2 id="system-and-number-variables">System and Number Variables</h2>
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>@d</code></td>
-<td>date</td>
-<td>Current date (UTC timezone).</td>
-</tr>
-<tr>
-<td><code>@i</code></td>
-<td>time</td>
-<td>Current time (UTC timezone).</td>
-</tr>
-<tr>
-<td><code>@f</code></td>
-<td>filename</td>
-<td>User's filename of the blend file. Ignored if the file hasn’t been saved.</td>
-</tr>
-<tr>
-<td><code>@r</code></td>
-<td>random</td>
-<td>Random letter combination, 6 characters long.</td>
-</tr>
-<tr>
-<td><code>@n</code></td>
-<td>number</td>
-<td>Iterating number with padding zeros (e.g., 003). Length defined in preferences.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="user-variables">User Variables</h2>
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>@h</code></td>
-<td>high poly</td>
-<td>User-defined for high poly meshes.</td>
-</tr>
-<tr>
-<td><code>@l</code></td>
-<td>low poly</td>
-<td>User-defined for low poly meshes.</td>
-</tr>
-<tr>
-<td><code>@b</code></td>
-<td>cage</td>
-<td>User-defined for bake cage meshes.</td>
-</tr>
-<tr>
-<td><code>@u1</code></td>
-<td>user var</td>
-<td>User-defined variable.</td>
-</tr>
-<tr>
-<td><code>@u2</code></td>
-<td>user var</td>
-<td>User-defined variable.</td>
-</tr>
-<tr>
-<td><code>@u3</code></td>
-<td>user var</td>
-<td>User-defined variable.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="object-variables">Object Variables</h2>
-<p>These variables are supported in Object mode.</p>
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>@p</code></td>
-<td>parent name</td>
-<td>Parent name. If no parent exists, the object name is used.</td>
-</tr>
-<tr>
-<td><code>@o</code></td>
-<td>object name</td>
-<td>Name of the current object.</td>
-</tr>
-<tr>
-<td><code>@a</code></td>
-<td>active object</td>
-<td>Name of the active object.</td>
-</tr>
-<tr>
-<td><code>@m</code></td>
-<td>object data</td>
-<td>Object data name.</td>
-</tr>
-<tr>
-<td><code>@t</code></td>
-<td>object type</td>
-<td>Object type, e.g., MESH, CURVE, LIGHT.</td>
-</tr>
-<tr>
-<td><code>@c</code></td>
-<td>collection</td>
-<td>All linked collection names.</td>
-</tr>
-</tbody>
-</table>
-<p>You can use any number of renaming variables in any input field, and combine them with regular strings.</p>
-<p><strong>Example:</strong>
-<code>@f_@t_object_@i</code><br>
-This would output <code>[filename]_[objecttype]_object_[time]</code>.</p>
-<h3 id="note">Note:</h3>
-<p>Be cautious when using renaming variables in the Search input, as it only compares strings. For example, using the <code>@d</code> (date) variable will only find objects with the current date in the same format.</p>
-<p>By deactivating automatic numeration and using the custom number variable <code>@n</code>, you can rename multiple objects with an increasing number in the middle of the string. </p>
-<p><strong>Example:</strong>
-<code>object_001_high, object_002_high, object_003_high</code><br>
-This is useful for tasks like baking multiple high-poly objects onto a single low-poly object in Marmoset or Substance.</p></div>
+                <div><h1 id="the-ui">The UI</h1>
+<h2 id="overview-panel-shift-c">Overview Panel (Shift + C)</h2>
+<p>The Overview Panel is the core of the addon. The menu lists all cameras in your scene. It provides a quick overview of the most important settings and an easy way to adjusting them. Additionally, you can assign camera-specific resolution, render slots, and world materials, exceeding the posibilities of the default Blender.</p>
+<p><img alt="SimpleBranding16.jpg" src="../images/simple_cam/SimpleBranding18.jpg"></p>
+<p>The Overview panel contains all cameras and most relevant camera settings in your scene.</p>
+<p><img alt="img" src="../images/Cam_overview_panel_1_1.jpg"></p>
+<ol>
+    <li>Toggle the active camera</li>
+    <li>Rename cameras</li>
+    <li>Toggle visibility, selection, and locking of cameras</li>
+    <li>Adjust specific settings like focal length and clipping planes per camera</li>
+    <li>Change output resolution per camera</li>
+    <li>Copy camera resolution from the assigned background image</li>
+    <li>Set the world material (HDRI) per camera to adjust the lighting</li>
+    <li>Set exposure value per camera</li>
+    <li>Move camera to the specified camera collection</li>
+    <li>Assing individual render slots per camera</li>
+    <li>Render any camera directly from this menu</li>
+    <li>Set and assign to Camera Collection</li>
+    <li>Settings: Automatically save renders, use camera name for the file name and set the output folder</li>
+</ol>
+
+<h2 id="scene-properties">Scene Properties</h2>
+<p>The Scene Properties panel contains an addional, compacter version of the camera overview panel. It allows you to rename cameras, change their visibility and locking states and assign them to the specified camera collection quickly.</p>
+<p><img alt="img" src="../images/camera_scene_panel.jpg" width="600"></p>
+<h2 id="active-camera-pie-alt-c">Active Camera Pie (Alt + C)</h2>
+<p>This pie menu is intended to tweak the currently active camera. It is split into 4 areas.</p>
+<p><img alt="img" src="../images/ui_pie_02.jpg" width="600"></p>
+<p><img alt="img" src="../images/pie_detail_1_1.jpg" width="600"></p>
+<ul>
+<li><strong>Background Image and Render Settings:</strong> Assign a render slot and render directly from the pie menu. Further, this area contains functionalities to adjust the visibility of background images and toggle them on/off quickly. </li>
+<li><strong>Camera Settings:</strong> Tweak camera-specific values like focal length, exposure, clipping planes, and depth of field. 
+  <strong>NEW:</strong> Dolly Zoom  and Toggle to Camera view</li>
+<li><strong>Viewport Settings:</strong> Quickly show and hide composition guides, UI elements and darken the area outside the final frame.  </li>
+<li><strong>Quick Access Tools:</strong> Quickly toggle between cameras, lock/unlock, select or lock the current camera to view.</li>
+</ul>
+<h2 id="toggle-cameras-ctrl-shift-leftright-arrow">Toggle Cameras (Ctrl + Shift + Left/Right Arrow)</h2>
+<p>Ctrl + Shift + Left/Right Arrow allows you to quickly toggle between the scene cameras. All camera-specific settings like resolution and world material will automatically be applied. The hotkeys can be changed in the addon preferences. </p>
+<div class="admonition warning inline end">
+<p class="admonition-title">Warning</p>
+<p>All camera-specific settings - provided by this addon - like world material, exposure, camera resolution and render slot will not be updated when changing the active camera in the scene properties manually. Use the hotkeys and buttons provided by the addon to switch the cameras.</p>
+</div>
+<p><img alt="img" src="../images/overview_behind_the_curtain.gif" width="600"></p>
+<p><strong>Camera toggle using hotkeys:</strong> The resolution is stored for each camera. The cameras can be toggled both from the viewport - as seen here - or while looking through the camera.</p>
+<p><img alt="img" src="../images/HDRI_switch_cam.gif" width="600"></p>
+<p>Camera toggle using the scene properties panel</p>
+<h2 id="preferences">Preferences</h2>
+<p>The preferences provide easy customization for the hotkeys. Easily adjust them to your personal needs. You can also use the auto-updater to automatically update your addon without downloading the zip files from the store pages.</p>
+<p><img alt="img" src="../images/preferences.jpg" width="600"></p></div>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../renaming_UI/" class="btn btn-neutral float-left" title="The UI"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../renaming_release_notes/" class="btn btn-neutral float-right" title="Release Notes">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../camera_manager_Overview/" class="btn btn-neutral float-left" title="Overview"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../camera_manager_dolly_zoom/" class="btn btn-neutral float-right" title="Dolly Zoom">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -296,10 +211,10 @@ This is useful for tasks like baking multiple high-poly objects onto a single lo
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../renaming_UI/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../camera_manager_Overview/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../renaming_release_notes/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../camera_manager_dolly_zoom/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Release Notes - Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Release Notes";
+        var mkdocs_page_input_path = "collider_release_notes.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Documentation
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Simple Collider</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_ui/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_shapes/">Collider Shapes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_auto_convex/">Auto Convex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_groups/">Collider Groups</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_physics_materials/">Physics Materials</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_import_engines/">Game Engine Support</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_ue_guidline/">UE Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_unity_guidline/">Unity Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_godot_guidline/">Godot Guide</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Release Notes</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#15">1.5</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#features">Features</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes">Fixes</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#14">1.4</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#features_1">Features</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_1">Fixes</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#131">1.3.1</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_2">Fixes</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#13">1.3</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#features_2">Features</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#operators">Operators</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#physics-materials">Physics Materials</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#uiux">UI/UX</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_3">Fixes</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#123">1.2.3</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#features_3">Features</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_4">Fixes</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#122">1.2.2</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_5">Fixes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#known-issues">Known Issues</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#121">1.2.1</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_6">Fixes</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#12">1.2</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#features_4">Features</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_7">Fixes</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#11">1.1</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#features_5">Features</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_8">Fixes</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#101-hotfix">1.0.1 Hotfix</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_9">Fixes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#features_6">Features</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#100">1.0.0</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Simple Camera Manager</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../camera_manager_Overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../camera_manager_UI/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../camera_manager_dolly_zoom/">Dolly Zoom</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../camera_manager_composition/">Composition</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../camera_manager_image_plane/">Precise Modeling</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../camera_manager_Rendering_workflow/">Presentation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../camera_manager_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Simple Export </span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../exporter_overview/">Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Simple Renaming (Free)</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../renaming_overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../renaming_UI/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../renaming_variables/">Renaming Variables</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../renaming_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Simple Collider</li>
+      <li class="breadcrumb-item active">Release Notes</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <div><h1 id="release-notes">Release Notes</h1>
+<h3 id="15">1.5</h3>
+<p>Simple Collider 1.5 is a significant update that addresses several issues related to Collider groups. The release adds support for Auto Convex on Linux and provides a basic preset and documentation for GODOT. See the release notes below for more features and fixes related to this version. </p>
+<h4 id="features">Features</h4>
+<ul>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/474">#474</a> Added a button to specify Rigid Body.  </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/472">#472</a> Added Linux support for VHACD.  </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/449">#449</a> Added a feature to convert to collider from Name operator.  </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/467">#467</a> Added positive multiplier values to height and width of Capsule Collider. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/466">#466</a> Added mouse wrap-around for modal operation. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/460">#460</a> Evaluated GODOT support and created a preset and documentation. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/458">#458</a> Added parameters to set both radius and height of Capsule collider. </li>
+</ul>
+
+<h4 id="fixes">Fixes</h4>
+<ul>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/475">#475</a> Limited Regenerate Name to collider objects only.  </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/473">#473</a> Fixed Regenerate Name to use user set name instead of USER_01 for renaming. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/471">#471</a> Fixed Re-assigning collider group.</li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/469">#469</a> Properly initialized User Groups on startup and addon registration.</li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/468">#468</a> Fixed text overlapping Background Box.</li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/465">#465</a> Fixed changing modal state to disable all other modal states.</li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/465">#465</a> Added changing User Group to modal UI (key = ‘T’) </li>
+</ul>
+
+<h3 id="14">1.4</h3>
+<h4 id="features_1">Features</h4>
+<ul>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/71">#71</a> Expanded Object Type Support: Simple Collider now supports Curves, Surfaces, Text, Metaballs, in addition to Meshes. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/72">#72</a> Colliders from Loose Parts: Create colliders from disconnected mesh islands, applicable to all object types and previous generation options. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/104">#104</a> Enhanced Feedback: The total face count of generated colliders is displayed in the info box at the bottom of the Blender window. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/387">#387</a> (Beta) Introducing Capsule Colliders: A new collider type for generating capsule-shaped colliders. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/392">#392</a> Preserving Object Names: Added "Keep Original Name" option to the Object to Collider operator. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/409">#409</a> Voxel Remeshing: Added a new Re-meshed collider type utilizing voxel remeshing. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/418">#418</a> Material Preservation: Added option to retain materials for the Collider to Mesh operator. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/419">#419</a> Customize Collider Collection: Choose a color for the collider collection to improve visibility and organization. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/431">#431</a> Material Retention in Edit Mode: Materials are now preserved when using Add Mesh in EDIT mode. </li>
+
+</ul>
+
+<h4 id="fixes_1">Fixes</h4>
+<ul>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/296">#296</a> Minimum Cylinder Segment Count: Limited the minimal segment count for cylinders to 3 segments. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/392">#392</a> Collider Collection Issue: Fixed the Object to Collider functionality when disabling collider collection. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/412">#412</a>  Improved UI Feedback: Show a star in the Physics material UI even when the filter is active.  </li>
+</ul>
+
+<p>I hope you enjoy using Simple Collider and find these updates helpful. Please provide feedback or report any issues you encounter.</p>
+<h3 id="131">1.3.1</h3>
+<p>Version 1.3.1 is a hotfix release that resolves a crash issue caused by missing default physic material.</p>
+<h4 id="fixes_2">Fixes</h4>
+<ul>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/399">#399</a> Disable physics material tag by default. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/398">#398</a> Crash because of missing default material. </li>
+</ul>
+
+<h3 id="13">1.3</h3>
+<p>This release improves Physics Materials handling and UX. The physics material system is rewritten for stability and enhanced UI/UX. A simplified default UI is introduced, while the full Physics Material List can be enabled through preferences. 
+Further, original object materials can now be maintained for 'Add Mesh' and 'Convert to Collider'. See the list below for the full changes. </p>
+<div class="admonition warning inline end">
+<p class="admonition-title">Warning</p>
+<p>This release is not backward compatible with old presets. Recreating them will be necessary.</p>
+</div>
+<h4 id="features_2">Features</h4>
+<h5 id="operators">Operators</h5>
+<ul>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/342">#342</a>  Added an option to switch between 'SELECTION' and 'INDIVIDUAL' modes for the "Convert to Collider" operator. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/320">#320</a> Included an option to keep the original object materials for 'Convert to Collider' instead of replacing them with the active physics material.</li>
+</ul>
+
+<h5 id="physics-materials">Physics Materials</h5>
+<ul>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/362">#362</a> Simplified the physics materials and made the use of the Physics Materials List optional.</li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/366">#366</a> Supported assigning physics materials for 'EDIT' mode.</li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/205">#205</a> Improved the Add Physics Materials window with features such as random color, enhanced naming settings, and automatic addition of the physics tag upon creation. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/371">#371</a> Added a physics tag to physics materials, which can be used as a filter in the physics materials list in addition to naming.  </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/395">#395</a> Updated presets to include the improvements made to the physics materials system. </li>
+</ul>
+
+<h5 id="uiux">UI/UX</h5>
+<ul>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/228">#228</a>  Transferred the settings for the Auto Convex operator into a popup window. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/225">#225</a> Added a warning about the potentially slow operation of the 'Auto Convex' function. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/294">#294</a> Included an optional backdrop to the modal operator overlay, enhancing readability. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/259">#259</a> Implemented a warning for invalid operator input. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/384">#384</a> Improved the display of the currently active physics material. </li>
+</ul>
+
+<h4 id="fixes_3">Fixes</h4>
+<ul>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/321">#321</a> Resolved the issue where creating presets was broken. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/396">#396</a> Fixed a crash caused by an out-of-index active physics material. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/364">#363</a> Addressed the problem where setting the first item of the Physics Materials List as default was not possible. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/321">#321</a> Fixed the broken preset creation. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/391">#391</a> Resolved the issue where undo was broken for the convert-to collider operation when using 'SELECTION'. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/377">#377</a> Fixed a crash related to the Convert to Collider function.</li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/311">#311</a> Removed the console warning regarding the Operator naming of the physics material list.</li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/360">#360</a> Corrected the display of Oriented BBox, which was previously shown as wireframe instead of using the default shading mode. </li>
+</ul>
+
+<h3 id="123">1.2.3</h3>
+<p>This release fixes a major bug regarding the creation of presets. It also introduces the setting to keep the original mesh materials for "Add Mesh" and "Convert to Mesh". This new setting is currently limited to the 'OBJECT' mode. </p>
+<h4 id="features_3">Features</h4>
+<ul>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/339">#339</a> Add "Keep original materials" option for "Add Mesh" and "Convert to Mesh. Materials of the original mesh are used and not replaced with physics materials when using this setting" </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/322">#322</a> UX/UI: Add some of the display settings to the Pie Menu </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/340">#340</a> Show indication that settings are disabled in the pie menu when they are not supported for the current combination of settings </li>
+</ul>
+
+<h4 id="fixes_4">Fixes</h4>
+<ul>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/321">#321</a> Creating Preset is broken </li>
+</ul>
+
+<h3 id="122">1.2.2</h3>
+<p>This release is fixing some major hotkey issues.</p>
+<h4 id="fixes_5">Fixes</h4>
+<ul>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/310">#310</a> Collider tools seems to destroy the default keymap for 'N' and 'T' </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/308">#308</a> Addon keymap changes are lost after restarting Blender</li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/315">#315</a> Removing "Physics Material" and "Visibility Groups" hotkey assignments deletes the wrong hotkey.</li>
+</ul>
+
+<h4 id="known-issues">Known Issues</h4>
+<p>There are some issues related to hotkeys in version 3.2 of Blender. </p>
+<ul>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/313">#313</a> Hotkeys for "Physics Materials" and "Physics Groups" doesn't work when assigned to key "P" in Blender 3.2 (woks for 2.93, 3.3, 3.4) </li>
+</ul>
+
+<h3 id="121">1.2.1</h3>
+<p>This release focuses on bug fixes for Auto Convex/Convex on older Blender versions and cylindrical collider creation.</p>
+<h4 id="fixes_6">Fixes</h4>
+<ul>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/303">#303</a> Support Convex and Auto Convex for older Blender versions (2.93) </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/299">#299</a> Cylindrical collider generation is broken in SELECTION mode GLOBAL space</li>
+</ul>
+
+<h3 id="12">1.2</h3>
+<p>This release focuses on updating the Auto Convex library and all settings associated with it. </p>
+<h4 id="features_4">Features</h4>
+<ul>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/188">#188</a>  Add support for VHACD 4.1 Auto Convex</li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/29">#29</a>  Improve Algorithm for cylindrical collision creation. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/213">#213</a>  Expose defaults to the N-Panel: Use Modifier Stack, Transform Space, Creation Mode, Default User Group, Cylinder Orientation, Cylinder Segments, Sphere Segments</li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/284">#284</a>  Move display settings to preferences</li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/216">#216</a>  Add operator button to toggle wireframe display in collider object viewport display settings enhancement New feature or request </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/217">#217</a>  Mesh to collider, should the parent name be used if a parent exists </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/247">#247</a>  Add weld before inflate/deflate </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/265">#265</a>  Code: Store addon specific settings in addon properties </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/269">#269</a>  Add convex hull modifier after decimating convex collisions </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/270">#270</a>  Import objs for V-HACD </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/282">#282</a>  Cleanup Modal Inputs </li>
+</ul>
+
+<h4 id="fixes_7">Fixes</h4>
+<ul>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/288">#288</a> Material list index not found </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/262">#262</a> use_modifiers: Should be smarter about prefix/suffix </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/258">#258</a> Rename when changing collider group </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/237">#237</a> Indicate Convert affects the entire Object and ignores Edit mode selection </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/244">#244</a> Convert to collider, doesn't set group object color </li>
+</ul>
+
+<h3 id="11">1.1</h3>
+<p>This is a major release, adding cool new features, simplifying the code base and improving the overall experience for
+the user a lot.</p>
+<h4 id="features_5">Features</h4>
+<ul>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/61">#61</a> Collision Creation: Create a Single Bounding Collision from the Selection </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/152">#152</a> Collision Creation: Add arbitrarily oriented minimum bounding box which allows you to create an automatically oriented box collider with the lowest volume possible.</li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/166">#166</a> Restructure Preferences </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/253">#253</a> Presets: Default presets get automatically installed.  </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/166">#166</a> Presets: Reorganize, renamed and cleaned up  </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/255">#255</a> Collider Groups: Collider groups offer a more customizable way of grouping, selecting, organizing, and naming colliders according to their functionality. Their number is currently fixed at 3 groups.  </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/254">#254</a> Auto Convex: The V-hacd exe gets shipped with the addon and is setup automatically. No more manual setup required. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/224">#224</a> Center pivots of collider objects for all collider shapes. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/157">#157</a> Physics materials: Rework of the physics materials system </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/161">#161</a> Physics materials: Create new physics material from the panels</li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/148">#148</a> Add: Delete collider buttons to menu </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/128">#128</a> Change visibility to be a toggle instead of an action. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/122">#122</a> Add x-ray toggle for collider creation. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/65">#65</a> Rename Collider mesh data. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/251">#251</a> Add regenerate name operation: The main goal of regenerating name is to update the collider names based on the selected preset quickly. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/170">#170</a> Set colliders to not being rendered </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/176">#176</a> Add Physics material menu and Display Menu to customizable hotkeys. </li>
+</ul>
+
+<h4 id="fixes_8">Fixes</h4>
+<ul>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/177">#177</a> Cleanup old preset naming. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/183">#183</a> Fix error on unregister. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/165">#165</a> Convert to Collider: Error when cancelling. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/141">#141</a> Convert to Collider: Navigation doesn't work. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/242">#242</a> Convert to Collider: Cancelling results in the loss of materials for the original objects. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/239">#239</a> Convert to Collider: All Instances are converted not only selected. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/252">#252</a> Convert to Mesh: No feedback for invalid input </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/151">#151</a> Use selection instead of active object if active object is not a valid target object. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/123">#123</a> Modal collider creation doesn't stop, even if there are 0 colliders in the collider list. </li>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/51">#51</a> UX: Improve Delta Multiplication for number inputs (alpha, displace, decimate) and add Shift and Control for further control. </li>
+<li>...</li>
+</ul>
+
+<h3 id="101-hotfix">1.0.1 Hotfix</h3>
+<h4 id="fixes_9">Fixes</h4>
+<ul>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/143">#143</a> Downloading V-hacd results in "not found 404". </li>
+</ul>
+
+<h4 id="features_6">Features</h4>
+<ul>
+<li><a href="https://github.com/Weisl/Collider-Tools/issues/140">#140</a> Naming Presets: Download different Engine presets directly from the Preferences </li>
+</ul>
+
+<h3 id="100">1.0.0</h3>
+<p><strong>Initial Release</strong></p></div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../collider_godot_guidline/" class="btn btn-neutral float-left" title="Godot Guide"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../camera_manager_Overview/" class="btn btn-neutral float-right" title="Overview">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../collider_godot_guidline/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../camera_manager_Overview/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

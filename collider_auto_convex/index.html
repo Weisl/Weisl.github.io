@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Renaming Variables - Documentation</title>
+    <title>Auto Convex - Documentation</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,8 +13,8 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Renaming Variables";
-        var mkdocs_page_input_path = "renaming_variables.md";
+        var mkdocs_page_name = "Auto Convex";
+        var mkdocs_page_input_path = "collider_auto_convex.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -41,14 +41,20 @@
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">Simple Collider</span></p>
-              <ul>
+              <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../collider_overview/">Overview</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../collider_ui/">The UI</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../collider_shapes/">Collider Shapes</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../collider_auto_convex/">Auto Convex</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Auto Convex</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#basic-parameters">Basic Parameters</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#advanced-parameters">Advanced Parameters</a>
+    </li>
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../collider_groups/">Collider Groups</a>
                   </li>
@@ -88,24 +94,12 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Simple Renaming (Free)</span></p>
-              <ul class="current">
+              <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../renaming_overview/">Overview</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../renaming_UI/">The UI</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Renaming Variables</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#system-and-number-variables">System and Number Variables</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#user-variables">User Variables</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#object-variables">Object Variables</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#note">Note:</a>
-    </li>
-        </ul>
-    </li>
-    </ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../renaming_variables/">Renaming Variables</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../renaming_release_notes/">Release Notes</a>
                   </li>
@@ -124,8 +118,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Simple Renaming (Free)</li>
-      <li class="breadcrumb-item active">Renaming Variables</li>
+          <li class="breadcrumb-item">Simple Collider</li>
+      <li class="breadcrumb-item active">Auto Convex</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -134,146 +128,108 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <div><h1 id="renaming-variables">Renaming Variables</h1>
-<p>The <strong>Simple Renaming</strong> tool introduces powerful renaming variables, making it easier and more flexible to create customized naming schemes. These variables allow for dynamic renaming while keeping the process quick and efficient. The "@" symbol is used to define variables, avoiding conflicts with other common symbols like "$". You can easily generate these variables by clicking a button next to the input field or typing them directly. With a range of predefined variables, the tool adapts to various Blender project needs.</p>
-<h2 id="system-and-number-variables">System and Number Variables</h2>
+                <div><h1 id="auto-convex-shape">Auto Convex Shape</h1>
+<p><strong>Auto Convex</strong> is a tool for generating convex colliders for complex meshes. It's especially useful for organic shapes like rocks, statues, and debris. While it's not a one-click solution for every asset, it’s a powerful tool for organic models.</p>
+<p><img alt="Example of Auto Convex Collider generation and how different depth settings affect the number of created colliders." src="../images/CollisionTools_Auto_convex.jpg"></p>
+<h3 id="basic-parameters">Basic Parameters</h3>
+<p>Control the number of convex hulls and their complexity through these settings, which appear in a popup when you activate Auto Convex:</p>
 <table>
 <thead>
 <tr>
-<th>Variable</th>
-<th>Name</th>
+<th>Parameter</th>
 <th>Description</th>
+<th>Default</th>
+<th>Range</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>@d</code></td>
-<td>date</td>
-<td>Current date (UTC timezone).</td>
+<td><strong>Shrinkwrap</strong></td>
+<td>Shrinkwrap output to source mesh</td>
+<td>False</td>
+<td>False/True</td>
 </tr>
 <tr>
-<td><code>@i</code></td>
-<td>time</td>
-<td>Current time (UTC timezone).</td>
+<td><strong>Hulls</strong></td>
+<td>Maximum number of output convex hulls</td>
+<td>8</td>
+<td>1-4096</td>
 </tr>
 <tr>
-<td><code>@f</code></td>
-<td>filename</td>
-<td>User's filename of the blend file. Ignored if the file hasn’t been saved.</td>
+<td><strong>Verts per Piece</strong></td>
+<td>Maximum vertices in the output convex hull</td>
+<td>16</td>
+<td>8-1024</td>
 </tr>
 <tr>
-<td><code>@r</code></td>
-<td>random</td>
-<td>Random letter combination, 6 characters long.</td>
-</tr>
-<tr>
-<td><code>@n</code></td>
-<td>number</td>
-<td>Iterating number with padding zeros (e.g., 003). Length defined in preferences.</td>
+<td><strong>Voxel Resolution</strong></td>
+<td>Total number of voxels used</td>
+<td>100,000</td>
+<td>100,000-10,000,000</td>
 </tr>
 </tbody>
 </table>
-<h2 id="user-variables">User Variables</h2>
+<p><img alt="img" src="../images/AutoConvexSettings.gif" width="250"></p>
+<p>These parameters are from the original library used: <a href="https://github.com/kmammou/v-hacd">V-HACD on GitHub</a>.</p>
+<p><img alt="img" src="../images/auto_convex_small.gif" width="600"></p>
+<h3 id="advanced-parameters">Advanced Parameters</h3>
+<p>Advanced parameters can be found in the addon preferences under <strong>Auto Convex</strong>. Access preferences directly by pressing the gear button next to "Auto Convex."</p>
+<p><img alt="img" src="../images/AutoConvex_Preferences.jpg" width="600"></p>
+<ul>
+<li><strong>Overwrite Executable:</strong> Specify a custom V-HACD executable path if needed.</li>
+<li><strong>Temporary Data Path:</strong> Set a path to store temporary files like meshes and logs used by V-HACD during collider generation.</li>
+</ul>
+<p>Additional advanced settings:</p>
 <table>
 <thead>
 <tr>
-<th>Variable</th>
-<th>Name</th>
+<th>Parameter</th>
 <th>Description</th>
+<th>Default</th>
+<th>Range</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>@h</code></td>
-<td>high poly</td>
-<td>User-defined for high poly meshes.</td>
+<td><strong>Volume Error Percentage</strong></td>
+<td>Allowed volume error percentage. Default is 1%.</td>
+<td>0.01</td>
+<td>0.001-10</td>
 </tr>
 <tr>
-<td><code>@l</code></td>
-<td>low poly</td>
-<td>User-defined for low poly meshes.</td>
+<td><strong>Min Voxel Edge Size</strong></td>
+<td>Minimum voxel edge size.</td>
+<td>2.0</td>
+<td>1.0-32.0</td>
 </tr>
 <tr>
-<td><code>@b</code></td>
-<td>cage</td>
-<td>User-defined for bake cage meshes.</td>
+<td><strong>Max Recursion Depth</strong></td>
+<td>Maximum recursion depth, determining the maximum number of convex hulls (e.g., depth of 12 results in up to 4,096 hulls).</td>
+<td>4</td>
+<td>2-64</td>
 </tr>
 <tr>
-<td><code>@u1</code></td>
-<td>user var</td>
-<td>User-defined variable.</td>
+<td><strong>Fill Mode</strong></td>
+<td>Method used to find interior voxels for auto convex creation (Raycast, Flood, Surface).</td>
+<td>Raycast</td>
+<td>Raycast/Flood/Surface</td>
 </tr>
 <tr>
-<td><code>@u2</code></td>
-<td>user var</td>
-<td>User-defined variable.</td>
-</tr>
-<tr>
-<td><code>@u3</code></td>
-<td>user var</td>
-<td>User-defined variable.</td>
+<td><strong>Optimal Split Plane</strong></td>
+<td>If true, finds the optimal split plane location. Otherwise, splits hulls in the middle.</td>
+<td>False</td>
+<td>True/False</td>
 </tr>
 </tbody>
 </table>
-<h2 id="object-variables">Object Variables</h2>
-<p>These variables are supported in Object mode.</p>
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>@p</code></td>
-<td>parent name</td>
-<td>Parent name. If no parent exists, the object name is used.</td>
-</tr>
-<tr>
-<td><code>@o</code></td>
-<td>object name</td>
-<td>Name of the current object.</td>
-</tr>
-<tr>
-<td><code>@a</code></td>
-<td>active object</td>
-<td>Name of the active object.</td>
-</tr>
-<tr>
-<td><code>@m</code></td>
-<td>object data</td>
-<td>Object data name.</td>
-</tr>
-<tr>
-<td><code>@t</code></td>
-<td>object type</td>
-<td>Object type, e.g., MESH, CURVE, LIGHT.</td>
-</tr>
-<tr>
-<td><code>@c</code></td>
-<td>collection</td>
-<td>All linked collection names.</td>
-</tr>
-</tbody>
-</table>
-<p>You can use any number of renaming variables in any input field, and combine them with regular strings.</p>
-<p><strong>Example:</strong>
-<code>@f_@t_object_@i</code><br>
-This would output <code>[filename]_[objecttype]_object_[time]</code>.</p>
-<h3 id="note">Note:</h3>
-<p>Be cautious when using renaming variables in the Search input, as it only compares strings. For example, using the <code>@d</code> (date) variable will only find objects with the current date in the same format.</p>
-<p>By deactivating automatic numeration and using the custom number variable <code>@n</code>, you can rename multiple objects with an increasing number in the middle of the string. </p>
-<p><strong>Example:</strong>
-<code>object_001_high, object_002_high, object_003_high</code><br>
-This is useful for tasks like baking multiple high-poly objects onto a single low-poly object in Marmoset or Substance.</p></div>
+<p>These parameters also come from the <a href="https://github.com/kmammou/v-hacd">V-HACD library</a>.</p>
+<p>For detailed documentation on the library, refer to the <a href="https://docs.google.com/presentation/d/1OZ4mtZYrGEC8qffqb8F7Le2xzufiqvaPpRbLHKKgTIM/edit#slide=id.g123758ab003_0_310">Voxelized Hierarchical Convex Decomposition - V-HACD version 4</a>.</p></div>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../renaming_UI/" class="btn btn-neutral float-left" title="The UI"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../renaming_release_notes/" class="btn btn-neutral float-right" title="Release Notes">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../collider_shapes/" class="btn btn-neutral float-left" title="Collider Shapes"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../collider_groups/" class="btn btn-neutral float-right" title="Collider Groups">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -296,10 +252,10 @@ This is useful for tasks like baking multiple high-poly objects onto a single lo
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../renaming_UI/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../collider_shapes/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../renaming_release_notes/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../collider_groups/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

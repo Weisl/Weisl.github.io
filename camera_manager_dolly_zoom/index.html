@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Renaming Variables - Documentation</title>
+    <title>Dolly Zoom - Documentation</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,8 +13,8 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Renaming Variables";
-        var mkdocs_page_input_path = "renaming_variables.md";
+        var mkdocs_page_name = "Dolly Zoom";
+        var mkdocs_page_input_path = "camera_manager_dolly_zoom.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -66,12 +66,20 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Simple Camera Manager</span></p>
-              <ul>
+              <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../camera_manager_Overview/">Overview</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../camera_manager_UI/">The UI</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../camera_manager_dolly_zoom/">Dolly Zoom</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Dolly Zoom</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#ui">UI</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#the-target">The Target</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#interations">Interations</a>
+    </li>
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../camera_manager_composition/">Composition</a>
                   </li>
@@ -88,24 +96,12 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Simple Renaming (Free)</span></p>
-              <ul class="current">
+              <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../renaming_overview/">Overview</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../renaming_UI/">The UI</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Renaming Variables</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#system-and-number-variables">System and Number Variables</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#user-variables">User Variables</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#object-variables">Object Variables</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#note">Note:</a>
-    </li>
-        </ul>
-    </li>
-    </ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../renaming_variables/">Renaming Variables</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../renaming_release_notes/">Release Notes</a>
                   </li>
@@ -124,8 +120,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Simple Renaming (Free)</li>
-      <li class="breadcrumb-item active">Renaming Variables</li>
+          <li class="breadcrumb-item">Simple Camera Manager</li>
+      <li class="breadcrumb-item active">Dolly Zoom</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -134,146 +130,42 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <div><h1 id="renaming-variables">Renaming Variables</h1>
-<p>The <strong>Simple Renaming</strong> tool introduces powerful renaming variables, making it easier and more flexible to create customized naming schemes. These variables allow for dynamic renaming while keeping the process quick and efficient. The "@" symbol is used to define variables, avoiding conflicts with other common symbols like "$". You can easily generate these variables by clicking a button next to the input field or typing them directly. With a range of predefined variables, the tool adapts to various Blender project needs.</p>
-<h2 id="system-and-number-variables">System and Number Variables</h2>
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>@d</code></td>
-<td>date</td>
-<td>Current date (UTC timezone).</td>
-</tr>
-<tr>
-<td><code>@i</code></td>
-<td>time</td>
-<td>Current time (UTC timezone).</td>
-</tr>
-<tr>
-<td><code>@f</code></td>
-<td>filename</td>
-<td>User's filename of the blend file. Ignored if the file hasn’t been saved.</td>
-</tr>
-<tr>
-<td><code>@r</code></td>
-<td>random</td>
-<td>Random letter combination, 6 characters long.</td>
-</tr>
-<tr>
-<td><code>@n</code></td>
-<td>number</td>
-<td>Iterating number with padding zeros (e.g., 003). Length defined in preferences.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="user-variables">User Variables</h2>
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>@h</code></td>
-<td>high poly</td>
-<td>User-defined for high poly meshes.</td>
-</tr>
-<tr>
-<td><code>@l</code></td>
-<td>low poly</td>
-<td>User-defined for low poly meshes.</td>
-</tr>
-<tr>
-<td><code>@b</code></td>
-<td>cage</td>
-<td>User-defined for bake cage meshes.</td>
-</tr>
-<tr>
-<td><code>@u1</code></td>
-<td>user var</td>
-<td>User-defined variable.</td>
-</tr>
-<tr>
-<td><code>@u2</code></td>
-<td>user var</td>
-<td>User-defined variable.</td>
-</tr>
-<tr>
-<td><code>@u3</code></td>
-<td>user var</td>
-<td>User-defined variable.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="object-variables">Object Variables</h2>
-<p>These variables are supported in Object mode.</p>
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>@p</code></td>
-<td>parent name</td>
-<td>Parent name. If no parent exists, the object name is used.</td>
-</tr>
-<tr>
-<td><code>@o</code></td>
-<td>object name</td>
-<td>Name of the current object.</td>
-</tr>
-<tr>
-<td><code>@a</code></td>
-<td>active object</td>
-<td>Name of the active object.</td>
-</tr>
-<tr>
-<td><code>@m</code></td>
-<td>object data</td>
-<td>Object data name.</td>
-</tr>
-<tr>
-<td><code>@t</code></td>
-<td>object type</td>
-<td>Object type, e.g., MESH, CURVE, LIGHT.</td>
-</tr>
-<tr>
-<td><code>@c</code></td>
-<td>collection</td>
-<td>All linked collection names.</td>
-</tr>
-</tbody>
-</table>
-<p>You can use any number of renaming variables in any input field, and combine them with regular strings.</p>
-<p><strong>Example:</strong>
-<code>@f_@t_object_@i</code><br>
-This would output <code>[filename]_[objecttype]_object_[time]</code>.</p>
-<h3 id="note">Note:</h3>
-<p>Be cautious when using renaming variables in the Search input, as it only compares strings. For example, using the <code>@d</code> (date) variable will only find objects with the current date in the same format.</p>
-<p>By deactivating automatic numeration and using the custom number variable <code>@n</code>, you can rename multiple objects with an increasing number in the middle of the string. </p>
-<p><strong>Example:</strong>
-<code>object_001_high, object_002_high, object_003_high</code><br>
-This is useful for tasks like baking multiple high-poly objects onto a single low-poly object in Marmoset or Substance.</p></div>
+                <div><h1 id="dolly-zoom-new-in-11">Dolly Zoom (New in 1.1)</h1>
+<blockquote>
+<p>A dolly zoom is a cinematic technique in which the camera moves closer or further from the subject while simultaneously adjusting the zoom angle to keep the subject the same size in the frame. The effect is that the subject appears stationary while the background size changes (this is called perspective distortion).
+<a href="https://www.mediacollege.com/video/shots/dolly-zoom.html">Media College</a></p>
+</blockquote>
+<p><img alt="img" src="../images/dollyZoom_01_compressed.gif"></p>
+<h2 id="ui">UI</h2>
+<p>The dolly zoom can be started from the Active Camera Pie (Alt + C):</p>
+<p><img alt="img" src="../images/start_dolly_1_1.jpg" width="600"></p>
+<h2 id="the-target">The Target</h2>
+<p><img alt="img" src="../images/Viewport_Gizmo.gif" width="600"></p>
+<p>The target is a viewport gizmo. It is used both for visualizing the part of the camera cone that will remain static during the dolly zoom and it can also be used to change the distance of the target from the camera. Place the target plane at the object you don't want to move during the dolly zoom. </p>
+<h2 id="interations">Interations</h2>
+<ul>
+<li><strong>Mouse Movement:</strong> This will adjust both distance and focal lenght to perform a camera zoom if no other mode (see below) is enabled.</li>
+</ul>
+<p><img alt="img" src="../images/dolly_zoom_move_mouse.gif" width="600"></p>
+<ul>
+<li><strong>D (Target Distance)</strong> You enter the distance mode by pressing D once, pressing it again will leave the mode again. Your mouse movement changes the target distance of the camera in distance mode. This has the same effect as moving the target in the viewport.  </li>
+</ul>
+<p><img alt="img" src="../images/Distance_resized.gif" width="600"></p>
+<ul>
+<li><strong>F (Focal Lenght)</strong> Your mouse movement controls the focal lenght, increasing the size of the target. This has the same effect as changing the focal length from the camera properties panel. </li>
+</ul>
+<p><img alt="img" src="../images/Width_resized.gif" width="600"></p>
+<ul>
+<li><strong>Alt</strong> Keeping alt pressed will ignore other inputs, allowing for larger movements</li>
+<li><strong>Shift</strong> The mouse movement has less effect on the value, allow for finer adjustements</li>
+<li><strong>Ctrl</strong> The mouse movement has more effect on the value, allow for bigger adjustements</li>
+</ul></div>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../renaming_UI/" class="btn btn-neutral float-left" title="The UI"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../renaming_release_notes/" class="btn btn-neutral float-right" title="Release Notes">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../camera_manager_UI/" class="btn btn-neutral float-left" title="The UI"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../camera_manager_composition/" class="btn btn-neutral float-right" title="Composition">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -296,10 +188,10 @@ This is useful for tasks like baking multiple high-poly objects onto a single lo
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../renaming_UI/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../camera_manager_UI/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../renaming_release_notes/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../camera_manager_composition/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
