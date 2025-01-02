@@ -184,21 +184,23 @@ physics solver will use the corresponding shape for scene queries and collision 
 </table>
 <div class="admonition warning inline end">
 <p class="admonition-title">Warning</p>
-</div>
 <p>Unreal Engine does not support mesh colliders for simple collisions. Split the shape into convex collisions or use Complex Collision as Simple Collision. Complex Collisions are not supported for dynamic objects.</p>
+</div>
 <h2 id="blender-setup">Blender Setup</h2>
 <p>Set up the correct naming in the Collider Addon preferences according to Unreal Engine's conventions. The image below shows an example setup:</p>
 <p><img alt="Example Naming Setup" src="../images/col_engines_ue_naming.jpg" width="600"></p>
-<p>You can download the Unreal Engine Naming Preset here: <a href="https://weisl.github.io//files//UE.py">Download</a> | <a href="collider_import_engines">Instructions</a>.</p>
+<p>You can download the Unreal Engine Naming Preset here: <a href="https://weisl.github.io//files//UE.py">Download</a> | <a href="../collider_import_engines/">Instructions</a>.</p>
 <h2 id="setup-simple-collision-in-unreal-engine">Setup Simple Collision in Unreal Engine</h2>
 <ol>
 <li>Configure the naming in the Collider Addon preferences.</li>
 <li>Export the asset with correctly named colliders. No special export settings are required.</li>
-<li>Import the asset into Unreal Engine. Unreal Engine will automatically detect and convert the collider naming into appropriate collision shapes. Optionally, disable "Auto Generate Collision" for more control.</li>
-</ol>
-<p><img alt="Import Options" src="images/UE_Import_Options.jpg" width="600"></p>
-<ol>
-<li>(Optional) Assign Physics Materials to the Simple Collision in the <strong>Static Mesh Editor</strong> under <strong>Collision</strong> -&gt; <strong>Simple Collision Physical Material</strong>.</li>
+<li>
+<p>Import the asset into Unreal Engine. Unreal Engine will automatically detect and convert the collider naming into appropriate collision shapes. Optionally, disable "Auto Generate Collision" for more control.</p>
+<p><img alt="UE_Import Options.jpg" src="../images/UE_Import_Options.jpg" width="600"></p>
+</li>
+<li>
+<p>(Optional) Assign Physics Materials to the Simple Collision in the <strong>Static Mesh Editor</strong> under <strong>Collision</strong> -&gt; <strong>Simple Collision Physical Material</strong>.</p>
+</li>
 </ol>
 <p><img alt="Assign Physics Material" src="../images/Ue_simple_Physics_material_small.gif" width="600"></p>
 <ol>
