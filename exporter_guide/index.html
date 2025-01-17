@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Overview - Documentation</title>
+    <title>Engine Guide - Documentation</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,8 +13,8 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Overview";
-        var mkdocs_page_input_path = "exporter_overview.md";
+        var mkdocs_page_name = "Engine Guide";
+        var mkdocs_page_input_path = "exporter_guide.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -83,18 +83,8 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Simple Export </span></p>
-              <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Overview</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#what-is-simple-export">What is Simple Export?</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#video-todo">Video (TODO:)</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#feature-overview">Feature Overview</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#why-use-simple-export">Why Use Simple Export?</a>
-    </li>
-    </ul>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../exporter_overview/">Overview</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../exporter_ui/">The UI</a>
                   </li>
@@ -126,8 +116,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Simple Export </li>
-      <li class="breadcrumb-item active">Overview</li>
+      <li class="breadcrumb-item active">Engine Guide</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -136,57 +125,24 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <div><h1 id="simple-export-coming-soon">Simple Export (Coming Soon)</h1>
-<p><img alt="SimpleBranding13.jpg" src="../images/simple_export/SimpleBranding15.jpg"></p>
-<p><strong>Streamlined Collection Export for Blender</strong></p>
-<hr>
-<h2 id="what-is-simple-export">What is Simple Export?</h2>
-<p><strong>Simple Export</strong> streamlines batch exporting in Blender by providing an organized overview of all export collections and
-simplifying the setup process. The add-on enhances Blender's built-in collection exporter but doesn’t modify its native
-functionality. This ensures .blend files remain fully compatible and exportable with the same settings—even without the
-add-on installed. <strong>Simple Export</strong> supports all major export formats, including <strong>FBX, Alembic, USD, OBJ, glTF, STL, and PLY</strong>.</p>
-<p>This approach keeps your workflow efficient, team-friendly, and accessible across collaborators, while providing tools
-to simplify and speed up export configuration</p>
-<hr>
-<h2 id="video-todo">Video (TODO:)</h2>
-<h2 id="feature-overview">Feature Overview</h2>
-<ul>
-<li><strong>Blender-Compatible Exports:</strong> Uses Blender’s internal collection exporter, ensuring <code>.blend</code> files and export
-  settings are fully shareable without the add-on.</li>
-<li><strong>Persistent Export Settings:</strong> Export settings are saved within Blender's Collection Exporter, ensuring they are
-  stored with the file and can be repeated.</li>
-<li><strong>Batch Export:</strong> Export multiple collections or entire scenes in one go.</li>
-<li><strong>Collection Overview:</strong> View and manage all export collections in one place.</li>
-<li><strong>Configurable for Any Engine or Pipeline:</strong> Tailor export settings to meet the requirements of any engine or
-  workflow, including <strong>Unreal Engine, Unity, Godot,</strong> or custom pipelines.</li>
-<li><strong>Support for Multiple Export Types:</strong> Works with all export formats supported by Blender, including <strong>USD, Alembic,
-  glTF, FBX, OBJ, STL, and PLY.</strong></li>
-<li><strong>Custom Export Paths:</strong> Easily define and adjust export paths for collections.</li>
-<li><strong>Consistent Output:</strong> Maintain uniform naming and folder structures for exports.</li>
-<li><strong>Customizable Presets:</strong> Apply reusable export settings across collections.</li>
-<li><strong>Flexible Naming Options:</strong> Adapt asset names to fit specific pipelines.</li>
-<li><strong>Auto Directory Management:</strong> Automatically create folders for exports if they don’t exist.</li>
-</ul>
-<hr>
-<h2 id="why-use-simple-export">Why Use Simple Export?</h2>
-<p><img alt="SimpleBranding13.jpg" src="../images/simple_export/SimpleBranding15.jpg"></p>
-<p><strong>Simple Export</strong> builds on Blender’s existing functionality to simplify and organize the export process. It’s designed
-to save time, reduce errors, and improve collaboration by maintaining compatibility with Blender's native tools.</p>
-<ul>
-<li><strong>Enhanced Workflow:</strong> Provides an overview of all export collections in a single panel.</li>
-<li><strong>Compatible:</strong> Ensures export settings are accessible in the <code>.blend</code> file, even for collaborators without the
-  add-on.</li>
-<li><strong>Organized:</strong> Helps manage export paths, presets, and naming conventions with ease.</li>
-<li><strong>Efficient:</strong> Reduces manual setup for batch and individual exports.</li>
-</ul>
-<hr></div>
+                <div><h1 id="engine-guide">Engine Guide</h1>
+<p><strong>Simple Export</strong> is a more convenient way to use Blenders built in exporters with all current export formats (fbx, alembic, usd, obj, ...). The settings can be adjusted in the same way as you would configure Blenders built in presets and exporters. </p>
+<h2 id="creating-presets">Creating Presets:</h2>
+<p><strong>Simple Export</strong> uses BLenders build in Preset system. It detects pre existing presets and you can create them in the familiar ways: 
+- <strong>Export Panel:</strong> Set poroperties and save the preset
+- <strong>Collection Exporter:</strong> Set poroperties and save the preset</p>
+<p><strong>Simple Export</strong> ships with 3 presets to export static meshes to Unity, Godot and Unreal Engine. </p>
+<h2 id="my-workflow">My workflow</h2>
+<p>I shared my workflow and strategies in the Blender Conference 2024 Talk: <strong>Game Art Insights: Art, Tech and Teamwork</strong>, where I talk about using Blender in non Blender game pipelines. </p>
+<iframe width="840" height="473" src="https://youtu.be/hVF0UjFfHVo?si=tT9eZEIzA-19OU_z" title="Game Art Insights: Art, Tech and Teamwork" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h2 id="unity-guide">Unity Guide</h2>
+<p><strong>Simple Export</strong> ships with a preset for Unity. Select the correct preset in <code>Properties -&gt; Outliner -&gt; Simple Export -&gt; Preset</code>. The preset makes sure that following settings are setup correctly.</p>
+<h2 id="unreal-engine-guide">Unreal Engine Guide</h2>
+<h2 id="godot-guide">Godot Guide</h2></div>
               
             </div>
           </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../camera_manager_release_notes/" class="btn btn-neutral float-left" title="Release Notes"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../exporter_ui/" class="btn btn-neutral float-right" title="The UI">Next <span class="icon icon-circle-arrow-right"></span></a>
-    </div>
 
   <hr/>
 
@@ -208,10 +164,6 @@ to save time, reduce errors, and improve collaboration by maintaining compatibil
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../camera_manager_release_notes/" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-      <span><a href="../exporter_ui/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

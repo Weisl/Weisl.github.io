@@ -92,6 +92,10 @@
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../exporter_overview/">Overview</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../exporter_ui/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../exporter_release_notes/">Release Notes</a>
+                  </li>
               </ul>
               <p class="caption"><span class="caption-text">Simple Renaming (Free)</span></p>
               <ul>
@@ -129,10 +133,17 @@
             <div class="section" itemprop="articleBody">
               
                 <div><h1 id="auto-convex-shape">Auto Convex Shape</h1>
-<p><strong>Auto Convex</strong> is a tool for generating convex colliders for complex meshes. It's especially useful for organic shapes like rocks, statues, and debris. While it's not a one-click solution for every asset, it’s a powerful tool for organic models.</p>
+<div class="admonition warning inline end">
+<p class="admonition-title">Warning</p>
+<p>Auto Convex is currently only supported for Windows</p>
+</div>
+<p><strong>Auto Convex</strong> is a tool for generating convex colliders for complex meshes. It's especially useful for organic shapes
+like rocks, statues, and debris. While it's not a one-click solution for every asset, it’s a powerful tool for organic
+models.</p>
 <p><img alt="SimpleBranding08.jpg" src="../images/simple_collider/SimpleBranding13.jpg"></p>
 <h3 id="basic-parameters">Basic Parameters</h3>
-<p>Control the number of convex hulls and their complexity through these settings, which appear in a popup when you activate Auto Convex:</p>
+<p>Control the number of convex hulls and their complexity through these settings, which appear in a popup when you
+activate Auto Convex:</p>
 <table>
 <thead>
 <tr>
@@ -173,11 +184,13 @@
 <p>These parameters are from the original library used: <a href="https://github.com/kmammou/v-hacd">V-HACD on GitHub</a>.</p>
 <p><img alt="img" src="../images/auto_convex_small.gif" width="600"></p>
 <h3 id="advanced-parameters">Advanced Parameters</h3>
-<p>Advanced parameters can be found in the addon preferences under <strong>Auto Convex</strong>. Access preferences directly by pressing the gear button next to "Auto Convex."</p>
+<p>Advanced parameters can be found in the addon preferences under <strong>Auto Convex</strong>. Access preferences directly by pressing
+the gear button next to "Auto Convex."</p>
 <p><img alt="img" src="../images/AutoConvex_Preferences.jpg" width="600"></p>
 <ul>
 <li><strong>Overwrite Executable:</strong> Specify a custom V-HACD executable path if needed.</li>
-<li><strong>Temporary Data Path:</strong> Set a path to store temporary files like meshes and logs used by V-HACD during collider generation.</li>
+<li><strong>Temporary Data Path:</strong> Set a path to store temporary files like meshes and logs used by V-HACD during collider
+  generation.</li>
 </ul>
 <p>Additional advanced settings:</p>
 <table>
@@ -223,7 +236,8 @@
 </tbody>
 </table>
 <p>These parameters also come from the <a href="https://github.com/kmammou/v-hacd">V-HACD library</a>.</p>
-<p>For detailed documentation on the library, refer to the <a href="https://docs.google.com/presentation/d/1OZ4mtZYrGEC8qffqb8F7Le2xzufiqvaPpRbLHKKgTIM/edit#slide=id.g123758ab003_0_310">Voxelized Hierarchical Convex Decomposition - V-HACD version 4</a>.</p></div>
+<p>For detailed documentation on the library, refer to
+the <a href="https://docs.google.com/presentation/d/1OZ4mtZYrGEC8qffqb8F7Le2xzufiqvaPpRbLHKKgTIM/edit#slide=id.g123758ab003_0_310">Voxelized Hierarchical Convex Decomposition - V-HACD version 4</a>.</p></div>
               
             </div>
           </div><footer>

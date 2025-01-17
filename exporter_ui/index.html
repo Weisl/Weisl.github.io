@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>The UI - Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "The UI";
+        var mkdocs_page_input_path = "exporter_ui.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Documentation
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Simple Collider</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_ui/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_shapes/">Collider Shapes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_auto_convex/">Auto Convex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_groups/">Collider Groups</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_physics_materials/">Physics Materials</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_import_engines/">Game Engine Support</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_ue_guidline/">UE Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_unity_guidline/">Unity Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_godot_guidline/">Godot Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Simple Camera Manager</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../camera_manager_Overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../camera_manager_UI/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../camera_manager_dolly_zoom/">Dolly Zoom</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../camera_manager_composition/">Composition</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../camera_manager_image_plane/">Precise Modeling</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../camera_manager_Rendering_workflow/">Presentation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../camera_manager_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Simple Export </span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../exporter_overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">The UI</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#the-export-list">The Export List</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#list-elements">List Elements</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#filter">Filter</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#batch-operations">Batch Operations</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#properties-panel-output">Properties Panel (Output)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#top-panel">Top Panel</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#export-list">Export List</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pre-export-operations">Pre Export Operations</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#batch-operations_1">Batch Operations</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#overwrite-preferences">Overwrite Preferences</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#create-export-collection">Create Export Collection</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#popup-panel">Popup Panel</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#outliner">Outliner</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#preferences">Preferences</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#export-path">Export Path</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#export-collection">Export Collection</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pre-export-defaults">Pre Export Defaults</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ui-customization">UI Customization</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../exporter_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Simple Renaming (Free)</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../renaming_overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../renaming_UI/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../renaming_variables/">Renaming Variables</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../renaming_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Simple Export </li>
+      <li class="breadcrumb-item active">The UI</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <div><h1 id="ui-overview">UI Overview</h1>
+<p>The <strong>Simple Export UI</strong> integrates seamlessly into various areas of Blender's interface.</p>
+<ul>
+<li><strong>Preferences:</strong> Located in Blender Preferences, this section stores global settings shared across all files, such as default paths, presets, hotkeys, and UI options.</li>
+<li><strong>Properties Panel (Output):</strong> Found in <code>Properties → Output</code>, this is the add-on's main workspace. It features the Export List for managing collections and file-specific overrides for export paths and presets.</li>
+<li><strong>Popup Panel:</strong> Provides a streamlined view of the Export List and key operations like assigning paths and presets. Accessible via a hotkey (Default: <code>Shift + Alt + E</code>) or easily assignable to the Quick Favorites.</li>
+<li><strong>Outliner Menu:</strong> Use the <strong>Right-Click Menu</strong> in the Outliner to export selected collections or assign paths and presets.</li>
+<li><strong>Info Popups:</strong> Display feedback or error messages after key operations for clarity and troubleshooting.</li>
+</ul>
+<hr>
+<h2 id="the-export-list">The Export List</h2>
+<p>The Export List is available in <code>Properties → Output → Simple Export</code> or the Popup Panel. It displays all export collections and provides tools for managing them.</p>
+<p><img alt="Image of the Export List" src="../images/simple_export/simple_export_list_01.jpg"></p>
+<h3 id="list-elements">List Elements</h3>
+<ol>
+<li><strong>Selection:</strong> Toggle collection selection.  </li>
+<li><strong>Status:</strong> Displays the collection's state (e.g., New, Edit, Locked).  </li>
+<li><strong>Name:</strong> Collection name.  </li>
+<li><strong>Filepath:</strong> Exporter filepath.  </li>
+<li><strong>Assign Filepath:</strong> Set filepath for the exporter.  </li>
+<li><strong>Assign Preset:</strong> Apply a preset to the exporter.  </li>
+<li><strong>Export Collection:</strong> Export the selected collection.</li>
+<li><strong>Filter:</strong> Filter options for the Export List.</li>
+</ol>
+<h3 id="filter">Filter</h3>
+<ul>
+<li><strong>Exporter Type:</strong> Filter by the export type.  </li>
+<li><strong>Alphabetical Order:</strong> Sort collections alphabetically.</li>
+<li><strong>Select/Deselect All:</strong> Manage collection selection.</li>
+</ul>
+<hr>
+<h2 id="batch-operations">Batch Operations</h2>
+<p>Batch operations allow users to apply settings or actions to multiple export collections simultaneously.</p>
+<p><img alt="Batch Operations for the Export List" src="../images/simple_export/simple_export_list_02.jpg"></p>
+<ol>
+<li><strong>Assign Presets:</strong> Apply presets to selected collections.</li>
+<li><strong>Assign Filepaths:</strong> Assign file paths to selected collections.</li>
+<li><strong>Export Selected:</strong> Export all selected collections.</li>
+</ol>
+<hr>
+<h2 id="properties-panel-output">Properties Panel (Output)</h2>
+<p>The Properties Panel is the main workspace for managing export collections, formats, and settings.</p>
+<p><img alt="Placeholder Image of the Properties Panel" src="../images/simple_export/SimpleExport_property.jpg" width="400"></p>
+<ol>
+<li><strong>Top Panel:</strong> Main settings like format and preset.</li>
+<li><strong>Export List:</strong> Export List.</li>
+<li><strong>Pre Export Operations:</strong> Operations to be performed before the export.</li>
+<li><strong>Batch Operations:</strong> Operations applied to all selected elements of the Export List.</li>
+<li><strong>Overwrite Preferences:</strong> Temporarily overwrite the Preference settings.</li>
+<li><strong>Create Export Collection:</strong> Creation of Export Collections.</li>
+</ol>
+<h3 id="top-panel">Top Panel</h3>
+<p>The top panel includes links to documentation and preferences.</p>
+<p>The main area contains the current export format and corresponding preset.</p>
+<p><img alt="Image of the top Menu" src="../images/simple_export/Properties_top_panel.gif" width="400"></p>
+<ol>
+<li><strong>Export Format:</strong> Choose the file format (e.g., FBX, OBJ).  </li>
+<li><strong>Export Preset:</strong> Set the default preset.</li>
+</ol>
+<h3 id="export-list">Export List</h3>
+<p>The Export List, as outlined above, is displayed here and can be customized through preferences.</p>
+<p>The elements displayed in the Export List can be adjusted from the preferences.<br>
+<img alt="Batch Operations for the Export List" src="../images/simple_export/ExportList%20Customization.gif" width="800"></p>
+<hr>
+<h3 id="pre-export-operations">Pre Export Operations</h3>
+<div class="admonition warning inline">
+<p class="admonition-title">Warning</p>
+<p>These settings can only be applied when this addon is installed. They will not be performed when using the regular Blender exporter.</p>
+</div>
+<p><img alt="Image of the pre export operations" src="../images/simple_export/PreExporOperations.jpg" width="500"></p>
+<ol>
+<li>Move collections to the origin before export.</li>
+</ol>
+<hr>
+<h3 id="batch-operations_1">Batch Operations</h3>
+<ol>
+<li><strong>Assign Presets:</strong> Apply presets to selected collections.</li>
+<li><strong>Assign Filepaths:</strong> Assign file paths to selected collections.</li>
+<li><strong>Export Selected:</strong> Export all selected collections.</li>
+</ol>
+<hr>
+<h3 id="overwrite-preferences">Overwrite Preferences</h3>
+<p>The settings are assigned in the preferences. This area is intended to temporarily overwrite these.</p>
+<p><img alt="Image of the pre export operations" src="../images/simple_export/SimpleExport_overwrite_01.jpg" width="500"></p>
+<ol>
+<li><strong>Overwrite Filepath.</strong></li>
+<li><strong>Custom Folder.</strong></li>
+<li><strong>Export Folder.</strong></li>
+<li><strong>Search and Replace.</strong></li>
+</ol>
+<p><img alt="Image of the pre export operations" src="../images/simple_export/SimpleExport_overwrite_02.jpg" width="500"></p>
+<ol>
+<li><strong>Color:</strong> Choose the Export Collection color.</li>
+<li><strong>File Name:</strong> Use the filename as prefix.</li>
+<li><strong>Prefix:</strong> Use a custom prefix.</li>
+<li><strong>Suffix:</strong> Use a custom suffix.</li>
+<li><strong>Export Path:</strong> Assign filepath on creation.</li>
+<li><strong>Export Preset:</strong> Assign preset on creation.</li>
+<li><strong>Collection Offset:</strong> Assign collection offset.</li>
+</ol>
+<hr>
+<h3 id="create-export-collection">Create Export Collection</h3>
+<ol>
+<li><strong>Parent Collection.</strong></li>
+<li><strong>Create Export Collection.</strong></li>
+<li><strong>Add Exporter to Collection.</strong></li>
+</ol>
+<hr>
+<h2 id="popup-panel">Popup Panel</h2>
+<p>The Popup Panel offers quick access to the Export List and key operations. Assign it to a hotkey or add it to the Quick Favorites menu for convenience.</p>
+<hr>
+<h2 id="outliner">Outliner</h2>
+<p><img alt="Image of Outliner" src="../images/simple_export/Outliner_exporter.jpg" width="600"></p>
+<p>Right-click in the Outliner to perform export-related tasks. <code>Outliner -&gt; Right Click -&gt; Simple Export</code>.</p>
+<ol>
+<li><strong>Add Exporter to Collection:</strong> Add an Exporter with all specified settings to the collection.</li>
+<li><strong>Batch Operations:</strong> See <a href="#batch-operations">Batch Operations</a> for further information.</li>
+</ol>
+<hr>
+<h2 id="preferences">Preferences</h2>
+<p><img alt="Image of the Simple Export Preferences" src="../images/simple_export/SimpleExport_preferences.jpg" width="600"></p>
+<ol>
+<li><strong>Export Format Defaults:</strong> Assign the default formats and corresponding presets.  </li>
+<li><strong>Export Path Defaults:</strong> Specify how export paths are generated by default.  </li>
+<li><strong>Export Collection Defaults:</strong> Defaults when creating an export collection or assigning an Exporter to an existing collection.  </li>
+<li><strong>Pre Export Operations:</strong> Operations to be applied before the export is taking place. See <a href="#pre-export-defaults">Pre Export Defaults</a> </li>
+</ol>
+<hr>
+<h3 id="export-path">Export Path</h3>
+<p>By default, the export path is based on the .blend file's location, with options for mirroring folder structures. Use the Search/Replace tool to adjust paths.</p>
+<p><img alt="Image of Custom Folder setup" src="../images/simple_export/export_path_relative.png" width="600"></p>
+<p><strong>Example:</strong><br>
+- <strong>.blend File:</strong> <code>C:\projects\workdata\tree.blend</code><br>
+- <strong>Export Path:</strong> <code>C:\projects\sourcedata\tree_a.fbx</code><br>
+- <strong>Search/Replace:</strong> Replace <code>workdata</code> with <code>sourcedata</code>.</p>
+<p>Alternatively, the export folder can also be selected directly.</p>
+<p><img alt="Image of Custom Folder setup" src="../images/simple_export/export_path_custom_folder.png" width="600"></p>
+<hr>
+<h3 id="export-collection">Export Collection</h3>
+<p>Export Collections define export settings and behaviors. You can configure the following aspects of the export collider creation.</p>
+<p><img alt="Image of Custom Folder setup" src="../images/simple_export/export_collections_prefs.jpg" width="600"></p>
+<ol>
+<li><strong>Color:</strong> Assign a color to the collection.  </li>
+<li><strong>Use Blend File Name as Prefix:</strong> Append the file name to the collection name.  </li>
+<li><strong>Prefix:</strong> Add a custom prefix.  </li>
+<li><strong>Suffix:</strong> Add a custom suffix.  </li>
+<li><strong>Collection Offset:</strong> Specify the parent object’s location as an offset.  </li>
+<li><strong>Assign Export Path:</strong> Set the export path for the collection.  </li>
+<li><strong>Assign Export Preset:</strong> Apply a preset to the collection.</li>
+</ol>
+<hr>
+<h3 id="pre-export-defaults">Pre Export Defaults</h3>
+<p>Operations performed before the collection gets exported.</p>
+<div class="admonition warning inline end">
+<p class="admonition-title">Warning</p>
+<p>These operations can only be performed if the Simple Export addon is installed. They will not be triggered when using the default collection export.</p>
+</div>
+<ul>
+<li><strong>Move to Origin:</strong> Move collections to the origin based on the collection offset.</li>
+</ul>
+<hr>
+<h3 id="ui-customization">UI Customization</h3>
+<p>Control the level of detail displayed in the Export List and adjust when Info Popups appear (e.g., only on errors or always). Preferences allow you to optimize the UI for different workflows.</p>
+<p><img alt="Image of Export list with the most essential elements only" src="../images/simple_export/export_list_settings.png" width="400"></p>
+<p><strong>All Elements Enabled:</strong><br>
+<img alt="Image of Export list with all options visible" src="../images/simple_export/export_list_full.png" width="600"></p>
+<p><strong>All Elements Disabled:</strong><br>
+<img alt="Image of Export list with the most essential elements only" src="../images/simple_export/export_list_simple.png" width="600"></p></div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../exporter_overview/" class="btn btn-neutral float-left" title="Overview"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../exporter_release_notes/" class="btn btn-neutral float-right" title="Release Notes">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../exporter_overview/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../exporter_release_notes/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
