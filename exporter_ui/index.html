@@ -109,6 +109,14 @@
     <li class="toctree-l3"><a class="reference internal" href="#batch-operations_1">Batch Operations</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#overwrite-preferences">Overwrite Preferences</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#overwrite-preset">Overwrite Preset</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#overwrite-filepath">Overwrite Filepath</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#overwrite-collection">Overwrite Collection</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#create-export-collection">Create Export Collection</a>
     </li>
@@ -120,6 +128,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#preferences">Preferences</a>
         <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#export-presets">Export Presets</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#export-path">Export Path</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#export-collection">Export Collection</a>
@@ -216,7 +226,7 @@
 <p>The Properties Panel is the main workspace for managing export collections, formats, and settings.</p>
 <p><img alt="Placeholder Image of the Properties Panel" src="../images/simple_export/SimpleExport_property.jpg" width="400"></p>
 <ol>
-<li><strong>Top Panel:</strong> Main settings like format and preset.</li>
+<li><strong>Top Panel:</strong> Specify the Export Format.</li>
 <li><strong>Export List:</strong> Export List.</li>
 <li><strong>Pre Export Operations:</strong> Operations to be performed before the export.</li>
 <li><strong>Batch Operations:</strong> Operations applied to all selected elements of the Export List.</li>
@@ -229,19 +239,18 @@
 <p><img alt="Image of the top Menu" src="../images/simple_export/Properties_top_panel.gif" width="400"></p>
 <ol>
 <li><strong>Export Format:</strong> Choose the file format (e.g., FBX, OBJ).  </li>
-<li><strong>Export Preset:</strong> Set the default preset.</li>
 </ol>
 <h3 id="export-list">Export List</h3>
 <p>The Export List, as outlined above, is displayed here and can be customized through preferences.</p>
-<p>The elements displayed in the Export List can be adjusted from the preferences.<br>
-<img alt="Batch Operations for the Export List" src="../images/simple_export/ExportList%20Customization.gif" width="800"></p>
+<p>The elements displayed in the Export List can be adjusted from the preferences.  </p>
+<p><img alt="Batch Operations for the Export List" src="../images/simple_export/ExportListCustomization.gif" width="800"></p>
 <hr>
 <h3 id="pre-export-operations">Pre Export Operations</h3>
 <div class="admonition warning inline">
 <p class="admonition-title">Warning</p>
 <p>These settings can only be applied when this addon is installed. They will not be performed when using the regular Blender exporter.</p>
 </div>
-<p><img alt="Image of the pre export operations" src="../images/simple_export/PreExporOperations.jpg" width="500"></p>
+<p><img alt="Image of the pre export operations" src="../images/simple_export/PreExporOperations.jpg" width="400"></p>
 <ol>
 <li>Move collections to the origin before export.</li>
 </ol>
@@ -254,15 +263,23 @@
 </ol>
 <hr>
 <h3 id="overwrite-preferences">Overwrite Preferences</h3>
-<p>The settings are assigned in the preferences. This area is intended to temporarily overwrite these.</p>
-<p><img alt="Image of the pre export operations" src="../images/simple_export/SimpleExport_overwrite_01.jpg" width="500"></p>
+<h4 id="overwrite-preset">Overwrite Preset</h4>
+<p>The settings are assigned in the preferences. THe Overwrite Preferences area is intended to temporarily overwrite these settings.</p>
+<p><img alt="Preference overwrite for Filepaths" src="../images/simple_export/simple_export_preset_overwrite.jpg" width="400"></p>
+<ol>
+<li><strong>Overwrite Preset:</strong> Enable Preference overwrite</li>
+<li><strong>Preset Selection:</strong> Select the preset for the current export format</li>
+</ol>
+<h4 id="overwrite-filepath">Overwrite Filepath</h4>
+<p><img alt="Preference overwrite for Filepaths" src="../images/simple_export/SimpleExport_overwrite_01.jpg" width="400"></p>
 <ol>
 <li><strong>Overwrite Filepath.</strong></li>
 <li><strong>Custom Folder.</strong></li>
 <li><strong>Export Folder.</strong></li>
 <li><strong>Search and Replace.</strong></li>
 </ol>
-<p><img alt="Image of the pre export operations" src="../images/simple_export/SimpleExport_overwrite_02.jpg" width="500"></p>
+<h4 id="overwrite-collection">Overwrite Collection</h4>
+<p><img alt="Preference Overwrite for Collection Creation" src="../images/simple_export/SimpleExport_overwrite_02.jpg" width="400"></p>
 <ol>
 <li><strong>Color:</strong> Choose the Export Collection color.</li>
 <li><strong>File Name:</strong> Use the filename as prefix.</li>
@@ -284,7 +301,7 @@
 <p>The Popup Panel offers quick access to the Export List and key operations. Assign it to a hotkey or add it to the Quick Favorites menu for convenience.</p>
 <hr>
 <h2 id="outliner">Outliner</h2>
-<p><img alt="Image of Outliner" src="../images/simple_export/Outliner_exporter.jpg" width="600"></p>
+<p><img alt="Image of Outliner" src="../images/simple_export/Outliner_exporter.jpg" width="400"></p>
 <p>Right-click in the Outliner to perform export-related tasks. <code>Outliner -&gt; Right Click -&gt; Simple Export</code>.</p>
 <ol>
 <li><strong>Add Exporter to Collection:</strong> Add an Exporter with all specified settings to the collection.</li>
@@ -292,27 +309,32 @@
 </ol>
 <hr>
 <h2 id="preferences">Preferences</h2>
-<p><img alt="Image of the Simple Export Preferences" src="../images/simple_export/SimpleExport_preferences.jpg" width="600"></p>
+<p><img alt="Image of the Simple Export Preferences" src="../images/simple_export/SimpleExport_preferences.jpg" width="400"></p>
 <ol>
-<li><strong>Export Format Defaults:</strong> Assign the default formats and corresponding presets.  </li>
+<li><strong>Export Format Defaults:</strong> Assign the default formats and corresponding presets. </li>
+<li><strong>Export Presets Defaults:</strong> Define the default export presets for the exporters by export format.</li>
 <li><strong>Export Path Defaults:</strong> Specify how export paths are generated by default.  </li>
 <li><strong>Export Collection Defaults:</strong> Defaults when creating an export collection or assigning an Exporter to an existing collection.  </li>
 <li><strong>Pre Export Operations:</strong> Operations to be applied before the export is taking place. See <a href="#pre-export-defaults">Pre Export Defaults</a> </li>
 </ol>
 <hr>
+<h3 id="export-presets">Export Presets</h3>
+<p>Specify which presets should be applied to the individual file formats by default. </p>
+<p><img alt="Export Preset Selection" src="../images/simple_export/preferences_presets.jpg" width="400"></p>
+<hr>
 <h3 id="export-path">Export Path</h3>
 <p>By default, the export path is based on the .blend file's location, with options for mirroring folder structures. Use the Search/Replace tool to adjust paths.</p>
-<p><img alt="Image of Custom Folder setup" src="../images/simple_export/export_path_relative.png" width="600"></p>
+<p><img alt="Image of Custom Folder setup" src="../images/simple_export/export_path_relative.png" width="400"></p>
 <p><strong>Example:</strong><br>
 - <strong>.blend File:</strong> <code>C:\projects\workdata\tree.blend</code><br>
 - <strong>Export Path:</strong> <code>C:\projects\sourcedata\tree_a.fbx</code><br>
 - <strong>Search/Replace:</strong> Replace <code>workdata</code> with <code>sourcedata</code>.</p>
 <p>Alternatively, the export folder can also be selected directly.</p>
-<p><img alt="Image of Custom Folder setup" src="../images/simple_export/export_path_custom_folder.png" width="600"></p>
+<p><img alt="Image of Custom Folder setup" src="../images/simple_export/export_path_custom_folder.png" width="400"></p>
 <hr>
 <h3 id="export-collection">Export Collection</h3>
 <p>Export Collections define export settings and behaviors. You can configure the following aspects of the export collider creation.</p>
-<p><img alt="Image of Custom Folder setup" src="../images/simple_export/export_collections_prefs.jpg" width="600"></p>
+<p><img alt="Image of Custom Folder setup" src="../images/simple_export/export_collections_prefs.jpg" width="400"></p>
 <ol>
 <li><strong>Color:</strong> Assign a color to the collection.  </li>
 <li><strong>Use Blend File Name as Prefix:</strong> Append the file name to the collection name.  </li>
@@ -337,9 +359,9 @@
 <p>Control the level of detail displayed in the Export List and adjust when Info Popups appear (e.g., only on errors or always). Preferences allow you to optimize the UI for different workflows.</p>
 <p><img alt="Image of Export list with the most essential elements only" src="../images/simple_export/export_list_settings.png" width="400"></p>
 <p><strong>All Elements Enabled:</strong><br>
-<img alt="Image of Export list with all options visible" src="../images/simple_export/export_list_full.png" width="600"></p>
+<img alt="Image of Export list with all options visible" src="../images/simple_export/export_list_full.png" width="800"></p>
 <p><strong>All Elements Disabled:</strong><br>
-<img alt="Image of Export list with the most essential elements only" src="../images/simple_export/export_list_simple.png" width="600"></p></div>
+<img alt="Image of Export list with the most essential elements only" src="../images/simple_export/export_list_simple.png" width="800"></p></div>
               
             </div>
           </div><footer>

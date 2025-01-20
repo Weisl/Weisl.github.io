@@ -92,15 +92,21 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#my-workflow">My workflow</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#creating-custom-presets">Creating Custom Presets:</a>
+    <li class="toctree-l2"><a class="reference internal" href="#creating-custom-presets">Creating Custom Presets</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#export-panel">Export Panel</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#use-of-presets">Use of Presets:</a>
+    <li class="toctree-l3"><a class="reference internal" href="#properties-panel">Properties Panel</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#unity-guide">Unity Guide</a>
+        </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#unreal-engine-guide">Unreal Engine Guide</a>
+    <li class="toctree-l2"><a class="reference internal" href="#use-of-presets">Use of Presets</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#godot-guide">Godot Guide</a>
+    <li class="toctree-l2"><a class="reference internal" href="#unity-guide-todo">Unity Guide (TODO)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#unreal-engine-guide-todo">Unreal Engine Guide (TODO)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#godot-guide-todo">Godot Guide (TODO)</a>
     </li>
     </ul>
                   </li>
@@ -148,19 +154,30 @@
 <p>I shared my workflow and strategies in the Blender Conference 2024 Talk: <strong>Game Art Insights: Art, Tech and Teamwork</strong>, where I talk about using Blender in non Blender game pipelines. This addon will help you streamline some of the steps outlined in my presentation and automate it further.</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/hVF0UjFfHVo?si=FMulC2kb7IDdrRC4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-<h2 id="creating-custom-presets">Creating Custom Presets:</h2>
-<p><strong>Simple Export</strong> uses BLenders build in Preset system. It detects pre existing presets and you can create them in the familiar ways: 
-- <strong>Export Panel:</strong> Set poroperties and save the preset
-- <strong>Collection Exporter:</strong> Set poroperties and save the preset</p>
-<p><strong>Simple Export</strong> ships with 3 presets to export static meshes to Unity, Godot and Unreal Engine. Game Art Creation is not always a simple straight transfer of data. A Blender scene might contain high and low poly meshes to be backed additionally to the final game assets. It is therefore important that you can customize your export collections and make them work for all situations. </p>
-<h2 id="use-of-presets">Use of Presets:</h2>
-<p>Other export addons often focus exclusevly on getting the final asset from Blender to the game engine. <strong>Simple Export</strong> intends to be more versatile and also cover other export needs like exports for baking or sending the data to another software. </p>
-<h2 id="unity-guide">Unity Guide</h2>
-<p><strong>Simple Export</strong> will ship with a 'FBX' preset for Unity. Select the correct preset in <code>Properties -&gt; Outliner -&gt; Simple Export -&gt; Preset</code>. The preset makes sure that following settings are setup correctly.</p>
-<h2 id="unreal-engine-guide">Unreal Engine Guide</h2>
-<p><strong>Simple Export</strong> will ship with a 'FBX' preset for the Unreal Engine. </p>
-<h2 id="godot-guide">Godot Guide</h2>
-<p><strong>Simple Export</strong> will ship with a 'gltf' preset for the Unreal Engine. </p></div>
+<hr>
+<h2 id="creating-custom-presets">Creating Custom Presets</h2>
+<p><strong>Simple Export</strong> uses Blender's built-in preset system. It detects pre-existing presets, and you can create them in familiar ways:  </p>
+<ul>
+<li><strong>Export Panel:</strong> Go to <code>File -&gt; Export -&gt; [file format]</code> to open Blender's export panel for the given file format. Select the settings you want and save the preset in the top-right corner.  </li>
+<li><strong>Properties Panel:</strong> Go to <code>Properties -&gt; Collection -&gt; Exporters</code>, select the export settings you want to save, and save them as a preset by clicking the three lines next to the file format and setting a name.  </li>
+</ul>
+<h3 id="export-panel">Export Panel</h3>
+<p><img alt="Create Preset Properties Panel" src="../images/simple_export/properties_preset_create_02.gif" width="500">  </p>
+<h3 id="properties-panel">Properties Panel</h3>
+<p><img alt="Create Preset Preferences" src="../images/simple_export/properties_preset_create.gif" width="300">  </p>
+<p><strong>Simple Export</strong> ships with three presets for exporting static meshes to Unity, Godot, and Unreal Engine. Game art creation is not always a straightforward transfer of data. A Blender scene might contain high- and low-poly meshes to be baked, in addition to the final game assets. It is, therefore, important to customize your export collections to work for all situations.  </p>
+<hr>
+<h2 id="use-of-presets">Use of Presets</h2>
+<p>Other export add-ons often focus exclusively on getting the final asset from Blender to the game engine. <strong>Simple Export</strong> is designed to be more versatile, covering other export needs like baking or sending data to another software.  </p>
+<hr>
+<h2 id="unity-guide-todo">Unity Guide (TODO)</h2>
+<p><strong>Simple Export</strong> will ship with an <strong>FBX</strong> preset for Unity. Select the correct preset in <code>Properties -&gt; Output -&gt; Simple Export -&gt; Preset</code>. The preset ensures that the following settings are configured correctly.  </p>
+<hr>
+<h2 id="unreal-engine-guide-todo">Unreal Engine Guide (TODO)</h2>
+<p><strong>Simple Export</strong> will ship with an <strong>FBX</strong> preset for Unreal Engine.  </p>
+<hr>
+<h2 id="godot-guide-todo">Godot Guide (TODO)</h2>
+<p><strong>Simple Export</strong> will ship with a <strong>GLTF</strong> preset for Godot.  </p></div>
               
             </div>
           </div><footer>
