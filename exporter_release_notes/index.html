@@ -92,7 +92,7 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Release Notes</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#06">0.6</a>
+    <li class="toctree-l2"><a class="reference internal" href="#062">0.6.2</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#features">Features</a>
     </li>
@@ -100,9 +100,17 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#06">0.6</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#features_1">Features</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_1">Fixes</a>
+    </li>
+        </ul>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#simple-export-beta-v05">Simple Export (Beta) v0.5</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#features_1">Features:</a>
+    <li class="toctree-l3"><a class="reference internal" href="#features_2">Features:</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#note">Note:</a>
     </li>
@@ -147,9 +155,25 @@
             <div class="section" itemprop="articleBody">
               
                 <div><h1 id="release-notes">Release Notes</h1>
+<h3 id="062">0.6.2</h3>
+<h4 id="features">Features</h4>
+<ul>
+<li><a href="https://github.com/Weisl/simple_export/issues/97"><strong>#97:</strong></a> Added <strong>Select All / None</strong> functionality to the export list.</li>
+<li><a href="https://github.com/Weisl/simple_export/issues/106"><strong>#106:</strong></a> Added the ability to <strong>assign exporters to multiple collections</strong> from the <strong>Outliner</strong>.</li>
+<li><a href="https://github.com/Weisl/simple_export/issues/91"><strong>#91:</strong></a> <strong>Changed default settings</strong> for file path generation from relative to file to custom folder.</li>
+<li><a href="https://github.com/Weisl/simple_export/issues/93"><strong>#93:</strong></a>  <strong>Preference overwrites</strong> get now saved with the Blend file.</li>
+<li><a href="https://github.com/Weisl/simple_export/issues/103"><strong>#103:</strong></a> <strong>Automatically appends file extensions</strong> when missing during export.</li>
+</ul>
+<h4 id="fixes">Fixes</h4>
+<ul>
+<li><a href="https://github.com/Weisl/simple_export/issues/98"><strong>#98:</strong></a> Fixed an error occurring when unregistering the add-on.</li>
+<li><a href="https://github.com/Weisl/simple_export/issues/99"><strong>#99:</strong></a> Fixed a crash when assigning file paths while using an empty filepath.</li>
+<li><a href="https://github.com/Weisl/simple_export/issues/104"><strong>#104:</strong></a> Resolved a crash related to an empty Custom Folder.</li>
+<li><a href="https://github.com/Weisl/simple_export/issues/105"><strong>#105:</strong></a> <strong>Ignore "Use Selection"</strong> in presets to prevent unintended behavior.</li>
+</ul>
 <h3 id="06">0.6</h3>
 <p>This beta release includes significant updates to preset handling and several UX improvements.</p>
-<h4 id="features">Features</h4>
+<h4 id="features_1">Features</h4>
 <ul>
 <li><a href="https://github.com/Weisl/simple_export/issues/11"><strong>#11:</strong></a> Added the <strong>Simple Export</strong> menu to the right-click menu in the Outliner.</li>
 <li><a href="https://github.com/Weisl/simple_export/issues/80"><strong>#80:</strong></a> Introduced presets per export format.</li>
@@ -159,13 +183,13 @@
 <li><a href="https://github.com/Weisl/simple_export/issues/66"><strong>#66:</strong></a> Added success information to the bottom of the interface.</li>
 <li><a href="https://github.com/Weisl/simple_export/issues/68"><strong>#68:</strong></a> Enhanced the <strong>Info Panel</strong> for assigning file paths.</li>
 </ul>
-<h4 id="fixes">Fixes</h4>
+<h4 id="fixes_1">Fixes</h4>
 <ul>
 <li><a href="https://github.com/Weisl/simple_export/issues/34"><strong>#34:</strong></a> Fixed an error occurring when using <strong>Set Exporter Path</strong> with an existing relative file path.</li>
 </ul>
 <h3 id="simple-export-beta-v05">Simple Export (Beta) v0.5</h3>
 <p>The initial Beta release is here, featuring all core functionality of the <strong>Minimal Lovable Product (MLP)</strong>.  </p>
-<h4 id="features_1">Features:</h4>
+<h4 id="features_2">Features:</h4>
 <ol>
 <li><strong>Streamlined Export Management</strong><br>
    Centralized list with batch operations for paths, presets, and bulk exports, simplifying batch exporting in Blender.</li>
