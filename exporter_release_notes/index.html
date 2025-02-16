@@ -92,7 +92,7 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Release Notes</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#065">0.6.5</a>
+    <li class="toctree-l2"><a class="reference internal" href="#066">0.6.6</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#features">Features</a>
     </li>
@@ -100,7 +100,7 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#062">0.6.2</a>
+    <li class="toctree-l2"><a class="reference internal" href="#065">0.6.5</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#features_1">Features</a>
     </li>
@@ -108,7 +108,7 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#06">0.6</a>
+    <li class="toctree-l2"><a class="reference internal" href="#062">0.6.2</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#features_2">Features</a>
     </li>
@@ -116,9 +116,17 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#06">0.6</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#features_3">Features</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_3">Fixes</a>
+    </li>
+        </ul>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#simple-export-beta-v05">Simple Export (Beta) v0.5</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#features_3">Features:</a>
+    <li class="toctree-l3"><a class="reference internal" href="#features_4">Features:</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#note">Note:</a>
     </li>
@@ -163,77 +171,114 @@
             <div class="section" itemprop="articleBody">
               
                 <div><h1 id="release-notes">Release Notes</h1>
-<h3 id="065">0.6.5</h3>
-<p>This update introduces an optional Export section tp the  N-Panel Window and improves path handling. It also brings UI improvements, better error handling, and a major code refactor to enhance stability and usability</p>
+<h3 id="066">0.6.6</h3>
+<p>This update introduces <strong>custom preset folder support</strong> along with fixes for <strong>hierarchical collection creation</strong> and *
+<em>single collection assignment</em>* to streamline the export process.</p>
 <h4 id="features">Features</h4>
 <ul>
-<li><a href="https://github.com/Weisl/simple_export/issues/109"><strong>#109:</strong></a> Added <strong>N-Panel Window</strong> to provide easier access to export settings.</li>
-<li><a href="https://github.com/Weisl/simple_export/issues/118"><strong>#118:</strong></a> Added <strong>Create Export Collection</strong> to the <strong>Outliner right-click menu</strong>.</li>
+<li><a href="https://github.com/Weisl/simple_export/issues/131"><strong>#131:</strong></a> Added support for <strong>custom preset folder</strong> selection.</li>
+</ul>
+<h4 id="fixes">Fixes</h4>
+<ul>
+<li><a href="https://github.com/Weisl/simple_export/issues/133"><strong>#133:</strong></a> <strong>The entire hierarchy of the selection</strong> now gets
+  correctly added to the newly created export collection.</li>
+<li><a href="https://github.com/Weisl/simple_export/issues/134"><strong>#134:</strong></a> Fixed <strong>single assignment issues</strong> for Export and File
+  Path.</li>
+</ul>
+<h3 id="065">0.6.5</h3>
+<p>This update introduces an optional Export section tp the N-Panel Window and improves path handling. It also brings UI
+improvements, better error handling, and a major code refactor to enhance stability and usability</p>
+<h4 id="features_1">Features</h4>
+<ul>
+<li><a href="https://github.com/Weisl/simple_export/issues/109"><strong>#109:</strong></a> Added <strong>N-Panel Window</strong> to provide easier access to
+  export settings.</li>
+<li><a href="https://github.com/Weisl/simple_export/issues/118"><strong>#118:</strong></a> Added <strong>Create Export Collection</strong> to the <strong>Outliner
+  right-click menu</strong>.</li>
 <li><a href="https://github.com/Weisl/simple_export/issues/114"><strong>#114:</strong></a> Improved <strong>Simple Export header</strong> for all panels.</li>
 <li><a href="https://github.com/Weisl/simple_export/issues/125"><strong>#125:</strong></a> Extended <strong>Create Export Collection</strong> to <strong>selection</strong>.</li>
 <li><a href="https://github.com/Weisl/simple_export/issues/115"><strong>#115:</strong></a> Exposed <strong>Enable/Disable options</strong> for the N-Panel.</li>
-<li><a href="https://github.com/Weisl/simple_export/issues/119"><strong>#119:</strong></a> Added <strong>Current Collection</strong> detail view for export list.</li>
+<li><a href="https://github.com/Weisl/simple_export/issues/119"><strong>#119:</strong></a> Added <strong>Current Collection</strong> detail view for export
+  list.</li>
 <li><a href="https://github.com/Weisl/simple_export/issues/122"><strong>#122:</strong></a> Enabled opening <strong>Properties from the N-Panel</strong>.</li>
 <li><a href="https://github.com/Weisl/simple_export/issues/126"><strong>#126:</strong></a> <strong>Disable Collection Offset</strong> by default.</li>
 <li>Improved Path Management (Absolute/Relative/Mirror)</li>
 <li><a href="https://github.com/Weisl/simple_export/issues/128"><strong>#128:</strong></a> Improved <strong>Mirror Path Mode display</strong>.</li>
-<li><a href="https://github.com/Weisl/simple_export/issues/130"><strong>#130:</strong></a> Ensured paths are correctly displayed as <strong>absolute/relative</strong>.</li>
-<li><a href="https://github.com/Weisl/simple_export/issues/132"><strong>#132:</strong></a> Unified <strong>N-Panel and Properties-Output panel settings</strong>.</li>
-<li><a href="https://github.com/Weisl/simple_export/issues/123"><strong>#123:</strong></a> Add <strong>Instance Offset</strong> etc. to active collection settings.</li>
+<li><a href="https://github.com/Weisl/simple_export/issues/130"><strong>#130:</strong></a> Ensured paths are correctly displayed as *
+  <em>absolute/relative</em>*.</li>
+<li><a href="https://github.com/Weisl/simple_export/issues/132"><strong>#132:</strong></a> Unified <strong>N-Panel and Properties-Output panel settings
+  </strong>.</li>
+<li><a href="https://github.com/Weisl/simple_export/issues/123"><strong>#123:</strong></a> Add <strong>Instance Offset</strong> etc. to active collection
+  settings.</li>
 </ul>
-<h4 id="fixes">Fixes</h4>
+<h4 id="fixes_1">Fixes</h4>
 <ul>
-<li><a href="https://github.com/Weisl/simple_export/issues/116"><strong>#116:</strong></a> Renamed <strong>"Overwrite Preferences"</strong> to <strong>"Scene Settings"</strong> for clarity.</li>
-<li><a href="https://github.com/Weisl/simple_export/issues/117"><strong>#117:</strong></a> Fixed missing <strong>preset selection options</strong> for scene overwrites.</li>
-<li><a href="https://github.com/Weisl/simple_export/issues/121"><strong>#121:</strong></a> Improved <strong>file path assignment</strong> when creating export collections.</li>
+<li><a href="https://github.com/Weisl/simple_export/issues/116"><strong>#116:</strong></a> Renamed <strong>"Overwrite Preferences"</strong> to <strong>"Scene
+  Settings"</strong> for clarity.</li>
+<li><a href="https://github.com/Weisl/simple_export/issues/117"><strong>#117:</strong></a> Fixed missing <strong>preset selection options</strong> for scene
+  overwrites.</li>
+<li><a href="https://github.com/Weisl/simple_export/issues/121"><strong>#121:</strong></a> Improved <strong>file path assignment</strong> when creating export
+  collections.</li>
 <li><a href="https://github.com/Weisl/simple_export/issues/127"><strong>#127:</strong></a> Improved <strong>file path settings UI</strong>.</li>
 <li><a href="https://github.com/Weisl/simple_export/issues/129"><strong>#129:</strong></a> Updated <strong>collection name handling</strong> after changes.</li>
 <li><a href="https://github.com/Weisl/simple_export/issues/132"><strong>#132:</strong></a> Fixed <strong>broken presets</strong>.</li>
 <li><a href="https://github.com/Weisl/simple_export/issues/113"><strong>#113:</strong></a> Major Code Refactor.</li>
-<li><a href="https://github.com/Weisl/simple_export/issues/110"><strong>#110:</strong></a> Unify code and error handling for operator calls from Outliner, Single collection or selected collections.</li>
+<li><a href="https://github.com/Weisl/simple_export/issues/110"><strong>#110:</strong></a> Unify code and error handling for operator calls from
+  Outliner, Single collection or selected collections.</li>
 <li>Fixed <strong>register/unregister issues</strong> for the add-on.</li>
 <li>Cleaned up <strong>N-Panel UI</strong> and improved consistency.</li>
 </ul>
 <h3 id="062">0.6.2</h3>
-<h4 id="features_1">Features</h4>
-<ul>
-<li><a href="https://github.com/Weisl/simple_export/issues/97"><strong>#97:</strong></a> Added <strong>Select All / None</strong> functionality to the export list.</li>
-<li><a href="https://github.com/Weisl/simple_export/issues/106"><strong>#106:</strong></a> Added the ability to <strong>assign exporters to multiple collections</strong> from the <strong>Outliner</strong>.</li>
-<li><a href="https://github.com/Weisl/simple_export/issues/91"><strong>#91:</strong></a> <strong>Changed default settings</strong> for file path generation from relative to file to custom folder.</li>
-<li><a href="https://github.com/Weisl/simple_export/issues/93"><strong>#93:</strong></a>  <strong>Preference overwrites</strong> get now saved with the Blend file.</li>
-<li><a href="https://github.com/Weisl/simple_export/issues/103"><strong>#103:</strong></a> <strong>Automatically appends file extensions</strong> when missing during export.</li>
-</ul>
-<h4 id="fixes_1">Fixes</h4>
-<ul>
-<li><a href="https://github.com/Weisl/simple_export/issues/98"><strong>#98:</strong></a> Fixed an error occurring when unregistering the add-on.</li>
-<li><a href="https://github.com/Weisl/simple_export/issues/99"><strong>#99:</strong></a> Fixed a crash when assigning file paths while using an empty filepath.</li>
-<li><a href="https://github.com/Weisl/simple_export/issues/104"><strong>#104:</strong></a> Resolved a crash related to an empty Custom Folder.</li>
-<li><a href="https://github.com/Weisl/simple_export/issues/105"><strong>#105:</strong></a> <strong>Ignore "Use Selection"</strong> in presets to prevent unintended behavior.</li>
-</ul>
-<h3 id="06">0.6</h3>
-<p>This beta release includes significant updates to preset handling and several UX improvements.</p>
 <h4 id="features_2">Features</h4>
 <ul>
-<li><a href="https://github.com/Weisl/simple_export/issues/11"><strong>#11:</strong></a> Added the <strong>Simple Export</strong> menu to the right-click menu in the Outliner.</li>
-<li><a href="https://github.com/Weisl/simple_export/issues/80"><strong>#80:</strong></a> Introduced presets per export format.</li>
-<li><a href="https://github.com/Weisl/simple_export/issues/19"><strong>#19:</strong></a> Added the ability to set the default file type in preferences.</li>
-<li><a href="https://github.com/Weisl/simple_export/issues/35"><strong>#35:</strong></a> Improved error handling for the <strong>Set Preset</strong> operation.</li>
-<li><a href="https://github.com/Weisl/simple_export/issues/59"><strong>#59:</strong></a> Added an option to the status popup for successful operations.</li>
-<li><a href="https://github.com/Weisl/simple_export/issues/66"><strong>#66:</strong></a> Added success information to the bottom of the interface.</li>
-<li><a href="https://github.com/Weisl/simple_export/issues/68"><strong>#68:</strong></a> Enhanced the <strong>Info Panel</strong> for assigning file paths.</li>
+<li><a href="https://github.com/Weisl/simple_export/issues/97"><strong>#97:</strong></a> Added <strong>Select All / None</strong> functionality to the export
+  list.</li>
+<li><a href="https://github.com/Weisl/simple_export/issues/106"><strong>#106:</strong></a> Added the ability to <strong>assign exporters to multiple
+  collections</strong> from the <strong>Outliner</strong>.</li>
+<li><a href="https://github.com/Weisl/simple_export/issues/91"><strong>#91:</strong></a> <strong>Changed default settings</strong> for file path generation
+  from relative to file to custom folder.</li>
+<li><a href="https://github.com/Weisl/simple_export/issues/93"><strong>#93:</strong></a>  <strong>Preference overwrites</strong> get now saved with the Blend
+  file.</li>
+<li><a href="https://github.com/Weisl/simple_export/issues/103"><strong>#103:</strong></a> <strong>Automatically appends file extensions</strong> when missing
+  during export.</li>
 </ul>
 <h4 id="fixes_2">Fixes</h4>
 <ul>
-<li><a href="https://github.com/Weisl/simple_export/issues/34"><strong>#34:</strong></a> Fixed an error occurring when using <strong>Set Exporter Path</strong> with an existing relative file path.</li>
+<li><a href="https://github.com/Weisl/simple_export/issues/98"><strong>#98:</strong></a> Fixed an error occurring when unregistering the add-on.</li>
+<li><a href="https://github.com/Weisl/simple_export/issues/99"><strong>#99:</strong></a> Fixed a crash when assigning file paths while using an
+  empty filepath.</li>
+<li><a href="https://github.com/Weisl/simple_export/issues/104"><strong>#104:</strong></a> Resolved a crash related to an empty Custom Folder.</li>
+<li><a href="https://github.com/Weisl/simple_export/issues/105"><strong>#105:</strong></a> <strong>Ignore "Use Selection"</strong> in presets to prevent
+  unintended behavior.</li>
+</ul>
+<h3 id="06">0.6</h3>
+<p>This beta release includes significant updates to preset handling and several UX improvements.</p>
+<h4 id="features_3">Features</h4>
+<ul>
+<li><a href="https://github.com/Weisl/simple_export/issues/11"><strong>#11:</strong></a> Added the <strong>Simple Export</strong> menu to the right-click menu
+  in the Outliner.</li>
+<li><a href="https://github.com/Weisl/simple_export/issues/80"><strong>#80:</strong></a> Introduced presets per export format.</li>
+<li><a href="https://github.com/Weisl/simple_export/issues/19"><strong>#19:</strong></a> Added the ability to set the default file type in
+  preferences.</li>
+<li><a href="https://github.com/Weisl/simple_export/issues/35"><strong>#35:</strong></a> Improved error handling for the <strong>Set Preset</strong> operation.</li>
+<li><a href="https://github.com/Weisl/simple_export/issues/59"><strong>#59:</strong></a> Added an option to the status popup for successful
+  operations.</li>
+<li><a href="https://github.com/Weisl/simple_export/issues/66"><strong>#66:</strong></a> Added success information to the bottom of the interface.</li>
+<li><a href="https://github.com/Weisl/simple_export/issues/68"><strong>#68:</strong></a> Enhanced the <strong>Info Panel</strong> for assigning file paths.</li>
+</ul>
+<h4 id="fixes_3">Fixes</h4>
+<ul>
+<li><a href="https://github.com/Weisl/simple_export/issues/34"><strong>#34:</strong></a> Fixed an error occurring when using <strong>Set Exporter Path</strong>
+  with an existing relative file path.</li>
 </ul>
 <h3 id="simple-export-beta-v05">Simple Export (Beta) v0.5</h3>
-<p>The initial Beta release is here, featuring all core functionality of the <strong>Minimal Lovable Product (MLP)</strong>.  </p>
-<h4 id="features_3">Features:</h4>
+<p>The initial Beta release is here, featuring all core functionality of the <strong>Minimal Lovable Product (MLP)</strong>.</p>
+<h4 id="features_4">Features:</h4>
 <ol>
 <li><strong>Streamlined Export Management</strong><br>
    Centralized list with batch operations for paths, presets, and bulk exports, simplifying batch exporting in Blender.</li>
 <li><strong>Comprehensive Format Support</strong><br>
-   Handles all major export formats, including FBX, Alembic, USD, OBJ, glTF, STL, and PLY, without altering Blender's native functionality.</li>
+   Handles all major export formats, including FBX, Alembic, USD, OBJ, glTF, STL, and PLY, without altering Blender's
+   native functionality.</li>
 <li><strong>Adaptable for Games and Movies</strong><br>
    Compatible with workflows for game engines like Unreal, Unity, and Godot, as well as movie pipelines.</li>
 </ol>

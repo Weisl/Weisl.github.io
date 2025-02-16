@@ -149,32 +149,208 @@
             <div class="section" itemprop="articleBody">
               
                 <div><h1 id="engine-guide">Engine Guide</h1>
-<p><strong>Simple Export</strong> is a more convenient way to use Blenders built in exporters with all current export formats (fbx, alembic, usd, obj, ...). The settings can be adjusted in the same way as you would configure Blenders built in presets and exporters. </p>
+<p><strong>Simple Export</strong> is a more convenient way to use Blenders built in exporters with all current export formats (fbx,
+alembic, usd, obj, ...). The settings can be adjusted in the same way as you would configure Blenders built in presets
+and exporters.</p>
 <h2 id="my-workflow">My workflow</h2>
-<p>I shared my workflow and strategies in the Blender Conference 2024 Talk: <strong>Game Art Insights: Art, Tech and Teamwork</strong>, where I talk about using Blender in non Blender game pipelines. This addon will help you streamline some of the steps outlined in my presentation and automate it further.</p>
+<p>I shared my workflow and strategies in the Blender Conference 2024 Talk: <strong>Game Art Insights: Art, Tech and Teamwork</strong>,
+where I talk about using Blender in non Blender game pipelines. This addon will help you streamline some of the steps
+outlined in my presentation and automate it further.</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/hVF0UjFfHVo?si=FMulC2kb7IDdrRC4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <hr>
 <h2 id="creating-custom-presets">Creating Custom Presets</h2>
-<p><strong>Simple Export</strong> uses Blender's built-in preset system. It detects pre-existing presets, and you can create them in familiar ways:  </p>
+<p><strong>Simple Export</strong> uses Blender's built-in preset system. It detects pre-existing presets, and you can create them in
+familiar ways:</p>
 <ul>
-<li><strong>Export Panel:</strong> Go to <code>File -&gt; Export -&gt; [file format]</code> to open Blender's export panel for the given file format. Select the settings you want and save the preset in the top-right corner.  </li>
-<li><strong>Properties Panel:</strong> Go to <code>Properties -&gt; Collection -&gt; Exporters</code>, select the export settings you want to save, and save them as a preset by clicking the three lines next to the file format and setting a name.  </li>
+<li><strong>Export Panel:</strong> Go to <code>File -&gt; Export -&gt; [file format]</code> to open Blender's export panel for the given file format.
+  Select the settings you want and save the preset in the top-right corner.</li>
+<li><strong>Properties Panel:</strong> Go to <code>Properties -&gt; Collection -&gt; Exporters</code>, select the export settings you want to save, and
+  save them as a preset by clicking the three lines next to the file format and setting a name.</li>
 </ul>
 <h3 id="export-panel">Export Panel</h3>
-<p><img alt="Create Preset Properties Panel" src="../images/simple_export/properties_preset_create_02.gif" width="500">  </p>
+<p><img alt="Create Preset Properties Panel" src="../images/simple_export/properties_preset_create_02.gif" width="500"></p>
 <h3 id="properties-panel">Properties Panel</h3>
-<p><img alt="Create Preset Preferences" src="../images/simple_export/properties_preset_create.gif" width="300">  </p>
-<p><strong>Simple Export</strong> ships with three presets for exporting static meshes to Unity, Godot, and Unreal Engine. Game art creation is not always a straightforward transfer of data. A Blender scene might contain high- and low-poly meshes to be baked, in addition to the final game assets. It is, therefore, important to customize your export collections to work for all situations.  </p>
+<p><img alt="Create Preset Preferences" src="../images/simple_export/properties_preset_create.gif" width="300"></p>
+<p><strong>Simple Export</strong> ships with three presets for exporting static meshes to Unity, Godot, and Unreal Engine. Game art
+creation is not always a straightforward transfer of data. A Blender scene might contain high- and low-poly meshes to be
+baked, in addition to the final game assets. It is, therefore, important to customize your export collections to work
+for all situations.</p>
 <hr>
 <h2 id="use-of-presets">Use of Presets</h2>
-<p>Other export add-ons often focus exclusively on getting the final asset from Blender to the game engine. <strong>Simple Export</strong> is designed to be more versatile, covering other export needs like baking or sending data to another software.  </p>
+<p>Other export add-ons often focus exclusively on getting the final asset from Blender to the game engine. **Simple Export
+** is designed to be more versatile, covering other export needs like baking or sending data to another software.</p>
 <hr>
 <h2 id="unity-guide-todo">Unity Guide (TODO)</h2>
-<p><strong>Simple Export</strong> will ship with an <strong>FBX</strong> preset for Unity. Select the correct preset in <code>Properties -&gt; Output -&gt; Simple Export -&gt; Preset</code>. The preset ensures that the following settings are configured correctly.  </p>
+<p><strong>Simple Export</strong> will ship with an <strong>FBX</strong> preset for Unity. Select the correct preset
+in <code>Properties -&gt; Output -&gt; Simple Export -&gt; Preset</code>. The preset ensures that the following settings are configured
+correctly.</p>
+<p><code>Simple Unity</code></p>
+<table>
+<thead>
+<tr>
+<th><strong>Setting</strong></th>
+<th><strong>Value</strong></th>
+<th><strong>Notes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path Mode</strong></td>
+<td><code>Strip Path</code></td>
+<td>Removes texture path since UE handles it</td>
+</tr>
+<tr>
+<td><strong>Scale</strong></td>
+<td><code>1.0</code></td>
+<td>Blender and UE share the same scale</td>
+</tr>
+<tr>
+<td><strong>Apply Scaling</strong></td>
+<td><code>FBX All</code>    or      <code>FBX Unit Scale</code></td>
+<td>Ensures correct transformations</td>
+</tr>
+<tr>
+<td><strong>Forward Axis</strong></td>
+<td><code>- Y Forward</code></td>
+<td>Matches Unreal’s coordinate system</td>
+</tr>
+<tr>
+<td><strong>Up Axis</strong></td>
+<td><code>Z Up</code></td>
+<td>Ensures proper world orientation</td>
+</tr>
+<tr>
+<td><strong>Apply Unit</strong></td>
+<td>✅ <code>Enabled</code></td>
+<td>Ensures proper world orientation</td>
+</tr>
+<tr>
+<td><strong>Use Space Transform</strong></td>
+<td>❌ <code>Disabled</code></td>
+<td>Helps maintain consistent transforms</td>
+</tr>
+<tr>
+<td><strong>Apply Transform</strong></td>
+<td>❌ <code>Disabled</code></td>
+<td>Avoids hierarchy issues with animations</td>
+</tr>
+<tr>
+<td><strong>Smoothing</strong></td>
+<td><code>Face</code></td>
+<td>Edge smoothing can cause shading issues</td>
+</tr>
+<tr>
+<td><strong>Apply Modifiers</strong></td>
+<td>✅ <code>Enabled</code></td>
+<td>Ensures the final mesh is exported</td>
+</tr>
+<tr>
+<td><strong>Tangent Space</strong></td>
+<td>✅ <code>Enabled</code></td>
+<td>Required for correct normal maps in UE</td>
+</tr>
+<tr>
+<td><strong>Triangulate Faces</strong></td>
+<td>✅ <code>Enabled</code> (Recommended)</td>
+<td>UE prefers triangulated meshes for LODs</td>
+</tr>
+<tr>
+<td><strong>Add Leaf Bones</strong></td>
+<td>❌ <code>Disabled</code></td>
+<td>Unreal doesn’t need extra bones</td>
+</tr>
+<tr>
+<td><strong>Animation Export</strong></td>
+<td>❌ <code>Disabled</code></td>
+<td>Only exporting static meshes</td>
+</tr>
+</tbody>
+</table>
+<p>Furhter information:
+https://polynook.com/learn/lesson/how-to-export-models-from-blender-to-unity</p>
 <hr>
 <h2 id="unreal-engine-guide-todo">Unreal Engine Guide (TODO)</h2>
-<p><strong>Simple Export</strong> will ship with an <strong>FBX</strong> preset for Unreal Engine.  </p>
+<p><strong>Simple Export</strong> will ship with an <strong>FBX</strong> preset for Unreal Engine.</p>
+<p><code>Simple UE</code></p>
+<table>
+<thead>
+<tr>
+<th><strong>Setting</strong></th>
+<th><strong>Value</strong></th>
+<th><strong>Notes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path Mode</strong></td>
+<td><code>Strip Path</code></td>
+<td>Removes texture path since UE handles it</td>
+</tr>
+<tr>
+<td><strong>Scale</strong></td>
+<td><code>1.0</code></td>
+<td>Blender and UE share the same scale</td>
+</tr>
+<tr>
+<td><strong>Apply Scaling</strong></td>
+<td><code>All Local</code></td>
+<td>Ensures correct transformations</td>
+</tr>
+<tr>
+<td><strong>Forward Axis</strong></td>
+<td><code>Y Forward</code></td>
+<td>Matches Unreal’s coordinate system</td>
+</tr>
+<tr>
+<td><strong>Up Axis</strong></td>
+<td><code>Z Up</code></td>
+<td>Ensures proper world orientation</td>
+</tr>
+<tr>
+<td><strong>Use Space Transform</strong></td>
+<td>✅ <code>Enabled</code></td>
+<td>Helps maintain consistent transforms</td>
+</tr>
+<tr>
+<td><strong>Apply Transform</strong></td>
+<td>❌ <code>Disabled</code></td>
+<td>Avoids hierarchy issues with animations</td>
+</tr>
+<tr>
+<td><strong>Smoothing</strong></td>
+<td><code>Face</code></td>
+<td>Edge smoothing can cause shading issues</td>
+</tr>
+<tr>
+<td><strong>Apply Modifiers</strong></td>
+<td>✅ <code>Enabled</code></td>
+<td>Ensures the final mesh is exported</td>
+</tr>
+<tr>
+<td><strong>Tangent Space</strong></td>
+<td>✅ <code>Enabled</code></td>
+<td>Required for correct normal maps in UE</td>
+</tr>
+<tr>
+<td><strong>Triangulate Faces</strong></td>
+<td>✅ <code>Enabled</code> (Recommended)</td>
+<td>UE prefers triangulated meshes for LODs</td>
+</tr>
+<tr>
+<td><strong>Add Leaf Bones</strong></td>
+<td>❌ <code>Disabled</code></td>
+<td>Unreal doesn’t need extra bones</td>
+</tr>
+<tr>
+<td><strong>Animation Export</strong></td>
+<td>❌ <code>Disabled</code></td>
+<td>Only exporting static meshes</td>
+</tr>
+</tbody>
+</table>
+<p>Transforms:
+https://github.com/xavier150/Blender-For-UnrealEngine-Addons/wiki/Axis-Transforms</p>
 <hr>
 <h2 id="godot-guide-todo">Godot Guide (TODO)</h2>
 <p><strong>Simple Export</strong> will ship with a <strong>GLTF</strong> preset for Godot.  </p></div>
