@@ -71,9 +71,9 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">The UI</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#overview-panel-shift-c">Overview Panel (Shift + C)</a>
+    <li class="toctree-l2"><a class="reference internal" href="#the-n-panel">The N Panel</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#scene-properties">Scene Properties</a>
+    <li class="toctree-l2"><a class="reference internal" href="#overview-panel-shift-c">Overview Panel (Shift + C)</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#active-camera-pie-alt-c">Active Camera Pie (Alt + C)</a>
     </li>
@@ -141,54 +141,67 @@
             <div class="section" itemprop="articleBody">
               
                 <div><h1 id="the-ui">The UI</h1>
+<h2 id="the-n-panel">The N Panel</h2>
+<p><img alt="N-Panel" src="../images/simple_cam/simple_cam_N-Pnael.jpg"></p>
+<ol>
+<li><strong>Camera List</strong> Containing a list of the scene cameras. Allowing the user to select them for batch rendering,
+  renaming, assigning render slots and directly render them.</li>
+<li><strong>Active Camera</strong> Contains camera specific settins like Resolution, focal length, focus distance and custom camera
+  lighting and background images.</li>
+<li><strong>Dolly Zoom</strong> Start the dolly zoom and show/hide the dolly zoom gizmo.</li>
+<li><strong>Camera Operators</strong> Contains some additional operatros like creating a camera from the current view. </li>
+<li><strong>Keymap</strong> Show the current keymap assignment. </li>
+</ol>
+<p><img alt="N-Panel" src="../images/simple_cam/ActiveCam_settings.jpg" width="400"></p>
+<p>The Active Camera panel in the N-Panel contains all camera specific settings. </p>
 <h2 id="overview-panel-shift-c">Overview Panel (Shift + C)</h2>
-<p>The Overview Panel is the core of the addon. The menu lists all cameras in your scene. It provides a quick overview of the most important settings and an easy way to adjusting them. Additionally, you can assign camera-specific resolution, render slots, and world materials, exceeding the posibilities of the default Blender.</p>
-<p><img alt="SimpleBranding16.jpg" src="../images/simple_cam/SimpleBranding18.jpg"></p>
+<p>The Overview Panel is the core of the addon. The menu lists all cameras in your scene. It provides a quick overview of
+the most important settings and an easy way to adjusting them. Additionally, you can assign camera-specific resolution,
+render slots, and world materials, exceeding the posibilities of the default Blender.</p>
 <p>The Overview panel contains all cameras and most relevant camera settings in your scene.</p>
-<p><img alt="img" src="../images/Cam_overview_panel_1_1.jpg"></p>
+<p><img alt="Popup Window" src="../images/simple_cam/simple_camera_popup_ui.jpg"></p>
 <ol>
     <li>Toggle the active camera</li>
     <li>Rename cameras</li>
-    <li>Toggle visibility, selection, and locking of cameras</li>
-    <li>Adjust specific settings like focal length and clipping planes per camera</li>
+    <li>Toggle visibility, selection, and locking</li>
+    <li>Adjust specific settings like focal length or Field of View</li>
     <li>Change output resolution per camera</li>
-    <li>Copy camera resolution from the assigned background image</li>
-    <li>Set the world material (HDRI) per camera to adjust the lighting</li>
+    <li>Apply camera resolution from the assigned background image</li>
+    <li>Adjust the near and far clipping distance of the camera. </li>
+    <li>Set the world material (e.g., HDRI) per camera to adjust the light condition</li>
     <li>Set exposure value per camera</li>
     <li>Move camera to the specified camera collection</li>
     <li>Assing individual render slots per camera</li>
     <li>Render any camera directly from this menu</li>
-    <li>Set and assign to Camera Collection</li>
-    <li>Settings: Automatically save renders, use camera name for the file name and set the output folder</li>
 </ol>
 
-<h2 id="scene-properties">Scene Properties</h2>
-<p>The Scene Properties panel contains an addional, compacter version of the camera overview panel. It allows you to rename cameras, change their visibility and locking states and assign them to the specified camera collection quickly.</p>
-<p><img alt="img" src="../images/camera_scene_panel.jpg" width="600"></p>
 <h2 id="active-camera-pie-alt-c">Active Camera Pie (Alt + C)</h2>
 <p>This pie menu is intended to tweak the currently active camera. It is split into 4 areas.</p>
-<p><img alt="img" src="../images/ui_pie_02.jpg" width="600"></p>
-<p><img alt="img" src="../images/pie_detail_1_1.jpg" width="600"></p>
-<ul>
-<li><strong>Background Image and Render Settings:</strong> Assign a render slot and render directly from the pie menu. Further, this area contains functionalities to adjust the visibility of background images and toggle them on/off quickly. </li>
-<li><strong>Camera Settings:</strong> Tweak camera-specific values like focal length, exposure, clipping planes, and depth of field. 
-  <strong>NEW:</strong> Dolly Zoom  and Toggle to Camera view</li>
-<li><strong>Viewport Settings:</strong> Quickly show and hide composition guides, UI elements and darken the area outside the final frame.  </li>
+<p><img alt="img" src="../images/simple_cam/Simple_cam_pie.jpg"></p>
+<ol>
+<li><strong>Background Image and Render Settings:</strong> Assign a render slot and render directly from the pie menu. Further, this
+  area contains functionalities to adjust the visibility of background images and toggle them on/off quickly.</li>
+<li><strong>Camera Settings:</strong> Tweak camera-specific values like focal length, exposure, clipping planes, and depth of field.</li>
+<li><strong>Viewport Settings:</strong> Quickly show and hide composition guides, UI elements and darken the area outside the final
+  frame.</li>
 <li><strong>Quick Access Tools:</strong> Quickly toggle between cameras, lock/unlock, select or lock the current camera to view.</li>
-</ul>
+</ol>
 <h2 id="toggle-cameras-ctrl-shift-leftright-arrow">Toggle Cameras (Ctrl + Shift + Left/Right Arrow)</h2>
-<p>Ctrl + Shift + Left/Right Arrow allows you to quickly toggle between the scene cameras. All camera-specific settings like resolution and world material will automatically be applied. The hotkeys can be changed in the addon preferences. </p>
+<p>Ctrl + Shift + Left/Right Arrow allows you to quickly toggle between the scene cameras. All camera-specific settings
+like resolution and world material will automatically be applied. The hotkeys can be changed in the addon preferences.</p>
 <div class="admonition warning inline end">
 <p class="admonition-title">Warning</p>
-<p>All camera-specific settings - provided by this addon - like world material, exposure, camera resolution and render slot will not be updated when changing the active camera in the scene properties manually. Use the hotkeys and buttons provided by the addon to switch the cameras.</p>
+<p>All camera-specific settings - provided by this addon - like world material, exposure, camera resolution and render slot
+will not be updated when changing the active camera in the scene properties manually. Use the hotkeys and buttons
+provided by the addon to switch the cameras.</p>
 </div>
 <p><img alt="img" src="../images/overview_behind_the_curtain.gif" width="600"></p>
-<p><strong>Camera toggle using hotkeys:</strong> The resolution is stored for each camera. The cameras can be toggled both from the viewport - as seen here - or while looking through the camera.</p>
+<p><strong>Camera toggle using hotkeys:</strong> The resolution is stored for each camera. The cameras can be toggled both from the
+viewport - as seen here - or while looking through the camera.</p>
 <p><img alt="img" src="../images/HDRI_switch_cam.gif" width="600"></p>
 <p>Camera toggle using the scene properties panel</p>
 <h2 id="preferences">Preferences</h2>
-<p>The preferences provide easy customization for the hotkeys. Easily adjust them to your personal needs. You can also use the auto-updater to automatically update your addon without downloading the zip files from the store pages.</p>
-<p><img alt="img" src="../images/preferences.jpg" width="600"></p></div>
+<p>The preferences provide easy customization. </p></div>
               
             </div>
           </div><footer>

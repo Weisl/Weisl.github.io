@@ -73,6 +73,22 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#why-simple-camera-manager">Why Simple Camera Manager?</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#use-cases">Use Cases</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#top-features-in-action">Top Features in Action</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1-custom-camera-resolutions">1. Custom Camera Resolutions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2-batch-render-cameras">2. Batch Render Cameras</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#3-assign-render-slots-to-cameras">3. Assign Render Slots to Cameras</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#4-recreating-real-world-objects-and-scenes-with-background-images">4. Recreating Real-World Objects and Scenes with Background Images</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#5-interactive-dolly-zoom">5. Interactive Dolly Zoom</a>
+    </li>
+        </ul>
+    </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../camera_manager_UI/">The UI</a>
@@ -135,35 +151,62 @@
             <div class="section" itemprop="articleBody">
               
                 <div><h1 id="simple-camera-manager">Simple Camera Manager</h1>
-<p><img alt="SimpleBranding16.jpg" src="../images/simple_cam/SimpleBranding16.jpg"></p>
-<p><strong>Simple Camera Manager</strong> helps you organize and adjust scene cameras directly in the 3D view, bringing all camera controls to your fingertips.</p>
+<p><img alt="Simple_Camera_Panel.jpg" src="../images/simple_cam/Simple_Camera_main_NPanel.jpg"></p>
+<p><strong>Simple Camera Manager</strong> is designed to help you manage and organize your scene cameras efficiently. It allows you to track your cameras, batch render static cameras, and adjust settings directly from the 3D View.</p>
 <ul>
 <li><a href="https://blendermarket.com/products/simple-camera-manager" title="Blender Market">Blender Market</a></li>
 <li><a href="https://weisl.gumroad.com/l/Cam-Manager?layout=profile" title="Gumroad">Gumroad</a></li>
 </ul>
 <h2 id="feature-overview">Feature Overview</h2>
 <ul>
-<li><strong>All Cameras at a Glance</strong>: See and compare all your cameras and their settings in one place.</li>
-<li><strong>Quick Camera Switching</strong>: Toggle between cameras with hotkeys (default: Ctrl + Shift + Arrow Left/Right) or directly from the addon panels.</li>
-<li><strong>Slick and Efficient UI</strong>: A clean interface that keeps everything within reach.</li>
-<li><strong>Custom Camera Resolutions</strong>: Assign different resolutions to each camera.</li>
-<li><strong>Lock/Unlock Cameras</strong>: Instantly lock or unlock all camera transformations from the overview panel or pie menu.</li>
-<li><strong>Render Slots</strong>: Assign different render slots to different cameras to avoid overwriting renders.</li>
-<li><strong>Camera Collection</strong>: Organize your cameras by grouping them in collections for easy management.</li>
-<li><strong>Background Image Settings</strong>: Control background image settings directly from the 3D view—toggle, adjust opacity, or change render order.</li>
-<li><strong>Resolution from Background Image</strong>: Set the camera resolution based on the background image.</li>
-<li><strong>World Material Control</strong>: Assign different world materials to each camera.</li>
-<li><strong>Exposure Adjustments</strong>: Assign specific exposure values to compensate for lighting changes between cameras.</li>
-<li><strong>Flexible Hotkeys</strong>: Customize hotkeys from the addon preferences.</li>
+<li><strong>Centralized Camera View</strong>: See all your cameras in one place for easy management.</li>
+<li><strong>Settings Overview</strong>: View and adjust camera settings in a spreadsheet-style panel.</li>
+<li><strong>Batch Rendering</strong>: Render multiple static cameras with different settings within Blender, with visible progress in the render view.</li>
+<li><strong>Dolly Zoom</strong>: Interactively perform a dolly zoom, where the camera moves closer or further from the subject while adjusting the zoom angle to keep the subject the same size.</li>
+<li><strong>Quick Camera Switching</strong>: Switch between cameras using hotkeys (default: Ctrl + Shift + Arrow Left/Right) or through the addon panels.</li>
+<li><strong>Custom Resolutions</strong>: Assign unique resolutions to each camera.</li>
+<li><strong>Render Slots</strong>: Assign different render slots to cameras to prevent overwriting renders.</li>
+<li><strong>Camera Management</strong>: Quickly lock/unlock all camera transformations and organize cameras into collections for better management.</li>
+<li><strong>Background Image Control</strong>: Adjust background image settings directly from the 3D View, including toggling visibility, adjusting opacity, and changing render order. Set camera resolution based on the background image.</li>
+<li><strong>Visual Settings</strong>: Assign different world materials to each camera and adjust exposure values to compensate for lighting differences.</li>
+<li><strong>Customizable Hotkeys</strong>: Personalize hotkeys in the addon preferences for a tailored workflow.</li>
 </ul>
-<p><img alt="SimpleBranding16.jpg" src="../images/simple_cam/SimpleBranding17.jpg"></p>
+<p><img alt="Overview" src="../images/simple_cam/Simple_Camera_main_Popup.jpg"></p>
 <h2 id="why-simple-camera-manager">Why Simple Camera Manager?</h2>
 <ul>
 <li><strong>Stay Organized</strong>: See all your cameras and their key settings at a glance, and make adjustments as needed.</li>
 <li><strong>Quick Access</strong>: All functions are easily accessible from the 3D View—no need to dig through menus.</li>
 <li><strong>User-Friendly</strong>: The interface is simple, and the tools are easy to understand, with helpful descriptions where needed.</li>
 <li><strong>Continuous Support</strong>: The addon is well-documented, with ongoing development. Share your feedback to help improve it further.</li>
-</ul></div>
+</ul>
+<h2 id="use-cases">Use Cases</h2>
+<ul>
+<li><strong>Present Your Work</strong>: When working in productions or with clients, quickly present your work by setting up different cameras, adjusting their settings, and batch rendering them to showcase various angles and views efficiently.</li>
+<li><strong>Marketing Materials</strong>: Create tailored content for different social media platforms or marketing needs by setting unique resolutions for each camera. Render headers, thumbnails, and other marketing materials all at once to save time and effort.</li>
+<li><strong>Modeling from Reference Images</strong>: Originally developed from scripts to organize background images, this addon is perfect for modeling from real-world photos. <a href="https://www.artstation.com/artwork/D55b8o">Cotton Spinning Mule Artwork</a>.</li>
+<li><strong>Discover Optimal Camera Shots</strong>: Utilize the Dolly Zoom feature to easily find and define dynamic and engaging shots. Experiment with different camera movements and angles to enhance your scene's visual storytelling.</li>
+<li><strong>Architectural Visualization</strong>: Set up multiple cameras to showcase different views of architectural models. Adjust settings and render slots to create a comprehensive portfolio of interior and exterior shots.</li>
+</ul>
+<h2 id="top-features-in-action">Top Features in Action</h2>
+<h3 id="1-custom-camera-resolutions">1. Custom Camera Resolutions</h3>
+<p>Assign unique resolutions to each camera for tailored rendering outputs. This is useful for creating content for different platforms or purposes.</p>
+<p><img alt="simple_cam_resolutions.gif" src="../videos/simple_cam/simple_cam_resolutions.gif" width="800"></p>
+<h3 id="2-batch-render-cameras">2. Batch Render Cameras</h3>
+<p>Render multiple static cameras with different settings in one go. This saves time by allowing you to set up various camera angles and render them all at once.</p>
+<p><strong>Video</strong>: <a href="#">Watch Batch Rendering in Action</a></p>
+<p><img alt="simple_cam_batch_render.gif" src="../videos/simple_cam/simple_cam_batch_render.gif" width="800"></p>
+<h3 id="3-assign-render-slots-to-cameras">3. Assign Render Slots to Cameras</h3>
+<p>Assign different render slots to each camera to prevent overwriting renders.</p>
+<p><img alt="simple_cam_assign_render_slots.gif" src="../videos/simple_cam/simple_cam_assign_render_slots.gif" width="800"></p>
+<h3 id="4-recreating-real-world-objects-and-scenes-with-background-images">4. Recreating Real-World Objects and Scenes with Background Images</h3>
+<p>Use and manage viewport background images to recreate real-world objects and scenes. Quickly toggle between cameras, adjust image opacity in the viewport, and use the dolly zoom to match the camera's focal length with the image's focal length.</p>
+<p><img alt="Simple_Cam_Image_Planes.gif" src="../videos/simple_cam/Simple_Cam_Image_Planes.gif" width="800"></p>
+<p><strong>Project Link</strong>: <a href="https://www.artstation.com/artwork/D55b8o">Cotton Spinning Mule Modeling</a></p>
+<h3 id="5-interactive-dolly-zoom">5. Interactive Dolly Zoom</h3>
+<p>Perform a dolly zoom to keep the subject size consistent while adjusting the camera's distance and zoom. This helps in finding the best focal length for your render.</p>
+<p><img alt="simple_cam_Dolly_Zoom.gif" src="../videos/simple_cam/simple_cam_Dolly_Zoom.gif" width="800"></p>
+<p><img alt="Batch Render" src="../images/simple_cam/Simple_Camera_dolly_focal_length_narrow.jpg"></p>
+<hr></div>
               
             </div>
           </div><footer>
