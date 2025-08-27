@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Creating Exporter Presets - Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Creating Exporter Presets";
+        var mkdocs_page_input_path = "exporter_preset_creation.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Documentation
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Alpine Empire</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Simple Collider</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_ui/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_shapes/">Collider Shapes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_auto_convex/">Auto Convex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_groups/">Collider Groups</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_physics_materials/">Physics Materials</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_import_engines/">Game Engine Support</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_ue_guidline/">UE Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_unity_guidline/">Unity Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_godot_guidline/">Godot Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Simple Export </span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../exporter_overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../exporter_ui/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../exporter_guide/">User Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../exporter_guide_unreal/">UE Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../exporter_guide_unity/">Unity Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../exporter_guide_godot/">Godot Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../exporter_guide_baking/">Baking Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../exporter_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Simple Camera Manager</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../camera_manager_Overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../camera_manager_UI/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../camera_manager_dolly_zoom/">Dolly Zoom</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../camera_manager_composition/">Composition</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../camera_manager_image_plane/">Precise Modeling</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../camera_manager_Rendering_workflow/">Presentation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../camera_manager_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Simple Renaming (Free)</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../renaming_overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../renaming_UI/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../renaming_variables/">Renaming Variables</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../renaming_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Creating Exporter Presets</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <div><h1 id="creating-exporter-presets">Creating Exporter Presets</h1>
+<h2 id="overwrite-preferences">Overwrite Preferences</h2>
+<h4 id="overwrite-preset">Overwrite Preset</h4>
+<p>The settings are assigned in the preferences. THe Overwrite Preferences area is intended to temporarily overwrite these settings.</p>
+<p><img alt="Preference overwrite for Filepaths" src="../images/simple_export/simple_export_preset_overwrite.jpg" width="400"></p>
+<ol>
+<li><strong>Overwrite Preset:</strong> Enable Preference overwrite</li>
+<li><strong>Preset Selection:</strong> Select the preset for the current export format</li>
+</ol>
+<h4 id="overwrite-filepath">Overwrite Filepath</h4>
+<p><img alt="Preference overwrite for Filepaths" src="../images/simple_export/SimpleExport_overwrite_01.jpg" width="400"></p>
+<ol>
+<li><strong>Overwrite Filepath.</strong></li>
+<li><strong>Custom Folder.</strong></li>
+<li><strong>Export Folder.</strong></li>
+<li><strong>Search and Replace.</strong></li>
+</ol>
+<h4 id="overwrite-collection">Overwrite Collection</h4>
+<p><img alt="Preference Overwrite for Collection Creation" src="../images/simple_export/SimpleExport_overwrite_02.jpg" width="400"></p>
+<ol>
+<li><strong>Color:</strong> Choose the Export Collection color.</li>
+<li><strong>File Name:</strong> Use the filename as prefix.</li>
+<li><strong>Prefix:</strong> Use a custom prefix.</li>
+<li><strong>Suffix:</strong> Use a custom suffix.</li>
+<li><strong>Export Path:</strong> Assign filepath on creation.</li>
+<li><strong>Export Preset:</strong> Assign preset on creation.</li>
+<li><strong>Collection Offset:</strong> Assign collection offset.</li>
+</ol>
+<hr>
+<h3 id="create-export-collection">Create Export Collection</h3>
+<ol>
+<li><strong>Parent Collection.</strong></li>
+<li><strong>Create Export Collection.</strong></li>
+<li><strong>Add Exporter to Collection.</strong></li>
+</ol>
+<hr>
+<h2 id="popup-panel">Popup Panel</h2>
+<p>The Popup Panel offers quick access to the Export List and key operations. Assign it to a hotkey or add it to the Quick Favorites menu for convenience.</p>
+<hr>
+<hr>
+<h3 id="export-path">Export Path</h3>
+<p>By default, the export path is based on the .blend file's location, with options for mirroring folder structures. Use
+the Search/Replace tool to adjust paths.</p>
+<p><img alt="Image of Custom Folder setup" src="../images/simple_export/export_path_relative.png" width="400"></p>
+<p><strong>Example:</strong></p>
+<ul>
+<li><strong>.blend File:</strong> <code>C:\projects\workdata\tree.blend</code></li>
+<li><strong>Export Path:</strong> <code>C:\projects\sourcedata\tree_a.fbx</code></li>
+<li><strong>Search/Replace:</strong> Replace <code>workdata</code> with <code>sourcedata</code>.</li>
+</ul>
+<p>Alternatively, the export folder can also be selected directly.</p>
+<p><img alt="Image of Custom Folder setup" src="../images/simple_export/export_path_custom_folder.png" width="400"></p>
+<hr>
+<h3 id="export-collection">Export Collection</h3>
+<p>Export Collections define export settings and behaviors. You can configure the following aspects of the export collider
+creation.</p>
+<p><img alt="Image of Custom Folder setup" src="../images/simple_export/export_collections_prefs.jpg" width="400"></p>
+<ol>
+<li><strong>Color:</strong> Assign a color to the collection.</li>
+<li><strong>Use Blend File Name as Prefix:</strong> Append the file name to the collection name.</li>
+<li><strong>Prefix:</strong> Add a custom prefix.</li>
+<li><strong>Suffix:</strong> Add a custom suffix.</li>
+<li><strong>Collection Offset:</strong> Specify the parent object’s location as an offset.</li>
+<li><strong>Assign Export Path:</strong> Set the export path for the collection.</li>
+<li><strong>Assign Export Preset:</strong> Apply a preset to the collection.</li>
+</ol>
+<hr>
+<h3 id="pre-export-defaults">Pre Export Defaults</h3>
+<p>Operations performed before the collection gets exported.</p>
+<div class="admonition warning inline end">
+<p class="admonition-title">Warning</p>
+</div>
+<p>These operations can only be performed if the Simple Export addon is installed. They will not be triggered when using
+the default collection export.</p>
+<ul>
+<li><strong>Move by Collection Offset:</strong> Move collections to the origin based on the collection offset.</li>
+</ul>
+<hr></div>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -37,7 +37,7 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                <li class="toctree-l1"><a class="reference internal" href="..">Alpine Empire</a>
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">Simple Collider</span></p>
@@ -65,6 +65,39 @@
                   <li class="toctree-l1"><a class="reference internal" href="../collider_release_notes/">Release Notes</a>
                   </li>
               </ul>
+              <p class="caption"><span class="caption-text">Simple Export </span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../exporter_overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../exporter_ui/">The UI</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">User Guide</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#presets">Presets</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#creating-format-presets">Creating Format Presets</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#export-panel">Export Panel</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#properties-panel">Properties Panel</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#my-workflow">My workflow</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../exporter_guide_unreal/">UE Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../exporter_guide_unity/">Unity Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../exporter_guide_godot/">Godot Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../exporter_guide_baking/">Baking Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../exporter_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
               <p class="caption"><span class="caption-text">Simple Camera Manager</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../camera_manager_Overview/">Overview</a>
@@ -80,37 +113,6 @@
                   <li class="toctree-l1"><a class="reference internal" href="../camera_manager_Rendering_workflow/">Presentation</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../camera_manager_release_notes/">Release Notes</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Simple Export </span></p>
-              <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../exporter_overview/">Overview</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../exporter_ui/">The UI</a>
-                  </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">User Guide</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#my-workflow">My workflow</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#creating-custom-presets">Creating Custom Presets</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#export-panel">Export Panel</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#properties-panel">Properties Panel</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#use-of-presets">Use of Presets</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#unity-guide-todo">Unity Guide (TODO)</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#unreal-engine-guide-todo">Unreal Engine Guide (TODO)</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#godot-guide-todo">Godot Guide (TODO)</a>
-    </li>
-    </ul>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../exporter_release_notes/">Release Notes</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Simple Renaming (Free)</span></p>
@@ -148,218 +150,58 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <div><h1 id="engine-guide">Engine Guide</h1>
+                <div><h1 id="user-guide">User Guide</h1>
 <p><strong>Simple Export</strong> is a more convenient way to use Blenders built in exporters with all current export formats (fbx,
-alembic, usd, obj, ...). The settings can be adjusted in the same way as you would configure Blenders built in presets
-and exporters.</p>
-<h2 id="my-workflow">My workflow</h2>
-<p>I shared my workflow and strategies in the Blender Conference 2024 Talk: <strong>Game Art Insights: Art, Tech and Teamwork</strong>,
-where I talk about using Blender in non Blender game pipelines. This addon will help you streamline some of the steps
-outlined in my presentation and automate it further.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/hVF0UjFfHVo?si=FMulC2kb7IDdrRC4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-<hr>
-<h2 id="creating-custom-presets">Creating Custom Presets</h2>
-<p><strong>Simple Export</strong> uses Blender's built-in preset system. It detects pre-existing presets, and you can create them in
-familiar ways:</p>
+alembic, usd, obj, gltf, ply, stl). The export presets can be created in the same way as you would configure Blenders
+built in presets
+and exporters but supercharges the process.</p>
+<p>Other export add-ons often focus exclusively on getting the final asset from Blender to the game engine. **Simple Export
+** is designed to be more versatile, covering other export needs like baking or sending data to another software.</p>
+<h2 id="presets">Presets</h2>
+<p><strong>Simple Export</strong> distinguishes between 2 types of presets: <strong>Export Collection Presets</strong> and <strong>Format Presets</strong>:</p>
+<ul>
+<li><strong>Export Collection Presets</strong> are used to configure the export collection, such as the export path, prefix, suffix,
+  and
+  collection offset and are format agnostic.</li>
+<li><strong>Format Presets</strong> are format specific and use Blenders internal format presets to configure the export
+  settings for the given file format.They include scale, axis orientation, and other format-specific settings.</li>
+</ul>
+<h2 id="creating-format-presets">Creating Format Presets</h2>
+<p><strong>Simple Export</strong> uses Blender's built-in preset system. It detects pre-existing presets. You can create them in
+familiar ways.</p>
 <ul>
 <li><strong>Export Panel:</strong> Go to <code>File -&gt; Export -&gt; [file format]</code> to open Blender's export panel for the given file format.
   Select the settings you want and save the preset in the top-right corner.</li>
 <li><strong>Properties Panel:</strong> Go to <code>Properties -&gt; Collection -&gt; Exporters</code>, select the export settings you want to save, and
   save them as a preset by clicking the three lines next to the file format and setting a name.</li>
 </ul>
+<p>Applying the presets with the addon operator will also make sure that some of the settings are applied correctly, such
+as ignoring the selection or the filepath that causes issues when applied in the default Blender export panel.</p>
 <h3 id="export-panel">Export Panel</h3>
 <p><img alt="Create Preset Properties Panel" src="../images/simple_export/properties_preset_create_02.gif" width="500"></p>
 <h3 id="properties-panel">Properties Panel</h3>
 <p><img alt="Create Preset Preferences" src="../images/simple_export/properties_preset_create.gif" width="300"></p>
+<h2 id="my-workflow">My workflow</h2>
+<p>To really get the most out of <strong>Simple Export</strong>, I need to explain my workflow and how I use it in my day-to-day. I have
+a heavily collection based workflow. I recommend checking it out if you are interested in becoming more efficient and
+seing how I create my artworks.</p>
+<p>I shared my workflow and strategies in the Blender Conference 2024 Talk: <strong>Game Art Insights: Art, Tech and Teamwork</strong>,
+where I talk about using Blender in non Blender game pipelines. This addon will help you streamline some of the steps
+outlined in my presentation and automate it further.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hVF0UjFfHVo?si=FMulC2kb7IDdrRC4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<hr>
 <p><strong>Simple Export</strong> ships with three presets for exporting static meshes to Unity, Godot, and Unreal Engine. Game art
 creation is not always a straightforward transfer of data. A Blender scene might contain high- and low-poly meshes to be
 baked, in addition to the final game assets. It is, therefore, important to customize your export collections to work
 for all situations.</p>
-<hr>
-<h2 id="use-of-presets">Use of Presets</h2>
-<p>Other export add-ons often focus exclusively on getting the final asset from Blender to the game engine. **Simple Export
-** is designed to be more versatile, covering other export needs like baking or sending data to another software.</p>
-<hr>
-<h2 id="unity-guide-todo">Unity Guide (TODO)</h2>
-<p><strong>Simple Export</strong> will ship with an <strong>FBX</strong> preset for Unity. Select the correct preset
-in <code>Properties -&gt; Output -&gt; Simple Export -&gt; Preset</code>. The preset ensures that the following settings are configured
-correctly.</p>
-<p><code>Simple Unity</code></p>
-<table>
-<thead>
-<tr>
-<th><strong>Setting</strong></th>
-<th><strong>Value</strong></th>
-<th><strong>Notes</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Path Mode</strong></td>
-<td><code>Strip Path</code></td>
-<td>Removes texture path since UE handles it</td>
-</tr>
-<tr>
-<td><strong>Scale</strong></td>
-<td><code>1.0</code></td>
-<td>Blender and UE share the same scale</td>
-</tr>
-<tr>
-<td><strong>Apply Scaling</strong></td>
-<td><code>FBX All</code>    or      <code>FBX Unit Scale</code></td>
-<td>Ensures correct transformations</td>
-</tr>
-<tr>
-<td><strong>Forward Axis</strong></td>
-<td><code>- Y Forward</code></td>
-<td>Matches Unreal’s coordinate system</td>
-</tr>
-<tr>
-<td><strong>Up Axis</strong></td>
-<td><code>Z Up</code></td>
-<td>Ensures proper world orientation</td>
-</tr>
-<tr>
-<td><strong>Apply Unit</strong></td>
-<td>✅ <code>Enabled</code></td>
-<td>Ensures proper world orientation</td>
-</tr>
-<tr>
-<td><strong>Use Space Transform</strong></td>
-<td>❌ <code>Disabled</code></td>
-<td>Helps maintain consistent transforms</td>
-</tr>
-<tr>
-<td><strong>Apply Transform</strong></td>
-<td>❌ <code>Disabled</code></td>
-<td>Avoids hierarchy issues with animations</td>
-</tr>
-<tr>
-<td><strong>Smoothing</strong></td>
-<td><code>Face</code></td>
-<td>Edge smoothing can cause shading issues</td>
-</tr>
-<tr>
-<td><strong>Apply Modifiers</strong></td>
-<td>✅ <code>Enabled</code></td>
-<td>Ensures the final mesh is exported</td>
-</tr>
-<tr>
-<td><strong>Tangent Space</strong></td>
-<td>✅ <code>Enabled</code></td>
-<td>Required for correct normal maps in UE</td>
-</tr>
-<tr>
-<td><strong>Triangulate Faces</strong></td>
-<td>✅ <code>Enabled</code> (Recommended)</td>
-<td>UE prefers triangulated meshes for LODs</td>
-</tr>
-<tr>
-<td><strong>Add Leaf Bones</strong></td>
-<td>❌ <code>Disabled</code></td>
-<td>Unreal doesn’t need extra bones</td>
-</tr>
-<tr>
-<td><strong>Animation Export</strong></td>
-<td>❌ <code>Disabled</code></td>
-<td>Only exporting static meshes</td>
-</tr>
-</tbody>
-</table>
-<p>Furhter information:
-https://polynook.com/learn/lesson/how-to-export-models-from-blender-to-unity</p>
-<hr>
-<h2 id="unreal-engine-guide-todo">Unreal Engine Guide (TODO)</h2>
-<p><strong>Simple Export</strong> will ship with an <strong>FBX</strong> preset for Unreal Engine.</p>
-<p><code>Simple UE</code></p>
-<table>
-<thead>
-<tr>
-<th><strong>Setting</strong></th>
-<th><strong>Value</strong></th>
-<th><strong>Notes</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Path Mode</strong></td>
-<td><code>Strip Path</code></td>
-<td>Removes texture path since UE handles it</td>
-</tr>
-<tr>
-<td><strong>Scale</strong></td>
-<td><code>1.0</code></td>
-<td>Blender and UE share the same scale</td>
-</tr>
-<tr>
-<td><strong>Apply Scaling</strong></td>
-<td><code>All Local</code></td>
-<td>Ensures correct transformations</td>
-</tr>
-<tr>
-<td><strong>Forward Axis</strong></td>
-<td><code>Y Forward</code></td>
-<td>Matches Unreal’s coordinate system</td>
-</tr>
-<tr>
-<td><strong>Up Axis</strong></td>
-<td><code>Z Up</code></td>
-<td>Ensures proper world orientation</td>
-</tr>
-<tr>
-<td><strong>Use Space Transform</strong></td>
-<td>✅ <code>Enabled</code></td>
-<td>Helps maintain consistent transforms</td>
-</tr>
-<tr>
-<td><strong>Apply Transform</strong></td>
-<td>❌ <code>Disabled</code></td>
-<td>Avoids hierarchy issues with animations</td>
-</tr>
-<tr>
-<td><strong>Smoothing</strong></td>
-<td><code>Face</code></td>
-<td>Edge smoothing can cause shading issues</td>
-</tr>
-<tr>
-<td><strong>Apply Modifiers</strong></td>
-<td>✅ <code>Enabled</code></td>
-<td>Ensures the final mesh is exported</td>
-</tr>
-<tr>
-<td><strong>Tangent Space</strong></td>
-<td>✅ <code>Enabled</code></td>
-<td>Required for correct normal maps in UE</td>
-</tr>
-<tr>
-<td><strong>Triangulate Faces</strong></td>
-<td>✅ <code>Enabled</code> (Recommended)</td>
-<td>UE prefers triangulated meshes for LODs</td>
-</tr>
-<tr>
-<td><strong>Add Leaf Bones</strong></td>
-<td>❌ <code>Disabled</code></td>
-<td>Unreal doesn’t need extra bones</td>
-</tr>
-<tr>
-<td><strong>Animation Export</strong></td>
-<td>❌ <code>Disabled</code></td>
-<td>Only exporting static meshes</td>
-</tr>
-</tbody>
-</table>
-<p>Transforms:
-https://github.com/xavier150/Blender-For-UnrealEngine-Addons/wiki/Axis-Transforms</p>
-<hr>
-<h2 id="godot-guide-todo">Godot Guide (TODO)</h2>
-<p><strong>Simple Export</strong> will ship with a <strong>GLTF</strong> preset for Godot.  </p></div>
+<hr></div>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../exporter_ui/" class="btn btn-neutral float-left" title="The UI"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../exporter_release_notes/" class="btn btn-neutral float-right" title="Release Notes">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../exporter_guide_unreal/" class="btn btn-neutral float-right" title="UE Guide">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -385,7 +227,7 @@ https://github.com/xavier150/Blender-For-UnrealEngine-Addons/wiki/Axis-Transform
       <span><a href="../exporter_ui/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../exporter_release_notes/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../exporter_guide_unreal/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
