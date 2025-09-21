@@ -77,7 +77,7 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Unity Guide</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#export-to-unity">Export to Unity</a>
+    <li class="toctree-l2"><a class="reference internal" href="#export-from-blender">Export from Blender</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#step-1-select-the-unity-preset">Step 1: Select the Unity Preset</a>
     </li>
@@ -92,6 +92,18 @@
     <li class="toctree-l2"><a class="reference internal" href="#import-to-unity">Import to Unity</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#the-simple-unity-export-preset">The Simple Unity Export Preset</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#general-settings">General Settings</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#transformation-settings">Transformation Settings</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#shading-settings">Shading Settings</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#animation-related-settings">Animation Related Settings</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#furhter-references-and-resources">Furhter References and Resources:</a>
     </li>
     </ul>
                   </li>
@@ -157,9 +169,10 @@
                 <div><h1 id="unity-guide">Unity Guide</h1>
 <p><strong>Simple Export</strong> ships with an <strong>FBX</strong> preset for Unity. Select the correct preset
 in <code>Properties -&gt; Output -&gt; Simple Export -&gt; Preset</code>. The preset ensures that the following settings are configured
-correctly.</p>
+correctly.FBX is the recommended format for importing assets into Unity. It is widely supported and the current industry
+standard.</p>
 <p><div class="video-container"><video style="width:100%" muted controls alt="type:video"><source src="../videos/simple_export/Presets_Export_to_Unity.mp4" type="video/mp4"></source></video></div></p>
-<h2 id="export-to-unity">Export to Unity</h2>
+<h2 id="export-from-blender">Export from Blender</h2>
 <p>Exporting static assets to Unity is straightforward and only requires 3 simple steps:</p>
 <h4 id="step-1-select-the-unity-preset">Step 1: Select the Unity Preset</h4>
 <p>Make sure the <code>Unity-default</code> preset is selected</p>
@@ -175,8 +188,23 @@ origin.</p>
 <p>Export the collection from the Export List, the Outliner or by exporting all selected collections.</p>
 <h2 id="import-to-unity">Import to Unity</h2>
 <p><div class="video-container"><video style="width:100%" muted controls alt="type:video"><source src="../videos/simple_export/simple_export_import_to_unity.mp4" type="video/mp4"></source></video></div></p>
-<p>You can now simply import your asset into Unity by dragging and dropping the exported FBX file into the Unity or using the import asset. One thing to consider to clean up the transformations is to Bake Axis Conversion in the import settings. This will ensure that the mesh is imported with the correct transformations and orientation. This will ensure that there are no weird rotaitons on the asset.  </p>
+<p>You can now simply import your asset into Unity by dragging and dropping the exported FBX file into the Unity or using
+the import asset. One thing to consider to clean up the transformations is to Bake Axis Conversion in the import
+settings. This will ensure that the mesh is imported with the correct transformations and orientation. This will ensure
+that there are no weird rotaitons on the asset.</p>
+<p><img alt="Import_unity.jpg" src="../images/simple_export/unity/Import_unity.jpg"></p>
+<p>Step by step:</p>
+<ol>
+<li>Drag and drop the FBX file into the Unity Project window</li>
+<li>Select the FBX file in the Project window</li>
+<li>In the Inspector window, under the Model tab, check the <strong>"Bake Axis Conversion"</strong> option</li>
+<li>Click <strong>"Apply"</strong> to save the changes</li>
+<li>Now you can drag and drop the model into your scene</li>
+</ol>
 <h2 id="the-simple-unity-export-preset">The Simple Unity Export Preset</h2>
+<p>Here is a breakdown of the Unity preset settings. You should be able to have transparency over what happens with your
+assets on export.</p>
+<h3 id="general-settings">General Settings</h3>
 <table>
 <thead>
 <tr>
@@ -189,27 +217,49 @@ origin.</p>
 <tr>
 <td><strong>Path Mode</strong></td>
 <td><code>Strip Path</code></td>
-<td>Removes texture path since UE handles it</td>
+<td>Keeps only the name of references and discards the path.</td>
 </tr>
 <tr>
 <td><strong>Scale</strong></td>
 <td><code>1.0</code></td>
-<td>Blender and UE share the same scale</td>
+<td>Global Scale</td>
 </tr>
+<tr>
+<td><strong>object_types</strong></td>
+<td><code>'MESH', 'OTHER', EMPTY', 'ARMATURE'</code></td>
+<td>Mesh should be obvious, Other enables object types like curves and metaballs to generate high poly geometry and empties are enabled as they may also contain object information when using systems like the collection instancing.</td>
+</tr>
+<tr>
+<td><strong>Custom Properties</strong></td>
+<td><code>True</code></td>
+<td>Custom Properties can make the files slightly bigger but can be useful for passing on additional data in your pipeline.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="transformation-settings">Transformation Settings</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Setting</strong></th>
+<th><strong>Value</strong></th>
+<th><strong>Notes</strong></th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td><strong>Apply Scaling</strong></td>
 <td><code>FBX Unit Scale</code></td>
-<td>Ensures correct transformations</td>
+<td>Apply custom scaling to each object transformation, and units scaling to FBX scale. Offers the most consistent and reliable scaling.</td>
 </tr>
 <tr>
 <td><strong>Forward Axis</strong></td>
 <td><code>- Y Forward</code></td>
-<td>Matches Unreal’s coordinate system</td>
+<td>Blenders forward axis is defined by -Y</td>
 </tr>
 <tr>
 <td><strong>Up Axis</strong></td>
 <td><code>Z Up</code></td>
-<td>Ensures proper world orientation</td>
+<td>Blenders upward axis is defined by Z-up</td>
 </tr>
 <tr>
 <td><strong>Apply Unit</strong></td>
@@ -219,36 +269,80 @@ origin.</p>
 <tr>
 <td><strong>Use Space Transform</strong></td>
 <td>❌ <code>Disabled</code></td>
-<td>Helps maintain consistent transforms</td>
+<td>Use Space Transform, Apply global space transform to the object rotations. When disabled only the axis space is written to the file and all object transforms are left as-is. Use Space transform can make the export easier but has certain technical limitation especially when working with animated meshes and deep hiererchies. It is therefore disabled.</td>
 </tr>
 <tr>
 <td><strong>Apply Transform</strong></td>
 <td>❌ <code>Disabled</code></td>
-<td>Avoids hierarchy issues with animations</td>
+<td>Apply Transform, Bake space transform into object data, avoids getting unwanted rotations to objects when target space is not aligned with Blender’s space (WARNING! experimental option, use at own risk, known to be broken with armatures/animations)</td>
 </tr>
+</tbody>
+</table>
+<h3 id="shading-settings">Shading Settings</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Setting</strong></th>
+<th><strong>Value</strong></th>
+<th><strong>Notes</strong></th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td><strong>Smoothing</strong></td>
-<td><code>Face</code></td>
-<td>Edge smoothing can cause shading issues</td>
+<td><code>Normals Only</code></td>
+<td>Smoothing, Export smoothing information (prefer ‘Normals Only’ option if your target importer understand split normals) which Unity does.</td>
 </tr>
 <tr>
 <td><strong>Apply Modifiers</strong></td>
 <td>✅ <code>Enabled</code></td>
-<td>Ensures the final mesh is exported</td>
+<td>Apply objects modifiers on export</td>
 </tr>
 <tr>
 <td><strong>Tangent Space</strong></td>
-<td>✅ <code>Enabled</code></td>
-<td>Required for correct normal maps in UE</td>
+<td>❌ <code>Disabled</code></td>
+<td>Unity uses by default the Mikktspace, the same Tangent space used by Blender. It is therefore not necessary to export the tangent space</td>
 </tr>
 <tr>
 <td><strong>Triangulate Faces</strong></td>
-<td>✅ <code>Enabled</code> ?????</td>
-<td>Triangulate caused issues in the past, because Blender would not maintain the custom normals</td>
+<td>❌ <code>Disabled</code></td>
+<td>While it is generally recommended to triangulate meshes before export, doing it in the exporter does not maintain custom normals and can therefore cause completely broken and unpredictable results.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="animation-related-settings">Animation Related Settings</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Setting</strong></th>
+<th><strong>Value</strong></th>
+<th><strong>Notes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Only Deform Bones</strong></td>
+<td>❌ <code>Disabled</code></td>
+<td>Unreal doesn’t need extra bones</td>
+</tr>
+<tr>
+<td><strong>Armature FBXNode Type</strong></td>
+<td><code>NULL</code></td>
+<td>FBX type of node (object) used to represent Blender’s armatures (use the Null type unless you experience issues with the other app, as other choices may not import back perfectly into Blender…) ‘Null’ FBX node, similar to Blender’s Empty (default).</td>
+</tr>
+<tr>
+<td><strong>Primary Bone Axis</strong></td>
+<td><code>Y</code></td>
+<td>Primary Bone Axis</td>
+</tr>
+<tr>
+<td><strong>Secondary Bone Axis</strong></td>
+<td><code>X</code></td>
+<td>Secondary Bone Axis</td>
 </tr>
 <tr>
 <td><strong>Add Leaf Bones</strong></td>
-<td>❌ <code>Disabled</code></td>
+<td>✅ <code>Enabled</code></td>
 <td>Unreal doesn’t need extra bones</td>
 </tr>
 <tr>
@@ -256,11 +350,41 @@ origin.</p>
 <td>❌ <code>Disabled</code></td>
 <td>Only exporting static meshes</td>
 </tr>
+<tr>
+<td><strong>Bake Anim</strong></td>
+<td>❌ <code>Disabled</code></td>
+<td>Do not export baked keyframe animation</td>
+</tr>
+<tr>
+<td><strong>Key All Bones</strong></td>
+<td>✅ <code>Enabled</code></td>
+<td>Key All Bones, Force exporting at least one key of animation for all bones (needed with some target applications, like UE4)</td>
+</tr>
+<tr>
+<td><strong>NLA Strips</strong></td>
+<td>✅ <code>Enabled</code></td>
+<td>NLA Strips, Export each non-muted NLA strip as a separated FBX’s AnimStack, if any, instead of global scene animation</td>
+</tr>
+<tr>
+<td><strong>All Actions</strong></td>
+<td>❌ <code>Disabled</code></td>
+<td>All Actions, Export each action as a separated FBX’s AnimStack, instead of global scene animation (note that animated objects will get all actions compatible with them, others will get no animation at all)</td>
+</tr>
+<tr>
+<td><strong>Force Start/End Keying</strong></td>
+<td>✅ <code>Enabled</code></td>
+<td>Force Start/End Keying, Always add a keyframe at start and end of actions for animated channels</td>
+</tr>
 </tbody>
 </table>
-<p>Furhter information:
-https://polynook.com/learn/lesson/how-to-export-models-from-blender-to-unity</p>
-<hr></div>
+<hr>
+<h2 id="furhter-references-and-resources">Furhter References and Resources:</h2>
+<ul>
+<li><a href="https://docs.blender.org/api/current/bpy.ops.export_scene.html">Blender Python API Documentation: FBX Exporter</a></li>
+<li><a href="https://docs.unity3d.com/Manual/ImportingModelFiles.html">Uniy Manual: Importing a Model</a></li>
+<li><a href="https://polynook.com/learn/lesson/how-to-export-models-from-blender-to-unity">Polynook Blog: How to export models from Blender to Unity</a></li>
+<li><a href="https://bkjam.github.io/posts/2024-10-19-blender-to-unity-settings/">I'm Brian BLog: FBX Blender to Unity</a></li>
+</ul></div>
               
             </div>
           </div><footer>

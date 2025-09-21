@@ -79,6 +79,48 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Godot Guide</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-exporting-assets-from-your-dcc-tool">1. Exporting Assets from Your DCC Tool</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-importing-into-godot">2. Importing into Godot</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#a-import-assets">A. Import Assets</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#b-extract-materials-for-sharing">B. Extract Materials for Sharing</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#c-reassign-materials-to-new-imports">C. Reassign Materials to New Imports</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#the-simple-exporter-godot-preset">The Simple Exporter Godot Preset</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#general-settings">General Settings</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#transformation-settings">Transformation Settings</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#mesh-settings">Mesh Settings</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#material-settings">Material Settings</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#animation-related-settings">Animation Related Settings</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#gltf-vs-glb">gltf vs glb</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#project-structure">Project Structure</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#automate-material-sharing-optional">Automate Material Sharing (Optional)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#updating-assets">Updating Assets</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#example-workflow">Example Workflow</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#furhter-references-and-resources">Furhter References and Resources:</a>
+    </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../exporter_guide_baking/">Baking Guide</a>
@@ -138,9 +180,390 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <div><h1 id="godot-guide-todo">Godot Guide (TODO)</h1>
-<p><strong>Simple Export</strong> will ship with a <strong>GLTF</strong> preset for Godot.  </p>
-<p><div class="video-container"><video style="width:100%" muted controls alt="type:video"><source src="../videos/simple_export/simple_export_Godot.mp4" type="video/mp4"></source></video></div></p></div>
+                <div><h1 id="godot-guide">Godot Guide</h1>
+<p><strong>Simple Export</strong> ships with the <strong>Godot - default</strong> preset.</p>
+<p>It uses the <strong>glTF</strong> format, which is the recommended by Godot for 3D assets. I opted to use glTF separate files
+(<code>.gltf</code> + <code>.bin</code> + textures) instead of the binary <code>.glb</code> format to allow for better texture reuse, material sharing.
+You can find an overview over the options here:</p>
+<h3 id="1-exporting-assets-from-your-dcc-tool">1. Exporting Assets from Your DCC Tool</h3>
+<p>Exporting static assets to Godot is straightforward and only requires 3 simple steps:</p>
+<p><div class="video-container"><video style="width:100%" muted controls alt="type:video"><source src="../videos/simple_export/simple_export_Godot.mp4" type="video/mp4"></source></video></div></p>
+<ol>
+<li>Select the Godot Preset</li>
+<li>Create an Export Collection</li>
+<li>Export the Collection/Collections</li>
+</ol>
+<h3 id="2-importing-into-godot">2. Importing into Godot</h3>
+<p>Importing into Godot is also simple, but requires a few extra steps to ensure that materials are shared correctly.</p>
+<h4 id="a-import-assets">A. Import Assets</h4>
+<p><div class="video-container"><video style="width:100%" muted controls alt="type:video"><source src="../videos/simple_export/simple_export_Godot_Import.mp4" type="video/mp4"></source></video></div></p>
+<ol>
+<li>Copy the <code>.gltf</code> file tpgetjer wotj the <code>models/</code> and <code>textures/</code> folders into your Godot project. You can skip this
+   step if you set the export path directly to your Godot project folder. In the video the export path is directly set to the correct folder within the Godot project. The object is therefore automatically imported.</li>
+<li>Godot will automatically detect the <code>.gltf</code> files and import them as scenes.</li>
+<li>Open the imported scene to verify that the model and textures are correctly applied.</li>
+</ol>
+<h4 id="b-extract-materials-for-sharing">B. Extract Materials for Sharing</h4>
+<ol>
+<li>Open an imported model in Godot.</li>
+<li>In the <strong>Inspector</strong>, find the <strong>Actions</strong> button at the left top.</li>
+<li>Under click <strong>Extract Materials</strong> and specify the location for the creation of the material asset.</li>
+<li>Press <strong>Select Current Folder</strong> and confirm the creation of the material asset by pressing <strong>Extract</strong>.</li>
+</ol>
+<p><div class="video-container"><video style="width:100%" muted controls alt="type:video"><source src="../videos/simple_export/simple_export_Godot_extract_material.mp4" type="video/mp4"></source></video></div><div class="video-container"><video style="width:100%" muted controls alt="type:video"><source src="../videos/simple_export/simple_export_Godot_extracted_materials.mp4" type="video/mp4"></source></video></div></p>
+<h4 id="c-reassign-materials-to-new-imports">C. Reassign Materials to New Imports</h4>
+<ol>
+<li>Import a new <code>.gltf</code> asset.</li>
+<li>In the <strong>Inspector</strong>, replace its materials with the shared <code>.tres</code> file:<ul>
+<li>Select the <strong>MeshInstance3D</strong> node.</li>
+<li>Drag <code>materials/shared_material.tres</code> into the material slot.</li>
+<li>Repeat for all matching materials.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="the-simple-exporter-godot-preset">The Simple Exporter Godot Preset</h2>
+<p>An overview of all settings used in the preset:</p>
+<h3 id="general-settings">General Settings</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Setting</strong></th>
+<th><strong>Value</strong></th>
+<th><strong>Notes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Format</strong></td>
+<td><code>gltf Separate</code></td>
+<td>Separate the data makes it eaier to share data and avoid duplication. See the later section glb vs gltf for more context.</td>
+</tr>
+<tr>
+<td><strong>Textures</strong></td>
+<td><code>textures</code></td>
+<td>Folder to place texture files in. Relative to the .gltf file</td>
+</tr>
+<tr>
+<td><strong>Custom Properties</strong></td>
+<td><code>True</code></td>
+<td>Custom Properties can make the files slightly bigger but can be useful for passing on additional data in your pipeline.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="transformation-settings">Transformation Settings</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Setting</strong></th>
+<th><strong>Value</strong></th>
+<th><strong>Notes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Export at Collection Center</strong></td>
+<td><code>False</code></td>
+<td>The feature sound unpredictable. Export at Collection Center, Export at Collection center of mass of root objects of the collection</td>
+</tr>
+<tr>
+<td><strong>+Y Up</strong></td>
+<td><code>True</code></td>
+<td>+Y Up, Export using glTF convention, +Y up</td>
+</tr>
+<tr>
+<td><strong>Flatten Object Hierarchy</strong></td>
+<td><code>False</code></td>
+<td>Comgines different objects. This should be a dedicated decision by the user.Flatten Object Hierarchy, Flatten Object Hierarchy. Useful in case of non decomposable transformation matrix.</td>
+</tr>
+<tr>
+<td><strong>Full Collection Hierarchy</strong></td>
+<td><code>True</code></td>
+<td>Full Collection Hierarchy: Export full hierarchy, including intermediate collections.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mesh-settings">Mesh Settings</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Setting</strong></th>
+<th><strong>Value</strong></th>
+<th><strong>Notes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Apply Modifiers</strong></td>
+<td>✅ <code>Enabled</code></td>
+<td>Apply objects modifiers on export</td>
+</tr>
+<tr>
+<td><strong>UVs</strong></td>
+<td>✅ <code>Enabled</code></td>
+<td>Export UVs with the meshes.</td>
+</tr>
+<tr>
+<td><strong>Normals</strong></td>
+<td>✅ <code>Enabled</code></td>
+<td>Export vertex normals with meshes.</td>
+</tr>
+<tr>
+<td><strong>Tangents</strong></td>
+<td>❌ <code>Disabled</code></td>
+<td>Godot uses Mikktspace tangent space, the same Tangent space used by Blender. It is therefore not necessary to export the tangent space</td>
+</tr>
+<tr>
+<td><strong>Attributes</strong></td>
+<td>✅ <code>Enabled</code></td>
+<td>Export Attributes (when starting with underscore).</td>
+</tr>
+<tr>
+<td><strong>Loose Edges</strong></td>
+<td>❌ <code>Disabled</code></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Loose Points</strong></td>
+<td>❌ <code>Disabled</code></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Shared Accessors</strong></td>
+<td>❌ <code>Disabled</code></td>
+<td>Shared Accessors, Export Primitives using shared accessors for attributes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="material-settings">Material Settings</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Setting</strong></th>
+<th><strong>Value</strong></th>
+<th><strong>Notes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Use Vertex Color</strong></td>
+<td><code>Material</code></td>
+<td>Material – Export vertex color when used by material.</td>
+</tr>
+<tr>
+<td><strong>Export All Vertex Colors</strong></td>
+<td><code>True</code></td>
+<td>Export All Vertex Colors, Export all vertex colors, even if not used by any material. If no Vertex Color is used in the mesh materials, a fake COLOR_0 will be created, in order to keep material unchanged.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><strong>Setting</strong></th>
+<th><strong>Value</strong></th>
+<th><strong>Notes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Materials</strong></td>
+<td><code>Export</code></td>
+<td>Material – Export vertex color when used by material.</td>
+</tr>
+<tr>
+<td><strong>Images</strong></td>
+<td><code>Automatic</code></td>
+<td>Material – Export vertex color when used by material.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="animation-related-settings">Animation Related Settings</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Setting</strong></th>
+<th><strong>Value</strong></th>
+<th><strong>Notes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Animations</strong></td>
+<td>✅ <code>Enabled</code></td>
+<td>Export actions/NLA tracks as glTF animations.</td>
+</tr>
+<tr>
+<td><strong>Animation Mode</strong></td>
+<td><code>ACTIONS</code></td>
+<td>Exports each action as a separate animation.</td>
+</tr>
+<tr>
+<td><strong>Skinning</strong></td>
+<td>✅ <code>Enabled</code></td>
+<td>Required for armatures.</td>
+</tr>
+<tr>
+<td><strong>Bone Influences</strong></td>
+<td><code>4</code></td>
+<td>Godot supports up to 4 bone influences per vertex.</td>
+</tr>
+<tr>
+<td><strong>Add Leaf Bones</strong></td>
+<td>❌ <code>Disabled</code></td>
+<td>Not required for Godot.</td>
+</tr>
+<tr>
+<td><strong>Optimize Animation Size</strong></td>
+<td>✅ <code>Enabled</code></td>
+<td>Removes redundant keyframes.</td>
+</tr>
+<tr>
+<td><strong>Negative Frames</strong></td>
+<td><code>SLIDE</code></td>
+<td>Slides animations to start at frame 0, useful for looping.</td>
+</tr>
+<tr>
+<td><strong>Sampling Rate</strong></td>
+<td><code>1</code></td>
+<td>How often to evaluate animated values (in frames).</td>
+</tr>
+<tr>
+<td><strong>Force Sampling</strong></td>
+<td>✅ <code>Enabled</code></td>
+<td>Ensures consistent animation sampling.</td>
+</tr>
+<tr>
+<td><strong>Export Deform Bones Only</strong></td>
+<td>❌ <code>Disabled</code></td>
+<td>Export all bones unless you specifically need only deform bones.</td>
+</tr>
+<tr>
+<td><strong>Reset Pose Bones</strong></td>
+<td>✅ <code>Enabled</code></td>
+<td>Resets pose bones between actions, preventing pose carryover.</td>
+</tr>
+<tr>
+<td><strong>Bake Animation</strong></td>
+<td>❌ <code>Disabled</code></td>
+<td>Only enable if using constraints/drivers or exporting only selected objects.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="gltf-vs-glb">gltf vs glb</h2>
+<ul>
+<li><code>.gltf</code> files are JSON-based and reference external binary and texture files. This makes them more human-readable and
+  easier to edit manually.</li>
+<li><code>.glb</code> files are binary files that package all data (geometry, materials, textures, animations) into a single file.
+  This makes them more compact and easier to manage, especially for distribution.</li>
+</ul>
+<p>Comparison</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>glTF Separate:</th>
+<th>glTF Binary:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>File Structure</strong></td>
+<td>Multiple files: <code>.gltf</code> (JSON) + <code>.bin</code>, textures, etc.</td>
+<td>Single binary file (<code>.glb</code>)</td>
+</tr>
+<tr>
+<td><strong>Transfer Ease</strong></td>
+<td>More files to manage; risk of missing assets</td>
+<td>Single file; easier to share/transfer</td>
+</tr>
+<tr>
+<td><strong>Godot Import</strong></td>
+<td>Supported; may require manual asset linking</td>
+<td>Supported; simpler import process</td>
+</tr>
+<tr>
+<td><strong>Size Efficiency</strong></td>
+<td>Slightly larger due to separate files and JSON overhead</td>
+<td>More compact; optimized for transfer</td>
+</tr>
+<tr>
+<td><strong>Editing Flexibility</strong></td>
+<td>Easier to edit individual assets (e.g., textures)</td>
+<td>Harder to edit; requires unpacking</td>
+</tr>
+<tr>
+<td><strong>Version Control</strong></td>
+<td>Better for diffing/merging (text-based JSON)</td>
+<td>Binary; harder to version control</td>
+</tr>
+<tr>
+<td><strong>Texture Reuse</strong></td>
+<td>Easier to reuse textures across multiple assets</td>
+<td>More difficult; textures are embedded</td>
+</tr>
+<tr>
+<td><strong>Material Sharing</strong></td>
+<td>Easier to share and update materials</td>
+<td>More difficult; materials are embedded</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="project-structure">Project Structure</h2>
+<p>The textures and materials are stored as sub-folders of the assets</p>
+<pre><code class="language-bash">your_project/
+├── assets/
+    ├── [asset category]/
+    │   ├── asset1.gltf
+    │   ├── asset1.bin
+    │   ├── asset2.gltf
+    │   ├── asset2.bin
+    |   ├──textures/
+    │   |   ├── shared_albedo.png
+    │   |   ├── shared_metallicroughness.png
+    │   |   ├── shared_normal.png
+    |   ├── materials/
+    │   |   ├── shared_material.tres  # Godot material
+</code></pre>
+<ul>
+<li><code>assets/</code>: Contains all 3D assets.</li>
+<li><code>[asset category]/</code>: User defined subfolder defining the asset category. Contains the<code>.gltf</code> and <code>.bin</code> files.</li>
+<li><code>textures/</code>: Centralized folder for all textures of this category.</li>
+<li><code>materials/</code>: Godot material files (<code>.tres</code>) for sharing.</li>
+</ul>
+<hr>
+<h3 id="automate-material-sharing-optional">Automate Material Sharing (Optional)</h3>
+<p>Use a <strong>Godot script</strong> to automatically replace duplicate materials:</p>
+<hr>
+<h2 id="updating-assets">Updating Assets</h2>
+<ul>
+<li><strong>Textures:</strong> Replace the file in <code>textures/</code>. All models using it will update automatically.</li>
+<li><strong>Materials:</strong> Edit the <code>.tres</code> file. Changes apply to all linked models.</li>
+<li><strong>Meshes:</strong> Re-export only the <code>.gltf</code>/<code>.bin</code> files for the updated model.</li>
+</ul>
+<hr>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<ul>
+<li><strong>Missing textures?</strong> Double-check paths in the <code>.gltf</code> JSON.</li>
+<li><strong>Materials not updating?</strong> Ensure the <code>.tres</code> file is correctly linked.</li>
+<li><strong>Performance issues?</strong> Use Godot’s <strong>Resource Usage</strong> debugger to check for duplicates.</li>
+</ul>
+<hr>
+<h2 id="example-workflow">Example Workflow</h2>
+<ol>
+<li>Export <code>chair.gltf</code> and <code>table.gltf</code>, both using <code>wood_albedo.png</code>.</li>
+<li>Import both into Godot.</li>
+<li>Extract the wood material from <code>chair</code> and save as <code>wood.tres</code>.</li>
+<li>Assign <code>wood.tres</code> to the <code>table</code> model.</li>
+<li>Update <code>wood_albedo.png</code>—both models reflect the change.</li>
+</ol>
+<hr>
+<h2 id="furhter-references-and-resources">Furhter References and Resources:</h2>
+<ul>
+<li><a href="https://docs.blender.org/api/current/bpy.ops.export_scene.html">Blender Python API Documentation: Export Scene Operators</a></li>
+<li><a href="https://docs.godotengine.org/en/stable/tutorials/assets_pipeline/importing_3d_scenes/available_formats.html">Godot Documenation: Available 3D Formats</a></li>
+</ul></div>
               
             </div>
           </div><footer>

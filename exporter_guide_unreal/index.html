@@ -90,6 +90,18 @@
     <li class="toctree-l2"><a class="reference internal" href="#import-to-unreal">Import to Unreal</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#the-simple-unreal-export-preset">The Simple Unreal Export Preset</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#general-settings">General Settings</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#transformation-settings">Transformation Settings</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#shading-settings">Shading Settings</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#animation-related-settings">Animation Related Settings</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#furhter-references-and-resources">Furhter References and Resources:</a>
     </li>
     </ul>
                   </li>
@@ -154,7 +166,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <div><h1 id="unreal-engine-guide-todo">Unreal Engine Guide (TODO)</h1>
+                <div><h1 id="unreal-guide">Unreal Guide</h1>
 <p><strong>Simple Export</strong> ships with an <strong>FBX</strong> preset for Unreal. Select the correct preset
 in <code>Properties -&gt; Output -&gt; Simple Export -&gt; Preset</code>. The preset ensures that the following settings are configured
 correctly.</p>
@@ -179,6 +191,7 @@ origin.</p>
 <p><img alt="UE_import_settings_1.png" src="../images/simple_export/UE_import_settings_1.png" width="400">
 <img alt="UE_import_settings_2.png" src="../images/simple_export/UE_import_settings_2.png" width="400"></p>
 <h2 id="the-simple-unreal-export-preset">The Simple Unreal Export Preset</h2>
+<h3 id="general-settings">General Settings</h3>
 <table>
 <thead>
 <tr>
@@ -191,72 +204,110 @@ origin.</p>
 <tr>
 <td><strong>Path Mode</strong></td>
 <td><code>Strip Path</code></td>
-<td>Removes texture path since UE handles it</td>
+<td>Keeps only the name of references and discards the path.</td>
 </tr>
 <tr>
 <td><strong>Scale</strong></td>
 <td><code>1.0</code></td>
-<td>Blender and UE share the same scale</td>
+<td>Global Scale</td>
 </tr>
 <tr>
+<td><strong>object_types</strong></td>
+<td><code>'MESH', 'OTHER', EMPTY', 'ARMATURE'</code></td>
+<td>Mesh should be obvious, Other enables object types like curves and metaballs to generate high poly geometry and empties are enabled as they may also contain object information when using systems like the collection instancing.</td>
+</tr>
+<tr>
+<td><strong>Custom Properties</strong></td>
+<td><code>True</code></td>
+<td>Custom Properties can make the files slightly bigger but can be useful for passing on additional data in your pipeline.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="transformation-settings">Transformation Settings</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Setting</strong></th>
+<th><strong>Value</strong></th>
+<th><strong>Notes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
 <td><strong>Apply Scaling</strong></td>
-<td><code>All Local</code></td>
-<td>Ensures correct transformations</td>
+<td><code>FBX Unit Scale</code></td>
+<td>Apply custom scaling to each object transformation, and units scaling to FBX scale. Offers the most consistent and reliable scaling.</td>
 </tr>
 <tr>
 <td><strong>Forward Axis</strong></td>
-<td><code>Y Forward</code></td>
-<td>Matches Unreal’s coordinate system</td>
+<td><code>X Forward</code></td>
+<td>X Forward corralates with Unreals coordinate system.</td>
 </tr>
 <tr>
 <td><strong>Up Axis</strong></td>
 <td><code>Z Up</code></td>
+<td>Unreal uses Z-up for the Upward vector.</td>
+</tr>
+<tr>
+<td><strong>Apply Unit</strong></td>
+<td>✅ <code>Enabled</code></td>
 <td>Ensures proper world orientation</td>
 </tr>
 <tr>
 <td><strong>Use Space Transform</strong></td>
-<td>✅ <code>Enabled</code></td>
-<td>Helps maintain consistent transforms</td>
+<td>❌ <code>Disabled</code></td>
+<td>Use Space Transform, Apply global space transform to the object rotations. When disabled only the axis space is written to the file and all object transforms are left as-is. Use Space transform can make the export easier but has certain technical limitation especially when working with animated meshes and deep hiererchies. It is therefore disabled.</td>
 </tr>
 <tr>
 <td><strong>Apply Transform</strong></td>
 <td>❌ <code>Disabled</code></td>
-<td>Avoids hierarchy issues with animations</td>
+<td>Apply Transform, Bake space transform into object data, avoids getting unwanted rotations to objects when target space is not aligned with Blender’s space (WARNING! experimental option, use at own risk, known to be broken with armatures/animations)</td>
 </tr>
+</tbody>
+</table>
+<h3 id="shading-settings">Shading Settings</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Setting</strong></th>
+<th><strong>Value</strong></th>
+<th><strong>Notes</strong></th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td><strong>Smoothing</strong></td>
-<td><code>Face</code></td>
-<td>Edge smoothing can cause shading issues</td>
+<td><code>Normals Only</code></td>
+<td>Smoothing, Export smoothing information (prefer ‘Normals Only’ option if your target importer understand split normals) which Unity does.</td>
 </tr>
 <tr>
 <td><strong>Apply Modifiers</strong></td>
 <td>✅ <code>Enabled</code></td>
-<td>Ensures the final mesh is exported</td>
+<td>Apply objects modifiers on export</td>
 </tr>
 <tr>
 <td><strong>Tangent Space</strong></td>
-<td>✅ <code>Enabled</code></td>
-<td>Required for correct normal maps in UE</td>
+<td>❌ <code>Disabled</code></td>
+<td>Unity uses by default the Mikktspace, the same Tangent space used by Blender. It is therefore not necessary to export the tangent space</td>
 </tr>
 <tr>
 <td><strong>Triangulate Faces</strong></td>
-<td>✅ <code>Enabled</code></td>
-<td>UE prefers triangulated meshes for LODs</td>
-</tr>
-<tr>
-<td><strong>Add Leaf Bones</strong></td>
 <td>❌ <code>Disabled</code></td>
-<td>Unreal doesn’t need extra bones</td>
-</tr>
-<tr>
-<td><strong>Animation Export</strong></td>
-<td>❌ <code>Disabled</code></td>
-<td>Only exporting static meshes</td>
+<td>While it is generally recommended to triangulate meshes before export, doing it in the exporter does not maintain custom normals and can therefore cause completely broken and unpredictable results.</td>
 </tr>
 </tbody>
 </table>
-<p>Transforms:
-https://github.com/xavier150/Blender-For-UnrealEngine-Addons/wiki/Axis-Transforms</p>
+<h3 id="animation-related-settings">Animation Related Settings</h3>
+<hr>
+<h2 id="furhter-references-and-resources">Furhter References and Resources:</h2>
+<ul>
+<li><a href="https://docs.blender.org/manual/en/latest/addons/import_export/scene_fbx.html">Blender Python API Documentation: FBX Exporter</a></li>
+<li><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/fbx-static-mesh-pipeline-in-unreal-engine">UE Documentation: FBX Static Mesh Pipeline</a></li>
+<li><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/fbx-skeletal-mesh-pipeline-in-unreal-engine">UE Documentation: FBX Skeletal Mesh Pipeline</a></li>
+<li><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/fbx-content-pipeline?application_version=5.6">UE Documentation: FBX Content Pipeline</a></li>
+<li><a href="https://github.com/xavier150/Blender-For-UnrealEngine-Addons?tab=readme-ov-file">Blender for UE Documentation</a></li>
+<li><a href="https://github.com/xavier150/Blender-For-UnrealEngine-Addons/wiki/Axis-Transforms">Blender for UE Documentation: Transforms</a></li>
+</ul>
 <hr></div>
               
             </div>

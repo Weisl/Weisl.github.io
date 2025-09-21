@@ -81,9 +81,11 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Baking Guide</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#highpolu-default-preset">Highpolu-default Preset</a>
+    <li class="toctree-l2"><a class="reference internal" href="#highpoly-default-preset">Highpoly-default Preset</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#lowpoly-default-preset">Lowpoly-default Preset</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#why-is-triangulation-disabled-for-low-poly-meshes-by-default">Why is triangulation disabled for low-poly meshes by default?</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#baking-example">Baking Example</a>
     </li>
@@ -163,7 +165,8 @@ adjusted in the Export Collection settings.</p>
 and a current limitation by blender. This has no effect on the functionality of the addon.</p>
 </div>
 <p><div class="video-container"><video style="width:100%" muted controls alt="type:video"><source src="../videos/simple_export/SimpleExport_0_8_bakingsetup.mp4" type="video/mp4"></source></video></div></p>
-<h2 id="highpolu-default-preset">Highpolu-default Preset</h2>
+<p>Blender FBX Parameter Documenation: <a href="https://docs.blender.org/api/current/bpy.ops.export_scene.html">FBX Exporter Documentation</a></p>
+<h2 id="highpoly-default-preset">Highpoly-default Preset</h2>
 <table>
 <thead>
 <tr>
@@ -175,18 +178,33 @@ and a current limitation by blender. This has no effect on the functionality of 
 <tbody>
 <tr>
 <td><strong>Path Mode</strong></td>
-<td><code>AUTO</code></td>
-<td>Removes texture path since UE handles it</td>
+<td><code>Strip</code></td>
+<td><strong>Filename only:</strong></td>
 </tr>
 <tr>
 <td><strong>Scale</strong></td>
 <td><code>1.0</code></td>
-<td>Blender and UE share the same scale</td>
+<td>Keep the current Scale</td>
+</tr>
+<tr>
+<td><strong>object_types</strong></td>
+<td><code>'MESH', 'OTHER', EMPTY'</code></td>
+<td>Mesh should be obvious, Other enables object types like curves and metaballs to generate high poly geometry and empties are enabled as they may also contain object information when using systems like the collection instancing.</td>
 </tr>
 <tr>
 <td><strong>Apply Scaling</strong></td>
-<td><code>FBX All</code></td>
-<td>Ensures correct transformations</td>
+<td><code>FBX_SCALE_UNITS</code></td>
+<td>Apply custom scaling to each object transformation, and units scaling to FBX scale.</td>
+</tr>
+<tr>
+<td><strong>Custom Properties</strong></td>
+<td><code>True</code></td>
+<td>Custom Properties can make the files slightly bigger but there might be edge cases you want to use them in your pipeline.</td>
+</tr>
+<tr>
+<td><strong>Apply Unit</strong></td>
+<td><code>True</code></td>
+<td>Take into account current Blender Unit settings</td>
 </tr>
 <tr>
 <td><strong>Forward Axis</strong></td>
@@ -216,32 +234,32 @@ and a current limitation by blender. This has no effect on the functionality of 
 <tr>
 <td><strong>Smoothing</strong></td>
 <td><code>Face</code></td>
-<td>Edge smoothing can cause shading issues</td>
+<td>Face – Write face smoothing.</td>
 </tr>
 <tr>
 <td><strong>Apply Modifiers</strong></td>
 <td>✅ <code>Enabled</code></td>
-<td>Ensures the final mesh is exported</td>
+<td>Apply Modifiers, Apply modifiers to mesh objects (except Armature ones) - WARNING: prevents exporting shape keys. This setting will use the Modifier Render settings by default.</td>
 </tr>
 <tr>
 <td><strong>Tangent Space</strong></td>
 <td>❌ <code>Disabled</code></td>
-<td>Required for correct normal maps in UE</td>
+<td>The Tangent Space (composed of binormal, tangent vectors and normals) isn't really important for the Hight Poly meshes. It further is only supported for Tris/Quad geometry and meshes only. N-gons and other objects types can be valid input meshes for high poly geometry. Just make sure they shade correctly.</td>
 </tr>
 <tr>
 <td><strong>Triangulate Faces</strong></td>
 <td>❌ <code>Disabled</code></td>
-<td>UE prefers triangulated meshes for LODs</td>
+<td>Triangulation is diabled as Ngons etc. can often be very useful for high polys and result in proper shading without a lot of effort.</td>
 </tr>
 <tr>
 <td><strong>Add Leaf Bones</strong></td>
 <td>❌ <code>Disabled</code></td>
-<td>Unreal doesn’t need extra bones</td>
+<td>Not relevant for baking</td>
 </tr>
 <tr>
 <td><strong>Animation Export</strong></td>
 <td>❌ <code>Disabled</code></td>
-<td>Only exporting static meshes</td>
+<td>Not relevant for baking</td>
 </tr>
 </tbody>
 </table>
@@ -261,18 +279,23 @@ for the high poly.</p>
 <tbody>
 <tr>
 <td><strong>Path Mode</strong></td>
-<td><code>AUTO</code></td>
-<td>Removes texture path since UE handles it</td>
+<td><code>Strip</code></td>
+<td><strong>Filename only:</strong> We only need the material name and not the full texture paths for the baking</td>
 </tr>
 <tr>
 <td><strong>Scale</strong></td>
 <td><code>1.0</code></td>
-<td>Blender and UE share the same scale</td>
+<td>Keep the current Scale</td>
+</tr>
+<tr>
+<td><strong>object_types</strong></td>
+<td><code>'MESH', EMPTY'</code></td>
+<td>Only export Meshes and empties (can be used to export meshes within collection instances)</td>
 </tr>
 <tr>
 <td><strong>Apply Scaling</strong></td>
-<td><code>FBX All</code></td>
-<td>Ensures correct transformations</td>
+<td><code>FBX_SCALE_UNITS</code></td>
+<td>Apply custom scaling to each object transformation, and units scaling to FBX scale.</td>
 </tr>
 <tr>
 <td><strong>Forward Axis</strong></td>
@@ -316,7 +339,7 @@ for the high poly.</p>
 </tr>
 <tr>
 <td><strong>Triangulate Faces</strong></td>
-<td>✅ <code>Enabled</code> (Recommended)</td>
+<td>❌ <code>Disabled</code> (Recommended)</td>
 <td>UE prefers triangulated meshes for LODs</td>
 </tr>
 <tr>
@@ -332,8 +355,14 @@ for the high poly.</p>
 </tbody>
 </table>
 <p>Triangulation and Tangent Space are enabled for low-poly meshes. This is to ensure the shading will look exactly the
-same when baking and in engine. </p>
-<h2 id="baking-example">Baking Example</h2></div>
+same when baking and in engine.</p>
+<h2 id="why-is-triangulation-disabled-for-low-poly-meshes-by-default">Why is triangulation disabled for low-poly meshes by default?</h2>
+<p>Triangulation is disabled by default for low-poly meshes because the automatic triangulation in the exporter does not maintain the Normal and can result in unpredictable shading results. The result is the same as using the Triangulate modifier but without "Keep Normals" enabled. If you want to use the automatic triangulation in the exporter you can enable it in the preset or on the export collection. However, it is recommended to use a Triangulate modifier with "Keep Normals" enabled on the low-poly meshes instead. This way you have more control over the triangulation and can ensure consistent shading results. Automatic triangulation will be added as custom Pre Export Operation.</p>
+<p><img alt="normal_pre_export.png" src="../images/simple_export/export_settings/normal_pre_export.png" width="400">
+<img alt="normal_post_export.png" src="../images/simple_export/export_settings/normal_post_export.png" width="400"></p>
+<h2 id="baking-example">Baking Example</h2>
+<p>Here is the test example </p>
+<p><div class="video-container"><video style="width:100%" muted controls alt="type:video"><source src="../videos/simple_export/SimpleExport_0_8_bakingsetup.mp4" type="video/mp4"></source></video></div></p></div>
               
             </div>
           </div><footer>
