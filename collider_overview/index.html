@@ -51,8 +51,12 @@
     <li class="toctree-l2"><a class="reference internal" href="#feature-overview">Feature Overview</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#why-simple-collider">Why Simple Collider?</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#coorporate-customers">Coorporate Customers</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#testimonials">Testimonials</a>
+    <li class="toctree-l3"><a class="reference internal" href="#testimonials">Testimonials</a>
+    </li>
+        </ul>
     </li>
     </ul>
                   </li>
@@ -156,8 +160,13 @@
 <li><a href="https://weisl.gumroad.com/l/collider-tools" title="Gumroad">Gumroad</a></li>
 </ul>
 <h2 id="what-is-simple-collider">What is Simple Collider?</h2>
-<p><strong>Simple Collider</strong> makes creating physics colliders for games fast and straightforward. It supports common collider types like Box, Sphere, Capsule, Convex, and Mesh as well as complex operations like Auto Convex decomposition and Oriented Bound Box generation. <strong>Simple Collider</strong> is made to work with game engines like <strong>UE, Unity, and Godot</strong>.</p>
-<p>The addon’s simple user experience and UI lets you adjust colliders directly in the 3D Viewport, making it easy to see and control what you're doing. You can create colliders in Object or Edit-mode, for entire selections or specific parts of a mesh. Plus, you can choose to work with pre- or post-modifier mesh data, giving you the flexibility and speed you need. </p>
+<p><strong>Simple Collider</strong> makes creating physics colliders for games fast and straightforward. It supports common collider
+types like Box, Sphere, Capsule, Convex, and Mesh as well as complex operations like Auto Convex decomposition and
+Oriented Bound Box generation. <strong>Simple Collider</strong> is made to work with game engines like <strong>UE, Unity, and Godot</strong>.</p>
+<p>The addon’s simple user experience and UI lets you adjust colliders directly in the 3D Viewport, making it easy to see
+and control what you're doing. You can create colliders in Object or Edit-mode, for entire selections or specific parts
+of a mesh. Plus, you can choose to work with pre- or post-modifier mesh data, giving you the flexibility and speed you
+need.</p>
 <h2 id="video">Video</h2>
 <p>See how Simple Collider simplifies collider creation:</p>
 <iframe width="840" height="473" src="https://www.youtube.com/embed/VfE2QvR6xjE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -166,34 +175,47 @@
 <ul>
 <li>Quick and simple creation of collider objects.</li>
 <li>Support for <strong>Sphere, Box, Capsule, Convex, Convex Cylinder, Re-Meshed</strong> and <strong>Mesh</strong> shapes.</li>
-<li>Support for <strong>Oriented Minimum Bounding Box</strong> generation, an automatically oriented box collider to have the lowest volume possible.</li>
+<li>Support for <strong>Oriented Minimum Bounding Box</strong> generation, an automatically oriented box collider to have the lowest
+  volume possible.</li>
 <li><strong>Auto convex decomposition</strong> for complex shapes using the <strong>V-HACD</strong> library.</li>
 <li>Support for <strong>Object-</strong> and <strong>Edit-mode</strong>, including <strong>multi-object Edit-mode</strong>.</li>
 <li><strong>Define creation space</strong>: Choose between generating colliders in <strong>Local</strong> or <strong>Global Space</strong>.</li>
 <li>Create colliders per <strong>individual object</strong>, around the <strong>entire selection</strong>, or based on <strong>loose parts</strong>.</li>
 <li>Custom colliders can be used in engines like <strong>UE4-5, Unity, Godot</strong>, and other engines with a flexible naming scheme.</li>
-<li>Support for <strong>Edit mode selection</strong>. Create collision only surrounding the selected geometry of each object, with <strong>multi-edit</strong> and <strong>modifier stack</strong> support.</li>
-<li>Support for creating <strong>world-aligned</strong> and <strong>object-aligned</strong> collisions for primitive collider types like Boxes, Cylinders, and Capsules.</li>
+<li>Support for <strong>Edit mode selection</strong>. Create collision only surrounding the selected geometry of each object, with *
+  <em>multi-edit</em><em> and </em><em>modifier stack</em>* support.</li>
+<li>Support for creating <strong>world-aligned</strong> and <strong>object-aligned</strong> collisions for primitive collider types like Boxes,
+  Cylinders, and Capsules.</li>
 <li>Create colliders based on <strong>pre</strong> or <strong>post-modifier</strong> stack mesh data.</li>
 <li>Adjust creation settings directly from the 3D Viewport, allowing for real-time user input during collider generation.</li>
 <li><strong>Flexible naming</strong> options to support different engine and pipeline needs.</li>
-<li><strong>Robust preset system</strong>: Select and switch between presets for different game engines, and easily exchange these presets.</li>
+<li><strong>Robust preset system</strong>: Select and switch between presets for different game engines, and easily exchange these
+  presets.</li>
 <li><strong>Rename colliders</strong> based on the current preset.</li>
 <li>Convert <strong>Mesh to Collider, Collider to Mesh</strong>, and generate colliders from a mesh name.</li>
 <li><strong>Collider organization</strong>: Manage visibility, selection, and deletion using <strong>collider groups</strong>.</li>
 <li>Assign and organize materials for use as <strong>physics materials</strong> in engines.</li>
 </ul>
 <h2 id="why-simple-collider">Why Simple Collider?</h2>
-<p><strong>Simple Collider</strong> removes the biggest obstacle to creating colliders in Blender—its lack of specialized tools. This addon makes the process much faster and easier, combining the speed and convenience of in-engine tools with the power and flexibility of Blender.</p>
+<p><strong>Simple Collider</strong> removes the biggest obstacle to creating colliders in Blender—its lack of specialized tools. This
+addon makes the process much faster and easier, combining the speed and convenience of in-engine tools with the power
+and flexibility of Blender.</p>
 <p>Here’s why <strong>Simple Collider</strong> stands out:</p>
 <ul>
-<li><strong>More control:</strong> Create colliders in Blender with full control over shape, size and complexity - useful for all kind of assets.</li>
-<li><strong>Faster compound colliders:</strong> Generate multiple colliders for one asset quickly using <strong>Object</strong> and <strong>Edit-mode</strong> selections.</li>
+<li><strong>More control:</strong> Create colliders in Blender with full control over shape, size and complexity - useful for all kind
+  of assets.</li>
+<li><strong>Faster compound colliders:</strong> Generate multiple colliders for one asset quickly using <strong>Object</strong> and <strong>Edit-mode</strong>
+  selections.</li>
 <li><strong>Engine compatibility:</strong> Not all engines have powerful collider tools—<strong>Simple Collider</strong> fills that gap.</li>
 <li><strong>Convenience:</strong> Handle assets and colliders in one application, updating both as needed.</li>
 </ul>
 <p><img alt="SimpleBranding08.jpg" src="../images/simple_collider/SimpleBranding14.jpg"></p>
-<h2 id="testimonials">Testimonials</h2>
+<h3 id="coorporate-customers">Coorporate Customers</h3>
+<ul>
+<li><a href="https://www.remedygames.com/">Remedy Entertainment</a></li>
+<li><a href="https://kitbash3d.com/">KitBash3D</a></li>
+</ul>
+<h3 id="testimonials">Testimonials</h3>
 <p>What other artists from the games industry say about Simple Collider:</p>
 <table>
     <tr>
@@ -225,6 +247,18 @@
         <p>Making collisions is often the most annoying part of the art pipeline.  I think anyone working in real-time 3D deserves to get through this moment the proper way. That's what this addon allows.</p>
         </td>
     </tr>
+    <tr>
+        <td><img style="width: 250px;  padding:8px; display:block;" src="/images/portraits/MikeReese.jpg" alt="Portrait image of Mike Reese"> </td>
+        <td><a href="https://www.artstation.com/meltingface3d">Mike Reese - VP of Asset Production | Kitbash3D</a><br>
+        <p>This addon was extremely useful and made creating collisions quick and efficient. The entire modeling team used it and were able to pick it up very quickly. 
+<br> <strong>A couple of quotes from our modeling team:</strong>
+</p><ul>
+<li> "Simple Collider has proven to be an indispensable tool for our workflow, making it easy to create and manage colliders to meet our needs. The pie menu and Oriented Minimum Bounding Box have been absurdly helpful!" </li>
+<li> "I love that if you have multiple objects selected, you can create colliders for all of them at the same time. This speeds up the process a lot." </li>
+</ul>
+</td>
+</tr>
+
 </table>
 
 <p><img alt="SimpleBranding08.jpg" src="../images/simple_collider/SimpleBranding12.jpg"></p></div>
