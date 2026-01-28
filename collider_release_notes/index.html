@@ -64,13 +64,21 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Release Notes</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#simple-collider-v112">Simple Collider v1.1.2</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#simple-collider-v111">Simple Collider v1.1.1</a>
+    <li class="toctree-l2"><a class="reference internal" href="#simple-collider-v113">Simple Collider v1.1.3</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#features-improvements">Features &amp; Improvements</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#bug-fixes">Bug Fixes</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#simple-collider-v112">Simple Collider v1.1.2</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#simple-collider-v111">Simple Collider v1.1.1</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#features-improvements_1">Features &amp; Improvements</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#bug-fixes_1">Bug Fixes</a>
     </li>
         </ul>
     </li>
@@ -255,11 +263,30 @@
             <div class="section" itemprop="articleBody">
               
                 <div><h1 id="release-notes">Release Notes</h1>
+<h3 id="simple-collider-v113">Simple Collider v1.1.3</h3>
+<p>This update focuses on Linux support and bug fixes.</p>
+<h4 id="features-improvements">Features &amp; Improvements</h4>
+<ul>
+    <li><a href="https://github.com/Weisl/simple_collider/issues/587">#587</a>: Added Auto Convex support for Linux.</li>
+    <li><a href="https://github.com/Weisl/simple_collider/issues/581">#581</a>: UI/UX: Unified Simple Collider header with other Simple Tools for consistency.</li>
+    <li><a href="https://github.com/Weisl/simple_collider/issues/575">#575</a>: UI/UX: Added Voxel Size to Tool Defaults for easier access.</li>
+    <li><a href="https://github.com/Weisl/simple_collider/issues/585">#585</a>: Voxel Size: Implemented dynamic voxel size relative to object size.</li>
+
+</ul>
+
+<h4 id="bug-fixes">Bug Fixes</h4>
+<ul>
+    <li><a href="https://github.com/Weisl/simple_collider/issues/580">#580</a>: Fixed keymap not working on Linux.</li>
+    <li><a href="https://github.com/Weisl/simple_collider/issues/576">#576</a>: Fixed renaming not behaving consistant with rigid body pre/suffix</li>
+    <li><a href="https://github.com/Weisl/simple_collider/issues/584">#584</a>: Fixed auto convex shapes being duplicated.</li>
+    <li><a href="https://github.com/Weisl/simple_collider/issues/566">#566</a>: Fixed broken alpha/opacity display in modal operator.</li>
+</ul>
+
 <h3 id="simple-collider-v112">Simple Collider v1.1.2</h3>
 <p>Full Blender 5.0 Support</p>
 <h3 id="simple-collider-v111">Simple Collider v1.1.1</h3>
 <p>This update focuses on UI improvements, bug fixes, and enhanced compatibility with Blender 4.5.</p>
-<h4 id="features-improvements">Features &amp; Improvements</h4>
+<h4 id="features-improvements_1">Features &amp; Improvements</h4>
 <ul>
     <li><a href="https://github.com/Weisl/simple_collider/issues/556">#556</a>: UI Improvement: Added menu indicator to Pie Menu.</li>
     <li><a href="https://github.com/Weisl/simple_collider/issues/564">#564</a>: UI: Added Support section to preferences.</li>
@@ -267,7 +294,7 @@
     <li><a href="https://github.com/Weisl/simple_collider/issues/568">#568</a>: Added post-processing cleanup for <code>matrix_parent_inverse</code> on uniformly scaled base meshes.</li>
 </ul>
 
-<h4 id="bug-fixes">Bug Fixes</h4>
+<h4 id="bug-fixes_1">Bug Fixes</h4>
 <ul>
     <li><a href="https://github.com/Weisl/simple_collider/issues/561">#561</a>: Fixed missing Convex Hull modifier after convex collider creation.</li>
     <li><a href="https://github.com/Weisl/simple_collider/issues/563">#563</a>: Fixed Hotkey Menu broken with Blender 4.5.</li>
