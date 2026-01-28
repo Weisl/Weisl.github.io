@@ -54,6 +54,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#advanced-parameters">Advanced Parameters</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#fix-linux-permission">Fix Linux Permission</a>
+    </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../collider_groups/">Collider Groups</a>
@@ -247,7 +249,34 @@ the gear button next to "Auto Convex."</p>
 </table>
 <p>These parameters also come from the <a href="https://github.com/kmammou/v-hacd">V-HACD library</a>.</p>
 <p>For detailed documentation on the library, refer to
-the <a href="https://docs.google.com/presentation/d/1OZ4mtZYrGEC8qffqb8F7Le2xzufiqvaPpRbLHKKgTIM/edit#slide=id.g123758ab003_0_310">Voxelized Hierarchical Convex Decomposition - V-HACD version 4</a>.</p></div>
+the <a href="https://docs.google.com/presentation/d/1OZ4mtZYrGEC8qffqb8F7Le2xzufiqvaPpRbLHKKgTIM/edit#slide=id.g123758ab003_0_310">Voxelized Hierarchical Convex Decomposition - V-HACD version 4</a>.</p>
+<h3 id="fix-linux-permission">Fix Linux Permission</h3>
+<p>VHACD requires execute permissions to enable Auto Convex collision generation in Blender.</p>
+<p>Symptoms of Missing Permissions
+- A red input field for the Default VHACD Build in Simple Collider preferences.
+- An info panel warning when attempting to use Auto Convex in your scene.</p>
+<ol>
+<li>Locate the VHACD Executable</li>
+<li>Navigate to: Edit &gt; Preferences &gt; Add-ons &gt; Simple Collider.</li>
+<li>Click "Open Folder" to go directly to the executable (vhacd_4_1_linux_amd64).</li>
+</ol>
+<p><img alt="alt text" src="../images/simple_collider/auto_convex_permission.jpg" width="300"></p>
+<ol>
+<li>Set Execute Permissions</li>
+<li>Right-click the executable and select Properties.</li>
+</ol>
+<p><img alt="alt text" src="../images/simple_collider/auto_convex_right_click.jpg" width="300"></p>
+<ul>
+<li>Go to the Permissions tab.</li>
+<li>Enable <strong>Allow executing file as program</strong>.</li>
+</ul>
+<p><img alt="alt text" src="../images/simple_collider/auto_convex_permission.jpg" width="300"></p>
+<ol>
+<li>Verify the Fix</li>
+<li>The red input field in preferences will disappear.</li>
+<li>Auto Convex collision generation will now work.</li>
+</ol>
+<p>Note: This process is specific to Linux Mint and similar distributions. If you encounter further issues, ensure the executable path is correctly referenced in Simple Collider settings.</p></div>
               
             </div>
           </div><footer>
