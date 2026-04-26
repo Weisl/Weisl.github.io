@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Auto Convex - Documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Auto Convex";
+        var mkdocs_page_input_path = "simple_collider/collider_auto_convex.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Documentation
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Alpine Empire</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Simple Collider</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_ui/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_shapes/">Collider Shapes</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Auto Convex</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#basic-parameters">Basic Parameters</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#advanced-parameters">Advanced Parameters</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#fix-linux-permission">Fix Linux Permission</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_groups/">Collider Groups</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_physics_materials/">Physics Materials</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_import_engines/">Game Engine Support</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_ue_guidline/">UE Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_unity_guidline/">Unity Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_godot_guidline/">Godot Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Simple Export </span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_ui/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_guide/">User Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_guide_unreal/">UE Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_guide_unity/">Unity Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_guide_godot/">Godot Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_guide_baking/">Baking Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_preset_creation/">Preset Creation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Simple Camera Manager</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_camera_manager/camera_manager_Overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_camera_manager/camera_manager_UI/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_camera_manager/camera_manager_dolly_zoom/">Dolly Zoom</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_camera_manager/camera_manager_composition/">Composition</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_camera_manager/camera_manager_image_plane/">Precise Modeling</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_camera_manager/camera_manager_Rendering_workflow/">Presentation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_camera_manager/camera_manager_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Simple Renaming (Free)</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_renaming/renaming_overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_renaming/renaming_UI/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_renaming/renaming_variables/">Renaming Variables</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_renaming/renaming_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Simple Collider</li>
+      <li class="breadcrumb-item active">Auto Convex</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <div><h1 id="auto-convex-shape">Auto Convex Shape</h1>
+<p><strong>Auto Convex</strong> is a tool for generating convex colliders for complex meshes. It's especially useful for organic shapes
+like rocks, statues, and debris. While it's not a one-click solution for every asset, it’s a powerful tool for organic
+models.</p>
+<p><img alt="SimpleBranding08.jpg" src="../../images/simple_collider/SimpleBranding13.jpg"></p>
+<h3 id="basic-parameters">Basic Parameters</h3>
+<p>Control the number of convex hulls and their complexity through these settings, which appear in a popup when you
+activate Auto Convex:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Shrinkwrap</strong></td>
+<td>Shrinkwrap output to source mesh</td>
+<td>False</td>
+<td>False/True</td>
+</tr>
+<tr>
+<td><strong>Hulls</strong></td>
+<td>Maximum number of output convex hulls</td>
+<td>8</td>
+<td>1-4096</td>
+</tr>
+<tr>
+<td><strong>Verts per Piece</strong></td>
+<td>Maximum vertices in the output convex hull</td>
+<td>16</td>
+<td>8-1024</td>
+</tr>
+<tr>
+<td><strong>Voxel Resolution</strong></td>
+<td>Total number of voxels used</td>
+<td>100,000</td>
+<td>100,000-10,000,000</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="img" src="../../images/simple_collider/AutoConvexSettings.gif" width="250"></p>
+<p>These parameters are from the original library used: <a href="https://github.com/kmammou/v-hacd">V-HACD on GitHub</a>.</p>
+<p><img alt="img" src="../../images/simple_collider/auto_convex_small.gif" width="600"></p>
+<h3 id="advanced-parameters">Advanced Parameters</h3>
+<p>Advanced parameters can be found in the addon preferences under <strong>Auto Convex</strong>. Access preferences directly by pressing
+the gear button next to "Auto Convex."</p>
+<p><img alt="img" src="../../images/simple_collider/AutoConvex_Preferences.jpg" width="600"></p>
+<ul>
+<li><strong>Overwrite Executable:</strong> Specify a custom V-HACD executable path if needed.</li>
+<li><strong>Temporary Data Path:</strong> Set a path to store temporary files like meshes and logs used by V-HACD during collider
+  generation.</li>
+</ul>
+<p>Additional advanced settings:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Volume Error Percentage</strong></td>
+<td>Allowed volume error percentage. Default is 1%.</td>
+<td>0.01</td>
+<td>0.001-10</td>
+</tr>
+<tr>
+<td><strong>Min Voxel Edge Size</strong></td>
+<td>Minimum voxel edge size.</td>
+<td>2.0</td>
+<td>1.0-32.0</td>
+</tr>
+<tr>
+<td><strong>Max Recursion Depth</strong></td>
+<td>Maximum recursion depth, determining the maximum number of convex hulls (e.g., depth of 12 results in up to 4,096 hulls).</td>
+<td>4</td>
+<td>2-64</td>
+</tr>
+<tr>
+<td><strong>Fill Mode</strong></td>
+<td>Method used to find interior voxels for auto convex creation (Raycast, Flood, Surface).</td>
+<td>Raycast</td>
+<td>Raycast/Flood/Surface</td>
+</tr>
+<tr>
+<td><strong>Optimal Split Plane</strong></td>
+<td>If true, finds the optimal split plane location. Otherwise, splits hulls in the middle.</td>
+<td>False</td>
+<td>True/False</td>
+</tr>
+</tbody>
+</table>
+<p>These parameters also come from the <a href="https://github.com/kmammou/v-hacd">V-HACD library</a>.</p>
+<p>For detailed documentation on the library, refer to
+the <a href="https://docs.google.com/presentation/d/1OZ4mtZYrGEC8qffqb8F7Le2xzufiqvaPpRbLHKKgTIM/edit#slide=id.g123758ab003_0_310">Voxelized Hierarchical Convex Decomposition - V-HACD version 4</a>.</p>
+<h3 id="fix-linux-permission">Fix Linux Permission</h3>
+<p>VHACD requires execute permissions to enable Auto Convex collision generation in Blender.</p>
+<p>Symptoms of Missing Permissions
+- A red input field for the Default VHACD Build in Simple Collider preferences.
+- An info panel warning when attempting to use Auto Convex in your scene.</p>
+<ol>
+<li>Locate the VHACD Executable</li>
+<li>Navigate to: Edit &gt; Preferences &gt; Add-ons &gt; Simple Collider.</li>
+<li>Click "Open Folder" to go directly to the executable (vhacd_4_1_linux_amd64).</li>
+</ol>
+<p><img alt="alt text" src="../../images/simple_collider/auto_convex_permission.jpg" width="300"></p>
+<ol>
+<li>Set Execute Permissions</li>
+<li>Right-click the executable and select Properties.</li>
+</ol>
+<p><img alt="alt text" src="../../images/simple_collider/auto_convex_right_click.jpg" width="300"></p>
+<ul>
+<li>Go to the Permissions tab.</li>
+<li>Enable <strong>Allow executing file as program</strong>.</li>
+</ul>
+<p><img alt="alt text" src="../../images/simple_collider/auto_convex_permission.jpg" width="300"></p>
+<ol>
+<li>Verify the Fix</li>
+<li>The red input field in preferences will disappear.</li>
+<li>Auto Convex collision generation will now work.</li>
+</ol>
+<p>Note: This process is specific to Linux Mint and similar distributions. If you encounter further issues, ensure the executable path is correctly referenced in Simple Collider settings.</p></div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../collider_shapes/" class="btn btn-neutral float-left" title="Collider Shapes"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../collider_groups/" class="btn btn-neutral float-right" title="Collider Groups">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../collider_shapes/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../collider_groups/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

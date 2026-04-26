@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Importing Textures - Documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Importing Textures";
+        var mkdocs_page_input_path = "simple_material/material_import.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Documentation
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Alpine Empire</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Simple Collider</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_ui/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_shapes/">Collider Shapes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_auto_convex/">Auto Convex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_groups/">Collider Groups</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_physics_materials/">Physics Materials</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_import_engines/">Game Engine Support</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_ue_guidline/">UE Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_unity_guidline/">Unity Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_godot_guidline/">Godot Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Simple Export </span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_ui/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_guide/">User Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_guide_unreal/">UE Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_guide_unity/">Unity Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_guide_godot/">Godot Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_guide_baking/">Baking Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_preset_creation/">Preset Creation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Simple Camera Manager</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_camera_manager/camera_manager_Overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_camera_manager/camera_manager_UI/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_camera_manager/camera_manager_dolly_zoom/">Dolly Zoom</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_camera_manager/camera_manager_composition/">Composition</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_camera_manager/camera_manager_image_plane/">Precise Modeling</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_camera_manager/camera_manager_Rendering_workflow/">Presentation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_camera_manager/camera_manager_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Simple Renaming (Free)</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_renaming/renaming_overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_renaming/renaming_UI/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_renaming/renaming_variables/">Renaming Variables</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_renaming/renaming_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Importing Textures</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <div><h1 id="importing-textures">Importing Textures</h1>
+<h2 id="how-it-works">How It Works</h2>
+<p><strong>Simple PBR Layering</strong> scans the filenames in a chosen directory and matches known suffix patterns to PBR channels.
+Matched textures are loaded into image nodes, their colorspaces are set automatically, and they are connected
+to the correct inputs of a Principled BSDF-based node group — all in a single operation.</p>
+<h2 id="step-by-step">Step-by-Step</h2>
+<p><div class="video-container"><video style="width:100%" muted controls alt="type:video"><source src="../../videos/simple_material/texture_set_import.mp4" type="video/mp4"></source></video></div></p>
+<ol>
+<li>Select the object whose material you want to populate.</li>
+<li>Open the <strong>Simple PBR Layering</strong> panel in the N-Panel (<strong>N</strong> key).</li>
+<li>In the <strong>Import Texture Set</strong> section, set the <strong>Directory</strong> to the folder containing your PBR textures.</li>
+<li><em>(Optional)</em> Click <strong>Scan</strong> to preview the detected channel assignments before importing.</li>
+<li>Click <strong>Import</strong> to load and connect all matched textures.</li>
+</ol>
+<h2 id="default-channels">Default Channels</h2>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th>Colorspace</th>
+<th>Common Suffixes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Base Color</td>
+<td>sRGB</td>
+<td><code>_diff</code>, <code>_albedo</code>, <code>_color</code></td>
+</tr>
+<tr>
+<td>Roughness</td>
+<td>Non-Color</td>
+<td><code>_rough</code></td>
+</tr>
+<tr>
+<td>Metallic</td>
+<td>Non-Color</td>
+<td><code>_metal</code></td>
+</tr>
+<tr>
+<td>Normal (OpenGL)</td>
+<td>Non-Color</td>
+<td><code>_nor_gl</code>, <code>_normal</code></td>
+</tr>
+<tr>
+<td>Normal (DirectX)</td>
+<td>Non-Color</td>
+<td><code>_nor_dx</code></td>
+</tr>
+<tr>
+<td>Ambient Occlusion</td>
+<td>Non-Color</td>
+<td><code>_ao</code></td>
+</tr>
+<tr>
+<td>Displacement</td>
+<td>Non-Color</td>
+<td><code>_disp</code>, <code>_height</code></td>
+</tr>
+<tr>
+<td>Bump</td>
+<td>Non-Color</td>
+<td><code>_bump</code></td>
+</tr>
+<tr>
+<td>Emission</td>
+<td>sRGB</td>
+<td><code>_emit</code></td>
+</tr>
+<tr>
+<td>Specular IOR Level</td>
+<td>Non-Color</td>
+<td><code>_spec</code></td>
+</tr>
+<tr>
+<td>Alpha / Opacity</td>
+<td>Non-Color</td>
+<td><code>_opacity</code>, <code>_alpha</code>, <code>_trans</code></td>
+</tr>
+<tr>
+<td>Transmission Weight</td>
+<td>Non-Color</td>
+<td><code>_trans</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Suffix matching is not <strong>case-sensitive</strong>. A file named <code>Rock_Albedo.png</code> will match the <code>_albedo</code> suffix just
+as <code>rock_albedo.png</code> would.</p>
+</div>
+<h2 id="custom-suffix-mappings">Custom Suffix Mappings</h2>
+<p><img alt="Custom Channels" src="../../images/simple_material/Import_texture_set_04.jpg" width="750"></p>
+<p>If your texture naming convention uses different suffixes, you can add custom mappings in the addon preferences.</p>
+<ul>
+<li>Go to <strong>Edit → Preferences → Add-ons → Simple PBR Layering</strong>.</li>
+<li>In the <strong>Custom Suffix Mappings</strong> list, click <strong>+</strong>(1) to add a new entry.</li>
+<li>Set the <strong>Suffix</strong>(2) (e.g. <code>_basecolor</code>), choose the <strong>Channel</strong>(3), and select the <strong>Colorspace</strong>(4). Note that you are not constraint by the predefined channels but can also add your own. </li>
+</ul>
+<h2 id="channel-packing">Channel Packing</h2>
+<p>Similar to regular channels you can also add channel packing suffixes and specify what color channel contains which information. </p>
+<p><img alt="Channel Packing" src="../../images/simple_material/Import_texture_set_channel_packing.jpg" width="750"></p>
+<p>Custom entries take precedence over the built-in suffix list.</p>
+<!-- Currently it is not supported to have RGB and Alpha packing  -->
+
+<h2 id="scan-preview">Scan Preview</h2>
+<p>Before importing, the <strong>Scan</strong> button shows a preview list of all detected texture→channel pairs:</p>
+<ul>
+<li><strong>Green</strong> entries are matched and ready to import.</li>
+<li><strong>Unmatched</strong> files are listed separately so you can decide whether to add a custom suffix for them.</li>
+</ul>
+<p>This step is optional — <strong>Import</strong> will run the scan automatically if you skip it.</p>
+<!-- Scans the current directory  -->
+
+<h2 id="directx-vs-opengl-normals">DirectX vs. OpenGL Normals</h2>
+<p><strong>Simple PBR Layering</strong> detects DirectX normal maps via the <code>_nor_dx</code> suffix and automatically applies a <strong>Flip Y</strong>
+node so the normal map integrates correctly with Blender's OpenGL-based shading system.</p>
+<p>If you have a DirectX normal that was imported without the suffix, use the <strong>Flip Y</strong> operator in the
+<strong>Adjustments</strong> section to correct it manually.</p>
+<p><a href="../material_adjustments/">Learn more about Normal Adjustments</a></p></div>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

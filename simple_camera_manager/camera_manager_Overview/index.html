@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Overview - Documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Overview";
+        var mkdocs_page_input_path = "simple_camera_manager/camera_manager_Overview.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Documentation
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Alpine Empire</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Simple Collider</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_ui/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_shapes/">Collider Shapes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_auto_convex/">Auto Convex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_groups/">Collider Groups</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_physics_materials/">Physics Materials</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_import_engines/">Game Engine Support</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_ue_guidline/">UE Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_unity_guidline/">Unity Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_godot_guidline/">Godot Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Simple Export </span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_ui/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_guide/">User Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_guide_unreal/">UE Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_guide_unity/">Unity Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_guide_godot/">Godot Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_guide_baking/">Baking Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_preset_creation/">Preset Creation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Simple Camera Manager</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Overview</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#feature-overview">Feature Overview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#why-simple-camera-manager">Why Simple Camera Manager?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#use-cases">Use Cases</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#top-features-in-action">Top Features in Action</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1-custom-camera-resolutions">1. Custom Camera Resolutions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2-batch-render-cameras">2. Batch Render Cameras</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#3-assign-render-slots-to-cameras">3. Assign Render Slots to Cameras</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#4-interactive-dolly-zoom">4. Interactive Dolly Zoom</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#5-recreating-real-world-objects-and-scenes-with-background-images">5. Recreating Real-World Objects and Scenes with Background Images</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#why-trust-simple-camera-manager">Why Trust Simple Camera Manager?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#testimonials">Testimonials</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../camera_manager_UI/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../camera_manager_dolly_zoom/">Dolly Zoom</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../camera_manager_composition/">Composition</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../camera_manager_image_plane/">Precise Modeling</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../camera_manager_Rendering_workflow/">Presentation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../camera_manager_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Simple Renaming (Free)</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_renaming/renaming_overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_renaming/renaming_UI/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_renaming/renaming_variables/">Renaming Variables</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_renaming/renaming_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Simple Camera Manager</li>
+      <li class="breadcrumb-item active">Overview</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <div><h1 id="simple-camera-manager">Simple Camera Manager</h1>
+<p><img alt="Simple_Camera_Panel.jpg" src="../../images/simple_cam/Simple_Camera_main_NPanel.jpg"></p>
+<p><strong>Simple Camera Manager</strong> is designed to help you manage and organize your scene cameras efficiently. It allows you to
+track your cameras, batch render static cameras, and adjust settings directly from the 3D View.</p>
+<ul>
+<li><a href="https://blendermarket.com/products/simple-camera-manager" title="Blender Market">Blender Market</a></li>
+<li><a href="https://weisl.gumroad.com/l/Cam-Manager?layout=profile" title="Gumroad">Gumroad</a></li>
+</ul>
+<h2 id="feature-overview">Feature Overview</h2>
+<ul>
+<li><strong>Centralized Camera View</strong>: See all your cameras in one place for easy management.</li>
+<li><strong>Settings Overview</strong>: View and adjust camera settings in a spreadsheet-style panel.</li>
+<li><strong>Batch Rendering</strong>: Render multiple static cameras with different settings within Blender, with visible progress in
+  the render view.</li>
+<li><strong>Dolly Zoom</strong>: Interactively perform a dolly zoom, where the camera moves closer or further from the subject while
+  adjusting the zoom angle to keep the subject the same size.</li>
+<li><strong>Quick Camera Switching</strong>: Switch between cameras using hotkeys (default: Ctrl + Shift + Arrow Left/Right) or through
+  the addon panels.</li>
+<li><strong>Custom Resolutions</strong>: Assign unique resolutions to each camera.</li>
+<li><strong>Render Slots</strong>: Assign different render slots to cameras to prevent overwriting renders.</li>
+<li><strong>Camera Management</strong>: Quickly lock/unlock all camera transformations and organize cameras into collections for better
+  management.</li>
+<li><strong>Background Image Control</strong>: Adjust background image settings directly from the 3D View, including toggling
+  visibility, adjusting opacity, and changing render order. Set camera resolution based on the background image.</li>
+<li><strong>Visual Settings</strong>: Assign different world materials to each camera and adjust exposure values to compensate for
+  lighting differences.</li>
+<li><strong>Customizable Hotkeys</strong>: Personalize hotkeys in the addon preferences for a tailored workflow.</li>
+</ul>
+<p><img alt="Overview" src="../../images/simple_cam/Simple_Camera_main_Popup.jpg"></p>
+<h2 id="why-simple-camera-manager">Why Simple Camera Manager?</h2>
+<ul>
+<li><strong>Stay Organized</strong>: See all your cameras and their key settings at a glance, and make adjustments as needed.</li>
+<li><strong>Quick Access</strong>: All functions are easily accessible from the 3D View—no need to dig through menus.</li>
+<li><strong>User-Friendly</strong>: The interface is simple, and the tools are easy to understand, with helpful descriptions where
+  needed.</li>
+<li><strong>Continuous Support</strong>: The addon is well-documented, with ongoing development. Share your feedback to help improve it
+  further.</li>
+</ul>
+<h2 id="use-cases">Use Cases</h2>
+<ul>
+<li><strong>Present Your Work</strong>: When working in productions or with clients, quickly present your work by setting up different
+  cameras, adjusting their settings, and batch rendering them to showcase various angles and views efficiently.</li>
+<li><strong>Marketing Materials</strong>: Create tailored content for different social media platforms or marketing needs by setting
+  unique resolutions for each camera. Render headers, thumbnails, and other marketing materials all at once to save time
+  and effort.</li>
+<li><strong>Modeling from Reference Images</strong>: Originally developed from scripts to organize background images, this addon is
+  perfect for modeling from real-world
+  photos. <a href="https://www.artstation.com/artwork/D55b8o">Cotton Spinning Mule Artwork</a>.</li>
+<li><strong>Discover Optimal Camera Shots</strong>: Utilize the Dolly Zoom feature to easily find and define dynamic and engaging
+  shots. Experiment with different camera movements and angles to enhance your scene's visual storytelling.</li>
+<li><strong>Architectural Visualization</strong>: Set up multiple cameras to showcase different views of architectural models. Adjust
+  settings and render slots to create a comprehensive portfolio of interior and exterior shots.</li>
+</ul>
+<h2 id="top-features-in-action">Top Features in Action</h2>
+<h3 id="1-custom-camera-resolutions">1. Custom Camera Resolutions</h3>
+<p>Assign unique resolutions to each camera for tailored rendering outputs.</p>
+<ul>
+<li><strong>Per-Camera Settings</strong>: Unlike Blender's default scene-based resolution settings, assign resolutions directly to each
+  camera.</li>
+<li><strong>Efficient Workflow</strong>: Adjust settings easily for different purposes without manually changing the scene settings
+  each time.</li>
+<li><strong>Versatile Outputs</strong>: Ideal for creating content tailored to various platforms or needs, such as social media posts,
+  marketing materials, or detailed renders.</li>
+</ul>
+<p><img alt="simple_cam_resolutions.gif" src="../../videos/simple_cam/simple_cam_resolutions.gif" width="800"></p>
+<h3 id="2-batch-render-cameras">2. Batch Render Cameras</h3>
+<p>Render multiple static cameras with different settings in one go. This saves time by allowing you to set up various
+camera angles and render them all at once.</p>
+<ul>
+<li><strong>Custom Solution</strong>: Doesn't rely on misusing stereoscopic settings or camera markers.</li>
+<li><strong>Unique Settings per Camera</strong>: Each camera can have different resolutions, exposure settings, and more.</li>
+<li><strong>Uses Current Scene Frame</strong>: The batch render uses the current scene frame for all cameras.</li>
+</ul>
+<p><img alt="simple_cam_batch_render.gif" src="../../videos/simple_cam/simple_cam_batch_render.gif" width="800"></p>
+<h3 id="3-assign-render-slots-to-cameras">3. Assign Render Slots to Cameras</h3>
+<p>Assign different render slots to each camera to prevent overwriting renders.</p>
+<p><img alt="simple_cam_assign_render_slots.gif" src="../../videos/simple_cam/simple_cam_assign_render_slots.gif" width="800"></p>
+<h3 id="4-interactive-dolly-zoom">4. Interactive Dolly Zoom</h3>
+<p>Perform a dolly zoom to keep the subject size consistent while adjusting the camera's distance and zoom. This helps in
+finding the best focal length for your render.</p>
+<ul>
+<li><strong>Reference Plane Gizmo</strong>: Use a gizmo in the 3D space to define the reference plane that should always stay in focus.</li>
+<li><strong>Hotkey Controls</strong>: Use the hotkeys of the modal operator to adjust the dolly zoom based on either the distance or
+  the focal length.</li>
+</ul>
+<p><img alt="simple_cam_Dolly_Zoom.gif" src="../../videos/simple_cam/simple_cam_Dolly_Zoom.gif" width="800"></p>
+<p><img alt="Batch Render" src="../../images/simple_cam/Simple_Camera_dolly_focal_length_narrow.jpg"></p>
+<h3 id="5-recreating-real-world-objects-and-scenes-with-background-images">5. Recreating Real-World Objects and Scenes with Background Images</h3>
+<p>Use and manage viewport background images to recreate real-world objects and scenes. Quickly toggle between cameras,
+adjust image opacity in the viewport, and use the dolly zoom to match the camera's focal length with the image's focal
+length.</p>
+<ul>
+<li><strong>Quick Camera Switch</strong>: Use a shortcut to toggle between different image planes with varying resolutions.</li>
+<li><strong>Adjust Opacity</strong>: Easily adjust image opacity in the viewport using the Pie menu to compare your model with the
+  reference image.</li>
+<li><strong>Match Focal Length</strong>: Use the dolly zoom to precisely match the camera's focal length with the image reference.</li>
+</ul>
+<p><img alt="Simple_Cam_Image_Planes.gif" src="../../videos/simple_cam/Simple_Cam_Image_Planes.gif" width="800"></p>
+<p><strong>Project Link</strong>: <a href="https://www.artstation.com/artwork/D55b8o">Cotton Spinning Mule Modeling</a></p>
+<p><img alt="Simple_Camera_Panel.jpg" src="../../images/simple_cam/Simple_cam_pie.jpg"></p>
+<hr>
+<h2 id="why-trust-simple-camera-manager">Why Trust Simple Camera Manager?</h2>
+<p>I’ve spent over a decade refining workflows for real-time engines, and my tools—Simple Renaming, Simple Collider, and
+Simple Camera Manager—are used and trusted by thousands of artists and studios worldwide.</p>
+<p><img alt="bransing_squares.jpg" src="../../images/simple_export/branding_squares.jpg"></p>
+<ul>
+<li><a href="https://extensions.blender.org/add-ons/simple-renaming-panel/">Simple Renaming</a> (20,000+ users)</li>
+<li><a href="https://superhivemarket.com/products/simple-collider">Simple Collider</a> (500+ users)</li>
+<li><a href="https://superhivemarket.com/products/simple-export">Simple Export</a></li>
+</ul>
+<h2 id="testimonials">Testimonials</h2>
+<p>What other artists from the games industry say about Simple Camera Manager:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="Portrait" src="../../images/simple_cam/patrik_pulkkinen.jpg" width="100"></td>
+<td><a href="https://www.artstation.com/patrik"> Patrik Pulkkinen - Concept Artist   Remedy Entertainment</a> <p>Great addon, does everything i need without too much fluff</p></td>
+</tr>
+</tbody>
+</table></div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../simple_export/exporter_release_notes/" class="btn btn-neutral float-left" title="Release Notes"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../camera_manager_UI/" class="btn btn-neutral float-right" title="The UI">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../simple_export/exporter_release_notes/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../camera_manager_UI/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
