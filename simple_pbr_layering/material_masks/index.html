@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Masks & Generators - Documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Masks \u0026 Generators";
+        var mkdocs_page_input_path = "simple_pbr_layering/material_masks.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Documentation
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Alpine Empire</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Simple Collider</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_ui/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_shapes/">Collider Shapes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_auto_convex/">Auto Convex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_groups/">Collider Groups</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_physics_materials/">Physics Materials</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_import_engines/">Game Engine Support</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_ue_guidline/">UE Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_unity_guidline/">Unity Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_godot_guidline/">Godot Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Simple Export </span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_ui/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_guide/">User Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_guide_unreal/">UE Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_guide_unity/">Unity Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_guide_godot/">Godot Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_guide_baking/">Baking Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_preset_creation/">Preset Creation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Simple Camera Manager</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_camera_manager/camera_manager_Overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_camera_manager/camera_manager_UI/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_camera_manager/camera_manager_dolly_zoom/">Dolly Zoom</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_camera_manager/camera_manager_composition/">Composition</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_camera_manager/camera_manager_image_plane/">Precise Modeling</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_camera_manager/camera_manager_Rendering_workflow/">Presentation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_camera_manager/camera_manager_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Simple PBR Layering</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../material_overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../material_ui/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../material_import/">Importing Textures</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Masks & Generators</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#user-masks">User Masks</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#vertex-mask">Vertex Mask</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#texture-mask">Texture Mask</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#triplanar-texture-mask">Triplanar Texture Mask</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#procedural-shader-masks">Procedural Shader Masks</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#position-mask">Position Mask</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#normal-mask">Normal Mask</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ambient-occlusion-mask">Ambient Occlusion Mask</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#curvature-mask-cycles-only">Curvature Mask - Cycles Only</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#convexity-mask-cycles-only">Convexity Mask - Cycles Only</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#cavity-mask-cycles-only">Cavity Mask - Cycles Only</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#projection-masks">Projection Masks</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#triplanar-texture-mask_1">Triplanar Texture Mask</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#box-projector-mask">Box Projector Mask</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#geometry-node-masks">Geometry Node Masks</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#proximity-mask">Proximity Mask</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#combining-masks">Combining Masks</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../material_uv_tools/">UV Tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../material_adjustments/">Adjustments</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../material_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Simple Renaming (Free)</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_renaming/renaming_overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_renaming/renaming_UI/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_renaming/renaming_variables/">Renaming Variables</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_renaming/renaming_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Simple PBR Layering</li>
+      <li class="breadcrumb-item active">Masks & Generators</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <div><h1 id="masks-generators">Masks &amp; Generators</h1>
+<p>Masks let you control where and how a material or texture layer appears on a surface. Each mask in
+<strong>Simple PBR Layering</strong> is a self-contained node group that you connect to a mix, multiply, or blend node in your
+shader tree.</p>
+<p>All mask operators are found in the <strong>Masks</strong> section of the Simple PBR Layering panel.</p>
+<h2 id="user-masks">User Masks</h2>
+<h3 id="vertex-mask">Vertex Mask</h3>
+<p>Use painted vertex colors to as masks. </p>
+<p>Pick an existing <strong>Color Attribute</strong> or create a new one, choose which <strong>Channel</strong> to use (RGB Luminance, R, G, B, or Alpha), and optionally <strong>Invert</strong> the result.</p>
+<p><strong>Typical use</strong>: hand-painted dirt or moss, masking without UVs, using R/G/B channels of one attribute as three independent masks.
+The mask is depending on the asset resolution and can only be used for rough masks on lower resolution assets. The result can be improved in combination with other masks. It is often used to limit the effect of other masks. </p>
+<p><img alt="Normal Mask" src="../../images/simple_material/Create_vertex_color.png">
+<img alt="Normal Mask" src="../../images/simple_material/vertex_color.png"></p>
+<h3 id="texture-mask">Texture Mask</h3>
+<p>Uses an image texture as a blend factor. Select a Blend Group first and the output is wired automatically; otherwise connect it manually.</p>
+<p>Choose an existing image, load one from disk, or create a new blank texture (set a <strong>Name</strong> and <strong>Resolution</strong> up to 4096). Pick whether the <strong>Output</strong> is driven by <strong>Color (Luminance)</strong> via an RGB to BW node, or the texture's <strong>Alpha</strong> channel directly. Optionally <strong>Invert</strong> the result.</p>
+<p><strong>Typical use</strong>: painted masks baked in an external tool, hand-drawn stencils, any greyscale or alpha-channel mask image.</p>
+<h3 id="triplanar-texture-mask">Triplanar Texture Mask</h3>
+<p>Projects an image texture from all three object-space axes and blends the results into a single Factor output — no UV unwrapping needed. Tile, Scale, Rotation, Blend Sharpness, and Aspect Ratio are all exposed directly on the node. Aspect Ratio is set automatically from the image dimensions.</p>
+<p>Same image picker as Texture Mask (existing / load from disk / new blank). If the target's Factor input is already connected, choose whether to <strong>Replace</strong> it or keep the existing connection. Optionally <strong>Invert</strong> the output.</p>
+<p><strong>Typical use</strong>: tileable detail masks on assets without UVs, seamless grunge or wear patterns on complex geometry.</p>
+<h2 id="procedural-shader-masks">Procedural Shader Masks</h2>
+<p>Basic masks without dependencies</p>
+<h3 id="position-mask">Position Mask</h3>
+<p><img alt="Height Mask" src="../../images/simple_material/Position_Mask.png" width="400"></p>
+<p>Creates a gradient mask based on the object-space position along a chosen axis (X, Y, or Z).</p>
+<p><strong>Typical use</strong>: 
+- Dirt Mask
+- Gradients along the objects 
+- Isolating Height areas</p>
+<h3 id="normal-mask">Normal Mask</h3>
+<p><img alt="Normal Mask" src="../../images/simple_material/World_Normal_Mask.png" width="400"></p>
+<p>Masks surfaces based on how closely their normal aligns with a chosen direction. Faces pointing toward that direction become white (Factor = 1), faces pointing away become black (Factor = 0).</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Direction</td>
+<td>The reference vector to compare normals against. Default <code>(0, 0, 1)</code> = world up.</td>
+</tr>
+<tr>
+<td>Coordinates</td>
+<td><strong>World</strong> — direction is fixed in the scene. <strong>Object</strong> — direction rotates with the mesh.</td>
+</tr>
+<tr>
+<td>Angle</td>
+<td>Coverage in degrees. 90° masks surfaces within a right angle of Direction; higher values cover more of the mesh.</td>
+</tr>
+<tr>
+<td>Softness</td>
+<td>Width of the transition zone. 0 = hard edge, 1 = gradual falloff.</td>
+</tr>
+<tr>
+<td>Invert</td>
+<td>Flip the output — e.g. mask downward-facing surfaces instead.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Typical use</strong>: Snow or dust on upward-facing surfaces, wet patches on top geometry, directional weathering.</p>
+<h2 id="ambient-occlusion-mask">Ambient Occlusion Mask</h2>
+<p><img alt="Normal Mask" src="../../images/simple_material/Ambient_Occlusion_Mask.png" width="400"></p>
+<p>Generates an ambient occlusion effect using Blender's built-in AO shader node, producing a soft darkening in corners and crevices.</p>
+<p><strong>Typical use</strong>: Dirt, dust, or grime accumulation in sheltered areas. Multiply it over a Base Color to add
+visual depth.</p>
+<h3 id="curvature-mask-cycles-only">Curvature Mask  - Cycles Only</h3>
+<p><img alt="Normal Mask" src="../../images/simple_material/Curvature_Mask.png" width="400"></p>
+<p>Derives a mask from the surface curvature — bright on convex edges, dark in concave cavities (or inverted,
+depending on your settings).</p>
+<p><strong>Typical use</strong>: Edge wear, paint chipping, or scratches that appear on raised geometry.</p>
+<h3 id="convexity-mask-cycles-only">Convexity Mask - Cycles Only</h3>
+<p><img alt="Normal Mask" src="../../images/simple_material/Convexity_Mask.png" width="400"></p>
+<h3 id="cavity-mask-cycles-only">Cavity Mask - Cycles Only</h3>
+<p><img alt="Normal Mask" src="../../images/simple_material/Concavity_Mask.png" width="400"></p>
+<h2 id="projection-masks">Projection Masks</h2>
+<h3 id="triplanar-texture-mask_1">Triplanar Texture Mask</h3>
+<p>Projects a texture from three orthogonal planes and blends the results at the seams, so the mask is seamless
+regardless of UV layout.</p>
+<p><strong>Typical use</strong>: Applying a tileable detail texture or stencil to objects that have no UVs, or that have
+complex/overlapping UVs.</p>
+<h3 id="box-projector-mask">Box Projector Mask</h3>
+<p>A box-projection mask that evaluates which faces of a mesh are visible from each of the six sides of a bounding
+box, then blends the results. Useful for applying decal-style detail on objects without UV unwrapping.</p>
+<p><strong>Typical use</strong>: Grunge overlays, decal placement on complex assets, or sticker-like details added
+non-destructively.</p>
+<h2 id="geometry-node-masks">Geometry Node Masks</h2>
+<p>Masks that require data from a Geometry Node setup. The Goemetry Node setup is created by the addon</p>
+<h3 id="proximity-mask">Proximity Mask</h3>
+<p><div class="video-container"><video style="width:100%" muted controls alt="type:video" width:400="width:400"><source src="../../videos/simple_material/Proximity_Mask.mp4" type="video/mp4"></source></video></div></p>
+<p>Generates a mask based on the distance from the surface to a target object or collection. Objects that are close
+to the target receive a different value than those that are far away.</p>
+<p><strong>Typical use</strong>: Wet sand around a water edge, moss growth near a wall base, or contextual blending between two
+surfaces that interact.</p>
+<hr>
+<h2 id="combining-masks">Combining Masks</h2>
+<p>Masks can be chained together using standard Blender Math or MixRGB nodes. A common pattern is:</p>
+<ol>
+<li>Use a <strong>Position Mask</strong> to restrict a surface effect to the bottom half of an object.</li>
+<li>Multiply it by a <strong>Curvature Mask</strong> to further limit it to concave areas.</li>
+<li>Feed the result into a <strong>Blend</strong> group to mix a dirty/wet material over the base material.</li>
+</ol></div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../material_import/" class="btn btn-neutral float-left" title="Importing Textures"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../material_uv_tools/" class="btn btn-neutral float-right" title="UV Tools">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../material_import/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../material_uv_tools/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -105,6 +105,23 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../simple_camera_manager/camera_manager_release_notes/">Release Notes</a>
                   </li>
               </ul>
+              <p class="caption"><span class="caption-text">Simple PBR Layering</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_pbr_layering/material_overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_pbr_layering/material_ui/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_pbr_layering/material_import/">Importing Textures</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_pbr_layering/material_masks/">Masks & Generators</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_pbr_layering/material_uv_tools/">UV Tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_pbr_layering/material_adjustments/">Adjustments</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_pbr_layering/material_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
               <p class="caption"><span class="caption-text">Simple Renaming (Free)</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../../simple_renaming/renaming_overview/">Overview</a>
@@ -175,6 +192,13 @@ Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a>
 <p>The implementation is based on Code from <a href="https://gist.github.com/iyadahmed"><strong>Iyad Ahmed</strong></a>. Iyad was so kind and gave me permission of using it.  </p>
 <p><img alt="Gif showing the creation of an oriented minimum box collider" src="../../images/simple_collider/OABBox_small.gif" width="600">
 Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a></p>
+<h3 id="k-dop-collider">K-DOP Collider</h3>
+<p>K-DOP (Discrete Oriented Polytope) colliders are convex shapes defined by slabs — pairs of parallel planes oriented along fixed axes. They provide a tighter fit than a standard bounding box while remaining more efficient than a full convex hull. Simple Collider supports <strong>14-DOP</strong> and <strong>18-DOP</strong> slab configurations.</p>
+<ul>
+<li><strong>14-DOP</strong> uses the 3 axis-aligned directions plus the 4 main diagonals (face + edge directions of a cube).</li>
+<li><strong>18-DOP</strong> adds the 6 face-diagonal directions for an even tighter fit at the cost of slightly more geometry.</li>
+</ul>
+<p>K-DOP colliders are a good choice when a box collider is too loose but a full convex hull introduces more geometry than necessary.</p>
 <h2 id="convert">Convert</h2>
 <p>You can convert any mesh to be a collider as well as any collider to be a regular mesh object.</p>
 <h3 id="object-to-collider">Object to Collider</h3>

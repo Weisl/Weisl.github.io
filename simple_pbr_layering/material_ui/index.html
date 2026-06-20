@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Adjustments - Documentation</title>
+    <title>The UI - Documentation</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,8 +13,8 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Adjustments";
-        var mkdocs_page_input_path = "simple_material/material_adjustments.md";
+        var mkdocs_page_name = "The UI";
+        var mkdocs_page_input_path = "simple_pbr_layering/material_ui.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -103,6 +103,41 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../simple_camera_manager/camera_manager_release_notes/">Release Notes</a>
                   </li>
               </ul>
+              <p class="caption"><span class="caption-text">Simple PBR Layering</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../material_overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">The UI</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#the-side-panel">The Side Panel</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#import-texture-set">Import Texture Set</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#masks">Masks</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#uv-tools">UV Tools</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#adjustments">Adjustments</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#linking">Linking</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#debug">Debug</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#preferences">Preferences</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../material_import/">Importing Textures</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../material_masks/">Masks & Generators</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../material_uv_tools/">UV Tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../material_adjustments/">Adjustments</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../material_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
               <p class="caption"><span class="caption-text">Simple Renaming (Free)</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../../simple_renaming/renaming_overview/">Overview</a>
@@ -128,7 +163,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Adjustments</li>
+          <li class="breadcrumb-item">Simple PBR Layering</li>
+      <li class="breadcrumb-item active">The UI</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -137,95 +173,171 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <div><h1 id="adjustments">Adjustments</h1>
-<p>The <strong>Adjustments</strong> section of the Simple PBR Layering panel provides operators for fine-tuning individual PBR
-channels and for correcting or combining normal maps.</p>
-<h2 id="channel-adjustments">Channel Adjustments</h2>
-<p>Each channel adjustment appends a small node group to the material that gives you a non-destructive control
-knob for that channel's output.</p>
+                <div><h1 id="the-ui">The UI</h1>
+<h2 id="the-side-panel">The Side Panel</h2>
+<p><strong>Simple PBR Layering</strong> lives mostly in the <strong>N-Panel</strong> of the Shader Graph Editor. Open it with <strong>N</strong> and select the
+<strong>Simple PBR Layering</strong> tab. Additionally, it provides quick convenience access through a content aware Pie menu. Allowing you to stay in the flow while creating your perfect shader. </p>
+<p>The Simple PBR Layering panel in the N-Panel is divided into the following sections:</p>
+<ol>
+<li><strong>Import Texture Set</strong> — Scan a folder and import PBR textures into the active material.</li>
+<li><strong>Blend</strong> — Create blend groups to layer multiple texture sets.</li>
+<li><strong>Masks</strong> — Add procedural masks (AO, Curvature, Position, Proximity, Triplanar, World Normal, Box Projector).</li>
+<li><strong>Decals</strong> — UV tools focused on decal projection.</li>
+<li><strong>UV Tools</strong> — UV projection helpers (Box, World, Triplanar, Texture Bomb, Voronoi Bomb).</li>
+<li><strong>Adjustments</strong> — Channel-level adjustments and normal editing operators.</li>
+<li><strong>Generators</strong> — Procedural base material generators.</li>
+<li><strong>Linking</strong> — Link or propagate materials across selected objects.</li>
+<li><strong>Debug</strong> — AOV pass setup for per-channel viewport validation.</li>
+</ol>
+<h2 id="import-texture-set">Import Texture Set</h2>
+<p>The <strong>Import Texture Set</strong> section is the heart of the addon.</p>
+<ol>
+<li><strong>Directory</strong> — Path to the folder containing your PBR textures. Use the folder icon to browse.</li>
+<li><strong>Scan</strong> — Preview which textures were detected and which channels they will be assigned to before importing.</li>
+<li><strong>Import</strong> — Run the import. Textures are loaded, colorspaces are set, and nodes are connected automatically.</li>
+</ol>
+<p>After scanning, a list of detected texture→channel pairs is shown so you can review the assignment before committing.</p>
+<h2 id="masks">Masks</h2>
+<p>Each mask button appends a ready-to-use node group to the active material's node tree.</p>
 <table>
 <thead>
 <tr>
-<th>Adjustment</th>
-<th>Affected Channel</th>
-<th>Controls</th>
+<th>Mask</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Base Color</strong></td>
-<td>Base Color</td>
-<td>Hue, Saturation, Value, Brightness, Contrast</td>
+<td><strong>Ambient Occlusion</strong></td>
+<td>Baked or procedural AO mask</td>
 </tr>
 <tr>
-<td><strong>Roughness</strong></td>
-<td>Roughness</td>
-<td>Min, Max (remaps the 0–1 range)</td>
+<td><strong>Curvature</strong></td>
+<td>Edge/cavity highlight based on surface curvature</td>
 </tr>
 <tr>
-<td><strong>Metallic</strong></td>
-<td>Metallic</td>
-<td>Min, Max</td>
+<td><strong>Position</strong></td>
+<td>Gradient based on object-space X, Y, or Z position</td>
 </tr>
 <tr>
-<td><strong>Displacement</strong></td>
-<td>Displacement / Height</td>
-<td>Scale, Midlevel</td>
+<td><strong>Proximity</strong></td>
+<td>Distance-based mask from a target object or surface</td>
+</tr>
+<tr>
+<td><strong>Triplanar</strong></td>
+<td>Planar-projected texture mask; avoids UV seams</td>
+</tr>
+<tr>
+<td><strong>World Normal</strong></td>
+<td>Mask driven by world-space surface orientation</td>
+</tr>
+<tr>
+<td><strong>Box Projector</strong></td>
+<td>Box-projected mask, useful for decals and detail layers</td>
 </tr>
 </tbody>
 </table>
-<h2 id="normal-map-operations">Normal Map Operations</h2>
-<p>Normal map handling is one of the most error-prone parts of PBR material setup. The operators below cover the
-most common corrections and combinations you will need.</p>
-<p>All normal operations are available in the <strong>Adjustments → Normal</strong> submenu.</p>
-<h3 id="flip-y-directx-opengl-conversion">Flip Y — DirectX ↔ OpenGL Conversion</h3>
-<p>Inverts the green (Y) channel of a normal map. This converts between DirectX-style normals (used in UE, Unity,
-and most game engines) and OpenGL-style normals (used by Blender internally).</p>
-<p><strong>When to use</strong>: Any time a normal map looks inverted, or when you are using a texture that came from a DCC
-tool or engine that exports DirectX normals.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>When you import a texture with the <code>_nor_dx</code> suffix, a Flip Y node is applied automatically.</p>
-</div>
-<h3 id="flip-x-horizontal-mirror">Flip X — Horizontal Mirror</h3>
-<p>Inverts the red (X) channel of a normal map, mirroring the fine surface detail horizontally.</p>
-<p><strong>When to use</strong>: When a normal map is mirrored relative to its mesh — common when UV islands have been flipped.</p>
-<h3 id="rotate-normal">Rotate Normal</h3>
-<p>Rotates the normal map by a specified angle (in degrees). Useful when a tiled normal map's grain or brushed
-direction does not align with the intended orientation on the mesh.</p>
-<h3 id="combine-normals-whiteout-method">Combine Normals — Whiteout Method</h3>
-<p>Blends two normal maps together using the <strong>Whiteout</strong> combination method. This is a mathematically correct
-blend that preserves the strength of both normals, unlike a simple linear mix.</p>
-<p><strong>When to use</strong>: Layering a detail normal map over a base normal map — for example, adding fabric weave on top
-of a clothing base normal.</p>
-<h3 id="combine-normals-rnm-reoriented-normal-mapping">Combine Normals — RNM (Reoriented Normal Mapping)</h3>
-<p>An alternative combination method that better preserves normal directions when the two maps have significantly
-different orientations. Generally preferred over Whiteout for large-angle differences.</p>
-<p><strong>When to use</strong>: Combining normals from surfaces with very different base orientations, such as a decal normal
-applied to a curved surface.</p>
-<h3 id="normal-to-cavity">Normal to Cavity</h3>
-<p>Derives a grayscale <strong>cavity mask</strong> from a normal map by extracting the concave areas. The result can be used
-as a grunge mask, an AO substitute, or fed into the Roughness or Specular channel.</p>
-<p><strong>When to use</strong>: When you have a detailed normal map but no baked AO or cavity texture, and want to add subtle
-shading variation in crevices.</p>
-<h3 id="normal-noise">Normal Noise</h3>
-<p>Adds a layer of procedural noise on top of an existing normal map to break up overly clean or repetitive
-surfaces.</p>
-<p><strong>When to use</strong>: Adding micro-surface roughness to surfaces that look too smooth or plasticky at close range.</p>
-<hr>
-<h2 id="working-with-blend-groups">Working with Blend Groups</h2>
-<p>The <strong>Blend</strong> section creates a node group that mixes two complete texture sets together using a mask input.
-This is the recommended way to layer materials non-destructively.</p>
-<p><strong>Typical workflow</strong>:</p>
-<ol>
-<li>Import your base texture set.</li>
-<li>Import a second texture set (e.g. a wet or dirty variant).</li>
-<li>Click <strong>Create Blend</strong> in the <strong>Blend</strong> section.</li>
-<li>Plug a mask (e.g. a <strong>Curvature Mask</strong> or <strong>Position Mask</strong>) into the blend group's <strong>Factor</strong> input.</li>
-</ol></div>
+<h2 id="uv-tools">UV Tools</h2>
+<p>UV tools create specialized UV node groups that replace or supplement standard UV coordinates.</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Box UV</strong></td>
+<td>Box/cube projection from object space</td>
+</tr>
+<tr>
+<td><strong>World UV</strong></td>
+<td>World-space planar projection</td>
+</tr>
+<tr>
+<td><strong>Triplanar UV</strong></td>
+<td>Three-axis blended projection to eliminate seams</td>
+</tr>
+<tr>
+<td><strong>Texture Bomb</strong></td>
+<td>Randomises texture placement per-tile for variation</td>
+</tr>
+<tr>
+<td><strong>Voronoi Bomb</strong></td>
+<td>Voronoi-based randomisation for organic variation</td>
+</tr>
+<tr>
+<td><strong>Decal UV</strong></td>
+<td>Projection-based UV for decal placement</td>
+</tr>
+</tbody>
+</table>
+<h2 id="adjustments">Adjustments</h2>
+<p>The <strong>Adjustments</strong> section provides fine-grained control over individual channels and normals.</p>
+<p><strong>Channel adjustments:</strong></p>
+<ul>
+<li>Base Color, Roughness, Metallic, Displacement — adds a dedicated adjustment node group per channel.</li>
+</ul>
+<p><strong>Normal operations (submenu):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Flip Y</strong></td>
+<td>Converts between DirectX (DX) and OpenGL (GL) normal maps</td>
+</tr>
+<tr>
+<td><strong>Flip X</strong></td>
+<td>Mirrors the normal map horizontally</td>
+</tr>
+<tr>
+<td><strong>Rotate Normal</strong></td>
+<td>Rotates the normal map by a specified angle</td>
+</tr>
+<tr>
+<td><strong>Combine (Whiteout)</strong></td>
+<td>Blends two normal maps using the Whiteout method</td>
+</tr>
+<tr>
+<td><strong>Combine (RNM)</strong></td>
+<td>Blends two normal maps using Reoriented Normal Mapping</td>
+</tr>
+<tr>
+<td><strong>Normal to Cavity</strong></td>
+<td>Extracts a cavity/edge mask from a normal map</td>
+</tr>
+<tr>
+<td><strong>Normal Noise</strong></td>
+<td>Adds procedural noise on top of an existing normal map</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linking">Linking</h2>
+<p>The <strong>Linking</strong> section lets you propagate or share materials between objects in the scene without manually
+reassigning them in the Properties panel.</p>
+<h2 id="debug">Debug</h2>
+<p>The <strong>Debug</strong> section sets up <strong>AOV (Arbitrary Output Variable)</strong> passes that let you view individual texture
+channels — such as Roughness or Normal — directly in the Blender viewport render. This is useful for validating
+that textures imported correctly.</p>
+<h2 id="preferences">Preferences</h2>
+<p>Open the addon preferences via <strong>Edit → Preferences → Add-ons → Simple PBR Layering</strong>.</p>
+<ul>
+<li><strong>Custom Suffix Mappings</strong> — Add or override suffix patterns. Each entry defines a suffix string, the target
+  channel, and whether the texture uses sRGB or Non-Color colorspace.</li>
+</ul></div>
               
             </div>
           </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../material_overview/" class="btn btn-neutral float-left" title="Overview"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../material_import/" class="btn btn-neutral float-right" title="Importing Textures">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
 
   <hr/>
 
@@ -247,6 +359,10 @@ This is the recommended way to layer materials non-destructively.</p>
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
+      <span><a href="../material_overview/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../material_import/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

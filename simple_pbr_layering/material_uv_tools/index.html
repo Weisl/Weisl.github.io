@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Masks &amp; Generators - Documentation</title>
+    <title>UV Tools - Documentation</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,8 +13,8 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Masks \u0026amp; Generators";
-        var mkdocs_page_input_path = "simple_material/material_masks.md";
+        var mkdocs_page_name = "UV Tools";
+        var mkdocs_page_input_path = "simple_pbr_layering/material_uv_tools.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -103,6 +103,37 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../simple_camera_manager/camera_manager_release_notes/">Release Notes</a>
                   </li>
               </ul>
+              <p class="caption"><span class="caption-text">Simple PBR Layering</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../material_overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../material_ui/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../material_import/">Importing Textures</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../material_masks/">Masks & Generators</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">UV Tools</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#box-uv">Box UV</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#world-uv">World UV</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#triplanar-uv">Triplanar UV</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#texture-bomb">Texture Bomb</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#voronoi-bomb">Voronoi Bomb</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#decal-uv">Decal UV</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../material_adjustments/">Adjustments</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../material_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
               <p class="caption"><span class="caption-text">Simple Renaming (Free)</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../../simple_renaming/renaming_overview/">Overview</a>
@@ -128,7 +159,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Masks &amp; Generators</li>
+          <li class="breadcrumb-item">Simple PBR Layering</li>
+      <li class="breadcrumb-item active">UV Tools</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -137,73 +169,120 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <div><h1 id="masks-generators">Masks &amp; Generators</h1>
-<p>Masks let you control where and how a material or texture layer appears on a surface. Each mask in
-<strong>Simple PBR Layering</strong> is a self-contained node group that you connect to a mix, multiply, or blend node in your
-shader tree.</p>
-<p>All mask operators are found in the <strong>Masks</strong> section of the Simple PBR Layering panel.</p>
-<h2 id="user-masks">User Masks</h2>
-<h3 id="bitmap-mask">Bitmap Mask</h3>
-<h3 id="vertex-mask">Vertex Mask</h3>
-<h2 id="procedural-masks">Procedural Masks</h2>
-<p>Basic masks without dependencies</p>
-<h3 id="position-mask">Position Mask</h3>
-<p><img alt="Height Mask" src="../../images/simple_material/Position_Mask.png" width="400"></p>
-<p>Creates a gradient mask based on the object-space position along a chosen axis (X, Y, or Z).</p>
-<p><strong>Typical use</strong>: 
-- Dirt Mask
-- Gradients along the objects 
-- Isolating Height areas</p>
-<h3 id="normal-mask">Normal Mask</h3>
-<p><img alt="Normal Mask" src="../../images/simple_material/World_Normal_Mask.png" width="400"></p>
-<p>Creates a mask driven by the surface normal direction in world space or object space. Faces pointing upward, downward, or in
-any other direction can be isolated.</p>
-<p><strong>Typical use</strong>: Snow or dust accumulation on upward-facing surfaces, wet surfaces on top-facing geometry.</p>
-<h2 id="ambient-occlusion-mask">Ambient Occlusion Mask</h2>
-<p><img alt="Normal Mask" src="../../images/simple_material/Ambient_Occlusion_Mask.png" width="400"></p>
-<p>Generates an ambient occlusion effect using Blender's built-in AO shader node, producing a soft darkening in
-corners and crevices.</p>
-<p><strong>Typical use</strong>: Dirt, dust, or grime accumulation in sheltered areas. Multiply it over a Base Color to add
-visual depth.</p>
-<h3 id="curvature-mask">Curvature Mask</h3>
-<p><img alt="Normal Mask" src="../../images/simple_material/Curvature_Mask.png" width="400"></p>
-<p>Derives a mask from the surface curvature — bright on convex edges, dark in concave cavities (or inverted,
-depending on your settings).</p>
-<p><strong>Typical use</strong>: Edge wear, paint chipping, or scratches that appear on raised geometry.</p>
-<h3 id="convexity-mask">Convexity Mask</h3>
-<p><img alt="Normal Mask" src="../../images/simple_material/Convexity_Mask.png" width="400"></p>
-<h3 id="cavity-mask">Cavity Mask</h3>
-<p><img alt="Normal Mask" src="../../images/simple_material/Concavity_Mask.png" width="400"></p>
-<h2 id="projection-masks">Projection Masks</h2>
-<h2 id="triplanar-texture-mask">Triplanar Texture Mask</h2>
-<p>Projects a texture from three orthogonal planes and blends the results at the seams, so the mask is seamless
-regardless of UV layout.</p>
-<p><strong>Typical use</strong>: Applying a tileable detail texture or stencil to objects that have no UVs, or that have
-complex/overlapping UVs.</p>
-<h2 id="box-projector-mask">Box Projector Mask</h2>
-<p>A box-projection mask that evaluates which faces of a mesh are visible from each of the six sides of a bounding
-box, then blends the results. Useful for applying decal-style detail on objects without UV unwrapping.</p>
-<p><strong>Typical use</strong>: Grunge overlays, decal placement on complex assets, or sticker-like details added
-non-destructively.</p>
-<h2 id="geometry-node-masks">Geometry Node Masks</h2>
-<p>Masks that require data from a Geometry Node setup. The Goemetry Node setup is created by the addon</p>
-<h2 id="proximity-mask">Proximity Mask</h2>
-<p><div class="video-container"><video style="width:100%" muted controls alt="type:video" width:400="width:400"><source src="../../videos/simple_material/Proximity_Mask.mp4" type="video/mp4"></source></video></div></p>
-<p>Generates a mask based on the distance from the surface to a target object or collection. Objects that are close
-to the target receive a different value than those that are far away.</p>
-<p><strong>Typical use</strong>: Wet sand around a water edge, moss growth near a wall base, or contextual blending between two
-surfaces that interact.</p>
-<hr>
-<h2 id="combining-masks">Combining Masks</h2>
-<p>Masks can be chained together using standard Blender Math or MixRGB nodes. A common pattern is:</p>
-<ol>
-<li>Use a <strong>Position Mask</strong> to restrict a surface effect to the bottom half of an object.</li>
-<li>Multiply it by a <strong>Curvature Mask</strong> to further limit it to concave areas.</li>
-<li>Feed the result into a <strong>Blend</strong> group to mix a dirty/wet material over the base material.</li>
-</ol></div>
+                <div><h1 id="uv-tools">UV Tools</h1>
+<p><strong>Simple PBR Layering</strong> provides six UV projection node groups that replace or supplement standard UV Map coordinates.
+Each tool is appended as a node group to the active material's node tree and can be connected to any texture node
+that accepts a Vector input.</p>
+<p>UV tools are found in the <strong>UV Tools</strong> section of the Simple PBR Layering panel.</p>
+<h2 id="box-uv">Box UV</h2>
+<p>Projects textures from the six faces of a bounding box — top, bottom, front, back, left, and right — and blends
+the results at silhouette edges.</p>
+<p><strong>Best for</strong>: Objects with no UV maps, or objects where you want a quick, seam-free texture without unwrapping.</p>
+<p><strong>Key inputs</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scale</td>
+<td>Overall texture scale</td>
+</tr>
+<tr>
+<td>Blend</td>
+<td>Width of the blending zone at projection seams</td>
+</tr>
+</tbody>
+</table>
+<h2 id="world-uv">World UV</h2>
+<p>Uses world-space coordinates as UV input, so the texture stays fixed in the world regardless of how the object
+moves or rotates.</p>
+<p><strong>Best for</strong>: Environmental materials like ground, rock, or water where the texture should align with the scene
+rather than the object.</p>
+<h2 id="triplanar-uv">Triplanar UV</h2>
+<p>Projects textures from three orthogonal world-space planes and blends them together at the seams. The result is
+fully seamless with no visible projection boundaries.</p>
+<p><strong>Best for</strong>: Organic surfaces, rocks, terrain, and any object where UV seams would be visible and undesirable.</p>
+<p><strong>Key inputs</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scale</td>
+<td>Overall texture scale</td>
+</tr>
+<tr>
+<td>Sharpness</td>
+<td>Controls blend falloff at triplanar seams</td>
+</tr>
+<tr>
+<td>Rotation</td>
+<td>Per-axis rotation of the projection</td>
+</tr>
+</tbody>
+</table>
+<h2 id="texture-bomb">Texture Bomb</h2>
+<p>Tiles a texture across a surface and applies random <strong>offset</strong>, <strong>rotation</strong>, and <strong>scale</strong> per tile. This breaks
+up the repeating pattern that occurs when a texture is tiled at large scales.</p>
+<p><strong>Best for</strong>: Large tiled surfaces — floors, walls, terrain — where the repeat would otherwise become obvious at
+a distance.</p>
+<p><strong>Key inputs</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scale</td>
+<td>Base tile size</td>
+</tr>
+<tr>
+<td>Rotation Variation</td>
+<td>Maximum random rotation per tile</td>
+</tr>
+<tr>
+<td>Scale Variation</td>
+<td>Maximum random scale offset per tile</td>
+</tr>
+<tr>
+<td>Seed</td>
+<td>Change the random distribution</td>
+</tr>
+</tbody>
+</table>
+<h2 id="voronoi-bomb">Voronoi Bomb</h2>
+<p>Similar to Texture Bomb but uses a Voronoi pattern to distribute tile boundaries, producing a more organic,
+cell-like tiling layout.</p>
+<p><strong>Best for</strong>: Cobblestones, cracked surfaces, organic materials like skin or bark where a grid-free distribution
+looks more natural.</p>
+<h2 id="decal-uv">Decal UV</h2>
+<p>Projects a texture from a single direction onto the surface of an object, like projecting a sticker or stamp.
+The projection is defined by a plane or empty object in the scene.</p>
+<p><strong>Best for</strong>: Logos, dirt marks, cracks, or any detail that needs to be placed precisely on a surface without
+modifying the underlying geometry or UV layout.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For complete decal placement, pair <strong>Decal UV</strong> with the <strong>Box Projector Mask</strong> to fade the decal at the
+edges of the projection area.</p>
+</div></div>
               
             </div>
           </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../material_masks/" class="btn btn-neutral float-left" title="Masks & Generators"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../material_adjustments/" class="btn btn-neutral float-right" title="Adjustments">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
 
   <hr/>
 
@@ -225,6 +304,10 @@ surfaces that interact.</p>
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
+      <span><a href="../material_masks/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../material_adjustments/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
