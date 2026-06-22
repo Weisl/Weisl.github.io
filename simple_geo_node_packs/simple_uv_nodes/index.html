@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Simple UV Nodes - Documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Simple UV Nodes";
+        var mkdocs_page_input_path = "simple_geo_node_packs\\simple_uv_nodes.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Documentation
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Alpine Empire</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Simple Collider</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_ui/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_shapes/">Collider Shapes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_auto_convex/">Auto Convex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_groups/">Collider Groups</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_physics_materials/">Physics Materials</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_import_engines/">Game Engine Support</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_ue_guidline/">UE Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_unity_guidline/">Unity Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_godot_guidline/">Godot Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Simple Export </span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_ui/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_guide/">User Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_guide_unreal/">UE Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_guide_unity/">Unity Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_guide_godot/">Godot Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_guide_baking/">Baking Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_preset_creation/">Preset Creation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_export/exporter_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Simple Camera Manager</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_camera_manager/camera_manager_Overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_camera_manager/camera_manager_UI/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_camera_manager/camera_manager_dolly_zoom/">Dolly Zoom</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_camera_manager/camera_manager_composition/">Composition</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_camera_manager/camera_manager_image_plane/">Precise Modeling</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_camera_manager/camera_manager_Rendering_workflow/">Presentation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_camera_manager/camera_manager_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Simple PBR Layering (TBA)</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_pbr_layering/material_overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_pbr_layering/material_ui/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_pbr_layering/material_import/">Importing Textures</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_pbr_layering/material_masks/">Masks & Generators</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_pbr_layering/material_uv_tools/">UV Tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_pbr_layering/material_adjustments/">Adjustments</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_pbr_layering/material_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Geometry Node Packs</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Simple UV Nodes</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#feature-overview">Feature Overview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#node-reference">Node Reference</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#uv-box-project">UV Box Project</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#uv-planar-project">UV Planar Project</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#uv-transform">UV Transform</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#uv-attribute-transform">UV Attribute Transform</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tips">Tips</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Simple Renaming (Free)</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_renaming/renaming_overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_renaming/renaming_UI/">The UI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_renaming/renaming_variables/">Renaming Variables</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_renaming/renaming_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Geometry Node Packs</li>
+      <li class="breadcrumb-item active">Simple UV Nodes</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <div><h1 id="simple-uv-nodes">Simple UV Nodes</h1>
+<p>A Geometry Nodes library that lets you create, project, and transform UV maps directly in the node editor — no UV unwrapping, no separate operator, no context switch. Drag a node from the Asset Browser into your modifier tree and your UVs are live and non-destructive.</p>
+<p>Every node writes to a named UV attribute, plays nicely with Blender's native material system, and stacks with the rest of your geometry node setup.</p>
+<p><strong>Minimum Blender version: 4.5</strong></p>
+<hr>
+<h2 id="feature-overview">Feature Overview</h2>
+<ul>
+<li><strong>Box / Triplanar Projection</strong>: Project UVs from all three axes simultaneously. Per-axis offset, rotation, and scale give you full control over seam placement.</li>
+<li><strong>Planar Projection</strong>: Flat projection along a chosen axis — ideal for floors, walls, and surfaces with a clear dominant direction.</li>
+<li><strong>UV Transform</strong>: Non-destructively offset, rotate, scale, tile, and mirror an existing UV map without re-projecting from scratch.</li>
+<li><strong>UV Attribute Transform</strong>: A lightweight helper designed for use inside Geometry Node setups — pass it a UV vector and get back a transformed result, without needing a Geometry socket.</li>
+<li><strong>Named UV attributes</strong>: Every node targets a user-specified UV attribute name, so you can create and manage multiple UV maps on the same mesh.</li>
+<li><strong>Object or World space</strong>: Choose the coordinate space for projections to keep UVs stable under object transforms or locked to the world.</li>
+<li><strong>Asset Browser integration</strong>: Nodes are registered as Blender assets — drag any node directly into your modifier tree, no extra steps.</li>
+<li><strong>Stackable</strong>: Project with <em>UV Box Project</em> or <em>UV Planar Project</em>, then pipe the result into <em>UV Transform</em> for additional adjustments — without losing the original projection.</li>
+<li><strong>Pure Geometry Nodes</strong>: No Python dependency, no operator to run — everything is a standard Geometry Nodes modifier.</li>
+</ul>
+<hr>
+<h2 id="installation">Installation</h2>
+<ol>
+<li>Download the release zip and extract it.</li>
+<li>Inside you will find version folders — pick the one that matches your Blender installation (e.g. <code>Simple_UV_Nodes_4_5</code> or <code>Simple_UV_Nodes_5_1</code>).</li>
+<li>In Blender, open <strong>Edit → Preferences → File Paths → Asset Libraries</strong> and add the version folder as a new Asset Library.</li>
+<li>Open the <strong>Asset Browser</strong> (e.g. in a Geometry Nodes editor header), set the library to <em>Simple UV Nodes</em>, and drag any node into your Geometry Nodes modifier tree.</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you update Blender to a new minor version, swap the registered folder to the matching one from the zip. Older folders continue to work but will not include features introduced in newer Blender versions.</p>
+</div>
+<hr>
+<h2 id="node-reference">Node Reference</h2>
+<h3 id="uv-box-project">UV Box Project</h3>
+<p>Box/triplanar projection onto geometry. Projects UVs from three axes simultaneously and writes the result into a named UV attribute.</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Geometry</td>
+<td>Geometry</td>
+<td>—</td>
+<td>Mesh to project onto</td>
+</tr>
+<tr>
+<td>UV Map</td>
+<td>String</td>
+<td><code>UVMap</code></td>
+<td>Name of the UV attribute to write</td>
+</tr>
+<tr>
+<td>Coordinates</td>
+<td>Menu</td>
+<td>Object</td>
+<td>Coordinate space: <em>Object</em> or <em>World</em></td>
+</tr>
+<tr>
+<td>Tiling</td>
+<td>Float</td>
+<td><code>1.0</code></td>
+<td>Uniform tiling multiplier</td>
+</tr>
+<tr>
+<td><strong>X Projection</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Offset</td>
+<td>Vector</td>
+<td><code>0, 0, 0</code></td>
+<td>Translation offset for the X-face UV</td>
+</tr>
+<tr>
+<td>Rotate</td>
+<td>Float</td>
+<td><code>0°</code></td>
+<td>Rotation for the X-face UV</td>
+</tr>
+<tr>
+<td>Scale</td>
+<td>Vector</td>
+<td><code>1, 1</code></td>
+<td>Scale for the X-face UV</td>
+</tr>
+<tr>
+<td><strong>Y Projection</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Offset</td>
+<td>Vector</td>
+<td><code>0, 0, 0</code></td>
+<td>Translation offset for the Y-face UV</td>
+</tr>
+<tr>
+<td>Rotate</td>
+<td>Float</td>
+<td><code>0°</code></td>
+<td>Rotation for the Y-face UV</td>
+</tr>
+<tr>
+<td>Scale</td>
+<td>Vector</td>
+<td><code>1, 1</code></td>
+<td>Scale for the Y-face UV</td>
+</tr>
+<tr>
+<td><strong>Z Projection</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Offset</td>
+<td>Vector</td>
+<td><code>0, 0, 0</code></td>
+<td>Translation offset for the Z-face UV</td>
+</tr>
+<tr>
+<td>Rotate</td>
+<td>Float</td>
+<td><code>0°</code></td>
+<td>Rotation for the Z-face UV</td>
+</tr>
+<tr>
+<td>Scale</td>
+<td>Vector</td>
+<td><code>1, 1</code></td>
+<td>Scale for the Z-face UV</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Output</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Geometry</td>
+<td>Geometry</td>
+<td>Geometry with the new UV attribute written</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="uv-planar-project">UV Planar Project</h3>
+<p>Flat projection of UVs along a single chosen axis. Useful for walls, floors, or any surface that is predominantly facing one direction.</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Geometry</td>
+<td>Geometry</td>
+<td>—</td>
+<td>Mesh to project onto</td>
+</tr>
+<tr>
+<td>UV Map</td>
+<td>String</td>
+<td><code>UVMap</code></td>
+<td>Name of the UV attribute to write</td>
+</tr>
+<tr>
+<td>Coordinates</td>
+<td>Menu</td>
+<td>Object</td>
+<td>Coordinate space: <em>Object</em> or <em>World</em></td>
+</tr>
+<tr>
+<td>Projection Plane</td>
+<td>Menu</td>
+<td>Z</td>
+<td>Axis to project along: <em>X</em>, <em>Y</em>, or <em>Z</em></td>
+</tr>
+<tr>
+<td><strong>Transform</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Offset</td>
+<td>Vector</td>
+<td><code>0, 0, 0</code></td>
+<td>Translation offset applied to the UV</td>
+</tr>
+<tr>
+<td>Rotate</td>
+<td>Float</td>
+<td><code>0°</code></td>
+<td>Rotation applied to the UV</td>
+</tr>
+<tr>
+<td>Tiling</td>
+<td>Float</td>
+<td><code>1.0</code></td>
+<td>Uniform tiling multiplier</td>
+</tr>
+<tr>
+<td>Scale</td>
+<td>Vector</td>
+<td><code>1, 1</code></td>
+<td>Scale applied to the UV</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Output</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Geometry</td>
+<td>Geometry</td>
+<td>Geometry with the new UV attribute written</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="uv-transform">UV Transform</h3>
+<p>Modifies an existing UV map non-destructively — offset, rotate, scale, tile, and mirror without re-projecting from scratch.</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Geometry</td>
+<td>Geometry</td>
+<td>—</td>
+<td>Mesh whose UV attribute is modified</td>
+</tr>
+<tr>
+<td>UV Map</td>
+<td>String</td>
+<td><code>UVMap</code></td>
+<td>Name of the UV attribute to modify</td>
+</tr>
+<tr>
+<td>Offset UV</td>
+<td>Vector</td>
+<td><code>0, 0</code></td>
+<td>Translation offset</td>
+</tr>
+<tr>
+<td>Rotate</td>
+<td>Float</td>
+<td><code>0°</code></td>
+<td>Rotation</td>
+</tr>
+<tr>
+<td>Scale</td>
+<td>Vector</td>
+<td><code>1, 1</code></td>
+<td>Scale</td>
+</tr>
+<tr>
+<td>Tile</td>
+<td>Float</td>
+<td><code>1.0</code></td>
+<td>Uniform tiling multiplier</td>
+</tr>
+<tr>
+<td>Mirror U</td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>Mirror along the U axis</td>
+</tr>
+<tr>
+<td>Mirror V</td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>Mirror along the V axis</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Output</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Geometry</td>
+<td>Geometry</td>
+<td>Geometry with the modified UV attribute</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="uv-attribute-transform">UV Attribute Transform</h3>
+<p>A lightweight pure-vector node that offsets, rotates, and scales a UV coordinate value. Has no Geometry socket — use it as a helper sub-node inside other projection setups or to pre-process a UV vector before feeding it into a texture.</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UV Coordinates</td>
+<td>Vector</td>
+<td><code>0, 0, 0</code></td>
+<td>Input UV vector to transform</td>
+</tr>
+<tr>
+<td>Offset</td>
+<td>Vector</td>
+<td><code>0, 0</code></td>
+<td>Translation offset</td>
+</tr>
+<tr>
+<td>Rotate</td>
+<td>Float</td>
+<td><code>0°</code></td>
+<td>Rotation angle</td>
+</tr>
+<tr>
+<td>Scale</td>
+<td>Vector</td>
+<td><code>1, 1</code></td>
+<td>Scale</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Output</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vector</td>
+<td>Vector</td>
+<td>Transformed UV vector</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="tips">Tips</h2>
+<p><strong>UV Map name</strong> — The <em>UV Map</em> string socket must match the name of the UV attribute on your mesh exactly. Blender's default is <code>UVMap</code>. You can check the attribute name in the <em>Object Data Properties → UV Maps</em> panel.</p>
+<p><strong>Stacking nodes</strong> — <em>UV Planar Project</em> and <em>UV Box Project</em> write a UV attribute from scratch. Feed the result into <em>UV Transform</em> if you need to adjust it afterwards without losing the projection setup.</p>
+<p><strong>UV Attribute Transform as a sub-node</strong> — Because this node only operates on a vector, you can use it directly inside a custom node group to build composite projection setups without adding a full geometry pass.</p></div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../simple_pbr_layering/material_release_notes/" class="btn btn-neutral float-left" title="Release Notes"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../simple_renaming/renaming_overview/" class="btn btn-neutral float-right" title="Overview">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../simple_pbr_layering/material_release_notes/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../simple_renaming/renaming_overview/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

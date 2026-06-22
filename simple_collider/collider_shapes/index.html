@@ -14,7 +14,7 @@
       <script>
         // Current page data
         var mkdocs_page_name = "Collider Shapes";
-        var mkdocs_page_input_path = "simple_collider/collider_shapes.md";
+        var mkdocs_page_input_path = "simple_collider\\collider_shapes.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -105,7 +105,7 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../simple_camera_manager/camera_manager_release_notes/">Release Notes</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Simple PBR Layering</span></p>
+              <p class="caption"><span class="caption-text">Simple PBR Layering (TBA)</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../../simple_pbr_layering/material_overview/">Overview</a>
                   </li>
@@ -120,6 +120,11 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../simple_pbr_layering/material_adjustments/">Adjustments</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../simple_pbr_layering/material_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Geometry Node Packs</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_geo_node_packs/simple_uv_nodes/">Simple UV Nodes</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Simple Renaming (Free)</span></p>
@@ -185,8 +190,7 @@ Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a></p>
 <h3 id="re-meshed-collider">Re-Meshed Collider</h3>
 <p>Re-Meshed Colliders employ a voxelation process on the target mesh prior to generating the collider mesh. This proves advantageous when dealing with intricate objects composed of numerous intersecting parts, resulting in excessive and unnecessary geometry. By implementing this technique, interior faces are effectively eliminated. When coupled with decimation, this approach yields final collider meshes that are more efficient compared to conventional mesh colliders, which rely on the unaltered target mesh.</p>
 <p><img alt="Gif showing the creation of a mesh collider" src="../../images/simple_collider/re-mesh.gif" width="600">
-Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a>
-6</p>
+Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a></p>
 <h3 id="oriented-minimum-box-collider">Oriented Minimum Box Collider</h3>
 <p>Oriented Minimum Box Colliders are automatically oriented boxes with the smallest size possible. The computation is more complex and may be slow for meshes with a high vertex count. The output mesh is the same as regular box colliders, and it's indistinguishable to the engine how it was created. </p>
 <p>The implementation is based on Code from <a href="https://gist.github.com/iyadahmed"><strong>Iyad Ahmed</strong></a>. Iyad was so kind and gave me permission of using it.  </p>
@@ -207,6 +211,8 @@ Scene by <a href="http://www.glennmelenhorst.com">Glenn Melenhorst</a></p>
 <h3 id="collider-to-mesh">Collider to Mesh</h3>
 <p>Collider to Mesh will remove all the collider-specific properties and materials. Convert to Mesh opens a pop-up window to set the new object name and to assign another material.</p>
 <p><img alt="Gif showing the conversion of a collider to a mesh" src="../../images/simple_collider/convert_ColliderToMesh_small.gif" width="300"></p>
+<h3 id="convert-to-empty">Convert to Empty</h3>
+<p>Convert collider mesh objects to Blender <strong>Empty objects</strong> using primitive display types (cube, sphere, etc.). Useful for engines that support lightweight empty-based collision rather than mesh-based colliders.</p>
 <h3 id="regenerate-name">Regenerate Name</h3>
 <p>Regenerate collider names based on preset. It works best when colliders created in version 1.1 or later. In older versions it will fall back to the default values of box collision and group 1 for the naming. </p>
 <p><img alt="Gif showing the regeneration of a collider name" src="../../images/simple_collider/regenerate_name_small.gif" width="350"></p>
