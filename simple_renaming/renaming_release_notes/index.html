@@ -135,15 +135,25 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Release Notes</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#217">2.1.7</a>
+    <li class="toctree-l2"><a class="reference internal" href="#218">2.1.8</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#changes">Changes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes">Fixes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#internal">Internal</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#217">2.1.7</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#changes_1">Changes</a>
     </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#216">2.1.6</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#fixes">Fixes</a>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_1">Fixes</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#improvements">Improvements</a>
     </li>
@@ -153,7 +163,7 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#features">Features</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#fixes_1">Fixes</a>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_2">Fixes</a>
     </li>
         </ul>
     </li>
@@ -161,7 +171,7 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#features_1">Features</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#fixes_2">Fixes</a>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_3">Fixes</a>
     </li>
         </ul>
     </li>
@@ -171,13 +181,13 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#features_2">Features</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#fixes_3">Fixes</a>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_4">Fixes</a>
     </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#211">2.1.1</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#fixes_4">Fixes</a>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_5">Fixes</a>
     </li>
         </ul>
     </li>
@@ -185,7 +195,7 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#features_3">Features</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#fixes_5">Fixes</a>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_6">Fixes</a>
     </li>
         </ul>
     </li>
@@ -193,7 +203,7 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#features_4">Features</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#fixes_6">Fixes</a>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_7">Fixes</a>
     </li>
         </ul>
     </li>
@@ -217,19 +227,19 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#153">1.5.3</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#fixes_7">Fixes</a>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_8">Fixes</a>
     </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#152">1.5.2</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#fixes_8">Fixes</a>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_9">Fixes</a>
     </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#151">1.5.1</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#fixes_9">Fixes</a>
+    <li class="toctree-l3"><a class="reference internal" href="#fixes_10">Fixes</a>
     </li>
         </ul>
     </li>
@@ -281,9 +291,26 @@
             <div class="section" itemprop="articleBody">
               
                 <div><h1 id="release-notes">Release Notes</h1>
+<h2 id="218">2.1.8</h2>
+<p>Version 2.1.8 removes the Sort by Selection feature for stability reasons, fixes Grease Pencil v3 compatibility for Blender 4.3+, and restores F-curve handling for Blender 4.2–4.x.</p>
+<h4 id="changes">Changes</h4>
+<ul>
+<li><a href="https://github.com/Weisl/simple_renaming_panel/issues/248"><strong>#248:</strong></a> Removed the Sort by Selection renaming feature. The depsgraph handler approach is unstable and doesn't meet the standards of the Blender extension platform. A modal-based replacement is planned.</li>
+</ul>
+<h4 id="fixes">Fixes</h4>
+<ul>
+<li><a href="https://github.com/Weisl/simple_renaming_panel/issues/250"><strong>#250:</strong></a> Fixed Grease Pencil v3 objects (Blender 4.3+) not being recognized — objects with <code>type == 'GREASEPENCIL'</code> were silently skipped in the rename panel and the Prefix/Suffix by Type panel. Both GP v2 and GP v3 are now handled transparently.</li>
+<li><a href="https://github.com/Weisl/simple_renaming_panel/issues/247"><strong>#247:</strong></a> Fixed a crash in Blender 4.2–4.x caused by calling <code>action_get_channelbag_for_slot</code>, which only exists in Blender 5.0+. F-curve access now branches by Blender version.</li>
+<li>Fixed a typo in the Grease Pencil object type tooltip.</li>
+</ul>
+<h4 id="internal">Internal</h4>
+<ul>
+<li><a href="https://github.com/Weisl/simple_renaming_panel/issues/246"><strong>#246:</strong></a> Removed empty <code>operators_extra/</code> directory.</li>
+<li>Removed unused code and applied general stability improvements.</li>
+</ul>
 <h2 id="217">2.1.7</h2>
 <p>Version 2.1.7 makes Simple Renaming compliant with the Blender Extension Platform.</p>
-<h4 id="changes">Changes</h4>
+<h4 id="changes_1">Changes</h4>
 <ul>
 <li><a href="https://github.com/Weisl/simple_renaming_panel/issues/242"><strong>#242:</strong></a> Removed the automatic background version check.</li>
 <li><a href="https://github.com/Weisl/simple_renaming_panel/issues/242"><strong>#242:</strong></a> Removed the "Support &amp; Donation" tab from preferences.</li>
@@ -292,7 +319,7 @@
 </ul>
 <h2 id="216">2.1.6</h2>
 <p>Version 2.1.6 is a hotfix release addressing crashes on Blender exit due to keymap conflicts and a recurring error in the depsgraph update handler. It also includes minor UI improvements to the Rename section.</p>
-<h4 id="fixes">Fixes</h4>
+<h4 id="fixes_1">Fixes</h4>
 <ul>
 <li><a href="https://github.com/Weisl/simple_renaming_panel/issues/236"><strong>#236:</strong></a> Fixed an error in the PostChange depsgraph update handler when bpy.context.selected_objects is unavailable — occurring when enabling or disabling another addon while Simple Renaming is active.</li>
 <li><a href="https://github.com/Weisl/simple_renaming_panel/issues/235"><strong>#235:</strong></a> Fixed a crash on Blender exit when another addon's keyboard shortcut conflicts with Simple Renaming's keymap in Blender 5.1.</li>
@@ -314,7 +341,7 @@
 <li><a href="https://github.com/Weisl/simple_renaming_panel/issues/228"><strong>#228:</strong></a> Added an "Also Rename Data" option in preferences that automatically renames linked data-blocks (e.g. mesh, curve, light data) to match the object's new name.</li>
 <li><a href="https://github.com/Weisl/simple_renaming_panel/issues/197"><strong>#197:</strong></a> Extended UV map renaming with support for renaming by index, renaming the active UV set, and batch renaming across multiple objects.</li>
 </ul>
-<h4 id="fixes_1">Fixes</h4>
+<h4 id="fixes_2">Fixes</h4>
 <ul>
 <li><a href="https://github.com/Weisl/simple_renaming_panel/issues/195"><strong>#195:</strong></a> Fixed renaming bones in Edit/Pose mode breaking drivers that reference those bones.</li>
 <li><a href="https://github.com/Weisl/simple_renaming_panel/issues/204"><strong>#204:</strong></a> Fixed a preset appearing twice in the suffix/prefix by type popup.</li>
@@ -339,7 +366,7 @@
 <ul>
 <li><a href="https://github.com/Weisl/simple_renaming_panel/issues/202"><strong>#202:</strong></a> Fixed regex commands such as <code>\b</code> not working in Search and Replace.</li>
 </ul>
-<h4 id="fixes_2">Fixes</h4>
+<h4 id="fixes_3">Fixes</h4>
 <ul>
 <li><a href="https://github.com/Weisl/simple_renaming_panel/issues/199"><strong>#199:</strong></a> Fixed broken documentation, shop, and donation links; updated to use a permanent Discord link.</li>
 <li><a href="https://github.com/Weisl/simple_renaming_panel/issues/194"><strong>#194:</strong></a> Restored compatibility with Blender versions prior to 4.2 (legacy add-on installation).</li>
@@ -351,12 +378,12 @@
 <ul>
 <li><a href="https://github.com/Weisl/simple_renaming_panel/issues/196"><strong>#196:</strong></a> Added a "Trim Start" option to remove characters from the beginning of a name.</li>
 </ul>
-<h4 id="fixes_3">Fixes</h4>
+<h4 id="fixes_4">Fixes</h4>
 <ul>
 <li><a href="https://github.com/Weisl/simple_renaming_panel/issues/198"><strong>#198:</strong></a> Fixed an issue where the <code>selection_order</code> property was being keyframed when pressing <code>I</code>.</li>
 </ul>
 <h2 id="211">2.1.1</h2>
-<h4 id="fixes_4">Fixes</h4>
+<h4 id="fixes_5">Fixes</h4>
 <ul>
 <li><a href="https://github.com/Weisl/simple_renaming_panel/issues/183"><strong>#183:</strong></a> Fixed an issue where the Validation Panel category was not saved properly after restarting Blender.</li>
 <li><a href="https://github.com/Weisl/simple_renaming_panel/issues/180"><strong>#180:</strong></a> Fixed a broken options button caused by the extension conversion.</li>
@@ -370,7 +397,7 @@
 <li><a href="https://github.com/Weisl/simple_renaming_panel/issues/185"><strong>#185:</strong></a> Users can now reverse the sorting order.</li>
 <li><a href="https://github.com/Weisl/simple_renaming_panel/issues/181"><strong>#181:</strong></a> Added an option to enable or disable the Prefix/Suffix by Type panel.</li>
 </ul>
-<h4 id="fixes_5">Fixes</h4>
+<h4 id="fixes_6">Fixes</h4>
 <ul>
 <li><a href="https://github.com/Weisl/simple_renaming_panel/issues/187"><strong>#187:</strong></a> Addressed an issue where selection was displayed in Bone renaming mode. This option is now correctly disabled in Bone renaming mode.</li>
 <li><a href="https://github.com/Weisl/simple_renaming_panel/issues/#178"><strong>#178:</strong></a> Renaming Data is now consistent with other renaming targets.</li>
@@ -387,7 +414,7 @@
 <li><a href="https://github.com/Weisl/simple_renaming_panel/issues/114"><strong>#114:</strong></a> UI Refinement: Improved the renaming target selection dropdown for better user experience.</li>
 <li><a href="https://github.com/Weisl/simple_renaming_panel/issues/147"><strong>#147:</strong></a> Code Update: Rewrote code related to hotkey assignment and registration for enhanced performance and reliability.</li>
 </ul>
-<h4 id="fixes_6">Fixes</h4>
+<h4 id="fixes_7">Fixes</h4>
 <ul>
 <li><a href="https://github.com/Weisl/simple_renaming_panel/issues/152"><strong>#152:</strong></a> Fixed an issue with category renaming.</li>
 <li><a href="https://github.com/Weisl/simple_renaming_panel/issues/150"><strong>#150:</strong></a> Removed FaceMaps renaming feature, as it is no longer supported in Blender 4.0.</li>
@@ -419,7 +446,7 @@
 <li><a href="https://github.com/Weisl/simple_renaming_panel/issues/119"><strong>#119:</strong></a> Reorganize Preferences.</li>
 </ul>
 <h2 id="153">1.5.3</h2>
-<h4 id="fixes_7">Fixes</h4>
+<h4 id="fixes_8">Fixes</h4>
 <ul>
 <li><a href="https://github.com/Weisl/simple_renaming_panel/issues/101"><strong>#101:</strong></a> Numerate is broken!</li>
 <li><a href="https://github.com/Weisl/simple_renaming_panel/issues/98"><strong>#98:</strong></a> Numerate variable and regular numerate behave differently!</li>
@@ -430,7 +457,7 @@
 <li>Performance improvement for operations affecting a lot of items to rename.</li>
 <li>Improve stability for renaming bones, especially in Edit Mode.</li>
 </ul>
-<h4 id="fixes_8">Fixes</h4>
+<h4 id="fixes_9">Fixes</h4>
 <ul>
 <li><a href="https://github.com/Weisl/simple_renaming_panel/issues/85"><strong>#85:</strong></a> Numerate on bones not working!</li>
 <li><a href="https://github.com/Weisl/simple_renaming_panel/issues/84"><strong>#84:</strong></a> Can't rename font and metaballs!</li>
@@ -440,7 +467,7 @@
 <ul>
 <li>Improve stability of renaming bones. Bones can now be renamed in edit mode.</li>
 </ul>
-<h4 id="fixes_9">Fixes</h4>
+<h4 id="fixes_10">Fixes</h4>
 <ul>
 <li><a href="https://github.com/Weisl/simple_renaming_panel/issues/74"><strong>#74:</strong></a> Auto Updater is back!</li>
 <li><a href="https://github.com/Weisl/simple_renaming_panel/issues/72"><strong>#72:</strong></a> Changing the properties panel category from the user preferences works now properly!</li>
