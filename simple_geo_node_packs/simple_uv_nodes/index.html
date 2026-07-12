@@ -14,7 +14,7 @@
       <script>
         // Current page data
         var mkdocs_page_name = "Simple UV Nodes";
-        var mkdocs_page_input_path = "simple_geo_node_packs\\simple_uv_nodes.md";
+        var mkdocs_page_input_path = "simple_geo_node_packs/simple_uv_nodes.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -134,13 +134,27 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#uv-planar-project">UV Planar Project</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#uv-spherical-project">UV Spherical Project</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#uv-cylindrical-project">UV Cylindrical Project</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#uv-camera-project">UV Camera Project</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#uv-transform">UV Transform</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#uv-attribute-transform">UV Attribute Transform</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#uv-instance-randomize">UV Instance Randomize</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#uv-island-randomize">UV Island Randomize</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#uv-mark-edges">UV Mark Edges</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#uv-pack-to-channel">UV Pack to Channel</a>
+    </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#tips">Tips</a>
+    <li class="toctree-l2"><a class="reference internal" href="#general-tips">General Tips</a>
     </li>
     </ul>
                   </li>
@@ -184,16 +198,24 @@
 <p>A Geometry Nodes library that lets you create, project, and transform UV maps directly in the node editor — no UV unwrapping, no separate operator, no context switch. Drag a node from the Asset Browser into your modifier tree and your UVs are live and non-destructive.</p>
 <p>Every node writes to a named UV attribute, plays nicely with Blender's native material system, and stacks with the rest of your geometry node setup.</p>
 <p><strong>Minimum Blender version: 4.5</strong></p>
+<p><img alt="normal_pre_export.png" src="../../images/simple_uv/simple_uv_asset_library.jpg"></p>
 <hr>
 <h2 id="feature-overview">Feature Overview</h2>
 <ul>
 <li><strong>Box / Triplanar Projection</strong>: Project UVs from all three axes simultaneously. Per-axis offset, rotation, and scale give you full control over seam placement.</li>
 <li><strong>Planar Projection</strong>: Flat projection along a chosen axis — ideal for floors, walls, and surfaces with a clear dominant direction.</li>
+<li><strong>Spherical Projection</strong>: Equirectangular UV projection for round objects. Seam-corrected across all three axis orientations, with a choice between normalised (0–1) and real-world scale output.</li>
+<li><strong>Cylindrical Projection</strong>: Wraps UVs around a chosen axis, with an optional blended cap projection on end faces — ideal for pipes, columns, and other surfaces of revolution.</li>
+<li><strong>Camera Projection</strong>: Perspective-correct UV projection from the point of view of a camera or any other object — ideal for decals and baked projection setups.</li>
 <li><strong>UV Transform</strong>: Non-destructively offset, rotate, scale, tile, and mirror an existing UV map without re-projecting from scratch.</li>
 <li><strong>UV Attribute Transform</strong>: A lightweight helper designed for use inside Geometry Node setups — pass it a UV vector and get back a transformed result, without needing a Geometry socket.</li>
 <li><strong>Named UV attributes</strong>: Every node targets a user-specified UV attribute name, so you can create and manage multiple UV maps on the same mesh.</li>
 <li><strong>Object or World space</strong>: Choose the coordinate space for projections to keep UVs stable under object transforms or locked to the world.</li>
 <li><strong>Asset Browser integration</strong>: Nodes are registered as Blender assets — drag any node directly into your modifier tree, no extra steps.</li>
+<li><strong>UV Instance Randomize</strong>: Per-instance UV randomization for scattered geometry — each instance receives an independent random offset, rotation, and scale driven by its instance ID for stable, seed-controlled variation.</li>
+<li><strong>UV Island Randomize</strong>: The same randomization, scoped to UV islands within a single mesh — breaks up visible texture tiling on rock piles, brick walls, and other complex surfaces.</li>
+<li><strong>UV Mark Edges</strong>: Detects UV island boundaries from a named UV attribute and writes them to the mesh as seams and/or sharp edges — useful for baking, shading, and post-projection workflows.</li>
+<li><strong>UV Pack to Channel</strong>: Packs UV islands from a source UV map into a destination UV map, with control over margin, rotation, and packing method. Ideal for generating lightmap UVs from an existing layout.</li>
 <li><strong>Stackable</strong>: Project with <em>UV Box Project</em> or <em>UV Planar Project</em>, then pipe the result into <em>UV Transform</em> for additional adjustments — without losing the original projection.</li>
 <li><strong>Pure Geometry Nodes</strong>: No Python dependency, no operator to run — everything is a standard Geometry Nodes modifier.</li>
 </ul>
@@ -213,6 +235,7 @@
 <h2 id="node-reference">Node Reference</h2>
 <h3 id="uv-box-project">UV Box Project</h3>
 <p>Box/triplanar projection onto geometry. Projects UVs from three axes simultaneously and writes the result into a named UV attribute.</p>
+<p><img alt="Box Projection Thumbnail" src="../../images/simple_uv/thumb_UV_Box_Project.jpg" width="300"></p>
 <table>
 <thead>
 <tr>
@@ -223,12 +246,6 @@
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>Geometry</td>
-<td>Geometry</td>
-<td>—</td>
-<td>Mesh to project onto</td>
-</tr>
 <tr>
 <td>UV Map</td>
 <td>String</td>
@@ -321,25 +338,10 @@
 </tr>
 </tbody>
 </table>
-<table>
-<thead>
-<tr>
-<th>Output</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Geometry</td>
-<td>Geometry</td>
-<td>Geometry with the new UV attribute written</td>
-</tr>
-</tbody>
-</table>
 <hr>
 <h3 id="uv-planar-project">UV Planar Project</h3>
 <p>Flat projection of UVs along a single chosen axis. Useful for walls, floors, or any surface that is predominantly facing one direction.</p>
+<p><img alt="alt text" src="../../images/simple_uv/thumb_UV_Planar_Project.jpg" width="300"></p>
 <table>
 <thead>
 <tr>
@@ -350,12 +352,6 @@
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>Geometry</td>
-<td>Geometry</td>
-<td>—</td>
-<td>Mesh to project onto</td>
-</tr>
 <tr>
 <td>UV Map</td>
 <td>String</td>
@@ -406,25 +402,10 @@
 </tr>
 </tbody>
 </table>
-<table>
-<thead>
-<tr>
-<th>Output</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Geometry</td>
-<td>Geometry</td>
-<td>Geometry with the new UV attribute written</td>
-</tr>
-</tbody>
-</table>
 <hr>
-<h3 id="uv-transform">UV Transform</h3>
-<p>Modifies an existing UV map non-destructively — offset, rotate, scale, tile, and mirror without re-projecting from scratch.</p>
+<h3 id="uv-spherical-project">UV Spherical Project</h3>
+<p>Equirectangular UV projection that wraps UVs around a sphere. Use this for round objects — planets, eyeballs, fruits — where a planar or box projection would produce visible distortion. The node uses face-domain seam correction to eliminate the discontinuity where the left and right edges of the UV meet.</p>
+<p><img alt="alt text" src="../../images/simple_uv/thumb_UV%20Spherical%20Project.jpg" width="300"></p>
 <table>
 <thead>
 <tr>
@@ -436,11 +417,245 @@
 </thead>
 <tbody>
 <tr>
-<td>Geometry</td>
-<td>Geometry</td>
-<td>—</td>
-<td>Mesh whose UV attribute is modified</td>
+<td>UV Map</td>
+<td>String</td>
+<td><code>UVMap</code></td>
+<td>Name of the UV attribute to write</td>
 </tr>
+<tr>
+<td>UV Scale</td>
+<td>Menu</td>
+<td><code>Normalized</code></td>
+<td><em>Normalized</em>: maps the full sphere surface to the 0–1 UV square. <em>Real World Scale</em>: UV is in Blender units (arc length), centred at 0.5</td>
+</tr>
+<tr>
+<td>Axis</td>
+<td>Menu</td>
+<td><code>Z</code></td>
+<td>Pole axis of the sphere. <em>Z</em> places poles at top and bottom; <em>X</em> and <em>Y</em> rotate the sphere orientation</td>
+</tr>
+<tr>
+<td>Tiling</td>
+<td>Float</td>
+<td><code>1.0</code></td>
+<td>Uniform tiling multiplier. Values above 1 repeat the texture</td>
+</tr>
+<tr>
+<td>Offset</td>
+<td>Vector</td>
+<td><code>0, 0, 0</code></td>
+<td>UV translation offset. X shifts horizontally, Y shifts vertically</td>
+</tr>
+<tr>
+<td>Rotate</td>
+<td>Float</td>
+<td><code>0°</code></td>
+<td>UV rotation angle, pivoted at the centre of UV space</td>
+</tr>
+<tr>
+<td>Scale</td>
+<td>Vector</td>
+<td><code>1, 1</code></td>
+<td>UV scale applied from the centre of UV space. X scales horizontally, Y scales vertically</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>Real World Scale</strong> keeps UV proportions consistent with the actual surface area of the sphere. Use it when tiling at a consistent texel density matters — for example, to match a spherical projection to a neighbouring planar projection on the same object.</p>
+</div>
+<hr>
+<h3 id="uv-cylindrical-project">UV Cylindrical Project</h3>
+<p>Wraps UVs around a chosen axis. U follows the circumference, V follows the height along the axis — ideal for pipes, columns, tree trunks, bottles, and other surfaces of revolution. An optional cap mode blends in a planar projection on end faces, based on how closely a face's normal points along the axis.</p>
+<p><img alt="alt text" src="../../images/simple_uv/UV_Cylindrical_Project.jpg" width="300"></p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UV Map</td>
+<td>String</td>
+<td><code>UVMap</code></td>
+<td>Name of the UV attribute to write</td>
+</tr>
+<tr>
+<td>UV Scale</td>
+<td>Menu</td>
+<td><code>Normalized</code></td>
+<td><em>Normalized</em>: maps the full circumference/height to the 0–1 UV square. <em>Real World Scale</em>: UV is in Blender units</td>
+</tr>
+<tr>
+<td>Axis</td>
+<td>Menu</td>
+<td><code>Z</code></td>
+<td>Cylinder axis: <em>X</em>, <em>Y</em>, or <em>Z</em></td>
+</tr>
+<tr>
+<td>Tiling</td>
+<td>Float</td>
+<td><code>1.0</code></td>
+<td>Uniform tiling multiplier</td>
+</tr>
+<tr>
+<td>Offset</td>
+<td>Vector</td>
+<td><code>0, 0</code></td>
+<td>UV translation offset</td>
+</tr>
+<tr>
+<td>Rotate</td>
+<td>Float</td>
+<td><code>0°</code></td>
+<td>Rotation around the axis — shifts the seam position</td>
+</tr>
+<tr>
+<td>Scale</td>
+<td>Vector</td>
+<td><code>1, 1</code></td>
+<td>Non-uniform UV scale</td>
+</tr>
+<tr>
+<td><strong>Caps</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Enable Caps</td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>Activates a blended planar projection on end faces</td>
+</tr>
+<tr>
+<td>Cap Blend Angle</td>
+<td>Float</td>
+<td><code>30°</code></td>
+<td>Face-normal angle below which a face is treated as a cap</td>
+</tr>
+<tr>
+<td>Cap Scale</td>
+<td>Vector</td>
+<td><code>1, 1</code></td>
+<td>Scale applied to the cap planar projection</td>
+</tr>
+<tr>
+<td>Cap Offset</td>
+<td>Vector</td>
+<td><code>0, 0</code></td>
+<td>Offset applied to the cap planar projection</td>
+</tr>
+<tr>
+<td>Cap Rotate</td>
+<td>Float</td>
+<td><code>0°</code></td>
+<td>Rotation applied to the cap planar projection</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Use <strong>Rotate</strong> to spin the seam to a hidden edge — the back of a column, the underside of a pipe — before locking in the rest of the projection.</p>
+</div>
+<hr>
+<h3 id="uv-camera-project">UV Camera Project</h3>
+<p>Projects UVs from the point of view of a camera or any other object, computing a perspective-correct projection the same way a real camera lens would. Point the projector object at the surface and the texture appears painted on from that angle — ideal for decals and baked projection setups.</p>
+<p><img alt="Camera Projection Thumbnail" src="../../images/simple_uv/thumb_UV_Camera_Project.jpg" width="300"></p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UV Map</td>
+<td>String</td>
+<td><code>UVMap</code></td>
+<td>Name of the UV attribute to write</td>
+</tr>
+<tr>
+<td>Camera</td>
+<td>Object</td>
+<td>—</td>
+<td>Object whose position and orientation define the projector</td>
+</tr>
+<tr>
+<td>Focal Length</td>
+<td>Float</td>
+<td><code>50.0</code></td>
+<td>Projector focal length in millimetres — controls field of view</td>
+</tr>
+<tr>
+<td>Sensor Width</td>
+<td>Float</td>
+<td><code>36.0</code></td>
+<td>Projector sensor width in millimetres — paired with Focal Length to define the field of view</td>
+</tr>
+<tr>
+<td>Resolution X</td>
+<td>Integer</td>
+<td><code>1920</code></td>
+<td>Horizontal resolution used to compute the UV aspect ratio</td>
+</tr>
+<tr>
+<td>Resolution Y</td>
+<td>Integer</td>
+<td><code>1080</code></td>
+<td>Vertical resolution used to compute the UV aspect ratio</td>
+</tr>
+<tr>
+<td>Tiling</td>
+<td>Float</td>
+<td><code>1.0</code></td>
+<td>Uniform tiling multiplier</td>
+</tr>
+<tr>
+<td>Offset</td>
+<td>Vector</td>
+<td><code>0, 0</code></td>
+<td>UV translation offset</td>
+</tr>
+<tr>
+<td>Rotate</td>
+<td>Float</td>
+<td><code>0°</code></td>
+<td>UV rotation</td>
+</tr>
+<tr>
+<td>Scale</td>
+<td>Vector</td>
+<td><code>1, 1</code></td>
+<td>Non-uniform UV scale</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Because the projection reads the projector's live transform, animating or parenting the <strong>Camera</strong> object updates the UVs in real time. Add a <strong>Copy Location</strong>/<strong>Copy Rotation</strong> constraint if you want the projection to stay fixed once placed.</p>
+</div>
+<hr>
+<h3 id="uv-transform">UV Transform</h3>
+<p>Modifies an existing UV map non-destructively — offset, rotate, scale, tile, and mirror without re-projecting from scratch.</p>
+<p><img alt="alt text" src="../../images/simple_uv/thumb_UV_Transform.jpg" width="300"></p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>UV Map</td>
 <td>String</td>
@@ -482,22 +697,6 @@
 <td>Boolean</td>
 <td><code>false</code></td>
 <td>Mirror along the V axis</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Output</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Geometry</td>
-<td>Geometry</td>
-<td>Geometry with the modified UV attribute</td>
 </tr>
 </tbody>
 </table>
@@ -557,9 +756,216 @@
 </tbody>
 </table>
 <hr>
-<h2 id="tips">Tips</h2>
+<h3 id="uv-instance-randomize">UV Instance Randomize</h3>
+<p>Adds per-instance UV variation to scattered geometry. Each instance receives an independent random offset, rotation, and scale value derived from its instance ID, so the variation is stable — changing only when you change the seed. Use this after a <em>Scatter</em> or <em>Instance on Points</em> node to break up texture repetition. Instances are realized as part of this process.</p>
+<p>Both scale and rotation pivot on the center of each UV island (0.5, 0.5 in UV space), so island position stays predictable regardless of scale.</p>
+<p><img alt="alt text" src="../../images/simple_uv/thumb_UV_Instance_Randomize.jpg" width="300"></p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UV Map</td>
+<td>String</td>
+<td><code>UVMap</code></td>
+<td>Name of the UV attribute to read and write</td>
+</tr>
+<tr>
+<td>Seed</td>
+<td>Integer</td>
+<td><code>0</code></td>
+<td>Global seed — change to get a different randomization pattern</td>
+</tr>
+<tr>
+<td>Offset Variation</td>
+<td>Vector</td>
+<td><code>0, 0, 0</code></td>
+<td>Random UV shift range per axis. U shifts by a random value in [−X/2, +X/2], V shifts in [−Y/2, +Y/2]. Z is unused</td>
+</tr>
+<tr>
+<td>Rotate Variation</td>
+<td>Float</td>
+<td><code>0°</code></td>
+<td>Max random rotation in degrees. Each instance rotates by a random value in [−Var, +Var]. Range: −180° to 180°</td>
+</tr>
+<tr>
+<td>Scale Variation</td>
+<td>Float</td>
+<td><code>1.0</code></td>
+<td>Scale spread. Each instance scales by <code>1 + random([−Var/2, +Var/2])</code>. At the default of <code>1.0</code>, instances range from 0.5× to 1.5× their UV island size</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Increase <strong>Offset Variation</strong> to spread instances across the texture. Set <strong>Rotate Variation</strong> to <code>180</code> for fully random orientations. Keep <strong>Scale Variation</strong> below <code>2</code> to avoid zero-sized islands; values above <code>2</code> can produce negative scale (UV flip).</p>
+</div>
+<hr>
+<h3 id="uv-island-randomize">UV Island Randomize</h3>
+<p>Adds per-island UV variation across a single mesh. Reads each UV island, derives a stable random seed from it, and applies an independent random offset, rotation, and scale to every face in that island — the same mechanism as <em>UV Instance Randomize</em>, but scoped to UV islands instead of geometry instances. Use it to break up visible texture tiling on complex meshes such as rock piles, brick walls, or cobblestones.</p>
+<p><img alt="alt text" src="../../images/simple_uv/thumb_UV_Instance_Randomize.jpg" width="300"></p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UV Map</td>
+<td>String</td>
+<td><code>UVMap</code></td>
+<td>Name of the UV attribute to read and write</td>
+</tr>
+<tr>
+<td>Seed</td>
+<td>Integer</td>
+<td><code>0</code></td>
+<td>Global seed — change to get a different randomization pattern</td>
+</tr>
+<tr>
+<td>Offset Variation</td>
+<td>Vector</td>
+<td><code>0, 0, 0</code></td>
+<td>Random UV shift range per axis. U shifts by a random value in [−X/2, +X/2], V shifts in [−Y/2, +Y/2]. Z is unused</td>
+</tr>
+<tr>
+<td>Rotate Variation</td>
+<td>Float</td>
+<td><code>0°</code></td>
+<td>Max random rotation in degrees. Each island rotates by a random value in [−Var, +Var]. Range: −180° to 180°</td>
+</tr>
+<tr>
+<td>Scale Variation</td>
+<td>Float</td>
+<td><code>1.0</code></td>
+<td>Scale spread. Each island scales by <code>1 + random([−Var/2, +Var/2])</code>. At the default of <code>1.0</code>, islands range from 0.5× to 1.5× their original size</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><em>UV Island Randomize</em> and <em>UV Instance Randomize</em> stack. Apply Instance Randomize first (unique base offset per instance), then Island Randomize on the realized mesh for further per-island variation.</p>
+</div>
+<hr>
+<h3 id="uv-mark-edges">UV Mark Edges</h3>
+<p>Reads a named UV attribute and marks every edge that lies on a UV island boundary as a seam, a sharp edge, or both. Run this after any projection node to keep your seams in sync with your UV layout — no manual marking needed.</p>
+<p><img alt="alt text" src="../../images/simple_uv/thumb_UV_UV%20Mark%20Edges.jpg" width="300"></p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UV Map</td>
+<td>String</td>
+<td><code>UVMap</code></td>
+<td>Name of the UV attribute to read for boundary detection</td>
+</tr>
+<tr>
+<td>Mark Seam</td>
+<td>Boolean</td>
+<td><code>true</code></td>
+<td>Write island boundaries to the <code>uv_seam</code> edge attribute <em>(Blender 4.1+)</em></td>
+</tr>
+<tr>
+<td>Mark Sharp</td>
+<td>Boolean</td>
+<td><code>true</code></td>
+<td>Write island boundaries to the <code>sharp_edge</code> edge attribute</td>
+</tr>
+<tr>
+<td>Clear Seams</td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>When enabled, replaces all existing seam marks; when disabled, ORs with existing marks</td>
+</tr>
+<tr>
+<td>Clear Sharp</td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>When enabled, replaces all existing sharp marks; when disabled, ORs with existing marks</td>
+</tr>
+<tr>
+<td>UV Split Distance</td>
+<td>Float</td>
+<td><code>0.001</code></td>
+<td>Distance tolerance in UV space. Edges whose shared vertices differ by less than this value are treated as continuous. Raise slightly to compensate for floating-point drift after re-importing.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Use <strong>Clear Seams</strong> / <strong>Clear Sharp</strong> together when you want this node to be the single source of truth for seam marks. Leave them off if you are layering seams from multiple sources.</p>
+</div>
+<hr>
+<h3 id="uv-pack-to-channel">UV Pack to Channel</h3>
+<p>Packs UV islands from a source UV map into a destination UV map. Suitable for lightmap baking, ambient occlusion maps, or any workflow requiring a dedicated non-overlapping UV alongside a tiling UV.</p>
+<p><img alt="alt text" src="../../images/simple_uv/thumb_UV_Pack.jpg" width="500"></p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UV In</td>
+<td>String</td>
+<td><code>UVMap</code></td>
+<td>Name of the source UV attribute to read islands from</td>
+</tr>
+<tr>
+<td>Packed UV</td>
+<td>String</td>
+<td><code>UVMap</code></td>
+<td>Name of the destination UV attribute to write the packed layout into</td>
+</tr>
+<tr>
+<td>Margin</td>
+<td>Float</td>
+<td><code>0.02</code></td>
+<td>Gap between islands in UV space (0–1)</td>
+</tr>
+<tr>
+<td>Rotate</td>
+<td>Boolean</td>
+<td><code>true</code></td>
+<td>Allow islands to be rotated for a tighter fit</td>
+</tr>
+<tr>
+<td>Method</td>
+<td>Menu</td>
+<td><code>Exact Shape</code></td>
+<td><em>(only for 5.0+)</em> Packing algorithm: <em>Exact Shape</em> traces the actual island outline; <em>Bounding Box</em> &amp; <em>Convex Hull</em> are faster but less precisse</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><em>Packed UV</em> defaults to the same name as <em>UV In</em>, so by default the packed layout overwrites your source UV map. Set <em>Packed UV</em> to a different attribute name if you want to keep the original projection untouched.</p>
+</div>
+<hr>
+<h2 id="general-tips">General Tips</h2>
 <p><strong>UV Map name</strong> — The <em>UV Map</em> string socket must match the name of the UV attribute on your mesh exactly. Blender's default is <code>UVMap</code>. You can check the attribute name in the <em>Object Data Properties → UV Maps</em> panel.</p>
-<p><strong>Stacking nodes</strong> — <em>UV Planar Project</em> and <em>UV Box Project</em> write a UV attribute from scratch. Feed the result into <em>UV Transform</em> if you need to adjust it afterwards without losing the projection setup.</p>
+<p><strong>Stacking nodes</strong> — <em>UV Planar Project</em>, <em>UV Box Project</em>, <em>UV Spherical Project</em>, <em>UV Cylindrical Project</em>, and <em>UV Camera Project</em> write a UV attribute from scratch. Feed the result into <em>UV Transform</em> if you need to adjust it afterwards without losing the projection setup.</p>
 <p><strong>UV Attribute Transform as a sub-node</strong> — Because this node only operates on a vector, you can use it directly inside a custom node group to build composite projection setups without adding a full geometry pass.</p></div>
               
             </div>
