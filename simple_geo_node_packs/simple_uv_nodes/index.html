@@ -206,7 +206,7 @@
 <li><strong>Planar Projection</strong>: Flat projection along a chosen axis — ideal for floors, walls, and surfaces with a clear dominant direction.</li>
 <li><strong>Spherical Projection</strong>: Equirectangular UV projection for round objects. Seam-corrected across all three axis orientations, with a choice between normalised (0–1) and real-world scale output.</li>
 <li><strong>Cylindrical Projection</strong>: Wraps UVs around a chosen axis, with an optional blended cap projection on end faces — ideal for pipes, columns, and other surfaces of revolution.</li>
-<li><strong>Camera Projection</strong>: Perspective-correct UV projection from the point of view of a camera or any other object — ideal for decals and baked projection setups.</li>
+<li><strong>Camera Projection</strong>: UV projection from the point of view of a Camera object, reading focal length, sensor size, and projection type directly from the camera's data-block. Supports both Perspective and Orthographic cameras — ideal for decals and baked projection setups.</li>
 <li><strong>UV Transform</strong>: Non-destructively offset, rotate, scale, tile, and mirror an existing UV map without re-projecting from scratch.</li>
 <li><strong>UV Attribute Transform</strong>: A lightweight helper designed for use inside Geometry Node setups — pass it a UV vector and get back a transformed result, without needing a Geometry socket.</li>
 <li><strong>Named UV attributes</strong>: Every node targets a user-specified UV attribute name, so you can create and manage multiple UV maps on the same mesh.</li>
@@ -564,7 +564,7 @@
 </div>
 <hr>
 <h3 id="uv-camera-project">UV Camera Project</h3>
-<p>Projects UVs from the point of view of a camera or any other object, computing a perspective-correct projection the same way a real camera lens would. Point the projector object at the surface and the texture appears painted on from that angle — ideal for decals and baked projection setups.</p>
+<p>Projects UVs from the point of view of a <strong>Camera</strong> object, the same way a real camera lens would. Focal length, sensor size, and projection type are read directly from the camera's own data-block, so the UVs always match what the camera is actually set up to see — including a proper parallel projection when the camera is set to Orthographic. Point the camera at the surface and the texture appears painted on from that angle — ideal for decals and baked projection setups.</p>
 <p><img alt="Camera Projection Thumbnail" src="../../images/simple_uv/thumb_UV_Camera_Project.jpg" width="300"></p>
 <table>
 <thead>
@@ -586,61 +586,65 @@
 <td>Camera</td>
 <td>Object</td>
 <td>—</td>
-<td>Object whose position and orientation define the projector</td>
+<td>Camera object to project from. The projection follows this camera's perspective</td>
 </tr>
 <tr>
-<td>Focal Length</td>
-<td>Float</td>
-<td><code>50.0</code></td>
-<td>Projector focal length in millimetres — controls field of view</td>
-</tr>
-<tr>
-<td>Sensor Width</td>
-<td>Float</td>
-<td><code>36.0</code></td>
-<td>Projector sensor width in millimetres — paired with Focal Length to define the field of view</td>
+<td><strong>Camera Settings</strong></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr>
 <td>Resolution X</td>
 <td>Integer</td>
 <td><code>1920</code></td>
-<td>Horizontal resolution used to compute the UV aspect ratio</td>
+<td>Horizontal resolution used to compute the camera aspect ratio</td>
 </tr>
 <tr>
 <td>Resolution Y</td>
 <td>Integer</td>
 <td><code>1080</code></td>
-<td>Vertical resolution used to compute the UV aspect ratio</td>
+<td>Vertical resolution used to compute the camera aspect ratio</td>
+</tr>
+<tr>
+<td><strong>Texture Scaling</strong></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr>
 <td>Tiling</td>
 <td>Float</td>
 <td><code>1.0</code></td>
-<td>Uniform tiling multiplier</td>
+<td>Uniform tiling multiplier. Values above 1 repeat the texture; values below 1 zoom out</td>
 </tr>
 <tr>
 <td>Offset</td>
 <td>Vector</td>
 <td><code>0, 0</code></td>
-<td>UV translation offset</td>
+<td>UV translation offset. X shifts horizontally, Y shifts vertically</td>
 </tr>
 <tr>
 <td>Rotate</td>
 <td>Float</td>
 <td><code>0°</code></td>
-<td>UV rotation</td>
+<td>UV rotation angle, pivoted at the centre of UV space</td>
 </tr>
 <tr>
 <td>Scale</td>
 <td>Vector</td>
 <td><code>1, 1</code></td>
-<td>Non-uniform UV scale</td>
+<td>UV scale applied from the centre of UV space. X scales horizontally, Y scales vertically</td>
 </tr>
 </tbody>
 </table>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Camera</strong> must reference an object with actual camera data — not an Empty, a mesh, or any other object type — and must not be left unassigned. Focal length, sensor size, and orthographic scale are read from the camera's data-block, so if <strong>Camera</strong> isn't valid, the node raises an <strong>Error</strong> in the modifier's Warnings panel and passes the incoming geometry through unchanged, leaving any existing UV map untouched instead of overwriting it with an invalid projection. If you need a movable projector that isn't your render camera, add a dedicated Camera object and hide it from the render.</p>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Because the projection reads the projector's live transform, animating or parenting the <strong>Camera</strong> object updates the UVs in real time. Add a <strong>Copy Location</strong>/<strong>Copy Rotation</strong> constraint if you want the projection to stay fixed once placed.</p>
+<p>Because the projection reads the camera's live transform, animating or parenting the <strong>Camera</strong> object updates the UVs in real time. Add a <strong>Copy Location</strong>/<strong>Copy Rotation</strong> constraint if you want the projection to stay fixed once placed.</p>
 </div>
 <hr>
 <h3 id="uv-transform">UV Transform</h3>
