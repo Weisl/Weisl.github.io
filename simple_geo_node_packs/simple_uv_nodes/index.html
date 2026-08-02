@@ -36,10 +36,6 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../..">Alpine Empire</a>
-                </li>
-              </ul>
               <p class="caption"><span class="caption-text">Simple Collider</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../../simple_collider/collider_overview/">Overview</a>
@@ -124,8 +120,6 @@
               <ul class="current">
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Simple UV Nodes</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#feature-overview">Feature Overview</a>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#node-reference">Node Reference</a>
@@ -195,30 +189,8 @@
             <div class="section" itemprop="articleBody">
               
                 <div><h1 id="simple-uv-nodes">Simple UV Nodes</h1>
-<p>A Geometry Nodes library that lets you create, project, and transform UV maps directly in the node editor — no UV unwrapping, no separate operator, no context switch. Drag a node from the Asset Browser into your modifier tree and your UVs are live and non-destructive.</p>
-<p>Every node writes to a named UV attribute, plays nicely with Blender's native material system, and stacks with the rest of your geometry node setup.</p>
+<p>Full node reference and installation guide. For what Simple UV Nodes does and why, see the <a href="https://weisl.github.io/simple-uv-nodes.html">product page</a>.</p>
 <p><strong>Minimum Blender version: 4.5</strong></p>
-<p><img alt="normal_pre_export.png" src="../../images/simple_uv/simple_uv_asset_library.jpg"></p>
-<hr>
-<h2 id="feature-overview">Feature Overview</h2>
-<ul>
-<li><strong>Box / Triplanar Projection</strong>: Project UVs from all three axes simultaneously. Per-axis offset, rotation, and scale give you full control over seam placement.</li>
-<li><strong>Planar Projection</strong>: Flat projection along a chosen axis — ideal for floors, walls, and surfaces with a clear dominant direction.</li>
-<li><strong>Spherical Projection</strong>: Equirectangular UV projection for round objects. Seam-corrected across all three axis orientations, with a choice between normalised (0–1) and real-world scale output.</li>
-<li><strong>Cylindrical Projection</strong>: Wraps UVs around a chosen axis, with an optional blended cap projection on end faces — ideal for pipes, columns, and other surfaces of revolution.</li>
-<li><strong>Camera Projection</strong>: UV projection from the point of view of a Camera object, reading focal length, sensor size, and projection type directly from the camera's data-block. Supports both Perspective and Orthographic cameras — ideal for decals and baked projection setups.</li>
-<li><strong>UV Transform</strong>: Non-destructively offset, rotate, scale, tile, and mirror an existing UV map without re-projecting from scratch.</li>
-<li><strong>UV Attribute Transform</strong>: A lightweight helper designed for use inside Geometry Node setups — pass it a UV vector and get back a transformed result, without needing a Geometry socket.</li>
-<li><strong>Named UV attributes</strong>: Every node targets a user-specified UV attribute name, so you can create and manage multiple UV maps on the same mesh.</li>
-<li><strong>Object or World space</strong>: Choose the coordinate space for projections to keep UVs stable under object transforms or locked to the world.</li>
-<li><strong>Asset Browser integration</strong>: Nodes are registered as Blender assets — drag any node directly into your modifier tree, no extra steps.</li>
-<li><strong>UV Instance Randomize</strong>: Per-instance UV randomization for scattered geometry — each instance receives an independent random offset, rotation, and scale driven by its instance ID for stable, seed-controlled variation.</li>
-<li><strong>UV Island Randomize</strong>: The same randomization, scoped to UV islands within a single mesh — breaks up visible texture tiling on rock piles, brick walls, and other complex surfaces.</li>
-<li><strong>UV Mark Edges</strong>: Detects UV island boundaries from a named UV attribute and writes them to the mesh as seams and/or sharp edges — useful for baking, shading, and post-projection workflows.</li>
-<li><strong>UV Pack to Channel</strong>: Packs UV islands from a source UV map into a destination UV map, with control over margin, rotation, and packing method. Ideal for generating lightmap UVs from an existing layout.</li>
-<li><strong>Stackable</strong>: Project with <em>UV Box Project</em> or <em>UV Planar Project</em>, then pipe the result into <em>UV Transform</em> for additional adjustments — without losing the original projection.</li>
-<li><strong>Pure Geometry Nodes</strong>: No Python dependency, no operator to run — everything is a standard Geometry Nodes modifier.</li>
-</ul>
 <hr>
 <h2 id="installation">Installation</h2>
 <ol>

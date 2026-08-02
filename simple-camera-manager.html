@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simple Camera Manager</title>
+<meta name="description" content="Full control of your Blender camera workflow — composition, dolly zoom, HDRI presentation, and batch rendering.">
+<link rel="canonical" href="https://weisl.github.io/simple-camera-manager.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2044%2044%22%3E%3Crect%20width%3D%2244%22%20height%3D%2244%22%20rx%3D%229%22%20fill%3D%22%2316171c%22/%3E%3Cpath%20d%3D%22M4%2034%20L15%2014%20L22%2025%20L28%2016%20L40%2034%20Z%22%20fill%3D%22none%22%20stroke%3D%22%233b82f6%22%20stroke-width%3D%223%22%20stroke-linejoin%3D%22round%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Alpine Empire">
+<meta property="og:title" content="Simple Camera Manager">
+<meta property="og:description" content="Full control of your Blender camera workflow — composition, dolly zoom, HDRI presentation, and batch rendering.">
+<meta property="og:url" content="https://weisl.github.io/simple-camera-manager.html">
+<meta property="og:image" content="https://weisl.github.io/images/simple_cam/Simple_Camera_main_Popup.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Simple Camera Manager">
+<meta name="twitter:description" content="Full control of your Blender camera workflow — composition, dolly zoom, HDRI presentation, and batch rendering.">
+<meta name="twitter:image" content="https://weisl.github.io/images/simple_cam/Simple_Camera_main_Popup.jpg">
+<style>html,body { margin:0; padding:0; background:#16171c; }</style>
+<style type="text/css">@media (max-width: 640px) {
+    table[data-stack-grid] {
+        display: block !important;
+        width: 100% !important
+        }
+    table[data-stack-grid] > tbody {
+        display: block !important
+        }
+    table[data-stack-grid] > tbody > tr {
+        display: block !important
+        }
+    table[data-stack-grid] > tbody > tr > td {
+        display: block !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        padding-right: 0 !important;
+        padding-bottom: 16px !important
+        }
+    table[data-stack-grid] > tbody > tr:last-child > td:last-child {
+        padding-bottom: 0 !important
+        }
+    table[data-stack-grid="pills"] > tbody > tr > td {
+        text-align: center !important
+        }
+    div[data-stack-grid="flex"] {
+        flex-direction: column !important
+        }
+    div[data-stack-grid="flex"] > [data-step="card"] {
+        flex: none !important;
+        width: 100% !important;
+        margin-bottom: 16px !important
+        }
+    div[data-stack-grid="flex"] > [data-step="card"]:last-child {
+        margin-bottom: 0 !important
+        }
+    div[data-stack-grid="flex"] > [data-step="connector"] {
+        display: none !important
+        }
+    div[data-stack-grid="flex"] [data-step="dot"] {
+        display: none !important
+        }
+    [data-hero-stack="wedge"] {
+        display: none !important
+        }
+    [data-hero-stack="left"] {
+        flex: 1 1 100% !important;
+        width: 100% !important
+        }
+    [data-heading="display"] {
+        font-size: 34px !important
+        }
+    [data-heading="title"] {
+        font-size: 24px !important
+        }
+    [data-section-pad] {
+        padding-left: 16px !important;
+        padding-right: 16px !important
+        }
+    }</style>
+</head>
+<body>
+<!-- Generated from src/simple-camera-manager.html + src/common.css + src/simple-camera-manager.css — edit those, not this file. Rebuild with: venv/bin/python store_pages/src/build.py simple-camera-manager -->
+<div style='background:#16171c; color:#e8e9ee; font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; padding:0; margin:0; max-width:100%; overflow:hidden'>
+  <style>
+    .site-nav { position: sticky; top: 0; z-index: 100; background: #16171c; border-bottom: 1px solid #34363e; }
+    .site-nav-inner { max-width: 1160px; margin: 0 auto; position: relative; display: flex; align-items: center; gap: 24px; padding: 12px 30px; }
+    .site-nav-brand { display: flex; align-items: center; gap: 9px; color: #e8e9ee; text-decoration: none; font-weight: 900; font-size: 13px; letter-spacing: 1.5px; flex-shrink: 0; }
+    .site-nav-toggle-input { display: none; }
+    .site-nav-toggle-label { display: none; flex-direction: column; gap: 4px; cursor: pointer; padding: 8px; margin-left: auto; }
+    .site-nav-toggle-label span { width: 20px; height: 2px; background: #e8e9ee; display: block; }
+    .site-nav-links { display: flex; align-items: center; gap: 26px; }
+    .site-nav-links > a { color: #9a9da6; text-decoration: none; font-size: 13px; font-weight: 700; white-space: nowrap; }
+    .site-nav-links > a:hover, .site-nav-links > a.is-active { color: #e8e9ee; }
+    .site-nav-docs-link { color: #f0c832 !important; margin-left: auto; }
+    .site-nav-dropdown { position: relative; }
+    .site-nav-dropdown-label { display: flex; align-items: center; gap: 5px; color: #9a9da6; font-size: 13px; font-weight: 700; cursor: pointer; }
+    .site-nav-dropdown:hover .site-nav-dropdown-label, .site-nav-dropdown:focus-within .site-nav-dropdown-label, .site-nav-dropdown-label.is-active { color: #e8e9ee; }
+    /* top: 100% with no margin — the box touches the label's bottom edge with
+       no gap, so the mouse is always over one hoverable element or the other
+       while moving from label to menu. A margin-top gap here reopens the
+       classic "dropdown closes crossing the gap" bug: that empty strip
+       belongs to neither element, so :hover drops before the pointer
+       reaches the menu. padding-top (part of the menu's own box, so still
+       hoverable) gives the same visual breathing room without the gap. */
+    .site-nav-dropdown-menu { display: none; position: absolute; top: 100%; left: 0; min-width: 210px; background: #1c1e24; border: 1px solid #34363e; border-radius: 10px; padding: 14px 6px 6px; box-shadow: 0 14px 34px rgba(0,0,0,0.45); }
+    .site-nav-dropdown:hover .site-nav-dropdown-menu, .site-nav-dropdown:focus-within .site-nav-dropdown-menu { display: block; }
+    .site-nav-dropdown-menu a { display: block; padding: 8px 10px; border-radius: 6px; color: #d7d9e0; text-decoration: none; font-size: 13px; font-weight: 600; }
+    .site-nav-dropdown-menu a:hover, .site-nav-dropdown-menu a.is-active { background: #24262d; color: #ffffff; }
+    @media (max-width: 640px) {
+      .site-nav-toggle-label { display: flex; }
+      .site-nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; background: #16171c; border-bottom: 1px solid #34363e; padding: 4px 20px 18px; }
+      .site-nav-toggle-input:checked ~ .site-nav-links { display: flex; }
+      .site-nav-links > a, .site-nav-dropdown-label { padding: 13px 0; border-bottom: 1px solid #24262d; }
+      .site-nav-docs-link { margin-left: 0; }
+      .site-nav-dropdown-menu { display: block !important; position: static; box-shadow: none; border: none; background: none; padding: 0 0 4px 14px; margin-top: 0; }
+      .site-nav-dropdown-menu a { padding: 10px 0; font-size: 12px; }
+    }
+  </style>
+  <header class="site-nav">
+    <div class="site-nav-inner">
+      <a href="/" class="site-nav-brand">
+        <svg width="18" height="18" viewBox="0 0 44 44"><path d="M4 34 L15 14 L22 25 L28 16 L40 34 Z" fill="none" stroke="#3b82f6" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"></path></svg>
+        ALPINE EMPIRE
+      </a>
+      <input type="checkbox" id="site-nav-toggle" class="site-nav-toggle-input">
+      <label for="site-nav-toggle" class="site-nav-toggle-label" aria-label="Toggle menu"><span></span><span></span><span></span></label>
+      <nav class="site-nav-links">
+        <div class="site-nav-dropdown">
+          <span class="site-nav-dropdown-label is-active">Tools <svg width="9" height="6" viewBox="0 0 9 6"><path d="M1 1 L4.5 5 L8 1" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+          <div class="site-nav-dropdown-menu">
+          <a href="/simple-renaming.html">Simple Renaming</a>
+          <a href="/simple-collider.html">Simple Collider</a>
+          <a href="/simple-export.html">Simple Export</a>
+          <a href="/simple-camera-manager.html" class="is-active">Simple Camera Manager</a>
+          <a href="/simple-pbr-layering.html">Simple PBR Layering</a>
+          <a href="/simple-uv-nodes.html">Simple UV Nodes</a>
+          </div>
+        </div>
+        <a href="/mentoring.html">Mentoring</a>
+        <a href="https://discord.gg/VRzdcFpczm">Discord &#8599;</a>
+        <a href="https://www.artstation.com/matthias-patscheider">ArtStation &#8599;</a>
+        <a href="/#contact">Contact</a>
+        <a href="/simple_camera_manager/camera_manager_Overview/" class="site-nav-docs-link">Documentation &#8599;</a>
+      </nav>
+    </div>
+  </header>
+
+<!-- Hero -->
+  <div style="background:#1c1e24">
+    <div style="display:flex; align-items:stretch">
+      <div data-hero-stack="left" data-section-pad style="flex:0 0 56%; padding:64px 34px 64px 30px">
+        <h1 style="margin:0 0 22px; line-height:1">
+          <span style="display:flex; align-items:center; gap:14px">
+            <span data-heading="display" style='font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-size:62px; font-weight:900; color:#f0c832; line-height:1'>SIMPLE</span>
+            <svg width="42" height="42" viewbox="0 0 44 44" style="flex-shrink:0">
+              <polygon points="22,4 35,20 9,20" fill="#f0c832"></polygon>
+              <rect x="6" y="21" width="32" height="19" fill="none" stroke="#f0c832" stroke-width="2.5"></rect>
+              <line x1="6" y1="21" x2="38" y2="40" stroke="#f0c832" stroke-width="2.5"></line>
+              <line x1="38" y1="21" x2="6" y2="40" stroke="#f0c832" stroke-width="2.5"></line>
+            </svg>
+          </span>
+          <span data-heading="title" style="display:block; font-size:32px; font-weight:500; color:#fff; line-height:1.15; margin-top:6px">Camera Manager</span>
+        </h1>
+        <p style="margin:0; max-width:460px; font-size:18px; color:#9a9da6; line-height:1.6">One panel. Every camera. Full control. Centralize your camera settings, batch rendering, and quick switching — all from the 3D View.</p>
+      </div>
+      <div data-hero-stack="wedge" style="flex:1; position:relative; min-height:320px">
+        <div style="position:absolute; inset:0; clip-path:polygon(28% 0%, 100% 0%, 100% 100%, 0% 100%); background:linear-gradient(150deg, #1c1e24 0%, #f0c832 85%)"></div>
+      </div>
+    </div>
+  </div>
+  <div style="height:3px; background:#f0c832"></div>
+
+  <!-- 01 Camera Overview -->
+  <div data-section-pad style="background:#16171c; padding:56px 30px">
+    <table role="presentation" data-stack-grid="cards" style="max-width:960px; margin:0 auto; width:100%; border-collapse:collapse; border:0">
+      <tbody>
+        <tr>
+          <td style="vertical-align:middle; width:42%; padding-right:34px; border:none">
+            <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
+              <img src="/images/simple_cam/Simple_Camera_main_Popup.jpg" alt="Simple Camera Manager popup panel showing every camera's settings in a spreadsheet-style table" style="width:100%; display:block">
+            </div>
+          </td>
+          <td style="vertical-align:middle; width:58%; border:none">
+            <table role="presentation" style="border-collapse:collapse; border:0"><tbody><tr>
+              <td style="vertical-align:middle; padding-right:14px; border:none"><div style="width:46px; height:46px; background:#f0c832; clip-path:polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%); text-align:center; line-height:46px; font-size:20px; font-weight:900; color:#16171c">01</div></td>
+              <td style="vertical-align:middle; border:none"><div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#f0c832">CAMERA OVERVIEW</div></td>
+            </tr></tbody></table>
+            <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">One Panel,<br>Every Camera</h2>
+            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7">See every camera in your scene in one place. Sort the list by Active First, Collection, Focal Length, Render Slot, Resolution, or Background Image — then filter to visible-only or render-selected cameras.</p>
+            <table role="presentation" style="width:100%; border-collapse:separate; border-spacing:0 6px; border:0">
+              <tbody>
+                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
+<span style="color:#f0c832; font-weight:900">✓</span> Adjust every setting in a spreadsheet-style panel</td></tr>
+                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
+<span style="color:#f0c832; font-weight:900">✓</span> All settings at one glance</td></tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 02 Batch Rendering -->
+  <div data-section-pad style="background:#1c1e24; padding:56px 30px; border-top:1px solid #34363e">
+    <table role="presentation" data-stack-grid="cards" style="max-width:960px; margin:0 auto; width:100%; border-collapse:collapse; border:0">
+      <tbody>
+        <tr>
+          <td style="vertical-align:middle; width:42%; padding-right:34px; border:none">
+            <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
+              <img src="https://assets.superhivemarket.com/cache/12b49dcfafd45d6eb36f30f496cc5671.gif" alt="Animation showing batch rendering of multiple cameras in Simple Camera Manager" style="width:100%; display:block">
+            </div>
+          </td>
+          <td style="vertical-align:middle; width:58%; border:none">
+            <table role="presentation" style="border-collapse:collapse; border:0"><tbody><tr>
+              <td style="vertical-align:middle; padding-right:14px; border:none"><div style="width:46px; height:46px; background:#f0c832; clip-path:polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%); text-align:center; line-height:46px; font-size:20px; font-weight:900; color:#16171c">02</div></td>
+              <td style="vertical-align:middle; border:none"><div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#f0c832">BATCH RENDERING</div></td>
+            </tr></tbody></table>
+            <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">Render Every Camera,<br>One Click</h2>
+            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7; margin-bottom:20px">Render multiple static cameras with different settings in one go — with visible progress in the render view, not a black screen until it's done.</p>
+            <table role="presentation" style="width:100%; border-collapse:separate; border-spacing:0 6px; border:0">
+              <tbody>
+                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
+<span style="color:#f0c832; font-weight:900">✓</span> Only batch renderer I'm aware of that shows the render update live</td></tr>
+                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
+<span style="color:#f0c832; font-weight:900">✓</span> Doesn't rely on misusing stereoscopic settings or camera markers</td></tr>
+                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
+<span style="color:#f0c832; font-weight:900">✓</span> Each camera keeps its own resolution, exposure, and settings</td></tr>
+                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
+<span style="color:#f0c832; font-weight:900">✓</span> Uses the current scene frame for every camera in the batch</td></tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 03 Custom Resolutions -->
+  <div data-section-pad style="background:#16171c; padding:56px 30px">
+    <table role="presentation" data-stack-grid="cards" style="max-width:960px; margin:0 auto; width:100%; border-collapse:collapse; border:0">
+      <tbody>
+        <tr>
+          <td style="vertical-align:middle; width:42%; padding-right:34px; border:none">
+            <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
+              <img src="https://assets.superhivemarket.com/cache/ebcbbac8cae2701d62e2d8b06a3ca329.gif" alt="Animation showing per-camera resolution assignment in Simple Camera Manager" style="width:100%; display:block">
+            </div>
+          </td>
+          <td style="vertical-align:middle; width:58%; border:none">
+            <table role="presentation" style="border-collapse:collapse; border:0"><tbody><tr>
+              <td style="vertical-align:middle; padding-right:14px; border:none"><div style="width:46px; height:46px; background:#f0c832; clip-path:polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%); text-align:center; line-height:46px; font-size:20px; font-weight:900; color:#16171c">03</div></td>
+              <td style="vertical-align:middle; border:none"><div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#f0c832">CUSTOM RESOLUTIONS</div></td>
+            </tr></tbody></table>
+            <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">Every Camera,<br>Its Own Resolution</h2>
+            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7">Unlike Blender's scene-based resolution, assign resolutions directly per camera — ideal for social posts, marketing renders, and detailed shots without touching scene settings each time.</p>
+            <div style="background:#24262d; border:1px solid #34363e; border-left:3px solid #f0c832; border-radius:8px; padding:14px 18px; font-size:14px; color:#d7d9e0; line-height:1.6">The <strong style="color:#f0c832">Resolution Overwrite</strong> toggle per camera prevents unwanted resolution changes when switching.</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 04 Render Slots -->
+  <div data-section-pad style="background:#1c1e24; padding:56px 30px; border-top:1px solid #34363e">
+    <table role="presentation" data-stack-grid="cards" style="max-width:960px; margin:0 auto; width:100%; border-collapse:collapse; border:0">
+      <tbody>
+        <tr>
+          <td style="vertical-align:middle; width:42%; padding-right:34px; border:none">
+            <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
+              <img src="https://assets.superhivemarket.com/cache/68d46666a9b1411a72290c6a9dd4d62f.gif" alt="Animation showing render slot assignment per camera in Simple Camera Manager" style="width:100%; display:block">
+            </div>
+          </td>
+          <td style="vertical-align:middle; width:58%; border:none">
+            <table role="presentation" style="border-collapse:collapse; border:0"><tbody><tr>
+              <td style="vertical-align:middle; padding-right:14px; border:none"><div style="width:46px; height:46px; background:#f0c832; clip-path:polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%); text-align:center; line-height:46px; font-size:20px; font-weight:900; color:#16171c">04</div></td>
+              <td style="vertical-align:middle; border:none"><div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#f0c832">RENDER SLOTS</div></td>
+            </tr></tbody></table>
+            <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">Never Overwrite<br>a Render Again</h2>
+            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7">Blender writes every render to the same slot by default — silently overwriting your last render, no matter which camera triggered it. Assign a dedicated render slot to each camera so every shot stays put, ready to compare side by side.</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 05 Dolly Zoom -->
+  <div data-section-pad style="background:#16171c; padding:56px 30px">
+    <table role="presentation" data-stack-grid="cards" style="max-width:960px; margin:0 auto; width:100%; border-collapse:collapse; border:0">
+      <tbody>
+        <tr>
+          <td style="vertical-align:middle; width:42%; padding-right:34px; border:none">
+            <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
+              <img src="https://assets.superhivemarket.com/cache/f9fb3c79ed4f6892e81fb411e1026146.gif" alt="Animation showing the interactive dolly zoom feature in Simple Camera Manager" style="width:100%; display:block">
+            </div>
+          </td>
+          <td style="vertical-align:middle; width:58%; border:none">
+            <table role="presentation" style="border-collapse:collapse; border:0"><tbody><tr>
+              <td style="vertical-align:middle; padding-right:14px; border:none"><div style="width:46px; height:46px; background:#f0c832; clip-path:polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%); text-align:center; line-height:46px; font-size:20px; font-weight:900; color:#16171c">05</div></td>
+              <td style="vertical-align:middle; border:none"><div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#f0c832">DOLLY ZOOM</div></td>
+            </tr></tbody></table>
+            <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">Find the Perfect<br>Focal Length</h2>
+            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7; margin-bottom:20px">Interactively perform a dolly zoom — the camera moves closer or further from the subject while the zoom angle adjusts to keep the subject the same size.</p>
+            <table role="presentation" style="width:100%; border-collapse:separate; border-spacing:0 6px; border:0">
+              <tbody>
+                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
+<span style="color:#f0c832; font-weight:900">✓</span> Reference Plane Gizmo defines what should always stay in focus</td></tr>
+                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
+<span style="color:#f0c832; font-weight:900">✓</span> Modal hotkeys adjust the dolly zoom by distance or by focal length</td></tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table role="presentation" style="max-width:960px; margin:26px auto 0; width:100%; border-collapse:collapse; border:0">
+      <tbody><tr><td style="border:none">
+        <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
+          <img src="https://assets.superhivemarket.com/cache/f5f901e7f60b156996b6e0e517c5706b.png" alt="Dolly zoom reference plane gizmo settings panel" style="width:100%; display:block">
+        </div>
+      </td></tr></tbody>
+    </table>
+  </div>
+
+  <!-- 06 Background Images -->
+  <div data-section-pad style="background:#1c1e24; padding:56px 30px; border-top:1px solid #34363e">
+    <table role="presentation" data-stack-grid="cards" style="max-width:960px; margin:0 auto; width:100%; border-collapse:collapse; border:0">
+      <tbody>
+        <tr>
+          <td style="vertical-align:middle; width:42%; padding-right:34px; border:none">
+            <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
+              <img src="https://assets.superhivemarket.com/cache/3aefda3906a876cf58f363d978b471d5.gif" alt="Animation showing background image management with camera switching in Simple Camera Manager" style="width:100%; display:block">
+            </div>
+          </td>
+          <td style="vertical-align:middle; width:58%; border:none">
+            <table role="presentation" style="border-collapse:collapse; border:0"><tbody><tr>
+              <td style="vertical-align:middle; padding-right:14px; border:none"><div style="width:46px; height:46px; background:#f0c832; clip-path:polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%); text-align:center; line-height:46px; font-size:20px; font-weight:900; color:#16171c">06</div></td>
+              <td style="vertical-align:middle; border:none"><div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#f0c832">BACKGROUND IMAGES</div></td>
+            </tr></tbody></table>
+            <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">Model From<br>Real-World Photos</h2>
+            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7">Manage viewport background images to recreate real-world objects and scenes. Toggle between images, adjust opacity, and match the camera's focal length to the reference with the dolly zoom.</p>
+            <p style="margin:0; font-size:14px; color:#9a9da6">Project: <a href="https://www.artstation.com/artwork/D55b8o" style="color:#f0c832; text-decoration:none; font-weight:700">Cotton Spinning Mule Modeling ↗</a></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table role="presentation" style="max-width:960px; margin:26px auto 0; width:100%; border-collapse:collapse; border:0">
+      <tbody><tr><td style="border:none">
+        <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
+          <img src="https://assets.superhivemarket.com/cache/a38e9a4734e995dc4c2c543db4ba687c.png" alt="Camera background image settings panel in Simple Camera Manager" style="width:100%; display:block">
+        </div>
+      </td></tr></tbody>
+    </table>
+  </div>
+
+  <!-- 07 Camera State Overlay -->
+  <div data-section-pad style="background:#16171c; padding:56px 30px">
+    <table role="presentation" data-stack-grid="cards" style="max-width:960px; margin:0 auto; width:100%; border-collapse:collapse; border:0">
+      <tbody>
+        <tr>
+          <td style="vertical-align:middle; width:42%; padding-right:34px; border:none">
+            <div style="line-height:1.5; border-radius:14px; overflow:hidden; border:1px dashed #34363e; aspect-ratio:16/10; display:flex; align-items:center; justify-content:center; background:#24262d; color:#9a9da6; font-size:13px; text-align:center; padding:24px">
+              Image placeholder — viewport screenshot of the passepartout overlay (blue = locked, red = tied to camera view)
+            </div>
+          </td>
+          <td style="vertical-align:middle; width:58%; border:none">
+            <table role="presentation" style="border-collapse:collapse; border:0"><tbody><tr>
+              <td style="vertical-align:middle; padding-right:14px; border:none"><div style="width:46px; height:46px; background:#f0c832; clip-path:polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%); text-align:center; line-height:46px; font-size:20px; font-weight:900; color:#16171c">07</div></td>
+              <td style="vertical-align:middle; border:none"><div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#f0c832">PASSEPARTOUT OVERLAY</div></td>
+            </tr></tbody></table>
+            <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">Know a Camera's State,<br>Right in the Viewport</h2>
+            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7; margin-bottom:20px">A camera's passepartout frame tints in the 3D View, so you always know what you're looking at before you touch a dial.</p>
+            <table role="presentation" style="width:100%; border-collapse:separate; border-spacing:0 6px; border:0">
+              <tbody>
+                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
+<span style="color:#f0c832; font-weight:900">✓</span> Blue frame — camera transform is locked</td></tr>
+                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
+<span style="color:#f0c832; font-weight:900">✓</span> Red frame — camera is tied to the current viewport view</td></tr>
+                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
+<span style="color:#f0c832; font-weight:900">✓</span> Both colors fully customizable in preferences</td></tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="height:3px; background:#f0c832"></div>
+
+  <!-- Everything Inside -->
+  <div data-section-pad style="background:#16171c; padding:56px 30px">
+    <h2 data-heading="title" style="margin:0 0 8px; font-size:32px; font-weight:900; color:#fff; text-align:center">Everything Inside</h2>
+    <p style="margin:0 0 36px; font-size:15px; color:#9a9da6; text-align:center">One panel, the whole camera workflow.</p>
+    <table role="presentation" data-stack-grid="cards" style="max-width:920px; margin:0 auto; width:100%; border-collapse:separate; border-spacing:10px; border:0">
+      <tbody>
+        <tr>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #f0c832; width:33%">
+            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:10px">Quick Camera Switching</div>
+            <div style="font-size:13px; color:#9a9da6; line-height:1.6; margin-bottom:10px">Jump straight to any camera without leaving the viewport.</div>
+            <div style="display:flex; flex-direction:column; gap:6px">
+              <div>
+<span style='display:inline-block; background:#16171c; border:1px solid #34363e; border-radius:4px; padding:2px 7px; font-family:"SF Mono", "Consolas", "Courier New", monospace; font-size:12px; color:#f0c832'>Alt+Shift+C</span> <span style="font-size:12px; color:#9a9da6">Camera Manager</span>
+</div>
+              <div>
+<span style='display:inline-block; background:#16171c; border:1px solid #34363e; border-radius:4px; padding:2px 7px; font-family:"SF Mono", "Consolas", "Courier New", monospace; font-size:12px; color:#f0c832'>Alt+C</span> <span style="font-size:12px; color:#9a9da6">Camera Pie</span>
+</div>
+              <div>
+<span style='display:inline-block; background:#16171c; border:1px solid #34363e; border-radius:4px; padding:2px 7px; font-family:"SF Mono", "Consolas", "Courier New", monospace; font-size:12px; color:#f0c832'>Ctrl+Shift+←/→</span> <span style="font-size:12px; color:#9a9da6">Prev / Next Camera</span>
+</div>
+            </div>
+          </td>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #f0c832; width:33%">
+            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Focal Length &amp; Resolution Presets</div>
+            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Apply common values instantly from preset selectors in the pie menu and N-Panel.</div>
+          </td>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #f0c832; width:33%">
+            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Composition Guides</div>
+            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Overlay rule-of-thirds and other framing guides in the viewport, with the area outside the frame darkened.</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #f0c832">
+            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Camera Management</div>
+            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Lock/unlock all camera transforms and organize cameras into collections in one step.</div>
+          </td>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #f0c832">
+            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Visual Settings</div>
+            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Assign a different world material per camera and adjust exposure to compensate for lighting.</div>
+          </td>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #f0c832">
+            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Customizable Hotkeys</div>
+            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Personalize every shortcut in preferences. Works on Windows, macOS, and Linux.</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Who It's For -->
+  <div data-section-pad style="background:#1c1e24; padding:56px 30px; border-top:1px solid #34363e">
+    <h2 data-heading="title" style="margin:0 0 16px; font-size:30px; font-weight:900; color:#fff; text-align:center">Who It's For</h2>
+    <p style="margin:0 0 30px; font-size:15px; color:#9a9da6; text-align:center">Artists and studios who build their pipeline around it.</p>
+    <table role="presentation" data-stack-grid="cards" style="max-width:820px; margin:0 auto; width:100%; border-collapse:separate; border-spacing:12px; border:0">
+      <tbody>
+        <tr>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:10px; padding:20px 22px; vertical-align:top; border-bottom:3px solid #f0c832; width:50%">
+            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Freelancers &amp; Small Studios</div>
+            <div style="font-size:14px; color:#9a9da6; line-height:1.6">Set up multiple cameras, adjust their settings, and batch render to show every angle fast for client review.</div>
+          </td>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:10px; padding:20px 22px; vertical-align:top; border-bottom:3px solid #f0c832; width:50%">
+            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Marketing &amp; Product Renderers</div>
+            <div style="font-size:14px; color:#9a9da6; line-height:1.6">Unique resolutions per camera for headers, thumbnails, and social content — all rendered in one batch.</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:10px; padding:20px 22px; vertical-align:top; border-bottom:3px solid #f0c832">
+            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Archviz Artists</div>
+            <div style="font-size:14px; color:#9a9da6; line-height:1.6">Dedicated render slots per view build a complete interior and exterior portfolio.</div>
+          </td>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:10px; padding:20px 22px; vertical-align:top; border-bottom:3px solid #f0c832">
+            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Modelers Working From Reference</div>
+            <div style="font-size:14px; color:#9a9da6; line-height:1.6">Match a real-world lens with the dolly zoom before you model a single vertex.</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- What Users Say -->
+  <div data-section-pad style="background:#16171c; padding:56px 30px; border-top:1px solid #34363e">
+    <h2 data-heading="title" style="margin:0 0 16px; font-size:30px; font-weight:900; color:#fff; text-align:center">What Users Say</h2>
+    <table role="presentation" style="max-width:820px; margin:0 auto; width:100%; border-collapse:separate; border-spacing:0 14px; border:0">
+      <tbody>
+        <tr><td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:22px 24px">
+          <p style="margin:0 0 14px; font-size:16px; color:#d7d9e0; line-height:1.6; font-style:italic">"Great addon, does everything I need without too much fluff."</p>
+          <div style="display:flex; align-items:center">
+            <img src="/images/simple_cam/patrik_pulkkinen.jpg" alt="Patrik Pulkkinen" style="width:40px; height:40px; border-radius:50%; vertical-align:middle; margin-right:12px">
+            <span style="font-size:14px; color:#9a9da6"><a href="https://www.artstation.com/patrik" style="color:#f0c832; text-decoration:none; font-weight:700">Patrik Pulkkinen</a>, Concept Artist at Remedy Entertainment</span>
+          </div>
+        </td></tr>
+        <tr><td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:22px 24px">
+          <p style="margin:0 0 10px; font-size:16px; color:#d7d9e0; line-height:1.6; font-style:italic">"This is the best addon for managing cameras I have found. Well worth the price! 5 stars."</p>
+          <span style="font-size:14px; color:#9a9da6">— Ken Kellett</span>
+        </td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Why Trust -->
+  <div data-section-pad style="background:#1c1e24; padding:56px 30px; border-top:1px solid #34363e">
+    <h2 data-heading="title" style="margin:0 0 16px; font-size:30px; font-weight:900; color:#fff; text-align:center">Why Trust Simple Camera Manager?</h2>
+    <p style="margin:0 auto 30px; max-width:680px; font-size:16px; color:#9a9da6; line-height:1.7; text-align:center">Over a decade refining workflows for real-time engines. Simple Renaming, Simple Collider, and Simple Camera Manager are used and trusted by thousands of artists and studios worldwide.</p>
+    <div style="display:flex; max-width:820px; margin:0 auto 26px; border-radius:14px; overflow:hidden; border:1px solid #34363e">
+      <a href="https://extensions.blender.org/add-ons/simple-renaming-panel/" aria-label="Simple Renaming" style="flex:1 1 25%; aspect-ratio:1/1; display:block; background-image:url(/images/simple_export/branding_squares.jpg); background-repeat:no-repeat; background-size:400% 100%; background-position:0% 0"></a>
+      <a href="https://superhivemarket.com/products/simple-collider" aria-label="Simple Collider" style="flex:1 1 25%; aspect-ratio:1/1; display:block; background-image:url(/images/simple_export/branding_squares.jpg); background-repeat:no-repeat; background-size:400% 100%; background-position:33.333% 0"></a>
+      <div role="img" aria-label="Simple Camera Manager" style="flex:1 1 25%; aspect-ratio:1/1; display:block; background-image:url(/images/simple_export/branding_squares.jpg); background-repeat:no-repeat; background-size:400% 100%; background-position:66.667% 0"></div>
+      <a href="https://superhivemarket.com/products/simple-export" aria-label="Simple Export" style="flex:1 1 25%; aspect-ratio:1/1; display:block; background-image:url(/images/simple_export/branding_squares.jpg); background-repeat:no-repeat; background-size:400% 100%; background-position:100% 0"></a>
+    </div>
+    <table role="presentation" data-stack-grid="pills" style="margin:0 auto; border-collapse:separate; border-spacing:10px 0; border:0">
+      <tbody><tr>
+        <td style="border:none"><a href="https://extensions.blender.org/add-ons/simple-renaming-panel/" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Simple Renaming — 50,000+ users</a></td>
+        <td style="border:none"><a href="https://superhivemarket.com/products/simple-collider" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Simple Collider — 500+ users</a></td>
+        <td style="border:none"><a href="https://superhivemarket.com/products/simple-export" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Simple Export</a></td>
+      </tr></tbody>
+    </table>
+  </div>
+
+  <!-- Footer CTA -->
+  <div data-section-pad style="background:#16171c; border-top:2px solid #f0c832; padding:46px 30px; text-align:center">
+    <div style="font-size:20px; font-weight:900; color:#fff; margin-bottom:6px">Get Simple Camera Manager</div>
+    <div style="font-size:14px; color:#9a9da6; margin-bottom:26px; max-width:520px; margin-left:auto; margin-right:auto">Take full control of your camera workflow. Actively maintained and improved based on your feedback.</div>
+    <table role="presentation" data-stack-grid="pills" style="margin:0 auto; border-collapse:separate; border-spacing:8px 0; border:0">
+      <tbody><tr>
+        <td style="border:none"><a href="https://superhivemarket.com/creators/matthias-patscheider" style="display:inline-block; background:#f0c832; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#16171c !important">More by Matthias</a></td>
+        <td style="border:none"><a href="/simple_camera_manager/camera_manager_Overview/" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">Documentation</a></td>
+        <td style="border:none"><a href="https://www.artstation.com/matthias-patscheider" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">ArtStation</a></td>
+      </tr></tbody>
+    </table>
+    <p style="margin:18px 0 0; font-size:12px"><a href="/legal-notice.html" style="color:#9a9da6; text-decoration:none">Legal Notice</a></p>
+  </div>
+
+</div>
+
+</body>
+</html>

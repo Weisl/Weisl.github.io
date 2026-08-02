@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simple Collider</title>
+<meta name="description" content="Handle your entire Blender collision workflow — generate, manage, and export physics colliders ready for Unreal, Unity, and Godot.">
+<link rel="canonical" href="https://weisl.github.io/simple-collider.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2044%2044%22%3E%3Crect%20width%3D%2244%22%20height%3D%2244%22%20rx%3D%229%22%20fill%3D%22%2316171c%22/%3E%3Cpath%20d%3D%22M4%2034%20L15%2014%20L22%2025%20L28%2016%20L40%2034%20Z%22%20fill%3D%22none%22%20stroke%3D%22%233b82f6%22%20stroke-width%3D%223%22%20stroke-linejoin%3D%22round%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Alpine Empire">
+<meta property="og:title" content="Simple Collider">
+<meta property="og:description" content="Handle your entire Blender collision workflow — generate, manage, and export physics colliders ready for Unreal, Unity, and Godot.">
+<meta property="og:url" content="https://weisl.github.io/simple-collider.html">
+<meta property="og:image" content="https://weisl.github.io/images/CollisionTools_Auto_convex.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Simple Collider">
+<meta name="twitter:description" content="Handle your entire Blender collision workflow — generate, manage, and export physics colliders ready for Unreal, Unity, and Godot.">
+<meta name="twitter:image" content="https://weisl.github.io/images/CollisionTools_Auto_convex.jpg">
+<style>html,body { margin:0; padding:0; background:#16171c; }</style>
+<style type="text/css">@media (max-width: 640px) {
+    table[data-stack-grid] {
+        display: block !important;
+        width: 100% !important
+        }
+    table[data-stack-grid] > tbody {
+        display: block !important
+        }
+    table[data-stack-grid] > tbody > tr {
+        display: block !important
+        }
+    table[data-stack-grid] > tbody > tr > td {
+        display: block !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        padding-right: 0 !important;
+        padding-bottom: 16px !important
+        }
+    table[data-stack-grid] > tbody > tr:last-child > td:last-child {
+        padding-bottom: 0 !important
+        }
+    table[data-stack-grid="pills"] > tbody > tr > td {
+        text-align: center !important
+        }
+    div[data-stack-grid="flex"] {
+        flex-direction: column !important
+        }
+    div[data-stack-grid="flex"] > [data-step="card"] {
+        flex: none !important;
+        width: 100% !important;
+        margin-bottom: 16px !important
+        }
+    div[data-stack-grid="flex"] > [data-step="card"]:last-child {
+        margin-bottom: 0 !important
+        }
+    div[data-stack-grid="flex"] > [data-step="connector"] {
+        display: none !important
+        }
+    div[data-stack-grid="flex"] [data-step="dot"] {
+        display: none !important
+        }
+    [data-hero-stack="wedge"] {
+        display: none !important
+        }
+    [data-hero-stack="left"] {
+        flex: 1 1 100% !important;
+        width: 100% !important
+        }
+    [data-heading="display"] {
+        font-size: 34px !important
+        }
+    [data-heading="title"] {
+        font-size: 24px !important
+        }
+    [data-section-pad] {
+        padding-left: 16px !important;
+        padding-right: 16px !important
+        }
+    }</style>
+</head>
+<body>
+<!-- Generated from src/simple-collider.html + src/common.css + src/simple-collider.css — edit those, not this file. Rebuild with: venv/bin/python store_pages/src/build.py simple-collider -->
+<div style='background:#16171c; color:#e8e9ee; font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; padding:0; margin:0; max-width:100%; overflow:hidden'>
+  <style>
+    .site-nav { position: sticky; top: 0; z-index: 100; background: #16171c; border-bottom: 1px solid #34363e; }
+    .site-nav-inner { max-width: 1160px; margin: 0 auto; position: relative; display: flex; align-items: center; gap: 24px; padding: 12px 30px; }
+    .site-nav-brand { display: flex; align-items: center; gap: 9px; color: #e8e9ee; text-decoration: none; font-weight: 900; font-size: 13px; letter-spacing: 1.5px; flex-shrink: 0; }
+    .site-nav-toggle-input { display: none; }
+    .site-nav-toggle-label { display: none; flex-direction: column; gap: 4px; cursor: pointer; padding: 8px; margin-left: auto; }
+    .site-nav-toggle-label span { width: 20px; height: 2px; background: #e8e9ee; display: block; }
+    .site-nav-links { display: flex; align-items: center; gap: 26px; }
+    .site-nav-links > a { color: #9a9da6; text-decoration: none; font-size: 13px; font-weight: 700; white-space: nowrap; }
+    .site-nav-links > a:hover, .site-nav-links > a.is-active { color: #e8e9ee; }
+    .site-nav-docs-link { color: #22c55e !important; margin-left: auto; }
+    .site-nav-dropdown { position: relative; }
+    .site-nav-dropdown-label { display: flex; align-items: center; gap: 5px; color: #9a9da6; font-size: 13px; font-weight: 700; cursor: pointer; }
+    .site-nav-dropdown:hover .site-nav-dropdown-label, .site-nav-dropdown:focus-within .site-nav-dropdown-label, .site-nav-dropdown-label.is-active { color: #e8e9ee; }
+    /* top: 100% with no margin — the box touches the label's bottom edge with
+       no gap, so the mouse is always over one hoverable element or the other
+       while moving from label to menu. A margin-top gap here reopens the
+       classic "dropdown closes crossing the gap" bug: that empty strip
+       belongs to neither element, so :hover drops before the pointer
+       reaches the menu. padding-top (part of the menu's own box, so still
+       hoverable) gives the same visual breathing room without the gap. */
+    .site-nav-dropdown-menu { display: none; position: absolute; top: 100%; left: 0; min-width: 210px; background: #1c1e24; border: 1px solid #34363e; border-radius: 10px; padding: 14px 6px 6px; box-shadow: 0 14px 34px rgba(0,0,0,0.45); }
+    .site-nav-dropdown:hover .site-nav-dropdown-menu, .site-nav-dropdown:focus-within .site-nav-dropdown-menu { display: block; }
+    .site-nav-dropdown-menu a { display: block; padding: 8px 10px; border-radius: 6px; color: #d7d9e0; text-decoration: none; font-size: 13px; font-weight: 600; }
+    .site-nav-dropdown-menu a:hover, .site-nav-dropdown-menu a.is-active { background: #24262d; color: #ffffff; }
+    @media (max-width: 640px) {
+      .site-nav-toggle-label { display: flex; }
+      .site-nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; background: #16171c; border-bottom: 1px solid #34363e; padding: 4px 20px 18px; }
+      .site-nav-toggle-input:checked ~ .site-nav-links { display: flex; }
+      .site-nav-links > a, .site-nav-dropdown-label { padding: 13px 0; border-bottom: 1px solid #24262d; }
+      .site-nav-docs-link { margin-left: 0; }
+      .site-nav-dropdown-menu { display: block !important; position: static; box-shadow: none; border: none; background: none; padding: 0 0 4px 14px; margin-top: 0; }
+      .site-nav-dropdown-menu a { padding: 10px 0; font-size: 12px; }
+    }
+  </style>
+  <header class="site-nav">
+    <div class="site-nav-inner">
+      <a href="/" class="site-nav-brand">
+        <svg width="18" height="18" viewBox="0 0 44 44"><path d="M4 34 L15 14 L22 25 L28 16 L40 34 Z" fill="none" stroke="#3b82f6" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"></path></svg>
+        ALPINE EMPIRE
+      </a>
+      <input type="checkbox" id="site-nav-toggle" class="site-nav-toggle-input">
+      <label for="site-nav-toggle" class="site-nav-toggle-label" aria-label="Toggle menu"><span></span><span></span><span></span></label>
+      <nav class="site-nav-links">
+        <div class="site-nav-dropdown">
+          <span class="site-nav-dropdown-label is-active">Tools <svg width="9" height="6" viewBox="0 0 9 6"><path d="M1 1 L4.5 5 L8 1" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+          <div class="site-nav-dropdown-menu">
+          <a href="/simple-renaming.html">Simple Renaming</a>
+          <a href="/simple-collider.html" class="is-active">Simple Collider</a>
+          <a href="/simple-export.html">Simple Export</a>
+          <a href="/simple-camera-manager.html">Simple Camera Manager</a>
+          <a href="/simple-pbr-layering.html">Simple PBR Layering</a>
+          <a href="/simple-uv-nodes.html">Simple UV Nodes</a>
+          </div>
+        </div>
+        <a href="/mentoring.html">Mentoring</a>
+        <a href="https://discord.gg/VRzdcFpczm">Discord &#8599;</a>
+        <a href="https://www.artstation.com/matthias-patscheider">ArtStation &#8599;</a>
+        <a href="/#contact">Contact</a>
+        <a href="/simple_collider/collider_overview/" class="site-nav-docs-link">Documentation &#8599;</a>
+      </nav>
+    </div>
+  </header>
+
+<!-- Hero -->
+  <div style="background:#1c1e24">
+    <div style="display:flex; align-items:stretch">
+      <div data-hero-stack="left" data-section-pad style="flex:0 0 56%; padding:64px 34px 64px 30px">
+        <h1 style="margin:0 0 22px; line-height:1">
+          <span style="display:flex; align-items:center; gap:14px">
+            <span data-heading="display" style='font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-size:62px; font-weight:900; color:#22c55e; line-height:1'>SIMPLE</span>
+            <svg width="42" height="42" viewbox="0 0 44 44" style="flex-shrink:0">
+              <polygon points="22,4 38,13 38,31 22,40 6,31 6,13" fill="none" stroke="#22c55e" stroke-width="2"></polygon>
+              <line x1="22" y1="22" x2="22" y2="4" stroke="#22c55e" stroke-width="2"></line>
+              <line x1="22" y1="22" x2="38" y2="31" stroke="#22c55e" stroke-width="2"></line>
+              <line x1="22" y1="22" x2="6" y2="31" stroke="#22c55e" stroke-width="2"></line>
+              <circle cx="22" cy="4" r="2.5" fill="#22c55e"></circle>
+              <circle cx="38" cy="13" r="2.5" fill="#22c55e"></circle>
+              <circle cx="38" cy="31" r="2.5" fill="#22c55e"></circle>
+              <circle cx="22" cy="40" r="2.5" fill="#22c55e"></circle>
+              <circle cx="6" cy="31" r="2.5" fill="#22c55e"></circle>
+              <circle cx="6" cy="13" r="2.5" fill="#22c55e"></circle>
+            </svg>
+          </span>
+          <span data-heading="title" style="display:block; font-size:32px; font-weight:500; color:#fff; line-height:1.15; margin-top:6px">Collider</span>
+        </h1>
+        <p style="margin:0; max-width:460px; font-size:18px; color:#9a9da6; line-height:1.6">Stop wasting time on collision setup. Generate Box, Sphere, Capsule, Convex, and Mesh colliders directly in the 3D Viewport — ready for Unreal, Unity, or Godot.</p>
+      </div>
+      <div data-hero-stack="wedge" style="flex:1; position:relative; min-height:320px">
+        <div style="position:absolute; inset:0; clip-path:polygon(28% 0%, 100% 0%, 100% 100%, 0% 100%); background:linear-gradient(150deg, #1c1e24 0%, #22c55e 85%)"></div>
+      </div>
+    </div>
+  </div>
+  <div style="height:3px; background:#22c55e"></div>
+
+  <!-- Video -->
+  <div data-section-pad style="background:#16171c; padding:56px 30px">
+    <h2 data-heading="title" style="margin:0 0 16px; font-size:30px; font-weight:900; color:#fff; text-align:center">See It In Action</h2>
+    <div style="position:relative; width:100%; max-width:960px; margin:0 auto; aspect-ratio:16/9; overflow:hidden; border-radius:14px; border:1px solid #34363e">
+      <iframe src="//www.youtube.com/embed/VfE2QvR6xjE" allowfullscreen style="position:absolute; top:0; left:0; width:100%; height:100%; border:0"></iframe>
+    </div>
+  </div>
+
+  <!-- 01 Wide Shape Support -->
+  <div data-section-pad style="background:#1c1e24; padding:56px 30px; border-top:1px solid #34363e">
+    <div style="text-align:center; margin-bottom:14px">
+      <span style="display:inline-flex; align-items:center; gap:12px">
+        <span style="width:46px; height:46px; background:#22c55e; transform:rotate(45deg); text-align:center; color:#16171c; display:inline-block"><span style="display:inline-block; transform:rotate(-45deg); line-height:46px; font-size:20px; font-weight:900">01</span></span>
+        <span style="font-size:11px; font-weight:700; letter-spacing:3px; color:#22c55e">WIDE SHAPE SUPPORT</span>
+      </span>
+    </div>
+    <h2 data-heading="title" style="margin:0 0 8px; font-size:32px; font-weight:900; color:#fff; text-align:center">Every Shape,<br>One Toolset</h2>
+    <p style="margin:0 0 36px; font-size:15px; color:#9a9da6; text-align:center">Pick the collider type that fits — see each one in action.</p>
+    <table role="presentation" data-stack-grid="cards" style="max-width:920px; margin:0 auto; width:100%; border-collapse:separate; border-spacing:16px; border:0">
+      <tbody>
+        <tr>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; overflow:hidden; vertical-align:top; border-top:3px solid #22c55e; width:50%">
+            <div style="line-height:0"><img src="/images/simple_collider/Cubes_02_small.gif" alt="Animation showing box collider creation around objects in a scene" style="width:100%; display:block"></div>
+            <div style="padding:18px 20px">
+              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Box</div>
+              <div style="font-size:13px; color:#9a9da6; line-height:1.55">Simple, efficient, covers a wide range of use-cases.</div>
+            </div>
+          </td>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; overflow:hidden; vertical-align:top; border-top:3px solid #22c55e; width:50%">
+            <div style="line-height:0"><img src="/images/simple_collider/Sphere_01_small.gif" alt="Animation showing sphere collider creation around objects" style="width:100%; display:block"></div>
+            <div style="padding:18px 20px">
+              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Sphere</div>
+              <div style="font-size:13px; color:#9a9da6; line-height:1.55">The most efficient shape — defined mathematically, not by polygons.</div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; overflow:hidden; vertical-align:top; border-top:3px solid #22c55e">
+            <div style="line-height:0"><img src="/images/simple_collider/Convex_01_small.gif" alt="Animation showing convex collider creation around objects" style="width:100%; display:block"></div>
+            <div style="padding:18px 20px">
+              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Convex</div>
+              <div style="font-size:13px; color:#9a9da6; line-height:1.55">Versatile and efficient, especially without native mesh collisions.</div>
+            </div>
+          </td>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; overflow:hidden; vertical-align:top; border-top:3px solid #22c55e">
+            <div style="line-height:0"><img src="/images/simple_collider/cylinder_collider_small.gif" alt="Animation showing cylindrical convex collider creation" style="width:100%; display:block"></div>
+            <div style="padding:18px 20px">
+              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Convex Cylinder</div>
+              <div style="font-size:13px; color:#9a9da6; line-height:1.55">A clean cylindrical convex shape for common manmade structures.</div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; overflow:hidden; vertical-align:top; border-top:3px solid #22c55e">
+            <div style="line-height:0"><img src="/images/simple_collider/Mesh_02_small.gif" alt="Animation showing mesh collider creation" style="width:100%; display:block"></div>
+            <div style="padding:18px 20px">
+              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Mesh</div>
+              <div style="font-size:13px; color:#9a9da6; line-height:1.55">The most accurate and most expensive shape — static objects only.</div>
+            </div>
+          </td>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; overflow:hidden; vertical-align:top; border-top:3px solid #22c55e">
+            <div style="line-height:0"><img src="/images/simple_collider/re-mesh.gif" alt="Animation showing re-meshed collider creation" style="width:100%; display:block"></div>
+            <div style="padding:18px 20px">
+              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Re-Meshed</div>
+              <div style="font-size:13px; color:#9a9da6; line-height:1.55">Voxelates complex geometry to remove unnecessary interior faces.</div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; overflow:hidden; vertical-align:top; border-top:3px solid #22c55e">
+            <div style="padding:18px 20px">
+              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Capsule</div>
+              <div style="font-size:13px; color:#9a9da6; line-height:1.55">Efficient and simple — the usual choice for character colliders.</div>
+            </div>
+          </td>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; overflow:hidden; vertical-align:top; border-top:3px solid #22c55e">
+            <div style="padding:18px 20px">
+              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">K-DOP</div>
+              <div style="font-size:13px; color:#9a9da6; line-height:1.55">14- or 18-DOP slabs — tighter than a box, cheaper than a full hull.</div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 02 Object & Edit Mode Selection -->
+  <div data-section-pad style="background:#16171c; padding:56px 30px">
+    <table role="presentation" data-stack-grid="cards" style="max-width:960px; margin:0 auto; width:100%; border-collapse:collapse; border:0">
+      <tbody>
+        <tr>
+          <td style="vertical-align:middle; width:42%; padding-right:34px; border:none">
+            <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
+              <img src="/images/simple_collider/books_small.gif" alt="Animation showing collider generation per individual object across a selection" style="width:100%; display:block">
+            </div>
+          </td>
+          <td style="vertical-align:middle; width:58%; border:none">
+            <table role="presentation" style="border-collapse:collapse; border:0"><tbody><tr>
+              <td style="vertical-align:middle; padding-right:14px; border:none"><div style="width:46px; height:46px; background:#22c55e; transform:rotate(45deg); text-align:center; color:#16171c"><span style="display:inline-block; transform:rotate(-45deg); line-height:46px; font-size:20px; font-weight:900">02</span></div></td>
+              <td style="vertical-align:middle; border:none"><div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#22c55e">OBJECT &amp; EDIT MODE</div></td>
+            </tr></tbody></table>
+            <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">Whole Selections,<br>Individual Parts</h2>
+            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7; margin-bottom:20px">Create colliders in Object or Edit mode, for an entire selection or specific parts of a mesh — including multi-object Edit mode. Choose pre- or post-modifier mesh data for full control.</p>
+            <table role="presentation" style="width:100%; border-collapse:separate; border-spacing:0 6px; border:0">
+              <tbody>
+                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
+<span style="color:#22c55e; font-weight:900">✓</span> Per-object, per-selection, or per-loose-part generation</td></tr>
+                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
+<span style="color:#22c55e; font-weight:900">✓</span> World-aligned or object-aligned collisions for primitives</td></tr>
+                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
+<span style="color:#22c55e; font-weight:900">✓</span> Adjust creation settings live from the 3D Viewport</td></tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table role="presentation" style="max-width:960px; margin:26px auto 0; width:100%; border-collapse:collapse; border:0">
+      <tbody><tr><td style="border:none">
+        <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
+          <img src="/images/OOBBOX-object_small.gif" alt="Animation illustrating collider creation based on Edit and Object mode selection" style="width:100%; display:block">
+        </div>
+      </td></tr></tbody>
+    </table>
+  </div>
+
+  <!-- 03 Auto Convex Decomposition -->
+  <div data-section-pad style="background:#1c1e24; padding:56px 30px; border-top:1px solid #34363e">
+    <table role="presentation" data-stack-grid="cards" style="max-width:960px; margin:0 auto; width:100%; border-collapse:collapse; border:0">
+      <tbody>
+        <tr>
+          <td style="vertical-align:middle; width:42%; padding-right:34px; border:none">
+            <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
+              <img src="/images/simple_collider/EditMode_autoConvex_small.gif" alt="Animation showing Auto Convex collider decomposition based on an Edit Mode selection" style="width:100%; display:block">
+            </div>
+          </td>
+          <td style="vertical-align:middle; width:58%; border:none">
+            <table role="presentation" style="border-collapse:collapse; border:0"><tbody><tr>
+              <td style="vertical-align:middle; padding-right:14px; border:none"><div style="width:46px; height:46px; background:#22c55e; transform:rotate(45deg); text-align:center; color:#16171c"><span style="display:inline-block; transform:rotate(-45deg); line-height:46px; font-size:20px; font-weight:900">03</span></div></td>
+              <td style="vertical-align:middle; border:none"><div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#22c55e">AUTO CONVEX DECOMPOSITION</div></td>
+            </tr></tbody></table>
+            <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">Break Complex Meshes<br>Into Convex Hulls</h2>
+            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7; margin-bottom:20px">Auto Convex decomposes complex, organic shapes — rocks, statues, rubble — into a set of convex colliders. Not a one-click fix for every asset, but built for exactly the geometry that resists simple shapes.</p>
+            <table role="presentation" style="width:100%; border-collapse:separate; border-spacing:0 6px; border:0">
+              <tbody>
+                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
+<span style="color:#22c55e; font-weight:900">✓</span> Powered by the V-HACD library</td></tr>
+                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
+<span style="color:#22c55e; font-weight:900">✓</span> Windows, Linux, and macOS — including Apple Silicon</td></tr>
+                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
+<span style="color:#22c55e; font-weight:900">✓</span> Depth setting trades hull count against accuracy</td></tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table role="presentation" style="max-width:960px; margin:26px auto 0; width:100%; border-collapse:collapse; border:0">
+      <tbody><tr><td style="border:none">
+        <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
+          <img src="/images/CollisionTools_Auto_convex.jpg" alt="Example of Auto Convex collider generation showing how different depth settings affect the number of created colliders" style="width:100%; display:block">
+        </div>
+      </td></tr></tbody>
+    </table>
+  </div>
+
+  <!-- 04 Oriented Minimum Bounding Box -->
+  <div data-section-pad style="background:#16171c; padding:56px 30px">
+    <table role="presentation" data-stack-grid="cards" style="max-width:960px; margin:0 auto; width:100%; border-collapse:collapse; border:0">
+      <tbody>
+        <tr>
+          <td style="vertical-align:middle; width:42%; padding-right:34px; border:none">
+            <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
+              <img src="/images/simple_collider/OABBox_small.gif" alt="Animation showing Oriented Minimum Bounding Box collider generation" style="width:100%; display:block">
+            </div>
+          </td>
+          <td style="vertical-align:middle; width:58%; border:none">
+            <table role="presentation" style="border-collapse:collapse; border:0"><tbody><tr>
+              <td style="vertical-align:middle; padding-right:14px; border:none"><div style="width:46px; height:46px; background:#22c55e; transform:rotate(45deg); text-align:center; color:#16171c"><span style="display:inline-block; transform:rotate(-45deg); line-height:46px; font-size:20px; font-weight:900">04</span></div></td>
+              <td style="vertical-align:middle; border:none"><div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#22c55e">ORIENTED MINIMUM BOX</div></td>
+            </tr></tbody></table>
+            <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">The Tightest Box,<br>Automatically</h2>
+            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7">An automatically-oriented box collider with the lowest possible volume — same output as a regular box collider, indistinguishable to the engine, just tighter around the mesh.</p>
+            <div style="background:#24262d; border:1px solid #34363e; border-left:3px solid #22c55e; border-radius:8px; padding:14px 18px; font-size:14px; color:#d7d9e0; line-height:1.6">Implementation based on code by <strong style="color:#22c55e">Iyad Ahmed</strong>, used with permission.</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 05 Naming Presets -->
+  <div data-section-pad style="background:#1c1e24; padding:56px 30px; border-top:1px solid #34363e">
+    <table role="presentation" data-stack-grid="cards" style="max-width:960px; margin:0 auto; width:100%; border-collapse:collapse; border:0">
+      <tbody>
+        <tr>
+          <td style="vertical-align:middle; width:42%; padding-right:34px; border:none">
+            <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
+              <img src="/images/simple_collider/Naming_Presets.gif" alt="Animation showing creation and management of collider naming presets" style="width:100%; display:block">
+            </div>
+          </td>
+          <td style="vertical-align:middle; width:58%; border:none">
+            <table role="presentation" style="border-collapse:collapse; border:0"><tbody><tr>
+              <td style="vertical-align:middle; padding-right:14px; border:none"><div style="width:46px; height:46px; background:#22c55e; transform:rotate(45deg); text-align:center; color:#16171c"><span style="display:inline-block; transform:rotate(-45deg); line-height:46px; font-size:20px; font-weight:900">05</span></div></td>
+              <td style="vertical-align:middle; border:none"><div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#22c55e">NAMING PRESETS</div></td>
+            </tr></tbody></table>
+            <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">Name It Once,<br>Every Engine</h2>
+            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7">Save naming settings as presets, switch between them per project, and share the preset files with your team. Ships with read-only UE-default and Unity presets — pin one to load automatically on startup.</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table role="presentation" style="max-width:960px; margin:26px auto 0; width:100%; border-collapse:collapse; border:0">
+      <tbody><tr><td style="border:none">
+        <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
+          <img src="/images/simple_collider/collider_presets.gif" alt="Animation showing collider naming presets being selected" style="width:100%; display:block">
+        </div>
+      </td></tr></tbody>
+    </table>
+  </div>
+
+  <!-- 06 Convert Workflow -->
+  <div data-section-pad style="background:#16171c; padding:56px 30px">
+    <table role="presentation" data-stack-grid="cards" style="max-width:960px; margin:0 auto; width:100%; border-collapse:collapse; border:0">
+      <tbody>
+        <tr>
+          <td style="vertical-align:middle; width:42%; padding-right:34px; border:none">
+            <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
+              <img src="/images/simple_collider/convert_MeshToCollider_small.gif" alt="Animation showing mesh to collider conversion" style="width:100%; display:block">
+            </div>
+          </td>
+          <td style="vertical-align:middle; width:58%; border:none">
+            <table role="presentation" style="border-collapse:collapse; border:0"><tbody><tr>
+              <td style="vertical-align:middle; padding-right:14px; border:none"><div style="width:46px; height:46px; background:#22c55e; transform:rotate(45deg); text-align:center; color:#16171c"><span style="display:inline-block; transform:rotate(-45deg); line-height:46px; font-size:20px; font-weight:900">06</span></div></td>
+              <td style="vertical-align:middle; border:none"><div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#22c55e">CONVERT WORKFLOW</div></td>
+            </tr></tbody></table>
+            <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">Mesh, Collider,<br>or Empty — Any Direction</h2>
+            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7">Convert any mesh to a collider, or any collider back to a regular mesh object, complete with renaming and collection assignment. Convert to lightweight Empty objects for engines that support empty-based collision.</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table role="presentation" style="max-width:960px; margin:26px auto 0; width:100%; border-collapse:collapse; border:0">
+      <tbody><tr><td style="border:none">
+        <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
+          <img src="/images/simple_collider/convert_ColliderToMesh_small.gif" alt="Animation showing collider to mesh conversion" style="width:100%; display:block">
+        </div>
+      </td></tr></tbody>
+    </table>
+  </div>
+
+  <div style="height:3px; background:#22c55e"></div>
+
+  <!-- Everything Inside -->
+  <div data-section-pad style="background:#16171c; padding:56px 30px">
+    <h2 data-heading="title" style="margin:0 0 8px; font-size:32px; font-weight:900; color:#fff; text-align:center">Everything Inside</h2>
+    <p style="margin:0 0 36px; font-size:15px; color:#9a9da6; text-align:center">One toolset, the whole collision workflow.</p>
+    <table role="presentation" data-stack-grid="cards" style="max-width:920px; margin:0 auto; width:100%; border-collapse:separate; border-spacing:10px; border:0">
+      <tbody>
+        <tr>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #22c55e; width:33%">
+            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Re-Meshed Colliders</div>
+            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Voxelates complex, intersecting geometry before generating the collider, eliminating interior faces regular mesh colliders can't avoid.</div>
+          </td>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #22c55e; width:33%">
+            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Collider Organization</div>
+            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Manage visibility, selection, and deletion for groups of colliders at once.</div>
+          </td>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #22c55e; width:33%">
+            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Physics Materials</div>
+            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Assign and organize materials for use as physics materials in-engine.</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #22c55e">
+            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Flexible Naming</div>
+            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Custom naming schemes for UE4-5, Unity, Godot, and other engines with their own pipelines.</div>
+          </td>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #22c55e">
+            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Regenerate Names</div>
+            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Rebuild collider names from the active preset in one click.</div>
+          </td>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #22c55e">
+            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Edit-Mode Multi-Object</div>
+            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Generate compound colliders across several selected objects at once, in Edit mode.</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Built For Your Engine -->
+  <div data-section-pad style="background:#1c1e24; padding:56px 30px; border-top:1px solid #34363e">
+    <h2 data-heading="title" style="margin:0 0 16px; font-size:30px; font-weight:900; color:#fff; text-align:center">Built For Your Engine</h2>
+    <p style="margin:0 0 30px; font-size:15px; color:#9a9da6; text-align:center">Simple Collider covers the Blender side — these guides cover the rest.</p>
+    <table role="presentation" data-stack-grid="cards" style="max-width:820px; margin:0 auto; width:100%; border-collapse:separate; border-spacing:12px; border:0">
+      <tbody>
+        <tr>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:10px; padding:20px 22px; vertical-align:top; border-bottom:3px solid #22c55e; width:50%">
+            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Unreal Engine</div>
+            <div style="font-size:14px; color:#9a9da6; line-height:1.6">UE4 and UE5 import Simple, and partially Complex, collisions out of the box.</div>
+            <p style="margin:10px 0 0"><a href="/simple_collider/collider_ue_guidline/" style="color:#22c55e; text-decoration:none; font-weight:700; font-size:13px">Unreal Engine Guide ↗</a></p>
+          </td>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:10px; padding:20px 22px; vertical-align:top; border-bottom:3px solid #22c55e; width:50%">
+            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Unity</div>
+            <div style="font-size:14px; color:#9a9da6; line-height:1.6">Collider setup is automatic once meshes are named correctly — Simple Collider handles the naming.</div>
+            <p style="margin:10px 0 0"><a href="/simple_collider/collider_unity_guidline/" style="color:#22c55e; text-decoration:none; font-weight:700; font-size:13px">Unity Guide ↗</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:10px; padding:20px 22px; vertical-align:top; border-bottom:3px solid #22c55e">
+            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Godot</div>
+            <div style="font-size:14px; color:#9a9da6; line-height:1.6">Automatic <code>-colonly</code> / <code>-convcolonly</code> suffixes so Godot detects colliders on import.</div>
+            <p style="margin:10px 0 0"><a href="/simple_collider/collider_godot_guidline/" style="color:#22c55e; text-decoration:none; font-weight:700; font-size:13px">Godot Guide ↗</a></p>
+          </td>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:10px; padding:20px 22px; vertical-align:top; border-bottom:3px solid #22c55e">
+            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Custom / Other Engines</div>
+            <div style="font-size:14px; color:#9a9da6; line-height:1.6">Not on the list? Flexible naming presets mean Simple Collider isn't locked to UE, Unity, and Godot — build a custom naming scheme for any engine or in-house pipeline.</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- What Experts Say -->
+  <div data-section-pad style="background:#16171c; padding:56px 30px; border-top:1px solid #34363e">
+    <h2 data-heading="title" style="margin:0 0 16px; font-size:30px; font-weight:900; color:#fff; text-align:center">What Experts Say</h2>
+    <p style="margin:0 0 30px; font-size:15px; color:#9a9da6; text-align:center">Trusted in production pipelines at studios including <a href="https://www.remedygames.com/" style="color:#22c55e; text-decoration:none; font-weight:700">Remedy Entertainment</a> and <a href="https://kitbash3d.com/" style="color:#22c55e; text-decoration:none; font-weight:700">KitBash3D</a>.</p>
+    <table role="presentation" style="max-width:820px; margin:0 auto; width:100%; border-collapse:separate; border-spacing:0 14px; border:0">
+      <tbody>
+        <tr><td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:22px 24px">
+          <p style="margin:0 0 14px; font-size:16px; color:#d7d9e0; line-height:1.6; font-style:italic">"This addon is a must-have. It takes all the hassle and tedious work out of creating custom collision. So fast and easy to use, and it even takes care of naming and parenting with support for custom prefixes."</p>
+          <div style="display:flex; align-items:center">
+            <img src="/images/simple_collider/RichardCourt.jpg" alt="Richard Court" style="width:40px; height:40px; border-radius:50%; vertical-align:middle; margin-right:12px">
+            <span style="font-size:14px; color:#9a9da6"><a href="https://www.artstation.com/richardcourt" style="color:#22c55e; text-decoration:none; font-weight:700">Richard Court</a>, Principal Environment Artist at Studio Gobo</span>
+          </div>
+        </td></tr>
+        <tr><td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:22px 24px">
+          <p style="margin:0 0 14px; font-size:16px; color:#d7d9e0; line-height:1.6; font-style:italic">"This is something that a lot of people overlook on how much time it can take up on a project. With its intuitive interface and support for complex shapes, it's impressive how quickly you can get usable results."</p>
+          <div style="display:flex; align-items:center">
+            <img src="/images/simple_collider/JeremyEstrellado.jpg" alt="Jeremiah Estrellado" style="width:40px; height:40px; border-radius:50%; vertical-align:middle; margin-right:12px">
+            <span style="font-size:14px; color:#9a9da6"><a href="https://www.artstation.com/dinusty" style="color:#22c55e; text-decoration:none; font-weight:700">Jeremiah Estrellado</a>, Associate Art Director &amp; Founder of The Dinusty Empire</span>
+          </div>
+        </td></tr>
+        <tr><td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:22px 24px">
+          <p style="margin:0 0 14px; font-size:16px; color:#d7d9e0; line-height:1.6; font-style:italic">"I am a huge fan of addons that reduce the steps and amount of clicks it takes me to do menial tasks. This addon is one of those. Its simple and clean and will save a lot of time for anyone making collision meshes in Blender for use in game engines like Unreal Engine. I wish I had this addon a lot sooner!"</p>
+          <div style="display:flex; align-items:center">
+            <img src="/images/simple_collider/Michael_Kinsey.jpg" alt="Michael Kinsey" style="width:40px; height:40px; border-radius:50%; vertical-align:middle; margin-right:12px">
+            <span style="font-size:14px; color:#9a9da6"><a href="https://www.artstation.com/michaelkinsey" style="color:#22c55e; text-decoration:none; font-weight:700">Michael Kinsey</a>, Senior Shader Technical Director at Thats No Moon Entertainment</span>
+          </div>
+        </td></tr>
+        <tr><td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:22px 24px">
+          <p style="margin:0 0 14px; font-size:16px; color:#d7d9e0; line-height:1.6; font-style:italic">"I have been lucky enough to be able to try Simple Collider in the past months and I can tell you that it became directly one of my favorite and most used add-ons. Everything is just so simple and powerful. Now I can create collisions in a matter of seconds for any assets or modular kit and spend all this extra saved time on more creative and fulfilling tasks!"</p>
+          <div style="display:flex; align-items:center">
+            <img src="/images/simple_collider/J%C3%A9r%C3%A9my_Cerisy.jpg" alt="Jérémy Cerisy" style="width:40px; height:40px; border-radius:50%; vertical-align:middle; margin-right:12px">
+            <span style="font-size:14px; color:#9a9da6"><a href="https://www.artstation.com/jcerisy" style="color:#22c55e; text-decoration:none; font-weight:700">Jérémy Cerisy</a>, Senior Environment Artist at Remedy Entertainment</span>
+          </div>
+        </td></tr>
+        <tr><td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:22px 24px">
+          <p style="margin:0 0 14px; font-size:16px; color:#d7d9e0; line-height:1.6; font-style:italic">"Making collisions is often the most annoying part of the art pipeline. I think anyone working in real-time 3D deserves to get through this moment the proper way. That's what this addon allows."</p>
+          <div style="display:flex; align-items:center">
+            <img src="/images/simple_collider/ArthurChamerois.jpg" alt="Arthur Chamerois" style="width:40px; height:40px; border-radius:50%; vertical-align:middle; margin-right:12px">
+            <span style="font-size:14px; color:#9a9da6"><a href="https://www.artstation.com/artcha" style="color:#22c55e; text-decoration:none; font-weight:700">Arthur Chamerois</a>, 3D Artist at Playdead</span>
+          </div>
+        </td></tr>
+        <tr><td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:22px 24px">
+          <p style="margin:0 0 14px; font-size:16px; color:#d7d9e0; line-height:1.6; font-style:italic">"This addon was extremely useful and made creating collisions quick and efficient. The entire modeling team used it and were able to pick it up very quickly."</p>
+          <table role="presentation" style="width:100%; border-collapse:separate; border-spacing:0 6px; border:0">
+            <tbody>
+              <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">"Simple Collider has proven to be an indispensable tool for our workflow, making it easy to create and manage colliders to meet our needs. The pie menu and Oriented Minimum Bounding Box have been absurdly helpful!"</td></tr>
+              <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">"I love that if you have multiple objects selected, you can create colliders for all of them at the same time. This speeds up the process a lot."</td></tr>
+            </tbody>
+          </table>
+          <div style="display:flex; align-items:center; margin-top:14px">
+            <img src="/images/simple_collider/MikeReese.jpg" alt="Mike Reese" style="width:40px; height:40px; border-radius:50%; vertical-align:middle; margin-right:12px">
+            <span style="font-size:14px; color:#9a9da6"><a href="https://www.artstation.com/meltingface3d" style="color:#22c55e; text-decoration:none; font-weight:700">Mike Reese</a>, VP of Asset Production at KitBash3D</span>
+          </div>
+        </td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Why Trust -->
+  <div data-section-pad style="background:#1c1e24; padding:56px 30px; border-top:1px solid #34363e">
+    <h2 data-heading="title" style="margin:0 0 16px; font-size:30px; font-weight:900; color:#fff; text-align:center">Why Trust Simple Collider?</h2>
+    <p style="margin:0 auto 30px; max-width:680px; font-size:16px; color:#9a9da6; line-height:1.7; text-align:center">Over a decade refining workflows for real-time engines. Simple Renaming, Simple Collider, Simple Export, and Simple Camera Manager are used and trusted by thousands of artists and studios worldwide.</p>
+    <div style="display:flex; max-width:820px; margin:0 auto 26px; border-radius:14px; overflow:hidden; border:1px solid #34363e">
+      <a href="https://extensions.blender.org/add-ons/simple-renaming-panel/" aria-label="Simple Renaming" style="flex:1 1 25%; aspect-ratio:1/1; display:block; background-image:url(/images/simple_export/branding_squares.jpg); background-repeat:no-repeat; background-size:400% 100%; background-position:0% 0"></a>
+      <div role="img" aria-label="Simple Collider" style="flex:1 1 25%; aspect-ratio:1/1; display:block; background-image:url(/images/simple_export/branding_squares.jpg); background-repeat:no-repeat; background-size:400% 100%; background-position:33.333% 0"></div>
+      <a href="https://superhivemarket.com/products/simple-camera-manager" aria-label="Simple Camera Manager" style="flex:1 1 25%; aspect-ratio:1/1; display:block; background-image:url(/images/simple_export/branding_squares.jpg); background-repeat:no-repeat; background-size:400% 100%; background-position:66.667% 0"></a>
+      <a href="https://superhivemarket.com/products/simple-export" aria-label="Simple Export" style="flex:1 1 25%; aspect-ratio:1/1; display:block; background-image:url(/images/simple_export/branding_squares.jpg); background-repeat:no-repeat; background-size:400% 100%; background-position:100% 0"></a>
+    </div>
+    <table role="presentation" data-stack-grid="pills" style="margin:0 auto; border-collapse:separate; border-spacing:10px 0; border:0">
+      <tbody><tr>
+        <td style="border:none"><a href="https://extensions.blender.org/add-ons/simple-renaming-panel/" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Simple Renaming — 50,000+ users</a></td>
+        <td style="border:none"><a href="https://superhivemarket.com/products/simple-export" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Simple Export</a></td>
+        <td style="border:none"><a href="https://superhivemarket.com/products/simple-camera-manager" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Simple Camera Manager</a></td>
+      </tr></tbody>
+    </table>
+  </div>
+
+  <!-- Footer CTA -->
+  <div data-section-pad style="background:#16171c; border-top:2px solid #22c55e; padding:46px 30px; text-align:center">
+    <div style="font-size:20px; font-weight:900; color:#fff; margin-bottom:6px">Get Simple Collider</div>
+    <div style="font-size:14px; color:#9a9da6; margin-bottom:26px; max-width:520px; margin-left:auto; margin-right:auto">Handle the entire collision workflow in Blender — so you can stay focused on the asset, not the setup. Actively trusted by indies and studios alike.</div>
+    <table role="presentation" data-stack-grid="pills" style="margin:0 auto; border-collapse:separate; border-spacing:8px 0; border:0">
+      <tbody><tr>
+        <td style="border:none"><a href="https://superhivemarket.com/creators/matthias-patscheider" style="display:inline-block; background:#22c55e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#16171c !important">More by Matthias</a></td>
+        <td style="border:none"><a href="/simple_collider/collider_overview/" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">Documentation</a></td>
+        <td style="border:none"><a href="https://www.artstation.com/matthias-patscheider" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">ArtStation</a></td>
+      </tr></tbody>
+    </table>
+    <p style="margin:18px 0 0; font-size:12px"><a href="/legal-notice.html" style="color:#9a9da6; text-decoration:none">Legal Notice</a></p>
+  </div>
+
+</div>
+
+</body>
+</html>
