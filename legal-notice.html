@@ -104,8 +104,9 @@
        hoverable) gives the same visual breathing room without the gap. */
     .site-nav-dropdown-menu { display: none; position: absolute; top: 100%; left: 0; min-width: 210px; background: #1c1e24; border: 1px solid #34363e; border-radius: 10px; padding: 14px 6px 6px; box-shadow: 0 14px 34px rgba(0,0,0,0.45); }
     .site-nav-dropdown:hover .site-nav-dropdown-menu, .site-nav-dropdown:focus-within .site-nav-dropdown-menu { display: block; }
-    .site-nav-dropdown-menu a { display: block; padding: 8px 10px; border-radius: 6px; color: #d7d9e0; text-decoration: none; font-size: 13px; font-weight: 600; }
+    .site-nav-dropdown-menu a { display: block; padding: 8px 10px; border-radius: 6px; color: #d7d9e0; text-decoration: none; font-size: 13px; font-weight: 600; white-space: nowrap; }
     .site-nav-dropdown-menu a:hover, .site-nav-dropdown-menu a.is-active { background: #24262d; color: #ffffff; }
+    .nav-badge-alpha { display: inline-block; margin-left: 6px; background: rgba(236,72,153,0.14); border: 1px solid rgba(236,72,153,0.4); color: #fbcfe8; padding: 2px 6px; border-radius: 8px; font-size: 9px; font-weight: 700; letter-spacing: 1px; vertical-align: middle; }
     @media (max-width: 640px) {
       .site-nav-toggle-label { display: flex; }
       .site-nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; background: #16171c; border-bottom: 1px solid #34363e; padding: 4px 20px 18px; }
@@ -132,13 +133,13 @@
           <a href="/simple-collider.html">Simple Collider</a>
           <a href="/simple-export.html">Simple Export</a>
           <a href="/simple-camera-manager.html">Simple Camera Manager</a>
-          <a href="/simple-pbr-layering.html">Simple PBR Layering</a>
-          <a href="/simple-uv-nodes.html">Simple UV Nodes</a>
+          <a href="/simple-pbr-layering.html">Simple PBR Layering <span class="nav-badge-alpha">ALPHA</span></a>
+          <a href="/simple-uv-nodes.html">Simple UV Nodes <span class="nav-badge-alpha">ALPHA</span></a>
           </div>
         </div>
         <a href="/mentoring.html">Mentoring</a>
-        <a href="https://discord.gg/VRzdcFpczm">Discord &#8599;</a>
-        <a href="https://www.artstation.com/matthias-patscheider">ArtStation &#8599;</a>
+        <a href="https://discord.gg/VRzdcFpczm" target="_blank" rel="noopener noreferrer">Discord &#8599;</a>
+        <a href="https://www.artstation.com/matthias-patscheider" target="_blank" rel="noopener noreferrer">ArtStation &#8599;</a>
         <a href="/#contact">Contact</a>
       </nav>
     </div>
@@ -180,7 +181,7 @@
     <table role="presentation" data-stack-grid="pills" style="margin:0 auto; border-collapse:separate; border-spacing:10px 0; border:0">
       <tbody><tr>
         <td style="border:none"><a href="https://superhivemarket.com/creators/matthias-patscheider" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Superhive Store</a></td>
-        <td style="border:none"><a href="https://www.artstation.com/matthias-patscheider" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">ArtStation</a></td>
+        <td style="border:none"><a href="https://www.artstation.com/matthias-patscheider" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">ArtStation</a></td>
         <td style="border:none"><a href="/mentoring.html" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Mentoring</a></td>
       </tr></tbody>
     </table>

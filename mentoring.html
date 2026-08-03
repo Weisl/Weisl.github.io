@@ -104,8 +104,9 @@
        hoverable) gives the same visual breathing room without the gap. */
     .site-nav-dropdown-menu { display: none; position: absolute; top: 100%; left: 0; min-width: 210px; background: #1c1e24; border: 1px solid #34363e; border-radius: 10px; padding: 14px 6px 6px; box-shadow: 0 14px 34px rgba(0,0,0,0.45); }
     .site-nav-dropdown:hover .site-nav-dropdown-menu, .site-nav-dropdown:focus-within .site-nav-dropdown-menu { display: block; }
-    .site-nav-dropdown-menu a { display: block; padding: 8px 10px; border-radius: 6px; color: #d7d9e0; text-decoration: none; font-size: 13px; font-weight: 600; }
+    .site-nav-dropdown-menu a { display: block; padding: 8px 10px; border-radius: 6px; color: #d7d9e0; text-decoration: none; font-size: 13px; font-weight: 600; white-space: nowrap; }
     .site-nav-dropdown-menu a:hover, .site-nav-dropdown-menu a.is-active { background: #24262d; color: #ffffff; }
+    .nav-badge-alpha { display: inline-block; margin-left: 6px; background: rgba(236,72,153,0.14); border: 1px solid rgba(236,72,153,0.4); color: #fbcfe8; padding: 2px 6px; border-radius: 8px; font-size: 9px; font-weight: 700; letter-spacing: 1px; vertical-align: middle; }
     @media (max-width: 640px) {
       .site-nav-toggle-label { display: flex; }
       .site-nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; background: #16171c; border-bottom: 1px solid #34363e; padding: 4px 20px 18px; }
@@ -132,13 +133,13 @@
           <a href="/simple-collider.html">Simple Collider</a>
           <a href="/simple-export.html">Simple Export</a>
           <a href="/simple-camera-manager.html">Simple Camera Manager</a>
-          <a href="/simple-pbr-layering.html">Simple PBR Layering</a>
-          <a href="/simple-uv-nodes.html">Simple UV Nodes</a>
+          <a href="/simple-pbr-layering.html">Simple PBR Layering <span class="nav-badge-alpha">ALPHA</span></a>
+          <a href="/simple-uv-nodes.html">Simple UV Nodes <span class="nav-badge-alpha">ALPHA</span></a>
           </div>
         </div>
         <a href="/mentoring.html" class="is-active">Mentoring</a>
-        <a href="https://discord.gg/VRzdcFpczm">Discord &#8599;</a>
-        <a href="https://www.artstation.com/matthias-patscheider">ArtStation &#8599;</a>
+        <a href="https://discord.gg/VRzdcFpczm" target="_blank" rel="noopener noreferrer">Discord &#8599;</a>
+        <a href="https://www.artstation.com/matthias-patscheider" target="_blank" rel="noopener noreferrer">ArtStation &#8599;</a>
         <a href="/#contact">Contact</a>
       </nav>
     </div>
@@ -156,15 +157,17 @@
   <div style="position:relative;min-height:520px;background:#1c1e24 url('/images/mentoring/hero_banner.jpg') center 35%/cover no-repeat;">
     <div style="position:absolute;inset:0;background:linear-gradient(100deg, #1c1e24 0%, #1c1e24 48%, rgba(28,30,36,0.78) 70%, rgba(28,30,36,0.15) 100%);"></div>
     <div data-section-pad style="position:relative; max-width:660px; padding:88px 34px 84px 30px">
-      <div style="display:inline-block; background:#1c1e24; border:1px solid #3b82f6; border-radius:20px; padding:6px 14px; margin-bottom:22px; font-size:11px; font-weight:700; letter-spacing:2px; color:#3b82f6">1:1 MENTORING · ENVIRONMENT &amp; TECH ART</div>
       <h1 style="margin:0 0 22px; line-height:1">
         <span style="display:flex; align-items:center; gap:14px">
-          <span data-heading="display" style='font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-size:50px; font-weight:900; color:#fff; line-height:1; text-shadow:0 2px 14px rgba(0, 0, 0, 0.6)'>MENTORING</span>
+          <span data-heading="display" style='font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-size:50px; font-weight:900; color:#3b82f6; line-height:1; text-shadow:0 2px 14px rgba(0, 0, 0, 0.6)'>MENTORING</span>
           <svg width="40" height="40" viewbox="0 0 44 44" style="flex-shrink:0">
-            <polygon points="4,36 15,15 22,27 31,9 40,36" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-linejoin="round"></polygon>
+            <polygon points="4,16 22,6 40,16 22,26" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-linejoin="round"></polygon>
+            <path d="M13,18 C13,29 31,29 31,18" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round"></path>
+            <line x1="38" y1="17" x2="38" y2="29" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round"></line>
+            <circle cx="38" cy="31" r="2" fill="#3b82f6"></circle>
           </svg>
         </span>
-        <span data-heading="title" style="display:block; font-size:36px; font-weight:500; color:#3b82f6; line-height:1.15; margin-top:8px; text-shadow:0 2px 14px rgba(0, 0, 0, 0.6)">Mentoring, Workshops &amp; Speaking</span>
+        <span data-heading="title" style="display:block; font-size:36px; font-weight:500; color:#fff; line-height:1.15; margin-top:8px; text-shadow:0 2px 14px rgba(0, 0, 0, 0.6)">Mentoring, Workshops &amp; Speaking</span>
       </h1>
       <p style="margin:0 0 26px; max-width:480px; font-size:19px; color:#d7d9e0; line-height:1.6; text-shadow:0 1px 8px rgba(0, 0, 0, 0.7)">Over a decade in game art, now teaching what actually works in production.</p>
       <div style="display:flex; flex-wrap:wrap; gap:8px; max-width:480px">
@@ -178,28 +181,28 @@
   </div>
   <div style="height:3px; background:#3b82f6"></div>
 
-  <!-- What I Can Offer -->
+  <!-- What I Offer -->
   <div data-section-pad style="background:#16171c; padding:56px 30px">
-    <h2 data-heading="title" style="margin:0 0 8px; font-size:32px; font-weight:900; color:#fff; text-align:center">What Can I Offer</h2>
-    <p style="margin:0 0 36px; font-size:15px; color:#9a9da6; text-align:center">Production experience, not recycled tutorial content.</p>
+    <h2 data-heading="title" style="margin:0 0 8px; font-size:32px; font-weight:900; color:#fff; text-align:center">What I Offer</h2>
+    <p style="margin:0 0 36px; font-size:15px; color:#9a9da6; text-align:center">Personalized, individual training based on real production experience.</p>
     <table role="presentation" data-stack-grid="cards" style="max-width:920px; margin:0 auto; width:100%; border-collapse:separate; border-spacing:10px; border:0">
       <tbody>
         <tr>
           <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:25%">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">AAA Production Experience</div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Environment art across shipped titles, startup to AAA scale — <em>Alan Wake 2</em>, <em>FBC Firebreak</em>, <em>Black Mirror</em>, <em>Crossfire X</em>.</div>
+            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Environment Art</div>
+            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Experience in environment art on shipped titles, from startup to AAA: <em>Alan Wake 2</em>, <em>FBC Firebreak</em>, <em>Black Mirror</em>, <em>Crossfire X</em>, and more.</div>
           </td>
           <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:25%">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Tech Art &amp; Pipeline Depth</div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Blender Python API, Geometry Nodes, and custom tooling — I build the addons other artists rely on.</div>
+            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Tech Art &amp; Pipeline</div>
+            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Contributing to workflows and pipelines across different studios, incorporating new technologies into workflows.</div>
           </td>
           <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:25%">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Tools Used by Thousands</div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Creator of the Simple Pipeline Tools — Simple Renaming alone has 50,000+ downloads.</div>
+            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Tool Creation</div>
+            <div style="font-size:13px; color:#9a9da6; line-height:1.6">As an artist who also builds tools, like the Simple Tools with 50,000+ downloads, I can share a perspective on tool development from both sides.</div>
           </td>
           <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:25%">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Open-Source &amp; Tool-Agnostic</div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Daily driver: Linux and Blender. I pick the tool that solves the problem — free, open-source, and European alternatives included, not just the industry default.</div>
+            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Open Source</div>
+            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Flexibility matters to me. I choose whatever tool is best suited for the job, but I highly value open source and alternatives to big tech.</div>
           </td>
         </tr>
       </tbody>
@@ -209,89 +212,34 @@
       <span style="display:inline-block; background:transparent; border:1px solid #3b82f6; border-radius:6px; padding:6px 12px; font-size:12px; font-weight:700; color:#3b82f6">LEVEL ART</span>
       <span style="display:inline-block; background:transparent; border:1px solid #3b82f6; border-radius:6px; padding:6px 12px; font-size:12px; font-weight:700; color:#3b82f6">HARD-SURFACE</span>
       <span style="display:inline-block; background:transparent; border:1px solid #3b82f6; border-radius:6px; padding:6px 12px; font-size:12px; font-weight:700; color:#3b82f6">PBR</span>
-      <span style="display:inline-block; background:transparent; border:1px solid #3b82f6; border-radius:6px; padding:6px 12px; font-size:12px; font-weight:700; color:#3b82f6">PROCEDURALISM</span>
-      <span style="display:inline-block; background:transparent; border:1px solid #3b82f6; border-radius:6px; padding:6px 12px; font-size:12px; font-weight:700; color:#3b82f6">COMPOSITION</span>
-      <span style="display:inline-block; background:transparent; border:1px solid #3b82f6; border-radius:6px; padding:6px 12px; font-size:12px; font-weight:700; color:#3b82f6">MODULARITY</span>
       <span style="display:inline-block; background:transparent; border:1px solid #3b82f6; border-radius:6px; padding:6px 12px; font-size:12px; font-weight:700; color:#3b82f6">WORLD BUILDING</span>
-      <span style="display:inline-block; background:transparent; border:1px solid #3b82f6; border-radius:6px; padding:6px 12px; font-size:12px; font-weight:700; color:#3b82f6">PLANNING</span>
+      <span style="display:inline-block; background:transparent; border:1px solid #3b82f6; border-radius:6px; padding:6px 12px; font-size:12px; font-weight:700; color:#3b82f6">MODULARITY</span>
+      <span style="display:inline-block; background:transparent; border:1px solid #3b82f6; border-radius:6px; padding:6px 12px; font-size:12px; font-weight:700; color:#3b82f6">PYTHON API</span>
+      <span style="display:inline-block; background:transparent; border:1px solid #3b82f6; border-radius:6px; padding:6px 12px; font-size:12px; font-weight:700; color:#3b82f6">GEOMETRY NODES</span>
+      <span style="display:inline-block; background:transparent; border:1px solid #3b82f6; border-radius:6px; padding:6px 12px; font-size:12px; font-weight:700; color:#3b82f6">SHADER DEVELOPMENT</span>
+      <span style="display:inline-block; background:transparent; border:1px solid #3b82f6; border-radius:6px; padding:6px 12px; font-size:12px; font-weight:700; color:#3b82f6">PORTFOLIO REVIEW</span>
+      <span style="display:inline-block; background:transparent; border:1px solid #3b82f6; border-radius:6px; padding:6px 12px; font-size:12px; font-weight:700; color:#3b82f6">INTERVIEW PREP</span>
     </div>
   </div>
 
-  <!-- Software -->
-  <div data-section-pad style="background:#1c1e24; padding:56px 30px; border-top:1px solid #34363e">
-    <h2 data-heading="title" style="margin:0 0 8px; font-size:32px; font-weight:900; color:#fff; text-align:center">Software</h2>
-    <p style="margin:0 0 36px; font-size:15px; color:#9a9da6; text-align:center">Primary tools, plus a working range across engines and DCCs.</p>
-    <table role="presentation" data-stack-grid="cards" style="max-width:920px; margin:0 auto; width:100%; border-collapse:separate; border-spacing:10px; border:0">
-      <tbody>
-        <tr>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:25%">
-            <div style="width:56px; height:56px; display:flex; align-items:center; justify-content:center; margin-bottom:14px">
-              <img src="/images/mentoring/logos/blender.svg" alt="Blender" style="width:100%; height:100%; object-fit:contain; display:block">
-            </div>
-            <div style="font-size:22px; font-weight:800; color:#fff; margin-bottom:6px">Blender</div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Primary DCC — modeling, look dev, and the addons I build myself.</div>
-          </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:25%">
-            <div style="width:56px; height:56px; display:flex; align-items:center; justify-content:center; margin-bottom:14px">
-              <img src="/images/mentoring/logos/houdini.svg" alt="Houdini" style="width:100%; height:100%; object-fit:contain; display:block">
-            </div>
-            <div style="font-size:22px; font-weight:800; color:#fff; margin-bottom:6px">Houdini</div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Procedural workflows for modular assets, VFX, and simulations.</div>
-          </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:25%">
-            <div style="width:56px; height:56px; display:flex; align-items:center; justify-content:center; margin-bottom:14px">
-              <img src="/images/mentoring/logos/substance.svg" alt="Substance" style="width:100%; height:100%; object-fit:contain; display:block">
-            </div>
-            <div style="font-size:22px; font-weight:800; color:#fff; margin-bottom:6px">Substance</div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Texturing and material authoring.</div>
-          </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:25%">
-            <div style="width:56px; height:56px; display:flex; align-items:center; justify-content:center; margin-bottom:14px">
-              <img src="/images/mentoring/logos/unreal.svg" alt="Unreal Engine" style="width:100%; height:100%; object-fit:contain; display:block">
-            </div>
-            <div style="font-size:22px; font-weight:800; color:#fff; margin-bottom:6px">Unreal Engine</div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">In-engine lighting, material setup, and turning DCC work into a finished real-time scene.</div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <p style="max-width:920px; margin:26px auto 0; font-size:13px; font-weight:700; letter-spacing:1px; color:#9a9da6; text-align:center">ALSO FAMILIAR WITH</p>
-    <p style="max-width:640px; margin:16px auto 0; font-size:14px; color:#9a9da6; line-height:1.7; text-align:center">zBrush, Speedtree, Gaea, Marvelous Designer, Marmoset Toolbag, Godot, Meshroom, RealityCapture, Agisoft, and Unity — happy to help you pick the right tool for what you're trying to achieve.</p>
+  <!-- Mid-page banner: a purpose-shot 3:1 collage (code, hard-surface
+       wireframe, Geometry Nodes graph) sized to exactly match this
+       container, so it's shown centered/uncropped rather than positioned
+       like the hero's photo crop. -->
+  <div style="position:relative;width:100%;aspect-ratio:3/1;min-height:420px;display:flex;align-items:flex-end;justify-content:center;background:#1c1e24 url('/images/alpine_empire/GameBanner.jpg') center/cover no-repeat;">
+    <div style="position:absolute;inset:0;background:linear-gradient(0deg, rgba(28,30,36,0.94) 0%, rgba(28,30,36,0.55) 45%, rgba(28,30,36,0.08) 72%);"></div>
+    <div data-section-pad style="position:relative; max-width:720px; padding:0 34px 46px; text-align:center">
+      <div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#3b82f6; margin-bottom:10px; text-shadow:0 1px 8px rgba(0, 0, 0, 0.9)">WHO THIS IS FOR</div>
+      <h2 data-heading="title" style="margin:0 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.25; text-shadow:0 2px 14px rgba(0, 0, 0, 0.7)">Wherever You're Starting From<br>— Sessions Meet You There</h2>
+      <p style="margin:0 0 20px; max-width:600px; margin-left:auto; margin-right:auto; font-size:16px; color:#d7d9e0; line-height:1.6; text-shadow:0 1px 8px rgba(0, 0, 0, 0.7)">Whether you're just starting out, switching fields, or sharpening a skill, you bring your work in progress and your actual questions. Sessions give honest, specific feedback on what to focus on next.</p>
+    </div>
   </div>
+  <div style="height:3px; background:#3b82f6"></div>
 
-  <!-- Speaking & Teaching -->
-  <div data-section-pad style="background:#16171c; padding:56px 30px; border-top:1px solid #34363e">
-    <h2 data-heading="title" style="margin:0 0 8px; font-size:32px; font-weight:900; color:#fff; text-align:center">Speaking &amp; Teaching</h2>
-    <p style="margin:0 0 36px; font-size:15px; color:#9a9da6; text-align:center">Sharing what I know isn't new — it's how I already work.</p>
-    <table role="presentation" data-stack-grid="cards" style="max-width:920px; margin:0 auto; width:100%; border-collapse:separate; border-spacing:10px; border:0">
-      <tbody>
-        <tr>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:33%">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Blender Conference 2024</div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6; margin-bottom:10px">"Game Art Insights: Art, Tech and Teamwork"</div>
-            <p style="margin:0; font-size:14px; color:#9a9da6"><a href="https://www.youtube.com/watch?v=hVF0UjFfHVo" style="color:#3b82f6; text-decoration:none; font-weight:700">Watch the talk ↗</a></p>
-          </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:33%">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Nordic Games 2026</div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">"Worldbuilding 101: Creating Plausible Environments"</div>
-          </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:33%">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">University &amp; Community Talks</div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Smaller sessions at universities and community events.</div>
-          </td>
-        </tr>
-        <tr>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:33%">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">University of Hagenberg</div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">ZBrush Essentials and 3D Basics workshops.</div>
-          </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:33%">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">MIT</div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">University talk at the Massachusetts Institute of Technology.</div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <!-- Learn -->
+  <div data-section-pad style="background:#16171c; padding:56px 30px">
+    <h2 data-heading="title" style="margin:0 0 8px; font-size:32px; font-weight:900; color:#fff; text-align:center">What You Learn</h2>
+    <p style="margin:0 0 36px; font-size:15px; color:#9a9da6; text-align:center">Three tracks, mix and match based on what you need.</p>
   </div>
 
   <!-- Environment Art & World Building -->
@@ -300,9 +248,30 @@
       <tbody>
         <tr>
           <td style="vertical-align:middle; width:100%; border:none">
-            <div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#3b82f6">ENVIRONMENT ART &amp; WORLD BUILDING</div>
-            <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">Scenes That Read<br>With Intent</h2>
-            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7">Modular workflows, lighting, and composition — how to go from a blockout to a scene that reads clearly, with the right detail in the right places. Paired with research-driven world-building, so a space, real or fictional, feels grounded and lived-in instead of assembled.</p>
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px">
+              <span style="flex-shrink:0; width:34px; height:34px; border-radius:50%; background:rgba(59, 130, 246, 0.14); border:1px solid #3b82f6; display:flex; align-items:center; justify-content:center">
+                <svg width="18" height="18" viewbox="0 0 44 44">
+                  <polyline points="4,34 15,16 22,26 31,10 40,34" fill="none" stroke="#3b82f6" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"></polyline>
+                </svg>
+              </span>
+              <div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#3b82f6">ENVIRONMENT ART &amp; WORLD BUILDING</div>
+            </div>
+            <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">Creating Game-Ready<br>Environments</h2>
+            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7; margin-bottom:20px">Modular workflows, lighting, and composition — how to go from a blockout to a scene that reads clearly and supports both gameplay and narrative, grounded in real world-building.</p>
+            <table role="presentation" style="width:100%; border-collapse:separate; border-spacing:0 6px; border:0">
+              <tbody>
+                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
+<span style="color:#3b82f6; font-weight:900">✓</span> Level art and design, from blockout to final, with gameplay and player guidance in mind</td></tr>
+                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
+<span style="color:#3b82f6; font-weight:900">✓</span> Large-scale architectural elements using modularity, trim sheets, and similar techniques</td></tr>
+                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
+<span style="color:#3b82f6; font-weight:900">✓</span> Foliage and landscapes</td></tr>
+                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
+<span style="color:#3b82f6; font-weight:900">✓</span> High-quality prop creation</td></tr>
+                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
+<span style="color:#3b82f6; font-weight:900">✓</span> Final scene presentation — lighting, particles, and camera — plus breakdown and portfolio presentation</td></tr>
+              </tbody>
+            </table>
           </td>
         </tr>
       </tbody>
@@ -315,7 +284,18 @@
       <tbody>
         <tr>
           <td style="vertical-align:middle; width:100%; border:none">
-            <div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#3b82f6">TECH ART, TOOLING &amp; PIPELINE</div>
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px">
+              <span style="flex-shrink:0; width:34px; height:34px; border-radius:50%; background:rgba(59, 130, 246, 0.14); border:1px solid #3b82f6; display:flex; align-items:center; justify-content:center">
+                <svg width="18" height="18" viewbox="0 0 44 44">
+                  <rect x="4" y="17" width="10" height="10" rx="2" fill="none" stroke="#3b82f6" stroke-width="2.5"></rect>
+                  <rect x="30" y="6" width="10" height="10" rx="2" fill="none" stroke="#3b82f6" stroke-width="2.5"></rect>
+                  <rect x="30" y="28" width="10" height="10" rx="2" fill="none" stroke="#3b82f6" stroke-width="2.5"></rect>
+                  <line x1="14" y1="22" x2="30" y2="11" stroke="#3b82f6" stroke-width="2"></line>
+                  <line x1="14" y1="22" x2="30" y2="33" stroke="#3b82f6" stroke-width="2"></line>
+                </svg>
+              </span>
+              <div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#3b82f6">TECH ART, TOOLING &amp; PIPELINE (BLENDER &amp; HOUDINI)</div>
+            </div>
             <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">Build the Tools<br>You're Waiting On</h2>
             <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7; margin-bottom:20px">Blender addon development, the Python API, and Geometry Nodes — for artists who want to stop waiting on tools that don't exist yet. The same thinking applied to process: asset workflows, naming and organization systems, and the small pipeline fixes that compound across a whole scene, or a whole team.</p>
             <table role="presentation" style="width:100%; border-collapse:separate; border-spacing:0 6px; border:0">
@@ -324,6 +304,10 @@
 <span style="color:#3b82f6; font-weight:900">✓</span> Blender Python API fundamentals, applied to real production problems</td></tr>
                 <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
 <span style="color:#3b82f6; font-weight:900">✓</span> Geometry Nodes for procedural, reusable workflows</td></tr>
+                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
+<span style="color:#3b82f6; font-weight:900">✓</span> Shader development — building complex, efficient shaders in Blender and Unreal</td></tr>
+                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
+<span style="color:#3b82f6; font-weight:900">✓</span> Houdini tools and procedural workflows for world building</td></tr>
               </tbody>
             </table>
           </td>
@@ -332,13 +316,36 @@
     </table>
   </div>
 
+  <!-- Mid-page banner: a purpose-shot 3:1 collage (code, hard-surface
+       wireframe, Geometry Nodes graph) sized to exactly match this
+       container, so it's shown centered/uncropped rather than positioned
+       like the hero's photo crop. -->
+  <div style="position:relative;width:100%;aspect-ratio:3/1;min-height:420px;display:flex;align-items:flex-end;justify-content:center;background:#1c1e24 url('/images/mentoring/Tech_Art_Banner.jpg') center/cover no-repeat;">
+    <div style="position:absolute;inset:0;background:linear-gradient(0deg, rgba(28,30,36,0.94) 0%, rgba(28,30,36,0.55) 45%, rgba(28,30,36,0.08) 72%);"></div>
+    <div data-section-pad style="position:relative; max-width:720px; padding:0 34px 46px; text-align:center">
+      <div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#3b82f6; margin-bottom:10px; text-shadow:0 1px 8px rgba(0, 0, 0, 0.9)">THE TOOLS BEHIND 50,000+ DOWNLOADS</div>
+      <h2 data-heading="title" style="margin:0 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.25; text-shadow:0 2px 14px rgba(0, 0, 0, 0.7)">Python API, Geometry Nodes,<br>and Addons Built for Production</h2>
+      <p style="margin:0 0 20px; max-width:600px; margin-left:auto; margin-right:auto; font-size:16px; color:#d7d9e0; line-height:1.6; text-shadow:0 1px 8px rgba(0, 0, 0, 0.7)">I build the Simple Pipeline Tools thousands of Blender artists rely on — Simple Renaming alone has 50,000+ downloads. You'll learn the same scripting and procedural workflows, aimed at real pipeline problems instead of toy examples.</p>
+    </div>
+  </div>
+  <div style="height:3px; background:#3b82f6"></div>
+
   <!-- Portfolio & Career -->
   <div data-section-pad style="background:#1c1e24; padding:56px 30px; border-top:1px solid #34363e">
     <table role="presentation" data-stack-grid="cards" style="max-width:960px; margin:0 auto; width:100%; border-collapse:collapse; border:0">
       <tbody>
         <tr>
           <td style="vertical-align:middle; width:100%; border:none">
-            <div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#3b82f6">PORTFOLIO &amp; CAREER</div>
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px">
+              <span style="flex-shrink:0; width:34px; height:34px; border-radius:50%; background:rgba(59, 130, 246, 0.14); border:1px solid #3b82f6; display:flex; align-items:center; justify-content:center">
+                <svg width="18" height="18" viewbox="0 0 44 44">
+                  <rect x="6" y="16" width="32" height="20" rx="3" fill="none" stroke="#3b82f6" stroke-width="3"></rect>
+                  <path d="M16 16 V11 a3 3 0 0 1 3 -3 h6 a3 3 0 0 1 3 3 V16" fill="none" stroke="#3b82f6" stroke-width="3"></path>
+                  <line x1="6" y1="27" x2="38" y2="27" stroke="#3b82f6" stroke-width="3"></line>
+                </svg>
+              </span>
+              <div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#3b82f6">PORTFOLIO &amp; CAREER</div>
+            </div>
             <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">Portfolio Reviews,<br>Straight Talk</h2>
             <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7; margin-bottom:20px">Honest portfolio feedback and career advice from someone who's been on both sides of the hiring table, startup and AAA.</p>
             <table role="presentation" style="width:100%; border-collapse:separate; border-spacing:0 6px; border:0">
@@ -359,7 +366,61 @@
     </table>
   </div>
 
-  <div style="height:3px; background:#3b82f6"></div>
+  <!-- What Mentees Say -->
+  <div data-section-pad style="background:#16171c; padding:56px 30px">
+    <h2 data-heading="title" style="margin:0 0 8px; font-size:32px; font-weight:900; color:#fff; text-align:center">What Mentees Say</h2>
+    <p style="margin:0 0 36px; font-size:15px; color:#9a9da6; text-align:center">Real feedback from mentees, as it comes in.</p>
+    <table role="presentation" style="max-width:820px; margin:0 auto; width:100%; border-collapse:separate; border-spacing:0 14px; border:0">
+      <tbody>
+        <tr><td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:22px 24px">
+          <p style="margin:0 0 14px; font-size:16px; color:#d7d9e0; line-height:1.6; font-style:italic">"Matthias brings a rare expertise in Blender for game art, and that makes him a uniquely valuable teacher for me. Matthias is versatile and adaptable. Whatever your needs as a mentee, he will fulfill."</p>
+          <div style="display:flex; align-items:center">
+            <span style="font-size:14px; color:#9a9da6">— Jolan Huijskes</span>
+          </div>
+        </td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Teaching Experience -->
+  <div data-section-pad style="background:#1c1e24; padding:56px 30px; border-top:1px solid #34363e">
+    <h2 data-heading="title" style="margin:0 0 8px; font-size:32px; font-weight:900; color:#fff; text-align:center">Teaching Experience</h2>
+    <p style="margin:0 0 36px; font-size:15px; color:#9a9da6; text-align:center">Sharing what I know isn't new — it's how I already work.</p>
+    <table role="presentation" data-stack-grid="cards" style="max-width:920px; margin:0 auto; width:100%; border-collapse:separate; border-spacing:10px; border:0">
+      <tbody>
+        <tr>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:33%">
+            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Blender Conference 2024</div>
+            <div style="font-size:13px; color:#9a9da6; line-height:1.6; margin-bottom:10px">"Game Art Insights: Art, Tech and Teamwork"</div>
+            <p style="margin:0; font-size:14px; color:#9a9da6"><a href="https://www.youtube.com/watch?v=hVF0UjFfHVo" target="_blank" rel="noopener noreferrer" style="color:#3b82f6; text-decoration:none; font-weight:700">Watch the talk ↗</a></p>
+          </td>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:33%">
+            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Nordic Games 2026</div>
+            <div style="font-size:13px; color:#9a9da6; line-height:1.6">"Worldbuilding 101: Creating Plausible Environments"</div>
+          </td>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:33%">
+            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">University &amp; Community Talks</div>
+            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Smaller sessions at universities and community events.</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:33%">
+            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">University Workshops</div>
+            <div style="font-size:13px; color:#9a9da6; line-height:1.6">ZBrush Essentials and 3D Basics workshops at the University of Applied Sciences Upper Austria.</div>
+          </td>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:33%">
+            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">MIT</div>
+            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Guest speaker for architecture students at the Massachusetts Institute of Technology, talking about interactive worlds.</div>
+          </td>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:33%">
+            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">We in Games Finland</div>
+            <div style="font-size:13px; color:#9a9da6; line-height:1.6; margin-bottom:10px">Volunteer mentor for the We in Games Finland mentorship program.</div>
+            <p style="margin:0; font-size:14px; color:#9a9da6"><a href="https://weingames.fi/projects/mentorship-program/" style="color:#3b82f6; text-decoration:none; font-weight:700">Learn more ↗</a></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
   <!-- How It Works -->
   <div data-section-pad style="background:#16171c; padding:56px 30px">
@@ -367,129 +428,106 @@
     <p style="margin:0 0 36px; font-size:15px; color:#9a9da6; text-align:center">From a free intro call to notes you can revisit after.</p>
     <div style="max-width:700px; margin:0 auto">
       <div style="margin-bottom:20px">
-        <div style="margin:0 0 6px; font-size:17px; font-weight:800; color:#fff">Free Getting to Know</div>
-        <div style="margin:0; font-size:14px; color:#9a9da6; line-height:1.6">15 minutes, no cost, no commitment — <a href="https://cal.eu/matthiaspatscheider/15min" style="color:#3b82f6; font-weight:700; text-decoration:none">book via Cal.eu</a> to figure out if this is a fit.</div>
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px">
+          <span style="width:46px; height:46px; background:#3b82f6; border-radius:50%; text-align:center; line-height:46px; font-size:20px; font-weight:900; color:#fff">1</span>
+          <div style="margin:0; font-size:17px; font-weight:800; color:#fff">Free Intro Call</div>
+        </div>
+        <div style="margin:0; font-size:14px; color:#9a9da6; line-height:1.6">15 minutes, no cost, no commitment — <a href="https://cal.eu/matthiaspatscheider/15min" target="_blank" rel="noopener noreferrer" style="color:#3b82f6; font-weight:700; text-decoration:none">book via Cal.eu</a> to figure out if this is a fit.</div>
+      </div>
+      <div style="background:#24262d; border:1px solid #34363e; border-left:3px solid #3b82f6; border-radius:8px; padding:14px 18px; font-size:14px; color:#d7d9e0; line-height:1.6; margin:0 0 20px">
+<strong style="color:#3b82f6">Safe Space</strong> — a judgment-free place to ask anything, from beginner questions to an honest look at where your portfolio actually stands.
+        <p style="margin:16px 0 0"><a href="https://cal.eu/matthiaspatscheider/15min" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:#3b82f6; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">Book a Free Intro Call ↗</a></p>
       </div>
       <div style="margin-bottom:20px">
-        <div style="margin:0 0 6px; font-size:17px; font-weight:800; color:#fff">Select a Mentorship Package</div>
-        <div style="margin:0; font-size:14px; color:#9a9da6; line-height:1.6">Pick a single session, the 6-session package, or studio/team training — whatever fits where you're headed. <a href="https://holvi.com/shop/alpine-empire/" style="color:#3b82f6; font-weight:700; text-decoration:none">Book via the Holvi store</a>.</div>
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px">
+          <span style="width:46px; height:46px; background:#3b82f6; border-radius:50%; text-align:center; line-height:46px; font-size:20px; font-weight:900; color:#fff">2</span>
+          <div style="margin:0; font-size:17px; font-weight:800; color:#fff">Choose Your Package</div>
+        </div>
+        <div style="margin:0; font-size:14px; color:#9a9da6; line-height:1.6">Pick a single session, the 6-session package, or studio/team training — whatever fits where you're headed. <a href="https://holvi.com/shop/alpine-empire/" target="_blank" rel="noopener noreferrer" style="color:#3b82f6; font-weight:700; text-decoration:none">Book via the Holvi store</a>.</div>
       </div>
       <div style="margin-bottom:20px">
-        <div style="margin:0 0 6px; font-size:17px; font-weight:800; color:#fff">Safe Space</div>
-        <div style="margin:0; font-size:14px; color:#9a9da6; line-height:1.6">A judgment-free space to ask anything — from beginner questions to an honest look at where your portfolio actually stands.</div>
-      </div>
-    </div>
-
-    <p style="max-width:700px; margin:8px auto 0; font-size:13px; font-weight:700; letter-spacing:1px; color:#9a9da6; text-align:center">WHAT THE MENTORING INCLUDES</p>
-
-    <div style="max-width:700px; margin:0 auto; margin-top:20px">
-      <div style="margin-bottom:20px">
-        <div style="margin:0 0 6px; font-size:17px; font-weight:800; color:#fff">Book a Time Slot</div>
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px">
+          <span style="width:46px; height:46px; background:#3b82f6; border-radius:50%; text-align:center; line-height:46px; font-size:20px; font-weight:900; color:#fff">3</span>
+          <div style="margin:0; font-size:17px; font-weight:800; color:#fff">Book a Time Slot</div>
+        </div>
         <div style="margin:0; font-size:14px; color:#9a9da6; line-height:1.6">Pick a time that works for you — evenings, weekends, and international timezones are no problem.</div>
       </div>
       <div style="margin-bottom:20px">
-        <div style="margin:0 0 6px; font-size:17px; font-weight:800; color:#fff">Send Your Work Beforehand <span style="font-weight:600; color:#9a9da6">(optional)</span>
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px">
+          <span style="width:46px; height:46px; background:#3b82f6; border-radius:50%; text-align:center; line-height:46px; font-size:20px; font-weight:900; color:#fff">4</span>
+          <div style="margin:0; font-size:17px; font-weight:800; color:#fff">Send Your Work <span style="font-weight:600; color:#9a9da6">(optional)</span>
 </div>
+        </div>
         <div style="margin:0; font-size:14px; color:#9a9da6; line-height:1.6">Upload screenshots or project files via a pCloud link so I can already take a look and prepare the session before we talk.</div>
       </div>
       <div style="margin-bottom:20px">
-        <div style="margin:0 0 6px; font-size:17px; font-weight:800; color:#fff">1.5-Hour Call</div>
-        <div style="margin:0; font-size:14px; color:#9a9da6; line-height:1.6">Live over Digital Samba, Zoom, or Teams — screen-shared, with live demos and direct feedback. Can be recorded on request.</div>
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px">
+          <span style="width:46px; height:46px; background:#3b82f6; border-radius:50%; text-align:center; line-height:46px; font-size:20px; font-weight:900; color:#fff">5</span>
+          <div style="margin:0; font-size:17px; font-weight:800; color:#fff">Session Call</div>
+        </div>
+        <div style="margin:0; font-size:14px; color:#9a9da6; line-height:1.6">Usually 1.5 hours, live over Digital Samba, Zoom, or Teams — screen-shared, with live demos and direct feedback. Can be recorded on request.</div>
       </div>
       <div style="margin-bottom:20px">
-        <div style="margin:0 0 6px; font-size:17px; font-weight:800; color:#fff">Follow-Up Notes</div>
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px">
+          <span style="width:46px; height:46px; background:#3b82f6; border-radius:50%; text-align:center; line-height:46px; font-size:20px; font-weight:900; color:#fff">6</span>
+          <div style="margin:0; font-size:17px; font-weight:800; color:#fff">Follow-Up Notes</div>
+        </div>
         <div style="margin:0; font-size:14px; color:#9a9da6; line-height:1.6">Afterward I compile notes on the most important things we discussed, so nothing from the session gets lost.</div>
       </div>
     </div>
   </div>
+  <div style="height:3px; background:#3b82f6"></div>
 
   <!-- Pricing -->
   <div data-section-pad style="background:#1c1e24; padding:56px 30px; border-top:1px solid #34363e">
     <h2 data-heading="title" style="margin:0 0 8px; font-size:32px; font-weight:900; color:#fff; text-align:center">Pricing</h2>
-    <p style="margin:0 0 36px; font-size:15px; color:#9a9da6; text-align:center">Pick what fits — single sessions, a package, or team training.</p>
+    <p style="margin:0 0 36px; font-size:15px; color:#9a9da6; text-align:center">Pick what fits — single sessions, a package, or team training. A session is usually 1.5 hours.</p>
     <table role="presentation" data-stack-grid="cards" style="max-width:920px; margin:0 auto; width:100%; border-collapse:separate; border-spacing:10px; border:0">
       <tbody>
         <tr>
           <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:25%">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">1:1 Session</div>
-            <div style="font-size:24px; font-weight:900; color:#fff; margin-bottom:8px">€110<span style="font-size:13px; font-weight:600; color:#9a9da6"> / hour</span>
-</div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">A single focused hour on whatever you need most right now.</div>
-          </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:25%">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">6-Session Package</div>
-            <div style="font-size:24px; font-weight:900; color:#fff; margin-bottom:8px">€500<span style="font-size:13px; font-weight:600; color:#9a9da6"> total</span>
-</div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">≈10% off — for mentees working toward a longer-term goal.</div>
-          </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:25%">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Studio / Team Training</div>
-            <div style="font-size:24px; font-weight:900; color:#fff; margin-bottom:8px">€150–€200<span style="font-size:13px; font-weight:600; color:#9a9da6"> / hour</span>
-</div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Remote training sessions for multiple people at once.</div>
-          </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:25%">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Student / Early-Career</div>
-            <div style="font-size:24px; font-weight:900; color:#fff; margin-bottom:8px">€80<span style="font-size:13px; font-weight:600; color:#9a9da6"> / hour</span>
+            <div style="min-height:28px; margin-bottom:10px"><span style="display:inline-block; background:transparent; border:1px solid #3b82f6; border-radius:6px; padding:6px 12px; font-size:12px; font-weight:700; color:#3b82f6; line-height:14px">REDUCED RATE</span></div>
+            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px; line-height:1.3; min-height:42px">Student / Early-Career</div>
+            <div style="font-size:24px; font-weight:900; color:#fff; margin-bottom:8px">€75<span style="font-size:13px; font-weight:600; color:#9a9da6"> / session</span>
 </div>
             <div style="font-size:13px; color:#9a9da6; line-height:1.6">A reduced rate for students and those between jobs.</div>
           </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- Who This Is For -->
-  <div data-section-pad style="background:#16171c; padding:56px 30px">
-    <h2 data-heading="title" style="margin:0 0 16px; font-size:30px; font-weight:900; color:#fff; text-align:center">Who This Is For</h2>
-    <p style="margin:0 0 30px; font-size:15px; color:#9a9da6; text-align:center">A few paths mentees usually come in on.</p>
-    <table role="presentation" data-stack-grid="cards" style="max-width:820px; margin:0 auto; width:100%; border-collapse:separate; border-spacing:12px; border:0">
-      <tbody>
-        <tr>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:10px; padding:20px 22px; vertical-align:top; border-bottom:3px solid #3b82f6; width:50%">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Self-Taught Artists</div>
-            <div style="font-size:14px; color:#9a9da6; line-height:1.6">Aiming for a first industry job — need portfolio direction and a reality check on what "AAA-ready" actually looks like.</div>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:25%">
+            <div style="min-height:28px; margin-bottom:10px"></div>
+            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px; line-height:1.3; min-height:42px">1:1 Session</div>
+            <div style="font-size:24px; font-weight:900; color:#fff; margin-bottom:8px">€110<span style="font-size:13px; font-weight:600; color:#9a9da6"> / session</span>
+</div>
+            <div style="font-size:13px; color:#9a9da6; line-height:1.6">A single focused 1.5-hour session on whatever you need most right now.</div>
           </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:10px; padding:20px 22px; vertical-align:top; border-bottom:3px solid #3b82f6; width:50%">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Junior &amp; Mid Artists</div>
-            <div style="font-size:14px; color:#9a9da6; line-height:1.6">Want to build tech art skills — Blender scripting, Geometry Nodes, tool-building — without a tech artist on their team.</div>
+          <td style="background:rgba(59, 130, 246, 0.06); border:2px solid #3b82f6; border-radius:12px; padding:20px; vertical-align:top; width:25%">
+            <div style="min-height:28px; margin-bottom:10px"><span style="display:inline-block; line-height:14px; background:#3b82f6; border:1px solid transparent; border-radius:6px; padding:6px 12px; font-size:12px; font-weight:700; color:#fff">-20%</span></div>
+            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px; line-height:1.3; min-height:42px">5-Session Package</div>
+            <div style="font-size:24px; font-weight:900; color:#fff; margin-bottom:8px">€400<span style="font-size:13px; font-weight:600; color:#9a9da6"> total</span>
+</div>
+            <div style="font-size:13px; color:#9a9da6; line-height:1.6">For mentees working toward a longer-term goal.</div>
           </td>
-        </tr>
-        <tr>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:10px; padding:20px 22px; vertical-align:top; border-bottom:3px solid #3b82f6">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Solo Devs &amp; Small Studios</div>
-            <div style="font-size:14px; color:#9a9da6; line-height:1.6">Need pipeline or world-building input without hiring a full-time environment artist.</div>
-          </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:10px; padding:20px 22px; vertical-align:top; border-bottom:3px solid #3b82f6">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Studios &amp; Teams</div>
-            <div style="font-size:14px; color:#9a9da6; line-height:1.6">Want a training session for multiple people at once, at the studio/team rate.</div>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:25%">
+            <div style="min-height:28px; margin-bottom:10px"></div>
+            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px; line-height:1.3; min-height:42px">Studio / Team Training</div>
+            <div style="font-size:24px; font-weight:900; color:#fff; margin-bottom:8px">Custom<span style="font-size:13px; font-weight:600; color:#9a9da6"> pricing</span>
+</div>
+            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Remote training sessions for multiple people at once. <a href="mailto:hello-alpineempire@poton.me" style="color:#3b82f6; font-weight:700; text-decoration:none">Get in touch</a> for a quote.</div>
           </td>
         </tr>
       </tbody>
     </table>
-  </div>
-
-  <!-- What Mentees Say -->
-  <div data-section-pad style="background:#1c1e24; padding:56px 30px; border-top:1px solid #34363e">
-    <h2 data-heading="title" style="margin:0 0 16px; font-size:30px; font-weight:900; color:#fff; text-align:center">What Mentees Say</h2>
-    <table role="presentation" style="max-width:820px; margin:0 auto; width:100%; border-collapse:separate; border-spacing:0 14px; border:0">
-      <tbody>
-        <tr><td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:22px 24px; border-style:dashed">
-          <p style="margin:0 0 14px; font-size:16px; color:#9a9da6; line-height:1.6; font-style:normal">Real mentee testimonials — coming soon.</p>
-        </td></tr>
-      </tbody>
-    </table>
+    <p style="text-align:center; margin:26px 0 0"><a href="https://holvi.com/shop/alpine-empire/" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:#3b82f6; text-decoration:none; padding:16px 36px; border-radius:8px; font-size:16px; font-weight:700; color:#fff !important">Book via the Holvi Store ↗</a></p>
   </div>
 
   <!-- Footer CTA -->
   <div data-section-pad style="background:#16171c; border-top:2px solid #3b82f6; padding:46px 30px; text-align:center">
     <div style="font-size:20px; font-weight:900; color:#fff; margin-bottom:6px">Start With a Free 15-Minute Intro Call</div>
     <div style="font-size:14px; color:#9a9da6; margin-bottom:26px; max-width:520px; margin-left:auto; margin-right:auto">No strings attached — we'll figure out what you actually need before you pay for anything.</div>
-    <p style="margin:0 0 34px"><a href="https://cal.eu/matthiaspatscheider/15min" style="display:inline-block; background:#3b82f6; text-decoration:none; padding:18px 42px; border-radius:8px; font-size:18px; font-weight:700; color:#fff !important">Book Your Free Intro Call</a></p>
+    <p style="margin:0 0 34px"><a href="https://cal.eu/matthiaspatscheider/15min" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:#3b82f6; text-decoration:none; padding:18px 42px; border-radius:8px; font-size:18px; font-weight:700; color:#fff !important">Book Your Free Intro Call</a></p>
     <table role="presentation" data-stack-grid="pills" style="margin:0 auto; border-collapse:separate; border-spacing:10px 0; border:0">
       <tbody><tr>
-        <td style="border:none"><a href="https://www.artstation.com/matthias-patscheider" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Portfolio</a></td>
-        <td style="border:none"><a href="https://holvi.com/shop/alpine-empire/" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Store</a></td>
+        <td style="border:none"><a href="https://www.artstation.com/matthias-patscheider" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Portfolio</a></td>
+        <td style="border:none"><a href="https://holvi.com/shop/alpine-empire/" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Store</a></td>
         <td style="border:none"><a href="mailto:hello-alpineempire@poton.me" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Contact</a></td>
       </tr></tbody>
     </table>

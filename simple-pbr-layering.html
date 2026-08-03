@@ -104,8 +104,9 @@
        hoverable) gives the same visual breathing room without the gap. */
     .site-nav-dropdown-menu { display: none; position: absolute; top: 100%; left: 0; min-width: 210px; background: #1c1e24; border: 1px solid #34363e; border-radius: 10px; padding: 14px 6px 6px; box-shadow: 0 14px 34px rgba(0,0,0,0.45); }
     .site-nav-dropdown:hover .site-nav-dropdown-menu, .site-nav-dropdown:focus-within .site-nav-dropdown-menu { display: block; }
-    .site-nav-dropdown-menu a { display: block; padding: 8px 10px; border-radius: 6px; color: #d7d9e0; text-decoration: none; font-size: 13px; font-weight: 600; }
+    .site-nav-dropdown-menu a { display: block; padding: 8px 10px; border-radius: 6px; color: #d7d9e0; text-decoration: none; font-size: 13px; font-weight: 600; white-space: nowrap; }
     .site-nav-dropdown-menu a:hover, .site-nav-dropdown-menu a.is-active { background: #24262d; color: #ffffff; }
+    .nav-badge-alpha { display: inline-block; margin-left: 6px; background: rgba(236,72,153,0.14); border: 1px solid rgba(236,72,153,0.4); color: #fbcfe8; padding: 2px 6px; border-radius: 8px; font-size: 9px; font-weight: 700; letter-spacing: 1px; vertical-align: middle; }
     @media (max-width: 640px) {
       .site-nav-toggle-label { display: flex; }
       .site-nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; background: #16171c; border-bottom: 1px solid #34363e; padding: 4px 20px 18px; }
@@ -132,13 +133,13 @@
           <a href="/simple-collider.html">Simple Collider</a>
           <a href="/simple-export.html">Simple Export</a>
           <a href="/simple-camera-manager.html">Simple Camera Manager</a>
-          <a href="/simple-pbr-layering.html" class="is-active">Simple PBR Layering</a>
-          <a href="/simple-uv-nodes.html">Simple UV Nodes</a>
+          <a href="/simple-pbr-layering.html" class="is-active">Simple PBR Layering <span class="nav-badge-alpha">ALPHA</span></a>
+          <a href="/simple-uv-nodes.html">Simple UV Nodes <span class="nav-badge-alpha">ALPHA</span></a>
           </div>
         </div>
         <a href="/mentoring.html">Mentoring</a>
-        <a href="https://discord.gg/VRzdcFpczm">Discord &#8599;</a>
-        <a href="https://www.artstation.com/matthias-patscheider">ArtStation &#8599;</a>
+        <a href="https://discord.gg/VRzdcFpczm" target="_blank" rel="noopener noreferrer">Discord &#8599;</a>
+        <a href="https://www.artstation.com/matthias-patscheider" target="_blank" rel="noopener noreferrer">ArtStation &#8599;</a>
         <a href="/#contact">Contact</a>
         <a href="/simple_pbr_layering/material_overview/" class="site-nav-docs-link">Documentation &#8599;</a>
       </nav>
@@ -389,7 +390,7 @@
     <p style="margin:0 auto 30px; max-width:680px; font-size:16px; color:#9a9da6; line-height:1.7; text-align:center">Simple PBR Layering (v0.2.5) isn't publicly available yet — access is limited to a small group of testers while the core workflow gets battle-tested. Join the Discord to follow development, see it in action, and get notified the moment it opens up.</p>
     <table role="presentation" data-stack-grid="pills" style="margin:0 auto; border-collapse:separate; border-spacing:8px 0; border:0">
       <tbody><tr>
-        <td style="border:none"><a href="https://discord.gg/VRzdcFpczm" style="display:inline-block; background:#ec4899; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#16171c !important">Join the Discord</a></td>
+        <td style="border:none"><a href="https://discord.gg/VRzdcFpczm" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:#ec4899; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#16171c !important">Join the Discord</a></td>
       </tr></tbody>
     </table>
   </div>
@@ -420,8 +421,8 @@
     <div style="font-size:14px; color:#9a9da6; margin-bottom:26px; max-width:520px; margin-left:auto; margin-right:auto">Closed Alpha today, public release when the core workflow is ready. Join the Discord to follow along and get early access updates.</div>
     <table role="presentation" data-stack-grid="pills" style="margin:0 auto; border-collapse:separate; border-spacing:8px 0; border:0">
       <tbody><tr>
-        <td style="border:none"><a href="https://discord.gg/VRzdcFpczm" style="display:inline-block; background:#ec4899; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#16171c !important">Join the Discord</a></td>
-        <td style="border:none"><a href="https://www.artstation.com/matthias-patscheider" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">ArtStation</a></td>
+        <td style="border:none"><a href="https://discord.gg/VRzdcFpczm" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:#ec4899; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#16171c !important">Join the Discord</a></td>
+        <td style="border:none"><a href="https://www.artstation.com/matthias-patscheider" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">ArtStation</a></td>
       </tr></tbody>
     </table>
     <p style="margin:18px 0 0; font-size:12px"><a href="/legal-notice.html" style="color:#9a9da6; text-decoration:none">Legal Notice</a></p>

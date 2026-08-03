@@ -104,8 +104,9 @@
        hoverable) gives the same visual breathing room without the gap. */
     .site-nav-dropdown-menu { display: none; position: absolute; top: 100%; left: 0; min-width: 210px; background: #1c1e24; border: 1px solid #34363e; border-radius: 10px; padding: 14px 6px 6px; box-shadow: 0 14px 34px rgba(0,0,0,0.45); }
     .site-nav-dropdown:hover .site-nav-dropdown-menu, .site-nav-dropdown:focus-within .site-nav-dropdown-menu { display: block; }
-    .site-nav-dropdown-menu a { display: block; padding: 8px 10px; border-radius: 6px; color: #d7d9e0; text-decoration: none; font-size: 13px; font-weight: 600; }
+    .site-nav-dropdown-menu a { display: block; padding: 8px 10px; border-radius: 6px; color: #d7d9e0; text-decoration: none; font-size: 13px; font-weight: 600; white-space: nowrap; }
     .site-nav-dropdown-menu a:hover, .site-nav-dropdown-menu a.is-active { background: #24262d; color: #ffffff; }
+    .nav-badge-alpha { display: inline-block; margin-left: 6px; background: rgba(236,72,153,0.14); border: 1px solid rgba(236,72,153,0.4); color: #fbcfe8; padding: 2px 6px; border-radius: 8px; font-size: 9px; font-weight: 700; letter-spacing: 1px; vertical-align: middle; }
     @media (max-width: 640px) {
       .site-nav-toggle-label { display: flex; }
       .site-nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; background: #16171c; border-bottom: 1px solid #34363e; padding: 4px 20px 18px; }
@@ -132,13 +133,13 @@
           <a href="/simple-collider.html">Simple Collider</a>
           <a href="/simple-export.html">Simple Export</a>
           <a href="/simple-camera-manager.html">Simple Camera Manager</a>
-          <a href="/simple-pbr-layering.html">Simple PBR Layering</a>
-          <a href="/simple-uv-nodes.html">Simple UV Nodes</a>
+          <a href="/simple-pbr-layering.html">Simple PBR Layering <span class="nav-badge-alpha">ALPHA</span></a>
+          <a href="/simple-uv-nodes.html">Simple UV Nodes <span class="nav-badge-alpha">ALPHA</span></a>
           </div>
         </div>
         <a href="/mentoring.html">Mentoring</a>
-        <a href="https://discord.gg/VRzdcFpczm">Discord &#8599;</a>
-        <a href="https://www.artstation.com/matthias-patscheider">ArtStation &#8599;</a>
+        <a href="https://discord.gg/VRzdcFpczm" target="_blank" rel="noopener noreferrer">Discord &#8599;</a>
+        <a href="https://www.artstation.com/matthias-patscheider" target="_blank" rel="noopener noreferrer">ArtStation &#8599;</a>
         <a href="/#contact">Contact</a>
       </nav>
     </div>
@@ -171,7 +172,7 @@
         </span>
         <span data-heading="display" style='font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-size:58px; font-weight:900; line-height:1; text-shadow:0 2px 14px rgba(0, 0, 0, 0.6); display:block; color:#fff; margin-top:4px'>EMPIRE</span>
       </h1>
-      <p style="margin:0; max-width:460px; font-size:18px; color:#d7d9e0; line-height:1.6; text-shadow:0 1px 8px rgba(0, 0, 0, 0.7)">Drawing on a decade of experience in creating immersive, believable and enjoyable game environments, I took a risk and established Alpine Empire. My professional project's goal is to create cutting-edge 3D environment art and game art tools, as well as to provide mentorship for the new generation of world builders.</p>
+      <p style="margin:0; max-width:460px; font-size:18px; color:#d7d9e0; line-height:1.6; text-shadow:0 1px 8px rgba(0, 0, 0, 0.7)">Drawing on a decade of experience in creating immersive, believable, and enjoyable game environments, I took a risk and established Alpine Empire. My professional project's goal is to create cutting-edge 3D environment art and game art tools, as well as to provide mentorship for the new generation of world builders.</p>
     </div>
   </div>
   <div style="height:3px; background:#3b82f6"></div>
@@ -185,7 +186,7 @@
         <tr>
           <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:25%">
             <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Level Art</div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Crafting realistic, high quality, immersive and believable worlds with player experience in sight, from Blockout to Polish.</div>
+            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Crafting realistic, high-quality worlds with player experience in mind, from blockout to polish.</div>
           </td>
           <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:25%">
             <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Environment Art</div>
@@ -193,7 +194,7 @@
           </td>
           <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:25%">
             <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Pipeline &amp; Tools</div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Ready-to-use Blender tools for common pipeline challenges or bespoke, custom tailored pipeline, documentation and tools for your studio and projects.</div>
+            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Ready-to-use Blender tools for common pipeline challenges, or custom pipelines, documentation, and tooling built for your studio.</div>
           </td>
           <td style="background:#3b82f6; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:25%">
             <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Mentoring &amp; Workshops</div>
@@ -219,11 +220,11 @@
           <td style="vertical-align:middle; width:58%; border:none">
             <div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#3b82f6">WHO IS ALPINE EMPIRE</div>
             <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">Matthias<br>Patscheider</h2>
-            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7; margin-bottom:20px">Born and raised in the narrow, picturesque valleys of the Alps, a beautiful landscape of rugged peaks, historic farmhouses, and medieval castles, that shaped a lifelong passion for crafting immersive worlds.</p>
-            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7; margin-bottom:20px">Alpine Empire is built on a decade of game development experience from small startups to AAA titles, shaping worlds, levels, and pipelines at every stage of production. As an Environment Artist, contributions include AAA titles such as Alan Wake 2, FBC Firebreak, Black Mirror, and Crossfire X.</p>
-            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7">World-building sits at the heart of it all, researching and understanding environments to create spaces that feel authentic, while building workflows and tools that push what's possible, in close collaboration with teams, directors, leads, and producers.</p>
+            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7; margin-bottom:20px">Born and raised in the narrow, picturesque valleys of the Alps, among rugged peaks, historic farmhouses, and medieval castles — a landscape that shaped a lifelong passion for crafting believable worlds.</p>
+            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7; margin-bottom:20px">Alpine Empire is built on a decade of game development experience, from small startups to AAA titles, shaping worlds, levels, and pipelines at every stage of production. As an Environment Artist, I've contributed to titles such as Alan Wake 2, FBC Firebreak, Black Mirror, and Crossfire X, plus VR training projects.</p>
+            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7">World-building sits at the heart of it all: I research and understand environments to create spaces that feel authentic. I pair that with building workflows and tools that push what's possible, always in close collaboration with teams, directors, leads, and producers.</p>
             <div style="background:#24262d; border:1px solid #34363e; border-left:3px solid #3b82f6; border-radius:8px; padding:14px 18px; font-size:14px; color:#d7d9e0; line-height:1.6">
-<strong style="color:#3b82f6">Open Source &amp; Knowledge Sharing.</strong> I use the best tool for the job, favoring open source and European alternatives where they hold up. </div>
+<strong style="color:#3b82f6">Open Source &amp; Knowledge Sharing.</strong> I use the best tool for the job, favoring open source and European alternatives where they hold up.</div>
           </td>
         </tr>
       </tbody>
@@ -238,12 +239,12 @@
        those carry burned-in game logos and studio copyright watermarks,
        unsuitable as a raw marketing background; the three credits are named
        in text and badges instead. -->
-  <div style="position:relative;min-height:460px;display:flex;align-items:flex-end;justify-content:center;background:#1c1e24 url('/images/alpine_empire/GameBanner.jpg') center 42%/cover no-repeat;">
+  <div style="position:relative;width:100%;aspect-ratio:3/1;min-height:460px;display:flex;align-items:flex-end;justify-content:center;background:#1c1e24 url('/images/alpine_empire/GameBanner.jpg') center 42%/cover no-repeat;">
     <div style="position:absolute;inset:0;background:linear-gradient(0deg, rgba(8,9,12,0.94) 0%, rgba(8,9,12,0.5) 45%, rgba(8,9,12,0.05) 72%);"></div>
     <div data-section-pad style="position:relative; max-width:720px; padding:0 34px 46px; text-align:center">
       <div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#3b82f6; margin-bottom:10px; text-shadow:0 1px 8px rgba(0, 0, 0, 0.9)">PAST PROJECTS</div>
       <h2 data-heading="title" style="margin:0 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.25; text-shadow:0 2px 14px rgba(0, 0, 0, 0.7)">A Decade Building Game Worlds</h2>
-      <p style="margin:0 0 20px; max-width:600px; margin-left:auto; margin-right:auto; font-size:16px; color:#d7d9e0; line-height:1.6; text-shadow:0 1px 8px rgba(0, 0, 0, 0.7)">Before Alpine Empire, I created immersive, believable worlds for the dark, surreal and New York inspired streets of Alan Wake 2, the fractured Bureau of FBC Firebreak, and the haunted Victorian halls of the gothic horror-adventure Black Mirror.</p>
+      <p style="margin:0 0 20px; max-width:600px; margin-left:auto; margin-right:auto; font-size:16px; color:#d7d9e0; line-height:1.6; text-shadow:0 1px 8px rgba(0, 0, 0, 0.7)">Before Alpine Empire, I built worlds for the dark, surreal, New York-inspired streets of Alan Wake 2, the fractured Bureau of FBC Firebreak, and the haunted Victorian halls of the gothic horror-adventure Black Mirror.</p>
       <div>
         <span style="display:inline-block; background:rgba(28, 30, 36, 0.75); border:1px solid #3b82f6; border-radius:6px; padding:6px 12px; margin:0 4px 8px; font-size:12px; font-weight:700; color:#e8e9ee">ALAN WAKE 2</span>
         <span style="display:inline-block; background:rgba(28, 30, 36, 0.75); border:1px solid #3b82f6; border-radius:6px; padding:6px 12px; margin:0 4px 8px; font-size:12px; font-weight:700; color:#e8e9ee">FBC FIREBREAK</span>
@@ -251,7 +252,7 @@
         <span style="display:inline-block; background:rgba(28, 30, 36, 0.75); border:1px solid #3b82f6; border-radius:6px; padding:6px 12px; margin:0 4px 8px; font-size:12px; font-weight:700; color:#e8e9ee">VR TRAININGS</span>
         <span style="display:inline-block; background:rgba(28, 30, 36, 0.75); border:1px solid #3b82f6; border-radius:6px; padding:6px 12px; margin:0 4px 8px; font-size:12px; font-weight:700; color:#e8e9ee">...</span>
       </div>
-      <p style="margin:16px 0 0"><a href="https://www.artstation.com/matthias-patscheider" style="color:#3b82f6; text-decoration:none; font-weight:700; font-size:13px; text-shadow:0 1px 8px rgba(0, 0, 0, 0.9)">See the Full Portfolio on ArtStation ↗</a></p>
+      <p style="margin:16px 0 0"><a href="https://www.artstation.com/matthias-patscheider" target="_blank" rel="noopener noreferrer" style="color:#3b82f6; text-decoration:none; font-weight:700; font-size:13px; text-shadow:0 1px 8px rgba(0, 0, 0, 0.9)">See the Full Portfolio on ArtStation ↗</a></p>
     </div>
   </div>
   <div style="height:3px; background:#3b82f6"></div>
@@ -276,7 +277,7 @@
               </span>
               <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:0">Level Art &amp; Design</div>
             </div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Building gameplay-driven levels and modular kits, from Blockout to Polish, with combat, metrics, and player guidance in mind. I managed and shipped key levels for several Games including Alan Wake 2's Dark Place.</div>
+            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Building gameplay-driven levels and modular kits, with combat, metrics, and player guidance in mind, from first blockout to final polish. I managed and shipped key levels for several games, including Alan Wake 2's Dark Place.</div>
           </td>
           <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:33%">
             <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px">
@@ -290,7 +291,7 @@
               </span>
               <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:0">Asset Creation</div>
             </div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Cragint modular architectural kits, PBR materials, hard-surface machinery, props and foliage, I can create highest quality assets and materials if needed, prefferably using non-destructive workflows.</div>
+            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Crafting modular architectural kits, PBR materials, hard-surface machinery, props and foliage, I can create highest quality assets and materials if needed, preferably using non-destructive workflows.</div>
           </td>
           <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:33%">
             <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px">
@@ -356,6 +357,56 @@
     </table>
   </div>
 
+  <!-- Software -->
+  <div data-section-pad style="background:#1c1e24; padding:56px 30px; border-top:1px solid #34363e">
+    <h2 data-heading="title" style="margin:0 0 8px; font-size:32px; font-weight:900; color:#fff; text-align:center">Software</h2>
+    <p style="margin:0 0 36px; font-size:15px; color:#9a9da6; text-align:center">Primary tools and engines.</p>
+    <table role="presentation" data-stack-grid="cards" style="max-width:920px; margin:0 auto; width:100%; border-collapse:separate; border-spacing:10px; border:0">
+      <tbody>
+        <tr>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:25%">
+            <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px">
+              <span style="flex-shrink:0; width:32px; height:32px; display:flex; align-items:center; justify-content:center">
+                <img src="/images/mentoring/logos/blender.svg" alt="Blender" style="width:100%; height:100%; object-fit:contain; display:block">
+              </span>
+              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:0">Blender</div>
+            </div>
+            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Primary DCC, modeling, look dev, and addon development.</div>
+          </td>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:25%">
+            <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px">
+              <span style="flex-shrink:0; width:32px; height:32px; display:flex; align-items:center; justify-content:center">
+                <img src="/images/mentoring/logos/houdini.svg" alt="Houdini" style="width:100%; height:100%; object-fit:contain; display:block">
+              </span>
+              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:0">Houdini</div>
+            </div>
+            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Procedural workflows for modular assets, VFX, and world generation.</div>
+          </td>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:25%">
+            <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px">
+              <span style="flex-shrink:0; width:32px; height:32px; display:flex; align-items:center; justify-content:center">
+                <img src="/images/mentoring/logos/substance.svg" alt="Substance" style="width:100%; height:100%; object-fit:contain; display:block">
+              </span>
+              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:0">Substance</div>
+            </div>
+            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Texturing and PBR material authoring.</div>
+          </td>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:25%">
+            <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px">
+              <span style="flex-shrink:0; width:32px; height:32px; display:flex; align-items:center; justify-content:center">
+                <img src="/images/mentoring/logos/unreal.svg" alt="Unreal Engine" style="width:100%; height:100%; object-fit:contain; display:block">
+              </span>
+              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:0">Unreal Engine</div>
+            </div>
+            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Level art/design, lighting, material setup, set dressing and performance optimization for a finished real-time scene.</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="max-width:920px; margin:26px auto 0; font-size:13px; font-weight:700; letter-spacing:1px; color:#9a9da6; text-align:center">ADDITIONAL SOFTWARE</p>
+    <p style="max-width:640px; margin:16px auto 0; font-size:14px; color:#9a9da6; line-height:1.7; text-align:center">ZBrush, Speedtree, Gaea, Marvelous Designer, Marmoset Toolbag, Godot, Meshroom, RealityCapture, Agisoft, and Unity — happy to help you pick the right tool for what you're trying to achieve.</p>
+  </div>
+
   <div style="height:3px; background:#3b82f6"></div>
 
   <!-- Simple Tools / Simple Utilities: each card is one clickable square to
@@ -372,8 +423,7 @@
        add-on like the others. -->
   <div data-section-pad style="background:#16171c; padding:56px 30px">
     <h2 data-heading="title" style="margin:0 0 8px; font-size:32px; font-weight:900; color:#fff; text-align:center">Simple Tools</h2>
-    <p style="margin:0 0 30px; font-size:15px; color:#9a9da6; text-align:center">Simple Tools is a collection of tools designed to simplify the creation of game art. Each tool is purpose-built, straightforward and flexible, and can be integrated into various pipelines and workflows. <br> 
-      Whether you’re an individual artist or a large AAA company, these tools will help you get the job done!</p>
+    <p style="margin:0 0 30px; font-size:15px; color:#9a9da6; text-align:center">Purpose-built, straightforward tools that plug into any Blender pipeline.</p>
     <table role="presentation" data-stack-grid="cards" style="max-width:820px; margin:0 auto; width:100%; border-collapse:separate; border-spacing:12px; border:0">
       <tbody>
         <tr>
@@ -499,8 +549,8 @@
     </table>
     <table role="presentation" data-stack-grid="pills" style="margin:0 auto; border-collapse:separate; border-spacing:10px 0; border:0; margin-top:24px">
       <tbody><tr>
-        <td style="border:none"><a href="https://superhivemarket.com/creators/matthias-patscheider" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Superhive</a></td>
-        <td style="border:none"><a href="https://gumroad.com/weisl" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Gumroad</a></td>
+        <td style="border:none"><a href="https://superhivemarket.com/creators/matthias-patscheider" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Superhive</a></td>
+        <td style="border:none"><a href="https://gumroad.com/weisl" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Gumroad</a></td>
       </tr></tbody>
     </table>
 
@@ -515,7 +565,7 @@
             <a href="/simple-uv-nodes.html" aria-label="Simple UV Nodes product page" style="position:absolute; inset:0; z-index:1; border-radius:10px"></a>
             <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap">
               <div style="font-size:24px; font-weight:900; line-height:1; letter-spacing:0.4px; color:#a855f7">SIMPLE</div>
-              <span style="display:inline-block; background:rgba(255, 255, 255, 0.08); border:1px solid rgba(255, 255, 255, 0.18); color:#d7d9e0; padding:3px 10px; border-radius:12px; font-size:10px; font-weight:700; letter-spacing:1.5px">PAID</span>
+              <span style="display:inline-block; background:rgba(236, 72, 153, 0.14); border:1px solid rgba(236, 72, 153, 0.4); color:#fbcfe8; padding:3px 10px; border-radius:12px; font-size:10px; font-weight:700; letter-spacing:1.5px">ALPHA</span>
             </div>
             <div style="font-size:18px; font-weight:600; color:#fff; line-height:1.2; margin:3px 0 10px">UV Nodes</div>
             <div style="font-size:14px; color:#9a9da6; line-height:1.6">Non-destructive UV projection, live in your Geometry Nodes modifier stack.</div>
@@ -535,11 +585,14 @@
             </div>
           </td>
           <td style="background:linear-gradient(160deg, #2a2d35 0%, #24262d 42%, rgba(59, 130, 246, 0.22) 130%); border:1px solid #34363e; border-radius:10px; padding:20px 22px; vertical-align:top; border-bottom:3px solid #3b82f6; width:50%; position:relative">
-            <a href="https://superhivemarket.com/creators/matthias-patscheider" aria-label="All tools on Superhive" style="position:absolute; inset:0; z-index:1; border-radius:10px"></a>
-            <div style="font-size:19px; font-weight:900; line-height:1; letter-spacing:0.4px; color:#3b82f6">MORE TOOLS</div>
-            <div style="font-size:14px; color:#9a9da6; line-height:1.6; margin-top:8px">More tools and utilities are in the works!</div>
-            <div style="position:relative; z-index:2; display:flex; align-items:center; flex-wrap:wrap; row-gap:6px; column-gap:10px; margin-top:16px; padding-top:14px; border-top:1px solid rgba(255, 255, 255, 0.09)">
-              <a href="https://superhivemarket.com/creators/matthias-patscheider" style="color:#3b82f6; text-decoration:none; font-weight:700; font-size:13px">All Tools ↗</a>
+            <div style="font-size:19px; font-weight:900; line-height:1; letter-spacing:0.4px; color:#3b82f6">MORE FROM ME</div>
+            <div style="font-size:14px; color:#9a9da6; line-height:1.6; margin-top:8px">A few other things I've made along the way.</div>
+            <div style="position:relative; z-index:2; display:flex; flex-direction:column; align-items:flex-start; gap:8px; margin-top:16px; padding-top:14px; border-top:1px solid rgba(255, 255, 255, 0.09)">
+              <a href="https://github.com/Weisl/Master-Thesis-Material-Layering" target="_blank" rel="noopener noreferrer" style="color:#3b82f6; text-decoration:none; font-weight:700; font-size:13px">Master Thesis ↗ (Material Layering)</a>
+              <a href="https://github.com/Weisl/simple_scripts" target="_blank" rel="noopener noreferrer" style="color:#3b82f6; text-decoration:none; font-weight:700; font-size:13px">Simple Scripts ↗ (Random Blender Scripts)</a>
+              <a href="https://github.com/Weisl/ImageUtilities" target="_blank" rel="noopener noreferrer" style="color:#3b82f6; text-decoration:none; font-weight:700; font-size:13px">Image Utilities (Deprecated) ↗ (Texture Management)</a>
+              <a href="https://weisl.gumroad.com/l/Puzzle_Substance3DDesigner" target="_blank" rel="noopener noreferrer" style="color:#3b82f6; text-decoration:none; font-weight:700; font-size:13px">Puzzle – Substance 3D Designer ↗ (free PBR Material)</a>
+              <a href="https://gamesartist.co.uk/verdant-realms/" target="_blank" rel="noopener noreferrer" style="color:#3b82f6; text-decoration:none; font-weight:700; font-size:13px">"Verdant Realms" Article (Environment Breakdown)↗</a>
             </div>
           </td>
         </tr>
@@ -562,8 +615,8 @@
           </td>
           <td style="vertical-align:middle; width:58%; border:none">
             <div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#3b82f6">MENTORING</div>
-            <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">Learn From an Expert.</h2>
-            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7; margin-bottom:20px">Ten years of production experience with environment art, tech art &amp; tooling. I can assist and provide input on world-building, pipeline optimization, and portfolios that will catch recruiters' attention. Training is personalized and tailored to your current need.</p>
+            <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">Ten Years of Production,<br>Now Teaching It</h2>
+            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7; margin-bottom:20px">Ten years of production experience with environment art, tech art, and tooling. I can assist and provide input on world-building, pipeline optimization, and portfolios that will catch recruiters' attention. Training is personalized and tailored to your current needs.</p>
             <table role="presentation" style="width:100%; border-collapse:separate; border-spacing:0 6px; border:0">
               <tbody>
                 <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
@@ -592,7 +645,7 @@
       </svg>
       <div style="font-size:22px; font-weight:900; color:#fff; margin-bottom:10px">Join the Alpine Empire Discord</div>
       <p style="margin:0 0 22px; max-width:480px; margin-left:auto; margin-right:auto; font-size:14px; color:#e3e5fc; line-height:1.6">Come hang out with the community, discuss tools and world-building, and talk mentorship directly with me and other members.</p>
-      <a href="https://discord.gg/VRzdcFpczm" style="display:inline-block; background:#fff; text-decoration:none; padding:13px 26px; border-radius:8px; font-size:14px; font-weight:700; color:#5865f2 !important">Join Discord ↗</a>
+      <a href="https://discord.gg/VRzdcFpczm" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:#fff; text-decoration:none; padding:13px 26px; border-radius:8px; font-size:14px; font-weight:700; color:#5865f2 !important">Join Discord ↗</a>
     </div>
   </div>
 

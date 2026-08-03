@@ -104,8 +104,9 @@
        hoverable) gives the same visual breathing room without the gap. */
     .site-nav-dropdown-menu { display: none; position: absolute; top: 100%; left: 0; min-width: 210px; background: #1c1e24; border: 1px solid #34363e; border-radius: 10px; padding: 14px 6px 6px; box-shadow: 0 14px 34px rgba(0,0,0,0.45); }
     .site-nav-dropdown:hover .site-nav-dropdown-menu, .site-nav-dropdown:focus-within .site-nav-dropdown-menu { display: block; }
-    .site-nav-dropdown-menu a { display: block; padding: 8px 10px; border-radius: 6px; color: #d7d9e0; text-decoration: none; font-size: 13px; font-weight: 600; }
+    .site-nav-dropdown-menu a { display: block; padding: 8px 10px; border-radius: 6px; color: #d7d9e0; text-decoration: none; font-size: 13px; font-weight: 600; white-space: nowrap; }
     .site-nav-dropdown-menu a:hover, .site-nav-dropdown-menu a.is-active { background: #24262d; color: #ffffff; }
+    .nav-badge-alpha { display: inline-block; margin-left: 6px; background: rgba(236,72,153,0.14); border: 1px solid rgba(236,72,153,0.4); color: #fbcfe8; padding: 2px 6px; border-radius: 8px; font-size: 9px; font-weight: 700; letter-spacing: 1px; vertical-align: middle; }
     @media (max-width: 640px) {
       .site-nav-toggle-label { display: flex; }
       .site-nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; background: #16171c; border-bottom: 1px solid #34363e; padding: 4px 20px 18px; }
@@ -132,13 +133,13 @@
           <a href="/simple-collider.html" class="is-active">Simple Collider</a>
           <a href="/simple-export.html">Simple Export</a>
           <a href="/simple-camera-manager.html">Simple Camera Manager</a>
-          <a href="/simple-pbr-layering.html">Simple PBR Layering</a>
-          <a href="/simple-uv-nodes.html">Simple UV Nodes</a>
+          <a href="/simple-pbr-layering.html">Simple PBR Layering <span class="nav-badge-alpha">ALPHA</span></a>
+          <a href="/simple-uv-nodes.html">Simple UV Nodes <span class="nav-badge-alpha">ALPHA</span></a>
           </div>
         </div>
         <a href="/mentoring.html">Mentoring</a>
-        <a href="https://discord.gg/VRzdcFpczm">Discord &#8599;</a>
-        <a href="https://www.artstation.com/matthias-patscheider">ArtStation &#8599;</a>
+        <a href="https://discord.gg/VRzdcFpczm" target="_blank" rel="noopener noreferrer">Discord &#8599;</a>
+        <a href="https://www.artstation.com/matthias-patscheider" target="_blank" rel="noopener noreferrer">ArtStation &#8599;</a>
         <a href="/#contact">Contact</a>
         <a href="/simple_collider/collider_overview/" class="site-nav-docs-link">Documentation &#8599;</a>
       </nav>
@@ -387,7 +388,7 @@
         </tr>
       </tbody>
     </table>
-    <table role="presentation" style="max-width:960px; margin:26px auto 0; width:100%; border-collapse:collapse; border:0">
+    <table role="presentation" style="max-width:380px; margin:26px auto 0; width:100%; border-collapse:collapse; border:0">
       <tbody><tr><td style="border:none">
         <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
           <img src="/images/simple_collider/collider_presets.gif" alt="Animation showing collider naming presets being selected" style="width:100%; display:block">
@@ -417,7 +418,7 @@
         </tr>
       </tbody>
     </table>
-    <table role="presentation" style="max-width:960px; margin:26px auto 0; width:100%; border-collapse:collapse; border:0">
+    <table role="presentation" style="max-width:640px; margin:26px auto 0; width:100%; border-collapse:collapse; border:0">
       <tbody><tr><td style="border:none">
         <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
           <img src="/images/simple_collider/convert_ColliderToMesh_small.gif" alt="Animation showing collider to mesh conversion" style="width:100%; display:block">
@@ -509,35 +510,35 @@
           <p style="margin:0 0 14px; font-size:16px; color:#d7d9e0; line-height:1.6; font-style:italic">"This addon is a must-have. It takes all the hassle and tedious work out of creating custom collision. So fast and easy to use, and it even takes care of naming and parenting with support for custom prefixes."</p>
           <div style="display:flex; align-items:center">
             <img src="/images/simple_collider/RichardCourt.jpg" alt="Richard Court" style="width:40px; height:40px; border-radius:50%; vertical-align:middle; margin-right:12px">
-            <span style="font-size:14px; color:#9a9da6"><a href="https://www.artstation.com/richardcourt" style="color:#22c55e; text-decoration:none; font-weight:700">Richard Court</a>, Principal Environment Artist at Studio Gobo</span>
+            <span style="font-size:14px; color:#9a9da6"><a href="https://www.artstation.com/richardcourt" target="_blank" rel="noopener noreferrer" style="color:#22c55e; text-decoration:none; font-weight:700">Richard Court</a>, Principal Environment Artist at Studio Gobo</span>
           </div>
         </td></tr>
         <tr><td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:22px 24px">
           <p style="margin:0 0 14px; font-size:16px; color:#d7d9e0; line-height:1.6; font-style:italic">"This is something that a lot of people overlook on how much time it can take up on a project. With its intuitive interface and support for complex shapes, it's impressive how quickly you can get usable results."</p>
           <div style="display:flex; align-items:center">
             <img src="/images/simple_collider/JeremyEstrellado.jpg" alt="Jeremiah Estrellado" style="width:40px; height:40px; border-radius:50%; vertical-align:middle; margin-right:12px">
-            <span style="font-size:14px; color:#9a9da6"><a href="https://www.artstation.com/dinusty" style="color:#22c55e; text-decoration:none; font-weight:700">Jeremiah Estrellado</a>, Associate Art Director &amp; Founder of The Dinusty Empire</span>
+            <span style="font-size:14px; color:#9a9da6"><a href="https://www.artstation.com/dinusty" target="_blank" rel="noopener noreferrer" style="color:#22c55e; text-decoration:none; font-weight:700">Jeremiah Estrellado</a>, Associate Art Director &amp; Founder of The Dinusty Empire</span>
           </div>
         </td></tr>
         <tr><td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:22px 24px">
           <p style="margin:0 0 14px; font-size:16px; color:#d7d9e0; line-height:1.6; font-style:italic">"I am a huge fan of addons that reduce the steps and amount of clicks it takes me to do menial tasks. This addon is one of those. Its simple and clean and will save a lot of time for anyone making collision meshes in Blender for use in game engines like Unreal Engine. I wish I had this addon a lot sooner!"</p>
           <div style="display:flex; align-items:center">
             <img src="/images/simple_collider/Michael_Kinsey.jpg" alt="Michael Kinsey" style="width:40px; height:40px; border-radius:50%; vertical-align:middle; margin-right:12px">
-            <span style="font-size:14px; color:#9a9da6"><a href="https://www.artstation.com/michaelkinsey" style="color:#22c55e; text-decoration:none; font-weight:700">Michael Kinsey</a>, Senior Shader Technical Director at Thats No Moon Entertainment</span>
+            <span style="font-size:14px; color:#9a9da6"><a href="https://www.artstation.com/michaelkinsey" target="_blank" rel="noopener noreferrer" style="color:#22c55e; text-decoration:none; font-weight:700">Michael Kinsey</a>, Senior Shader Technical Director at Thats No Moon Entertainment</span>
           </div>
         </td></tr>
         <tr><td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:22px 24px">
           <p style="margin:0 0 14px; font-size:16px; color:#d7d9e0; line-height:1.6; font-style:italic">"I have been lucky enough to be able to try Simple Collider in the past months and I can tell you that it became directly one of my favorite and most used add-ons. Everything is just so simple and powerful. Now I can create collisions in a matter of seconds for any assets or modular kit and spend all this extra saved time on more creative and fulfilling tasks!"</p>
           <div style="display:flex; align-items:center">
             <img src="/images/simple_collider/J%C3%A9r%C3%A9my_Cerisy.jpg" alt="Jérémy Cerisy" style="width:40px; height:40px; border-radius:50%; vertical-align:middle; margin-right:12px">
-            <span style="font-size:14px; color:#9a9da6"><a href="https://www.artstation.com/jcerisy" style="color:#22c55e; text-decoration:none; font-weight:700">Jérémy Cerisy</a>, Senior Environment Artist at Remedy Entertainment</span>
+            <span style="font-size:14px; color:#9a9da6"><a href="https://www.artstation.com/jcerisy" target="_blank" rel="noopener noreferrer" style="color:#22c55e; text-decoration:none; font-weight:700">Jérémy Cerisy</a>, Senior Environment Artist at Remedy Entertainment</span>
           </div>
         </td></tr>
         <tr><td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:22px 24px">
           <p style="margin:0 0 14px; font-size:16px; color:#d7d9e0; line-height:1.6; font-style:italic">"Making collisions is often the most annoying part of the art pipeline. I think anyone working in real-time 3D deserves to get through this moment the proper way. That's what this addon allows."</p>
           <div style="display:flex; align-items:center">
             <img src="/images/simple_collider/ArthurChamerois.jpg" alt="Arthur Chamerois" style="width:40px; height:40px; border-radius:50%; vertical-align:middle; margin-right:12px">
-            <span style="font-size:14px; color:#9a9da6"><a href="https://www.artstation.com/artcha" style="color:#22c55e; text-decoration:none; font-weight:700">Arthur Chamerois</a>, 3D Artist at Playdead</span>
+            <span style="font-size:14px; color:#9a9da6"><a href="https://www.artstation.com/artcha" target="_blank" rel="noopener noreferrer" style="color:#22c55e; text-decoration:none; font-weight:700">Arthur Chamerois</a>, 3D Artist at Playdead</span>
           </div>
         </td></tr>
         <tr><td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:22px 24px">
@@ -550,7 +551,7 @@
           </table>
           <div style="display:flex; align-items:center; margin-top:14px">
             <img src="/images/simple_collider/MikeReese.jpg" alt="Mike Reese" style="width:40px; height:40px; border-radius:50%; vertical-align:middle; margin-right:12px">
-            <span style="font-size:14px; color:#9a9da6"><a href="https://www.artstation.com/meltingface3d" style="color:#22c55e; text-decoration:none; font-weight:700">Mike Reese</a>, VP of Asset Production at KitBash3D</span>
+            <span style="font-size:14px; color:#9a9da6"><a href="https://www.artstation.com/meltingface3d" target="_blank" rel="noopener noreferrer" style="color:#22c55e; text-decoration:none; font-weight:700">Mike Reese</a>, VP of Asset Production at KitBash3D</span>
           </div>
         </td></tr>
       </tbody>
@@ -582,9 +583,10 @@
     <div style="font-size:14px; color:#9a9da6; margin-bottom:26px; max-width:520px; margin-left:auto; margin-right:auto">Handle the entire collision workflow in Blender — so you can stay focused on the asset, not the setup. Actively trusted by indies and studios alike.</div>
     <table role="presentation" data-stack-grid="pills" style="margin:0 auto; border-collapse:separate; border-spacing:8px 0; border:0">
       <tbody><tr>
-        <td style="border:none"><a href="https://superhivemarket.com/creators/matthias-patscheider" style="display:inline-block; background:#22c55e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#16171c !important">More by Matthias</a></td>
+        <td style="border:none"><a href="https://superhivemarket.com/products/simple-collider" style="display:inline-block; background:#22c55e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#16171c !important">Buy on Superhive</a></td>
         <td style="border:none"><a href="/simple_collider/collider_overview/" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">Documentation</a></td>
-        <td style="border:none"><a href="https://www.artstation.com/matthias-patscheider" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">ArtStation</a></td>
+        <td style="border:none"><a href="https://superhivemarket.com/creators/matthias-patscheider" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">More by Matthias</a></td>
+        <td style="border:none"><a href="https://www.artstation.com/matthias-patscheider" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">ArtStation</a></td>
       </tr></tbody>
     </table>
     <p style="margin:18px 0 0; font-size:12px"><a href="/legal-notice.html" style="color:#9a9da6; text-decoration:none">Legal Notice</a></p>

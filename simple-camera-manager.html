@@ -104,8 +104,9 @@
        hoverable) gives the same visual breathing room without the gap. */
     .site-nav-dropdown-menu { display: none; position: absolute; top: 100%; left: 0; min-width: 210px; background: #1c1e24; border: 1px solid #34363e; border-radius: 10px; padding: 14px 6px 6px; box-shadow: 0 14px 34px rgba(0,0,0,0.45); }
     .site-nav-dropdown:hover .site-nav-dropdown-menu, .site-nav-dropdown:focus-within .site-nav-dropdown-menu { display: block; }
-    .site-nav-dropdown-menu a { display: block; padding: 8px 10px; border-radius: 6px; color: #d7d9e0; text-decoration: none; font-size: 13px; font-weight: 600; }
+    .site-nav-dropdown-menu a { display: block; padding: 8px 10px; border-radius: 6px; color: #d7d9e0; text-decoration: none; font-size: 13px; font-weight: 600; white-space: nowrap; }
     .site-nav-dropdown-menu a:hover, .site-nav-dropdown-menu a.is-active { background: #24262d; color: #ffffff; }
+    .nav-badge-alpha { display: inline-block; margin-left: 6px; background: rgba(236,72,153,0.14); border: 1px solid rgba(236,72,153,0.4); color: #fbcfe8; padding: 2px 6px; border-radius: 8px; font-size: 9px; font-weight: 700; letter-spacing: 1px; vertical-align: middle; }
     @media (max-width: 640px) {
       .site-nav-toggle-label { display: flex; }
       .site-nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; background: #16171c; border-bottom: 1px solid #34363e; padding: 4px 20px 18px; }
@@ -132,13 +133,13 @@
           <a href="/simple-collider.html">Simple Collider</a>
           <a href="/simple-export.html">Simple Export</a>
           <a href="/simple-camera-manager.html" class="is-active">Simple Camera Manager</a>
-          <a href="/simple-pbr-layering.html">Simple PBR Layering</a>
-          <a href="/simple-uv-nodes.html">Simple UV Nodes</a>
+          <a href="/simple-pbr-layering.html">Simple PBR Layering <span class="nav-badge-alpha">ALPHA</span></a>
+          <a href="/simple-uv-nodes.html">Simple UV Nodes <span class="nav-badge-alpha">ALPHA</span></a>
           </div>
         </div>
         <a href="/mentoring.html">Mentoring</a>
-        <a href="https://discord.gg/VRzdcFpczm">Discord &#8599;</a>
-        <a href="https://www.artstation.com/matthias-patscheider">ArtStation &#8599;</a>
+        <a href="https://discord.gg/VRzdcFpczm" target="_blank" rel="noopener noreferrer">Discord &#8599;</a>
+        <a href="https://www.artstation.com/matthias-patscheider" target="_blank" rel="noopener noreferrer">ArtStation &#8599;</a>
         <a href="/#contact">Contact</a>
         <a href="/simple_camera_manager/camera_manager_Overview/" class="site-nav-docs-link">Documentation &#8599;</a>
       </nav>
@@ -338,7 +339,7 @@
             </tr></tbody></table>
             <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">Model From<br>Real-World Photos</h2>
             <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7">Manage viewport background images to recreate real-world objects and scenes. Toggle between images, adjust opacity, and match the camera's focal length to the reference with the dolly zoom.</p>
-            <p style="margin:0; font-size:14px; color:#9a9da6">Project: <a href="https://www.artstation.com/artwork/D55b8o" style="color:#f0c832; text-decoration:none; font-weight:700">Cotton Spinning Mule Modeling ↗</a></p>
+            <p style="margin:0; font-size:14px; color:#9a9da6">Project: <a href="https://www.artstation.com/artwork/D55b8o" target="_blank" rel="noopener noreferrer" style="color:#f0c832; text-decoration:none; font-weight:700">Cotton Spinning Mule Modeling ↗</a></p>
           </td>
         </tr>
       </tbody>
@@ -357,12 +358,7 @@
     <table role="presentation" data-stack-grid="cards" style="max-width:960px; margin:0 auto; width:100%; border-collapse:collapse; border:0">
       <tbody>
         <tr>
-          <td style="vertical-align:middle; width:42%; padding-right:34px; border:none">
-            <div style="line-height:1.5; border-radius:14px; overflow:hidden; border:1px dashed #34363e; aspect-ratio:16/10; display:flex; align-items:center; justify-content:center; background:#24262d; color:#9a9da6; font-size:13px; text-align:center; padding:24px">
-              Image placeholder — viewport screenshot of the passepartout overlay (blue = locked, red = tied to camera view)
-            </div>
-          </td>
-          <td style="vertical-align:middle; width:58%; border:none">
+          <td style="vertical-align:middle; width:100%; border:none">
             <table role="presentation" style="border-collapse:collapse; border:0"><tbody><tr>
               <td style="vertical-align:middle; padding-right:14px; border:none"><div style="width:46px; height:46px; background:#f0c832; clip-path:polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%); text-align:center; line-height:46px; font-size:20px; font-weight:900; color:#16171c">07</div></td>
               <td style="vertical-align:middle; border:none"><div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#f0c832">PASSEPARTOUT OVERLAY</div></td>
@@ -475,7 +471,7 @@
           <p style="margin:0 0 14px; font-size:16px; color:#d7d9e0; line-height:1.6; font-style:italic">"Great addon, does everything I need without too much fluff."</p>
           <div style="display:flex; align-items:center">
             <img src="/images/simple_cam/patrik_pulkkinen.jpg" alt="Patrik Pulkkinen" style="width:40px; height:40px; border-radius:50%; vertical-align:middle; margin-right:12px">
-            <span style="font-size:14px; color:#9a9da6"><a href="https://www.artstation.com/patrik" style="color:#f0c832; text-decoration:none; font-weight:700">Patrik Pulkkinen</a>, Concept Artist at Remedy Entertainment</span>
+            <span style="font-size:14px; color:#9a9da6"><a href="https://www.artstation.com/patrik" target="_blank" rel="noopener noreferrer" style="color:#f0c832; text-decoration:none; font-weight:700">Patrik Pulkkinen</a>, Concept Artist at Remedy Entertainment</span>
           </div>
         </td></tr>
         <tr><td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:22px 24px">
@@ -489,7 +485,7 @@
   <!-- Why Trust -->
   <div data-section-pad style="background:#1c1e24; padding:56px 30px; border-top:1px solid #34363e">
     <h2 data-heading="title" style="margin:0 0 16px; font-size:30px; font-weight:900; color:#fff; text-align:center">Why Trust Simple Camera Manager?</h2>
-    <p style="margin:0 auto 30px; max-width:680px; font-size:16px; color:#9a9da6; line-height:1.7; text-align:center">Over a decade refining workflows for real-time engines. Simple Renaming, Simple Collider, and Simple Camera Manager are used and trusted by thousands of artists and studios worldwide.</p>
+    <p style="margin:0 auto 30px; max-width:680px; font-size:16px; color:#9a9da6; line-height:1.7; text-align:center">Over a decade refining workflows for real-time engines. Simple Renaming, Simple Collider, Simple Export, and Simple Camera Manager are used and trusted by thousands of artists and studios worldwide.</p>
     <div style="display:flex; max-width:820px; margin:0 auto 26px; border-radius:14px; overflow:hidden; border:1px solid #34363e">
       <a href="https://extensions.blender.org/add-ons/simple-renaming-panel/" aria-label="Simple Renaming" style="flex:1 1 25%; aspect-ratio:1/1; display:block; background-image:url(/images/simple_export/branding_squares.jpg); background-repeat:no-repeat; background-size:400% 100%; background-position:0% 0"></a>
       <a href="https://superhivemarket.com/products/simple-collider" aria-label="Simple Collider" style="flex:1 1 25%; aspect-ratio:1/1; display:block; background-image:url(/images/simple_export/branding_squares.jpg); background-repeat:no-repeat; background-size:400% 100%; background-position:33.333% 0"></a>
@@ -511,9 +507,10 @@
     <div style="font-size:14px; color:#9a9da6; margin-bottom:26px; max-width:520px; margin-left:auto; margin-right:auto">Take full control of your camera workflow. Actively maintained and improved based on your feedback.</div>
     <table role="presentation" data-stack-grid="pills" style="margin:0 auto; border-collapse:separate; border-spacing:8px 0; border:0">
       <tbody><tr>
-        <td style="border:none"><a href="https://superhivemarket.com/creators/matthias-patscheider" style="display:inline-block; background:#f0c832; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#16171c !important">More by Matthias</a></td>
+        <td style="border:none"><a href="https://superhivemarket.com/products/simple-camera-manager" style="display:inline-block; background:#f0c832; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#16171c !important">Buy on Superhive</a></td>
         <td style="border:none"><a href="/simple_camera_manager/camera_manager_Overview/" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">Documentation</a></td>
-        <td style="border:none"><a href="https://www.artstation.com/matthias-patscheider" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">ArtStation</a></td>
+        <td style="border:none"><a href="https://superhivemarket.com/creators/matthias-patscheider" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">More by Matthias</a></td>
+        <td style="border:none"><a href="https://www.artstation.com/matthias-patscheider" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">ArtStation</a></td>
       </tr></tbody>
     </table>
     <p style="margin:18px 0 0; font-size:12px"><a href="/legal-notice.html" style="color:#9a9da6; text-decoration:none">Legal Notice</a></p>

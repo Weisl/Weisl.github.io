@@ -104,8 +104,9 @@
        hoverable) gives the same visual breathing room without the gap. */
     .site-nav-dropdown-menu { display: none; position: absolute; top: 100%; left: 0; min-width: 210px; background: #1c1e24; border: 1px solid #34363e; border-radius: 10px; padding: 14px 6px 6px; box-shadow: 0 14px 34px rgba(0,0,0,0.45); }
     .site-nav-dropdown:hover .site-nav-dropdown-menu, .site-nav-dropdown:focus-within .site-nav-dropdown-menu { display: block; }
-    .site-nav-dropdown-menu a { display: block; padding: 8px 10px; border-radius: 6px; color: #d7d9e0; text-decoration: none; font-size: 13px; font-weight: 600; }
+    .site-nav-dropdown-menu a { display: block; padding: 8px 10px; border-radius: 6px; color: #d7d9e0; text-decoration: none; font-size: 13px; font-weight: 600; white-space: nowrap; }
     .site-nav-dropdown-menu a:hover, .site-nav-dropdown-menu a.is-active { background: #24262d; color: #ffffff; }
+    .nav-badge-alpha { display: inline-block; margin-left: 6px; background: rgba(236,72,153,0.14); border: 1px solid rgba(236,72,153,0.4); color: #fbcfe8; padding: 2px 6px; border-radius: 8px; font-size: 9px; font-weight: 700; letter-spacing: 1px; vertical-align: middle; }
     @media (max-width: 640px) {
       .site-nav-toggle-label { display: flex; }
       .site-nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; background: #16171c; border-bottom: 1px solid #34363e; padding: 4px 20px 18px; }
@@ -132,13 +133,13 @@
           <a href="/simple-collider.html">Simple Collider</a>
           <a href="/simple-export.html">Simple Export</a>
           <a href="/simple-camera-manager.html">Simple Camera Manager</a>
-          <a href="/simple-pbr-layering.html">Simple PBR Layering</a>
-          <a href="/simple-uv-nodes.html" class="is-active">Simple UV Nodes</a>
+          <a href="/simple-pbr-layering.html">Simple PBR Layering <span class="nav-badge-alpha">ALPHA</span></a>
+          <a href="/simple-uv-nodes.html" class="is-active">Simple UV Nodes <span class="nav-badge-alpha">ALPHA</span></a>
           </div>
         </div>
         <a href="/mentoring.html">Mentoring</a>
-        <a href="https://discord.gg/VRzdcFpczm">Discord &#8599;</a>
-        <a href="https://www.artstation.com/matthias-patscheider">ArtStation &#8599;</a>
+        <a href="https://discord.gg/VRzdcFpczm" target="_blank" rel="noopener noreferrer">Discord &#8599;</a>
+        <a href="https://www.artstation.com/matthias-patscheider" target="_blank" rel="noopener noreferrer">ArtStation &#8599;</a>
         <a href="/#contact">Contact</a>
         <a href="/simple_geo_node_packs/simple_uv_nodes/" class="site-nav-docs-link">Documentation &#8599;</a>
       </nav>
@@ -180,9 +181,13 @@
   <div data-section-pad style="background:#16171c; padding:56px 30px">
     <h2 data-heading="title" style="margin:0 0 16px; font-size:30px; font-weight:900; color:#fff; text-align:center">Every Node, One Asset Library</h2>
     <p style="margin:0 0 30px; font-size:15px; color:#9a9da6; text-align:center">Drag straight out of Blender's Asset Browser into your modifier tree — no installer, no Preferences toggle to hunt for.</p>
-    <div>
-      <img src="/images/simple_uv/simple_uv_asset_library.jpg" alt="Blender Asset Browser showing all 11 Simple UV Nodes as drag-and-drop assets, each with a checker-pattern UV preview">
-    </div>
+    <table role="presentation" style="max-width:960px; margin:26px auto 0; width:100%; border-collapse:collapse; border:0">
+      <tbody><tr><td style="border:none">
+        <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
+          <img src="/images/simple_uv/simple_uv_asset_library.jpg" alt="Blender Asset Browser showing all 11 Simple UV Nodes as drag-and-drop assets, each with a checker-pattern UV preview" style="width:100%; display:block">
+        </div>
+      </td></tr></tbody>
+    </table>
   </div>
 
   <!-- Install steps: placed early, before feature depth — buyers need to understand
@@ -387,101 +392,102 @@
   <div style="height:3px; background:#a855f7"></div>
 
   <!-- All 11 Nodes: reuses .shape-card verbatim from common.css (built for Collider's
-       shape gallery) — every node here has a real thumbnail except UV Attribute
-       Transform, which has no image in the source docs either. -->
+       shape gallery), 4-per-row via .w25 (established by mentoring/alpine-empire)
+       instead of Collider's 2-per-row .w50 — at 2-up this section was just a
+       smaller, slower repeat of the Asset Library screenshot above it. Cards use
+       the .shape-card--compact modifier (src/simple-uv-nodes.css) to stay legible
+       at quarter width, and each description now names a real parameter or
+       behavior from the node docs instead of a one-line marketing gloss, so this
+       section earns its place instead of duplicating the screenshot. Every node
+       has a real thumbnail except UV Attribute Transform, which has no image in
+       the source docs either. -->
   <div data-section-pad style="background:#16171c; padding:56px 30px">
     <h2 data-heading="title" style="margin:0 0 8px; font-size:32px; font-weight:900; color:#fff; text-align:center">All 11 Nodes</h2>
     <p style="margin:0 0 36px; font-size:15px; color:#9a9da6; text-align:center">Every projection, transform, and utility node in the pack.</p>
     <table role="presentation" data-stack-grid="cards" style="max-width:920px; margin:0 auto; width:100%; border-collapse:separate; border-spacing:16px; border:0">
       <tbody>
         <tr>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; overflow:hidden; vertical-align:top; border-top:3px solid #a855f7; width:50%">
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; overflow:hidden; vertical-align:top; border-top:3px solid #a855f7; width:25%">
             <div style="line-height:0"><img src="/images/simple_uv/thumb_UV_Box_Project.jpg" alt="UV Box Project thumbnail" style="width:100%; display:block"></div>
-            <div style="padding:18px 20px">
-              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">UV Box Project</div>
-              <div style="font-size:13px; color:#9a9da6; line-height:1.55">Triplanar projection blended from all three axes, with per-face offset, rotation, and scale.</div>
+            <div style="padding:14px 16px">
+              <div style="font-size:14px; font-weight:800; color:#fff; margin-bottom:5px">UV Box Project</div>
+              <div style="font-size:12px; color:#9a9da6; line-height:1.5">Triplanar blend from all three axes, with independent offset, rotation, and scale per face — Object or World space.</div>
             </div>
           </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; overflow:hidden; vertical-align:top; border-top:3px solid #a855f7; width:50%">
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; overflow:hidden; vertical-align:top; border-top:3px solid #a855f7; width:25%">
             <div style="line-height:0"><img src="/images/simple_uv/thumb_UV_Planar_Project.jpg" alt="UV Planar Project thumbnail" style="width:100%; display:block"></div>
-            <div style="padding:18px 20px">
-              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">UV Planar Project</div>
-              <div style="font-size:13px; color:#9a9da6; line-height:1.55">Flat projection along one axis — ideal for floors, walls, and dominant-direction surfaces.</div>
+            <div style="padding:14px 16px">
+              <div style="font-size:14px; font-weight:800; color:#fff; margin-bottom:5px">UV Planar Project</div>
+              <div style="font-size:12px; color:#9a9da6; line-height:1.5">Flat projection along a chosen X, Y, or Z axis, with its own offset, rotation, tiling, and scale.</div>
             </div>
           </td>
-        </tr>
-        <tr>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; overflow:hidden; vertical-align:top; border-top:3px solid #a855f7">
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; overflow:hidden; vertical-align:top; border-top:3px solid #a855f7; width:25%">
             <div style="line-height:0"><img src="/images/simple_uv/thumb_UV%20Spherical%20Project.jpg" alt="UV Spherical Project thumbnail" style="width:100%; display:block"></div>
-            <div style="padding:18px 20px">
-              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">UV Spherical Project</div>
-              <div style="font-size:13px; color:#9a9da6; line-height:1.55">Equirectangular wrap for round objects, seam-corrected across all three axes.</div>
+            <div style="padding:14px 16px">
+              <div style="font-size:14px; font-weight:800; color:#fff; margin-bottom:5px">UV Spherical Project</div>
+              <div style="font-size:12px; color:#9a9da6; line-height:1.5">Equirectangular wrap, seam-corrected on any pole axis. Real World Scale keeps texel density consistent with a neighboring projection.</div>
             </div>
           </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; overflow:hidden; vertical-align:top; border-top:3px solid #a855f7">
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; overflow:hidden; vertical-align:top; border-top:3px solid #a855f7; width:25%">
             <div style="line-height:0"><img src="/images/simple_uv/UV_Cylindrical_Project.jpg" alt="UV Cylindrical Project thumbnail" style="width:100%; display:block"></div>
-            <div style="padding:18px 20px">
-              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">UV Cylindrical Project</div>
-              <div style="font-size:13px; color:#9a9da6; line-height:1.55">Wraps around a chosen axis, with optional blended caps for pipes and columns.</div>
+            <div style="padding:14px 16px">
+              <div style="font-size:14px; font-weight:800; color:#fff; margin-bottom:5px">UV Cylindrical Project</div>
+              <div style="font-size:12px; color:#9a9da6; line-height:1.5">Wraps around a chosen axis, with optional blended caps on end faces past a face-normal angle threshold. Rotate shifts the seam.</div>
             </div>
           </td>
         </tr>
         <tr>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; overflow:hidden; vertical-align:top; border-top:3px solid #a855f7">
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; overflow:hidden; vertical-align:top; border-top:3px solid #a855f7; width:25%">
             <div style="line-height:0"><img src="/images/simple_uv/thumb_UV_Camera_Project.jpg" alt="UV Camera Project thumbnail" style="width:100%; display:block"></div>
-            <div style="padding:18px 20px">
-              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">UV Camera Project</div>
-              <div style="font-size:13px; color:#9a9da6; line-height:1.55">Projects from a real Camera object's focal length, sensor size, and lens type.</div>
+            <div style="padding:14px 16px">
+              <div style="font-size:14px; font-weight:800; color:#fff; margin-bottom:5px">UV Camera Project</div>
+              <div style="font-size:12px; color:#9a9da6; line-height:1.5">Reads a real Camera's focal length, sensor size, and lens type — including true parallel projection in Orthographic. Updates live.</div>
             </div>
           </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; overflow:hidden; vertical-align:top; border-top:3px solid #a855f7">
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; overflow:hidden; vertical-align:top; border-top:3px solid #a855f7; width:25%">
             <div style="line-height:0"><img src="/images/simple_uv/thumb_UV_Transform.jpg" alt="UV Transform thumbnail" style="width:100%; display:block"></div>
-            <div style="padding:18px 20px">
-              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">UV Transform</div>
-              <div style="font-size:13px; color:#9a9da6; line-height:1.55">Non-destructively offset, rotate, scale, tile, and mirror any existing UV map.</div>
+            <div style="padding:14px 16px">
+              <div style="font-size:14px; font-weight:800; color:#fff; margin-bottom:5px">UV Transform</div>
+              <div style="font-size:12px; color:#9a9da6; line-height:1.5">Non-destructively offset, rotate, scale, tile, and mirror any existing UV map — no re-projecting from scratch.</div>
             </div>
           </td>
-        </tr>
-        <tr>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; overflow:hidden; vertical-align:top; border-top:3px solid #a855f7">
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; overflow:hidden; vertical-align:top; border-top:3px solid #a855f7; width:25%">
             <div style="line-height:0"><img src="/images/simple_uv/thumb_UV_Instance_Randomize.jpg" alt="UV Instance Randomize thumbnail" style="width:100%; display:block"></div>
-            <div style="padding:18px 20px">
-              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">UV Instance Randomize</div>
-              <div style="font-size:13px; color:#9a9da6; line-height:1.55">Seed-controlled per-instance UV offset, rotation, and scale for scattered geometry.</div>
+            <div style="padding:14px 16px">
+              <div style="font-size:14px; font-weight:800; color:#fff; margin-bottom:5px">UV Instance Randomize</div>
+              <div style="font-size:12px; color:#9a9da6; line-height:1.5">Seed-controlled offset, rotation, and scale per instance, pivoted on each UV island's center so placement stays predictable.</div>
             </div>
           </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; overflow:hidden; vertical-align:top; border-top:3px solid #a855f7">
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; overflow:hidden; vertical-align:top; border-top:3px solid #a855f7; width:25%">
             <div style="line-height:0"><img src="/images/simple_uv/thumb_UV_Instance_Randomize.jpg" alt="UV Island Randomize thumbnail" style="width:100%; display:block"></div>
-            <div style="padding:18px 20px">
-              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">UV Island Randomize</div>
-              <div style="font-size:13px; color:#9a9da6; line-height:1.55">The same randomization, scoped to UV islands on a single mesh.</div>
+            <div style="padding:14px 16px">
+              <div style="font-size:14px; font-weight:800; color:#fff; margin-bottom:5px">UV Island Randomize</div>
+              <div style="font-size:12px; color:#9a9da6; line-height:1.5">The same per-instance randomization, scoped to UV islands on one mesh — stack both for rock piles and brick walls.</div>
             </div>
           </td>
         </tr>
         <tr>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; overflow:hidden; vertical-align:top; border-top:3px solid #a855f7">
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; overflow:hidden; vertical-align:top; border-top:3px solid #a855f7; width:25%">
             <div style="line-height:0"><img src="/images/simple_uv/thumb_UV_UV%20Mark%20Edges.jpg" alt="UV Mark Edges thumbnail" style="width:100%; display:block"></div>
-            <div style="padding:18px 20px">
-              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">UV Mark Edges</div>
-              <div style="font-size:13px; color:#9a9da6; line-height:1.55">Detects UV island boundaries and writes them back as seams and/or sharp edges.</div>
+            <div style="padding:14px 16px">
+              <div style="font-size:14px; font-weight:800; color:#fff; margin-bottom:5px">UV Mark Edges</div>
+              <div style="font-size:12px; color:#9a9da6; line-height:1.5">Writes island boundaries to seams and/or sharp edges, with independent Clear toggles to replace or layer with existing marks.</div>
             </div>
           </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; overflow:hidden; vertical-align:top; border-top:3px solid #a855f7">
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; overflow:hidden; vertical-align:top; border-top:3px solid #a855f7; width:25%">
             <div style="line-height:0"><img src="/images/simple_uv/thumb_UV_Pack.jpg" alt="UV Pack to Channel thumbnail" style="width:100%; display:block"></div>
-            <div style="padding:18px 20px">
-              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">UV Pack to Channel</div>
-              <div style="font-size:13px; color:#9a9da6; line-height:1.55">Packs UV islands into a destination map — built for lightmap UVs.</div>
+            <div style="padding:14px 16px">
+              <div style="font-size:14px; font-weight:800; color:#fff; margin-bottom:5px">UV Pack to Channel</div>
+              <div style="font-size:12px; color:#9a9da6; line-height:1.5">Packs islands into a destination map for lightmaps — Exact Shape packing traces the real outline, not just a bounding box.</div>
             </div>
           </td>
-        </tr>
-        <tr>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; overflow:hidden; vertical-align:top; border-top:3px solid #a855f7">
-            <div style="padding:18px 20px">
-              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">UV Attribute Transform</div>
-              <div style="font-size:13px; color:#9a9da6; line-height:1.55">A pure-vector helper for transforming UV coordinates inside custom node groups.</div>
+          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; overflow:hidden; vertical-align:top; border-top:3px solid #a855f7; width:25%">
+            <div style="padding:14px 16px">
+              <div style="font-size:14px; font-weight:800; color:#fff; margin-bottom:5px">UV Attribute Transform</div>
+              <div style="font-size:12px; color:#9a9da6; line-height:1.5">A pure-vector helper with no Geometry socket — offsets, rotates, and scales a UV coordinate inline inside custom node groups.</div>
             </div>
           </td>
-          <td style="border:none"></td>
+          <td style="border:none; width:25%"></td>
         </tr>
       </tbody>
     </table>
@@ -540,7 +546,7 @@
       <tbody><tr>
         <td style="border:none"><a href="https://superhivemarket.com/creators/matthias-patscheider" style="display:inline-block; background:#a855f7; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#16171c !important">More by Matthias</a></td>
         <td style="border:none"><a href="/simple_geo_node_packs/simple_uv_nodes/" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">Documentation</a></td>
-        <td style="border:none"><a href="https://www.artstation.com/matthias-patscheider" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">ArtStation</a></td>
+        <td style="border:none"><a href="https://www.artstation.com/matthias-patscheider" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">ArtStation</a></td>
       </tr></tbody>
     </table>
     <p style="margin:18px 0 0; font-size:12px"><a href="/legal-notice.html" style="color:#9a9da6; text-decoration:none">Legal Notice</a></p>
