@@ -46,6 +46,8 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../collider_auto_convex/">Auto Convex</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_validation/">Validation Checks</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../collider_groups/">Collider Groups</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../collider_physics_materials/">Physics Materials</a>
@@ -60,15 +62,17 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Release Notes</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#simple-collider-v116">Simple Collider v1.1.6</a>
+    <li class="toctree-l2"><a class="reference internal" href="#simple-collider-v120">Simple Collider v1.2.0</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#features-improvements">Features &amp; Improvements</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#bug-fixes">Bug Fixes</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#known-limitations">Known limitations</a>
+    </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#simple-collider-v115">Simple Collider v1.1.5</a>
+    <li class="toctree-l2"><a class="reference internal" href="#simple-collider-v116">Simple Collider v1.1.6</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#features-improvements_1">Features &amp; Improvements</a>
     </li>
@@ -76,7 +80,7 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#simple-collider-v113">Simple Collider v1.1.3</a>
+    <li class="toctree-l2"><a class="reference internal" href="#simple-collider-v115">Simple Collider v1.1.5</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#features-improvements_2">Features &amp; Improvements</a>
     </li>
@@ -84,13 +88,21 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#simple-collider-v112">Simple Collider v1.1.2</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#simple-collider-v111">Simple Collider v1.1.1</a>
+    <li class="toctree-l2"><a class="reference internal" href="#simple-collider-v113">Simple Collider v1.1.3</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#features-improvements_3">Features &amp; Improvements</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#bug-fixes_3">Bug Fixes</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#simple-collider-v112">Simple Collider v1.1.2</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#simple-collider-v111">Simple Collider v1.1.1</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#features-improvements_4">Features &amp; Improvements</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#bug-fixes_4">Bug Fixes</a>
     </li>
         </ul>
     </li>
@@ -102,7 +114,7 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#simple-collider-v101">Simple Collider v1.0.1</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#bug-fixes_4">Bug Fixes</a>
+    <li class="toctree-l3"><a class="reference internal" href="#bug-fixes_5">Bug Fixes</a>
     </li>
         </ul>
     </li>
@@ -110,7 +122,7 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#features_1">Features</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#bug-fixes_5">Bug Fixes</a>
+    <li class="toctree-l3"><a class="reference internal" href="#bug-fixes_6">Bug Fixes</a>
     </li>
         </ul>
     </li>
@@ -274,6 +286,13 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../simple_renaming/renaming_release_notes/">Release Notes</a>
                   </li>
               </ul>
+              <p class="caption"><span class="caption-text">Simple Toolkit (TBA)</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_toolkit/toolkit_overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_toolkit/toolkit_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
       </div>
     </div>
     </nav>
@@ -299,9 +318,43 @@
             <div class="section" itemprop="articleBody">
               
                 <div><h1 id="release-notes">Release Notes</h1>
+<h3 id="simple-collider-v120">Simple Collider v1.2.0</h3>
+<p>This release adds scene-wide collider validation and an alternative CoACD-based Auto Convex backend, alongside a round of responsiveness and stability fixes for collider creation and conversion.</p>
+<h4 id="features-improvements">Features &amp; Improvements</h4>
+<ul>
+<li><a href="https://github.com/Weisl/simple_collider/issues/548">#548</a>: <strong>Validation Checks (BETA)</strong> — a new "Validate Colliders" report (N-panel) that scans the scene or current selection for common collider problems: missing colliders, non-manifold geometry, flipped normals, oversized triangle counts, colliders that are too small, mismatched bounding boxes, too many colliders per render mesh, naming-convention mismatches, missing parenting, missing physics materials, and (optional, off by default) heuristic checks for shapes that don't match their claimed type (box, convex, etc.) or that could use a simpler primitive. Every check can be toggled and tuned individually in preferences.</li>
+<li><a href="https://github.com/Weisl/simple_collider/issues/583">#583</a>: <strong>Auto Convex (High Precision) using CoACD</strong> — an alternative convex decomposition backend alongside the existing V-HACD integration, producing tighter hulls at the cost of being significantly slower, with its own set of preferences (resolution, MCTS search parameters, preprocessing mode, etc.).</li>
+<li><a href="https://github.com/Weisl/simple_collider/issues/660">#660</a>: Auto Convex (both V-HACD and CoACD) now runs asynchronously with a live progress overlay (phase, percentage, elapsed time) instead of freezing Blender for the duration of the run — Escape cancels a run in progress.</li>
+<li><a href="https://github.com/Weisl/simple_collider/issues/642">#642</a>: Capsule collider generation is no longer marked BETA.</li>
+<li><a href="https://github.com/Weisl/simple_collider/issues/552">#552</a>: Improved handling of multi-scene setups and ignored linked libraries.</li>
+<li><a href="https://github.com/Weisl/simple_collider/issues/555">#555</a>: New <strong>Post Processing</strong> preferences tab with "Auto Apply on Creation" options — automatically limit newly created colliders to a target triangle count and/or move their origin to match their parent's, right after creation.</li>
+<li><a href="https://github.com/Weisl/simple_collider/issues/631">#631</a>, <a href="https://github.com/Weisl/simple_collider/issues/638">#638</a>, <a href="https://github.com/Weisl/simple_collider/issues/641">#641</a>: Various responsiveness improvements to collider creation/conversion (fewer redundant depsgraph evaluations and a cached modifier-stack bake while dragging modal parameters).</li>
+<li><a href="https://github.com/Weisl/simple_collider/issues/640">#640</a>: The modal HUD now allows typing numeric values directly instead of only mouse-dragging.</li>
+<li><a href="https://github.com/Weisl/simple_collider/issues/635">#635</a>: Updated 3D viewport navigation and HUD colors/backdrop during collider creation.</li>
+<li><a href="https://github.com/Weisl/simple_collider/issues/634">#634</a>: Changed default keybindings for several operators.</li>
+<li><a href="https://github.com/Weisl/simple_collider/issues/627">#627</a>: Added a "reload add-on" button to preferences for easier development.</li>
+<li><a href="https://github.com/Weisl/simple_collider/issues/628">#628</a>: A warning is now shown when creating a collider for an object with no rigid body set.</li>
+<li><a href="https://github.com/Weisl/simple_collider/issues/636">#636</a>, <a href="https://github.com/Weisl/simple_collider/issues/637">#637</a>: Convert operators are now disabled (rather than failing) when the current selection isn't a valid target.</li>
+<li><a href="https://github.com/Weisl/simple_collider/issues/643">#643</a>: Removed the debug-only preferences flag (<code>Prefs.debug</code>) and the dead <code>debug_parenting_off</code> flag, along with the code paths behind them.</li>
+<li>The update checker now respects Blender's "Allow Online Access" preference before making its network request, and the manifest now declares this network permission.</li>
+</ul>
+<h4 id="bug-fixes">Bug Fixes</h4>
+<ul>
+<li><a href="https://github.com/Weisl/simple_collider/issues/558">#558</a>, <a href="https://github.com/Weisl/simple_collider/issues/639">#639</a>: Fixed a false negative in parent-inverse shear detection that could let a sheared parent transform silently distort a collider.</li>
+<li><a href="https://github.com/Weisl/simple_collider/issues/630">#630</a>: Fixed collider instances not being initialized properly in some scenes.</li>
+<li><a href="https://github.com/Weisl/simple_collider/issues/629">#629</a>: Fixed a crash when interacting with sphere segment counts below 2.</li>
+<li><a href="https://github.com/Weisl/simple_collider/issues/625">#625</a>: Fixed viewport drawing overlays being removed when an operator failed.</li>
+<li><a href="https://github.com/Weisl/simple_collider/issues/644">#644</a>, <a href="https://github.com/Weisl/simple_collider/issues/645">#645</a>, <a href="https://github.com/Weisl/simple_collider/issues/646">#646</a>, <a href="https://github.com/Weisl/simple_collider/issues/647">#647</a>, <a href="https://github.com/Weisl/simple_collider/issues/648">#648</a>: Hardened Validation Checks — fixed a crash on regex metacharacters in the naming check, render-object types (curve/surface/font/metaball) being skipped by several checks, one object's failure aborting the entire scan, results persisting across file loads instead of being scoped per file, and added progress feedback for large-scene scans.</li>
+<li><a href="https://github.com/Weisl/simple_collider/issues/660">#660</a>: Fixed a crash and silent transform/parenting loss on hulls when an Auto Convex job finished while the mouse wasn't over the 3D viewport.</li>
+</ul>
+<h4 id="known-limitations">Known limitations</h4>
+<ul>
+<li>Validation Checks ships as BETA: expect rough edges, and please report issues so they can be addressed before its BETA label is removed.</li>
+</ul>
+<hr>
 <h3 id="simple-collider-v116">Simple Collider v1.1.6</h3>
 <p>This update introduces K-DOP colliders, a Convert to Empty operator, macOS ARM64 support for Auto Convex, a significantly improved capsule generation algorithm, and major performance fixes for loose-island collider generation on large assets. A big shout-out to <a href="https://github.com/amechtley">amechtley</a>, who contributed the macOS support, performance fixes, and tests in this update!</p>
-<h4 id="features-improvements">Features &amp; Improvements</h4>
+<h4 id="features-improvements_1">Features &amp; Improvements</h4>
 <ul>
 <li><a href="https://github.com/Weisl/simple_collider/pull/614">#614</a>: <strong>macOS ARM64 Support</strong> — Auto Convex is now available on macOS ARM64 (Apple Silicon). The binary is signed and notarized with Apple, with a minimum supported version of macOS 11.0 (Big Sur). <em>(<a href="https://github.com/amechtley">amechtley</a>)</em></li>
 <li><a href="https://github.com/Weisl/simple_collider/issues/562">#562</a>: <strong>Convert to Empty</strong> — new operator that converts collider mesh objects to Blender Empty objects using primitive display types (cube, sphere, etc.) for engines that support lightweight empty-based collision.</li>
@@ -310,7 +363,7 @@
 <li><a href="https://github.com/Weisl/simple_collider/issues/618">#618</a>: Improved triangle count operator — replaced the naive step-loop with a binary search approach and added a configurable iterations setting for better accuracy and speed.</li>
 <li><a href="https://github.com/Weisl/simple_collider/issues/619">#619</a>: Added update checker — the addon now notifies when a new version is available.</li>
 </ul>
-<h4 id="bug-fixes">Bug Fixes</h4>
+<h4 id="bug-fixes_1">Bug Fixes</h4>
 <ul>
 <li><a href="https://github.com/Weisl/simple_collider/issues/617">#617</a>: Fixed oriented bounding box rotation being incorrectly reset when a custom rotation is active.</li>
 <li><a href="https://github.com/Weisl/simple_collider/issues/558">#558</a>: Fixed inverse matrix cleanup overriding custom rotation on oriented bounding boxes.</li>
@@ -322,12 +375,12 @@
 <hr>
 <h3 id="simple-collider-v115">Simple Collider v1.1.5</h3>
 <p>This update includes an improved bounding sphere algorithm, multiple bug fixes, and the option to pin a preset to load automatically at startup. A big shout-out to <a href="https://github.com/amechtley">amechtley</a>, who contributed most of the changes to this update!</p>
-<h4 id="features-improvements_1">Features &amp; Improvements</h4>
+<h4 id="features-improvements_2">Features &amp; Improvements</h4>
 <ul>
 <li><a href="https://github.com/Weisl/simple_collider/issues/600">#600</a>: <strong>Pin Preset</strong> — pin a preset to load automatically on startup.</li>
 <li><a href="https://github.com/Weisl/simple_collider/issues/594">#594</a>: Replaced Ritter's bounding sphere with Welzl's algorithm for improved accuracy.</li>
 </ul>
-<h4 id="bug-fixes_1">Bug Fixes</h4>
+<h4 id="bug-fixes_2">Bug Fixes</h4>
 <ul>
 <li><a href="https://github.com/Weisl/simple_collider/issues/599">#599</a>: Fixed tooltips for visibility and material operators.</li>
 <li><a href="https://github.com/Weisl/simple_collider/issues/598">#598</a>: Added missing undo support for several operators.</li>
@@ -336,14 +389,14 @@
 <hr>
 <h3 id="simple-collider-v113">Simple Collider v1.1.3</h3>
 <p>This update focuses on Linux support, dynamic voxel sizing, and bug fixes.</p>
-<h4 id="features-improvements_2">Features &amp; Improvements</h4>
+<h4 id="features-improvements_3">Features &amp; Improvements</h4>
 <ul>
 <li><a href="https://github.com/Weisl/simple_collider/issues/587">#587</a>: Added Auto Convex support for Linux.</li>
 <li><a href="https://github.com/Weisl/simple_collider/issues/585">#585</a>: Voxel Size is now dynamic — calculated relative to object size.</li>
 <li><a href="https://github.com/Weisl/simple_collider/issues/581">#581</a>: Unified Simple Collider header with other Simple Pipeline Tools for consistency.</li>
 <li><a href="https://github.com/Weisl/simple_collider/issues/575">#575</a>: Added Voxel Size to Tool Defaults for easier access.</li>
 </ul>
-<h4 id="bug-fixes_2">Bug Fixes</h4>
+<h4 id="bug-fixes_3">Bug Fixes</h4>
 <ul>
 <li><a href="https://github.com/Weisl/simple_collider/issues/580">#580</a>: Fixed keymap not working on Linux.</li>
 <li><a href="https://github.com/Weisl/simple_collider/issues/584">#584</a>: Fixed auto convex shapes being duplicated.</li>
@@ -356,14 +409,14 @@
 <hr>
 <h3 id="simple-collider-v111">Simple Collider v1.1.1</h3>
 <p>This update focuses on UI improvements, bug fixes, and compatibility with Blender 4.5.</p>
-<h4 id="features-improvements_3">Features &amp; Improvements</h4>
+<h4 id="features-improvements_4">Features &amp; Improvements</h4>
 <ul>
 <li><a href="https://github.com/Weisl/simple_collider/issues/556">#556</a>: Added menu indicator to Pie Menu.</li>
 <li><a href="https://github.com/Weisl/simple_collider/issues/564">#564</a>: Added Support section to preferences.</li>
 <li><a href="https://github.com/Weisl/simple_collider/issues/565">#565</a>: Physics Materials now use Nodes for collision materials.</li>
 <li><a href="https://github.com/Weisl/simple_collider/issues/568">#568</a>: Added post-processing cleanup for <code>matrix_parent_inverse</code> on uniformly scaled base meshes.</li>
 </ul>
-<h4 id="bug-fixes_3">Bug Fixes</h4>
+<h4 id="bug-fixes_4">Bug Fixes</h4>
 <ul>
 <li><a href="https://github.com/Weisl/simple_collider/issues/561">#561</a>: Fixed missing Convex Hull modifier after convex collider creation.</li>
 <li><a href="https://github.com/Weisl/simple_collider/issues/563">#563</a>: Fixed Hotkey Menu broken with Blender 4.5.</li>
@@ -383,7 +436,7 @@
 </ul>
 <hr>
 <h3 id="simple-collider-v101">Simple Collider v1.0.1</h3>
-<h4 id="bug-fixes_4">Bug Fixes</h4>
+<h4 id="bug-fixes_5">Bug Fixes</h4>
 <ul>
 <li><a href="https://github.com/Weisl/Collider-Tools/issues/535">#535</a>: Removed incorrect Rigid Body naming in the UE preset.</li>
 </ul>
@@ -407,7 +460,7 @@
 <li><a href="https://github.com/Weisl/Collider-Tools/issues/337">#337</a>: Added "Use Original Material" support when generating colliders from Edit Mode.</li>
 <li><a href="https://github.com/Weisl/Collider-Tools/issues/481">#481</a>: Improved file handling on Linux.</li>
 </ul>
-<h4 id="bug-fixes_5">Bug Fixes</h4>
+<h4 id="bug-fixes_6">Bug Fixes</h4>
 <ul>
 <li><a href="https://github.com/Weisl/Collider-Tools/issues/521">#521</a>: Resolved various issues with Capsule Colliders.</li>
 <li><a href="https://github.com/Weisl/Collider-Tools/issues/513">#513</a>: Fixed broken Rigid Body naming in presets.</li>

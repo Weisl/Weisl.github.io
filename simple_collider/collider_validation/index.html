@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>The UI - Documentation</title>
+    <title>Validation Checks - Documentation</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,8 +13,8 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "The UI";
-        var mkdocs_page_input_path = "simple_collider/collider_ui.md";
+        var mkdocs_page_name = "Validation Checks";
+        var mkdocs_page_input_path = "simple_collider/collider_validation.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -40,15 +40,23 @@
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../collider_overview/">Overview</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">The UI</a>
-    <ul class="current">
-    </ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_ui/">The UI</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../collider_shapes/">Collider Shapes</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../collider_auto_convex/">Auto Convex</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../collider_validation/">Validation Checks</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Validation Checks</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#running-it">Running It</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#what-gets-checked">What Gets Checked</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tuning-thresholds">Tuning Thresholds</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#known-limitations">Known Limitations</a>
+    </li>
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../collider_groups/">Collider Groups</a>
                   </li>
@@ -158,7 +166,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">Simple Collider</li>
-      <li class="breadcrumb-item active">The UI</li>
+      <li class="breadcrumb-item active">Validation Checks</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -167,61 +175,168 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <div><h2 id="the-side-panel">The Side Panel</h2>
-<p>The <strong>Simple Collider</strong> addon features a straightforward yet powerful UI. The main elements include the Pie Menu, the Collider Panel (located in the N-Panel), preferences for less frequently used settings, and viewport elements that appear during the creation process.</p>
-<p>The <strong>Collider Panel</strong> in the N-Panel offers the same functionality as the Pie Menu, with additional options.</p>
-<p><img alt="SimpleBranding08.jpg" src="../../images/simple_collider/SimpleBranding10.jpg"></p>
-<ol>
-<li><strong>Presets:</strong> Manage collider naming and grouping presets. Create and modify them in the preferences.</li>
-<li><strong>Shapes:</strong> Start creating colliders with options like Box, Convex, Cylindrical Convex, Sphere, and Mesh.</li>
-<li><strong>Advanced Shapes:</strong> Use advanced options like 'Oriented Minimum BBox' and Auto Convex for more complex collider creation.</li>
-<li><strong>Convert:</strong> Convert shapes or meshes to colliders and vice versa. Automatically regenerate names based on prefab settings.</li>
-<li><strong>Rigid Body:</strong> Easily assign rigid body naming and settings to objects.</li>
-<li><strong>Display:</strong> Toggle display settings between wireframe and solid.</li>
-<li><strong>Tool Defaults:</strong> Set default values for collider generation before running the operation. These values can be adjusted during the creation process.</li>
-<li><strong>Collider Groups:</strong> Group, select, show, and hide colliders for better organization.</li>
-<li><strong>Physics Materials:</strong> Filter, create, and assign physics materials to your objects.</li>
-</ol>
-<h2 id="popups">Popups</h2>
-<h3 id="pie-menu-shift-ctrl-c">Pie Menu (Shift + Ctrl + C)</h3>
-<p>Access the Pie Menu by pressing <strong>Shift + Ctrl + C</strong> in the 3D viewport. It’s the quickest way to generate colliders.</p>
-<p><img alt="SimpleBranding08.jpg" src="../../images/simple_collider/SimpleBranding11.jpg"></p>
-<ol>
-<li>Create colliders (Box, Convex, Cylindrical, Sphere, Mesh).</li>
-<li>Use advanced operations like 'Oriented Minimum BBox' and Auto Convex. <a href="../collider_auto_convex/">Learn more about Auto Convex</a>.</li>
-<li>Change the shape of colliders.</li>
-<li>Convert meshes to colliders and vice versa. All collider-specific properties and naming conventions will be applied.</li>
-<li>Assign rigid body naming and settings to objects.</li>
-<li>Toggle display settings between wireframe and solid.</li>
-<li>Manage visibility and selection of colliders. Group colliders by complexity and adjust visibility or selection for each group or all at once.</li>
-</ol>
-<h3 id="collider-groups-shift-p">Collider Groups (Shift + P)</h3>
-<p>Open the Collider Groups panel as a popup. Customize hotkeys in the addon preferences.</p>
-<p><img alt="img" src="../../images/simple_collider/Ui_popup_groups.jpg"></p>
-<h3 id="physics-materials-shift-ctrl-p">Physics Materials (Shift + Ctrl + P)</h3>
-<p>Access the Physics Materials panel as a popup. Customize hotkeys in the addon preferences.</p>
-<p><img alt="img" src="../../images/simple_collider/Ui_popup_physics_materials.jpg"></p>
-<h2 id="viewport-overlays">Viewport Overlays</h2>
-<p>During most operations, a special mode called a "modal operator" is activated in Blender. This mode appears for collider shape tools, Auto Convex, and mesh-to-collider conversions. Different keys and mouse movements allow you to modify collider generation. The options presented vary by operator, and current values, along with the keys to manipulate them, are shown in the viewport overlay.</p>
-<p><img alt="img" src="../../images/simple_collider/Overlay_new_small.gif"></p>
-<p><a href="../collider_shapes/">Table of all Overlay settings</a></p>
-<h2 id="preferences">Preferences</h2>
-<p>The preferences section allows you to customize various options, including naming conventions, keymaps, UI themes, and Auto Convex collider generation.</p>
+                <div><h1 id="validation-checks-beta">Validation Checks (BETA)</h1>
+<p><strong>Validate Colliders</strong> scans the scene (or just the current selection) for common collider problems and reports them
+in a single popup, grouped by object. It's meant as a pre-export sanity check, not a replacement for looking at your
+colliders — some checks are heuristic and can produce false positives on unusual geometry.</p>
+<h2 id="running-it">Running It</h2>
+<p>Open the <strong>Collider Panel</strong> in the N-panel and click <strong>Validate Colliders (BETA)</strong> near the bottom (Operators
+section). It isn't in the Pie Menu, to keep that menu focused on creation/cleanup rather than diagnostics.</p>
+<p>A popup shows:</p>
 <ul>
-<li><strong>General:</strong> Manage settings like linking colliders to a "Collision" collection.</li>
-<li><strong>Presets:</strong> Modify naming patterns for colliders and other related settings.</li>
-<li><strong>UI:</strong> Customize UI font sizes, colors, and the Simple Collider tab name. You can also adjust collision group colors.</li>
-<li><strong>Keymap:</strong> Change hotkeys for popup menus.</li>
-<li><strong>Auto Convex:</strong> Configure all settings related to Auto Convex collider generation, for both the V-HACD and <a href="../collider_auto_convex/">CoACD (High Precision)</a> backends.</li>
-<li><strong>Post Processing:</strong> "Auto Apply on Creation" options that run automatically right after a collider is created — limiting it to a target triangle count and/or moving its origin to match its parent's.</li>
-<li><strong>Validation:</strong> Toggle and tune the individual <a href="../collider_validation/">Validation Checks</a> (BETA).</li>
-</ul></div>
+<li>A <strong>Whole Scene</strong> / <strong>Selected Objects</strong> toggle — switching it re-runs the scan.</li>
+<li>The number of issues found.</li>
+<li>A filterable, scrollable list of results, grouped under the object they concern. Each row can be filtered by
+  severity (<strong>Error</strong>/<strong>Warning</strong>) or searched by text, and has a button to select and frame that object in the
+  viewport.</li>
+<li>A <strong>Copy Report to Clipboard</strong> button, useful for sharing results or pasting them into a bug report.</li>
+</ul>
+<p>Results are stored per Blender session and are cleared automatically when you load a different file — they don't
+persist inside the .blend itself, so re-run the check after making changes.</p>
+<h2 id="what-gets-checked">What Gets Checked</h2>
+<p>Every check below can be individually toggled in <strong>Preferences → Simple Collider → Validation</strong>. Checks that compare
+volumes (marked <em>heuristic</em> below) are off by default, since unusual or low-poly geometry can trigger false
+positives — turn them on once you've confirmed they behave well on your assets.</p>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>Severity</th>
+<th>Flags</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Missing Collider</td>
+<td>Warning</td>
+<td>A render mesh with no child object marked as a collider</td>
+</tr>
+<tr>
+<td>Triangle Count</td>
+<td>Warning</td>
+<td>A mesh/convex collider whose evaluated triangle count exceeds the configured limit</td>
+</tr>
+<tr>
+<td>Collider Too Small</td>
+<td>Warning</td>
+<td>A collider whose authored bounding box is smaller than the configured minimum dimension</td>
+</tr>
+<tr>
+<td>Bounding Box Mismatch</td>
+<td>Warning</td>
+<td>A render mesh whose colliders, combined, don't cover its own bounding box within tolerance</td>
+</tr>
+<tr>
+<td>Too Many Colliders</td>
+<td>Warning</td>
+<td>A render mesh with more collider children than the configured limit</td>
+</tr>
+<tr>
+<td>Naming Convention</td>
+<td>Warning</td>
+<td>A collider whose name doesn't match the naming convention implied by its shape</td>
+</tr>
+<tr>
+<td>Non-Manifold Geometry</td>
+<td>Error</td>
+<td>A collider with edges not shared by exactly two faces</td>
+</tr>
+<tr>
+<td>Flipped Normals</td>
+<td>Error</td>
+<td>A collider whose overall face winding is inverted (inside-out mesh)</td>
+</tr>
+<tr>
+<td>Missing Physics Material</td>
+<td>Warning</td>
+<td>A collider with no material tagged as a physics material</td>
+</tr>
+<tr>
+<td>Parent Hierarchy</td>
+<td>Warning</td>
+<td>A collider that isn't parented to a plausible render mesh (missing parent, parented to another collider, or parented to an unsupported object type)</td>
+</tr>
+<tr>
+<td>Parent Inverse Matrix</td>
+<td>Warning</td>
+<td>A collider whose parent-inverse matrix hasn't been reset — some exporters (FBX, glTF) don't preserve it, which can shift the collider on export/re-import. Run <strong>Fix Parent Inverse Matrix</strong> to clear it</td>
+</tr>
+<tr>
+<td>Convex Shape Mismatch <em>(heuristic, off by default)</em></td>
+<td>Warning</td>
+<td>A collider marked as convex whose geometry is not actually convex</td>
+</tr>
+<tr>
+<td>Box Shape Mismatch <em>(heuristic, off by default)</em></td>
+<td>Warning</td>
+<td>A collider marked as a box whose geometry is not actually box-shaped</td>
+</tr>
+<tr>
+<td>Mesh Could Use a Primitive <em>(heuristic, off by default)</em></td>
+<td>Warning</td>
+<td>A mesh collider whose geometry is already convex (or even box-shaped), where a simpler primitive would be cheaper</td>
+</tr>
+<tr>
+<td>Collision Shape Mismatch <em>(heuristic, off by default)</em></td>
+<td>Warning</td>
+<td>A collider whose assigned shape (box/sphere/convex) doesn't suit the shape of its render mesh, e.g. a box collider on a ball-like mesh</td>
+</tr>
+</tbody>
+</table>
+<p>An internal error on any single object (e.g. malformed custom properties) is reported as its own "Error" result for
+that object rather than aborting the whole scan — the rest of the scene is still checked.</p>
+<h2 id="tuning-thresholds">Tuning Thresholds</h2>
+<p>Alongside the check toggles, preferences expose the numeric thresholds several checks use:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Used By</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Max Triangle Count</strong></td>
+<td>Triangle Count</td>
+<td>255</td>
+</tr>
+<tr>
+<td><strong>Min Dimension</strong></td>
+<td>Collider Too Small</td>
+<td>0.01</td>
+</tr>
+<tr>
+<td><strong>Bounding Box Tolerance</strong></td>
+<td>Bounding Box Mismatch (fraction of the render mesh's bounding-box diagonal)</td>
+<td>0.25</td>
+</tr>
+<tr>
+<td><strong>Max Collider Count</strong></td>
+<td>Too Many Colliders</td>
+<td>8</td>
+</tr>
+<tr>
+<td><strong>Shape Tolerance</strong></td>
+<td>Convex/Box Shape Mismatch, Mesh Could Use a Primitive, Collision Shape Mismatch (fraction of the larger volume compared)</td>
+<td>0.02</td>
+</tr>
+<tr>
+<td><strong>Sphere Fit Tolerance</strong></td>
+<td>Collision Shape Mismatch's sphere test only — looser than Shape Tolerance since a low-poly but intentionally round mesh sits measurably under its ideal enclosing sphere's volume</td>
+<td>0.05</td>
+</tr>
+</tbody>
+</table>
+<h2 id="known-limitations">Known Limitations</h2>
+<p>Validation Checks ships as <strong>BETA</strong> — checks, defaults, and behavior may still change. If a check produces
+unexpected results on your assets, please report it so it can be tuned before the BETA label is removed.</p></div>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../collider_overview/" class="btn btn-neutral float-left" title="Overview"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../collider_shapes/" class="btn btn-neutral float-right" title="Collider Shapes">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../collider_auto_convex/" class="btn btn-neutral float-left" title="Auto Convex"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../collider_groups/" class="btn btn-neutral float-right" title="Collider Groups">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -244,10 +359,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../collider_overview/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../collider_auto_convex/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../collider_shapes/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../collider_groups/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

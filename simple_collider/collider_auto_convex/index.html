@@ -50,9 +50,15 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#advanced-parameters">Advanced Parameters</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#auto-convex-high-precision-coacd-beta">Auto Convex (High Precision) — CoACD (BETA)</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#fix-linux-permission">Fix Linux Permission</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#fix-macos-permission">Fix macOS Permission</a>
+    </li>
     </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../collider_validation/">Validation Checks</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../collider_groups/">Collider Groups</a>
                   </li>
@@ -140,6 +146,13 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../simple_renaming/renaming_release_notes/">Release Notes</a>
                   </li>
               </ul>
+              <p class="caption"><span class="caption-text">Simple Toolkit (TBA)</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_toolkit/toolkit_overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../simple_toolkit/toolkit_release_notes/">Release Notes</a>
+                  </li>
+              </ul>
       </div>
     </div>
     </nav>
@@ -168,6 +181,17 @@
 <p><strong>Auto Convex</strong> is a tool for generating convex colliders for complex meshes. It's especially useful for organic shapes
 like rocks, statues, and debris. While it's not a one-click solution for every asset, it’s a powerful tool for organic
 models.</p>
+<p>Simple Collider ships two Auto Convex backends:</p>
+<ul>
+<li><strong>Auto Convex</strong>, powered by <a href="https://github.com/kmammou/v-hacd">V-HACD</a> — the default, fast option.</li>
+<li><strong>Auto Convex (High Precision)</strong>, powered by <a href="https://github.com/SarahWeiii/CoACD">CoACD</a> (BETA) — produces
+  noticeably tighter, more accurate hulls by searching for better cuts, at the cost of being significantly slower.
+  Reach for it when V-HACD's result is too coarse for a specific asset, not as a default replacement.</li>
+</ul>
+<p>Both backends run asynchronously: generation happens in the background with a live progress overlay (current phase,
+percentage where available, elapsed time), so Blender's UI stays responsive during a run — Escape cancels it. If a
+crash or a "Reload Add-on" ever leaves a stuck progress overlay or a job permanently "running," use <strong>Clear Stuck
+Overlays</strong> in the addon preferences to reset it.</p>
 <p><img alt="SimpleBranding08.jpg" src="../../images/simple_collider/SimpleBranding13.jpg"></p>
 <h3 id="basic-parameters">Basic Parameters</h3>
 <p>Control the number of convex hulls and their complexity through these settings, which appear in a popup when you
@@ -266,6 +290,112 @@ the gear button next to "Auto Convex."</p>
 <p>These parameters also come from the <a href="https://github.com/kmammou/v-hacd">V-HACD library</a>.</p>
 <p>For detailed documentation on the library, refer to
 the <a href="https://docs.google.com/presentation/d/1OZ4mtZYrGEC8qffqb8F7Le2xzufiqvaPpRbLHKKgTIM/edit#slide=id.g123758ab003_0_310">Voxelized Hierarchical Convex Decomposition - V-HACD version 4</a>.</p>
+<h3 id="auto-convex-high-precision-coacd-beta">Auto Convex (High Precision) — CoACD (BETA)</h3>
+<p><strong>Auto Convex (High Precision)</strong> uses <a href="https://github.com/SarahWeiii/CoACD">CoACD</a> instead of V-HACD. It searches for
+better cut planes via Monte Carlo Tree Search (MCTS), which typically produces fewer, tighter-fitting hulls than
+V-HACD for the same mesh — at the cost of runtime that can stretch to several minutes on complex, non-manifold
+meshes. Access it from the same popup/pie menu entries as regular Auto Convex.</p>
+<p>Basic parameters, in the popup when you activate it:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Threshold</strong></td>
+<td>Concavity threshold for terminating the decomposition. Lower values give finer-grained results with more hulls, higher values give coarser results with fewer hulls</td>
+<td>0.05</td>
+<td>0.01-1.0</td>
+</tr>
+<tr>
+<td><strong>Max Hulls</strong></td>
+<td>Maximum number of output convex hulls. -1 for no limit (only takes effect when merge is enabled)</td>
+<td>8</td>
+<td>-1-∞</td>
+</tr>
+<tr>
+<td><strong>Limit Hull Vertices</strong></td>
+<td>Enable a maximum vertex count constraint per convex hull</td>
+<td>On</td>
+<td>On/Off</td>
+</tr>
+<tr>
+<td><strong>Vert per Piece</strong></td>
+<td>Maximum number of vertices in each output convex hull (when Limit Hull Vertices is on)</td>
+<td>32</td>
+<td>4-4096</td>
+</tr>
+</tbody>
+</table>
+<p>Advanced parameters live in the addon preferences under <strong>Auto Convex</strong>, alongside the V-HACD settings:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Preprocess Mode</strong></td>
+<td>Manifold preprocessing: Auto (only if needed), On, or Off (input mesh must already be 2-manifold)</td>
+<td>Auto</td>
+<td>Auto/On/Off</td>
+</tr>
+<tr>
+<td><strong>Preprocess Resolution</strong></td>
+<td>Resolution used for the manifold preprocessing step</td>
+<td>50</td>
+<td>20-100</td>
+</tr>
+<tr>
+<td><strong>MCTS Iterations</strong></td>
+<td>Number of search iterations in the Monte Carlo Tree Search</td>
+<td>150</td>
+<td>60-2000</td>
+</tr>
+<tr>
+<td><strong>MCTS Max Depth</strong></td>
+<td>Maximum search depth in the Monte Carlo Tree Search</td>
+<td>2</td>
+<td>2-7</td>
+</tr>
+<tr>
+<td><strong>MCTS Max Nodes</strong></td>
+<td>Maximum number of child nodes in the Monte Carlo Tree Search</td>
+<td>10</td>
+<td>10-40</td>
+</tr>
+<tr>
+<td><strong>Hausdorff Sampling Resolution</strong></td>
+<td>Sampling resolution used for the Hausdorff distance calculation</td>
+<td>1000</td>
+<td>1000-10000</td>
+</tr>
+<tr>
+<td><strong>Disable Merge</strong></td>
+<td>Disable the merge postprocessing step (merging usually reduces hull count and is recommended)</td>
+<td>Off</td>
+<td>On/Off</td>
+</tr>
+<tr>
+<td><strong>PCA Preprocessing</strong></td>
+<td>Principal Component Analysis pre-processing, which can improve results for elongated shapes</td>
+<td>Off</td>
+<td>On/Off</td>
+</tr>
+</tbody>
+</table>
+<p>Lower MCTS/resolution values run faster at some cost to precision; the defaults above are tuned to keep typical runs
+in roughly the one-to-few-minute range rather than for maximum possible accuracy.</p>
+<p>For detailed documentation on the library, refer to the <a href="https://github.com/SarahWeiii/CoACD">CoACD paper and repository</a>.</p>
 <h3 id="fix-linux-permission">Fix Linux Permission</h3>
 <p>VHACD requires execute permissions to enable Auto Convex collision generation in Blender.</p>
 <p>Symptoms of Missing Permissions
@@ -292,13 +422,52 @@ the <a href="https://docs.google.com/presentation/d/1OZ4mtZYrGEC8qffqb8F7Le2xzuf
 <li>The red input field in preferences will disappear.</li>
 <li>Auto Convex collision generation will now work.</li>
 </ol>
-<p>Note: This process is specific to Linux Mint and similar distributions. If you encounter further issues, ensure the executable path is correctly referenced in Simple Collider settings.</p></div>
+<p>Note: This process is specific to Linux Mint and similar distributions. If you encounter further issues, ensure the executable path is correctly referenced in Simple Collider settings.</p>
+<h3 id="fix-macos-permission">Fix macOS Permission</h3>
+<p>VHACD requires execute permissions to enable Auto Convex collision generation in Blender. On macOS, the bundled
+executable can also lose its execute bit, or get blocked by Gatekeeper since it isn't signed by an identified developer.</p>
+<p>Symptoms of Missing Permissions
+- A red input field for the Default VHACD Build in Simple Collider preferences.
+- An info panel warning when attempting to use Auto Convex in your scene.
+- A Gatekeeper alert stating the executable "cannot be opened because the developer cannot be verified" or "is damaged and can't be opened".</p>
+<ol>
+<li>Locate the VHACD Executable</li>
+<li>Navigate to: Blender &gt; Settings &gt; Add-ons &gt; Simple Collider.</li>
+<li>
+<p>Click "Open Folder" to go directly to the executable (<code>vhacd_4_1_macos_arm64</code>).</p>
+</li>
+<li>
+<p>Allow the Executable via Finder</p>
+</li>
+<li>Right-click (or Control-click) the executable and select <strong>Open</strong>.</li>
+<li>macOS will show a warning that the developer cannot be verified. Click <strong>Open</strong> in that dialog to allow it.</li>
+<li>
+<p>If the executable is still blocked afterward, open <strong>System Settings &gt; Privacy &amp; Security</strong>, scroll to the
+    Security section, and click <strong>Allow Anyway</strong> next to the blocked executable message, then repeat this step.</p>
+</li>
+<li>
+<p>Verify the Fix</p>
+</li>
+<li>The red input field in preferences will disappear.</li>
+<li>Auto Convex collision generation will now work.</li>
+</ol>
+<p>If the Finder method doesn't clear the red input field, the execute bit itself may be missing rather than the file
+just being quarantined. In that case, fix it via Terminal:</p>
+<ul>
+<li>Open <strong>Terminal</strong> (Applications &gt; Utilities &gt; Terminal).</li>
+<li>Drag the executable from Finder into the Terminal window to paste its full path, or type the path manually.</li>
+<li>Run:
+    <code>chmod +x /path/to/vhacd_4_1_macos_arm64
+    xattr -d com.apple.quarantine /path/to/vhacd_4_1_macos_arm64</code></li>
+<li>The <code>chmod</code> command sets the execute bit. The <code>xattr</code> command removes the quarantine flag macOS applies to
+    downloaded files; if the file was never quarantined, this command will report "No such xattr" which is safe to ignore.</li>
+</ul></div>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../collider_shapes/" class="btn btn-neutral float-left" title="Collider Shapes"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../collider_groups/" class="btn btn-neutral float-right" title="Collider Groups">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../collider_validation/" class="btn btn-neutral float-right" title="Validation Checks">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -324,7 +493,7 @@ the <a href="https://docs.google.com/presentation/d/1OZ4mtZYrGEC8qffqb8F7Le2xzuf
       <span><a href="../collider_shapes/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../collider_groups/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../collider_validation/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
