@@ -18,7 +18,17 @@
 <meta name="twitter:description" content="Non-destructive UV projection — triplanar, box, cylindrical, spherical, and camera projection — live in your Geometry Nodes modifier stack.">
 <meta name="twitter:image" content="https://weisl.github.io/images/simple_uv/simple_uv_asset_library.jpg">
 <style>html,body { margin:0; padding:0; background:#16171c; }</style>
-<style type="text/css">@media (max-width: 640px) {
+<style type="text/css">[data-hover-lift]:hover {transform:scale(1.035) !important}
+@media (prefers-reduced-motion: reduce) {
+    [data-hover-lift]:hover {
+        transform: none !important;
+        transition: none !important
+        }
+    [data-parallax] {
+        background-attachment: scroll !important
+        }
+    }
+@media (max-width: 640px) {
     table[data-stack-grid] {
         display: block !important;
         width: 100% !important
@@ -169,7 +179,7 @@
         <p style="margin:0; max-width:460px; font-size:18px; color:#9a9da6; line-height:1.6">UV projection and transformation, live in your modifier stack. No unwrapping, no operators, no context switch — just drag a node in.</p>
       </div>
       <div data-hero-stack="wedge" style="flex:1; position:relative; min-height:320px">
-        <div style="position:absolute; inset:0; clip-path:polygon(28% 0%, 100% 0%, 100% 100%, 0% 100%); background-color:#a855f7; background-image:linear-gradient(45deg, rgba(0, 0, 0, 0.18) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, 0.18) 75%, rgba(0, 0, 0, 0.18)), linear-gradient(45deg, rgba(0, 0, 0, 0.18) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, 0.18) 75%, rgba(0, 0, 0, 0.18)), linear-gradient(150deg, #1c1e24 0%, #a855f7 85%); background-size:44px 44px, 44px 44px, 100% 100%; background-position:0 0, 22px 22px, 0 0"></div>
+        <div data-parallax style="position:absolute; inset:0; clip-path:polygon(28% 0%, 100% 0%, 100% 100%, 0% 100%); background-color:#a855f7; background-image:linear-gradient(45deg, rgba(0, 0, 0, 0.18) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, 0.18) 75%, rgba(0, 0, 0, 0.18)), linear-gradient(45deg, rgba(0, 0, 0, 0.18) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, 0.18) 75%, rgba(0, 0, 0, 0.18)), linear-gradient(150deg, #1c1e24 0%, #a855f7 85%); background-size:44px 44px, 44px 44px, 100% 100%; background-position:0 0, 22px 22px, 0 0; background-attachment:fixed, fixed, fixed"></div>
       </div>
     </div>
   </div>
@@ -530,10 +540,10 @@
     </div>
     <table role="presentation" data-stack-grid="pills" style="margin:0 auto; border-collapse:separate; border-spacing:10px 0; border:0">
       <tbody><tr>
-        <td style="border:none"><a href="https://extensions.blender.org/add-ons/simple-renaming-panel/" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Simple Renaming — 50,000+ users</a></td>
-        <td style="border:none"><a href="https://superhivemarket.com/products/simple-collider" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Simple Collider — 500+ users</a></td>
-        <td style="border:none"><a href="https://superhivemarket.com/products/simple-export" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Simple Export</a></td>
-        <td style="border:none"><a href="https://superhivemarket.com/products/simple-camera-manager" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Simple Camera Manager</a></td>
+        <td style="border:none"><a data-hover-lift href="https://extensions.blender.org/add-ons/simple-renaming-panel/" style="transition:transform 0.25s ease; display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Simple Renaming — 50,000+ users</a></td>
+        <td style="border:none"><a data-hover-lift href="https://superhivemarket.com/products/simple-collider" style="transition:transform 0.25s ease; display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Simple Collider — 500+ users</a></td>
+        <td style="border:none"><a data-hover-lift href="https://superhivemarket.com/products/simple-export" style="transition:transform 0.25s ease; display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Simple Export</a></td>
+        <td style="border:none"><a data-hover-lift href="https://superhivemarket.com/products/simple-camera-manager" style="transition:transform 0.25s ease; display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Simple Camera Manager</a></td>
       </tr></tbody>
     </table>
   </div>
@@ -544,9 +554,9 @@
     <div style="font-size:14px; color:#9a9da6; margin-bottom:26px; max-width:520px; margin-left:auto; margin-right:auto">Start working with non-destructive UV projections — live in your modifier stack, no unwrapping required.</div>
     <table role="presentation" data-stack-grid="pills" style="margin:0 auto; border-collapse:separate; border-spacing:8px 0; border:0">
       <tbody><tr>
-        <td style="border:none"><a href="https://superhivemarket.com/creators/matthias-patscheider" style="display:inline-block; background:#a855f7; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#16171c !important">More by Matthias</a></td>
-        <td style="border:none"><a href="/simple_geo_node_packs/simple_uv_nodes/" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">Documentation</a></td>
-        <td style="border:none"><a href="https://www.artstation.com/matthias-patscheider" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">ArtStation</a></td>
+        <td style="border:none"><a data-hover-lift href="https://superhivemarket.com/creators/matthias-patscheider" style="transition:transform 0.25s ease; display:inline-block; background:#a855f7; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#16171c !important">More by Matthias</a></td>
+        <td style="border:none"><a data-hover-lift href="/simple_geo_node_packs/simple_uv_nodes/" style="transition:transform 0.25s ease; display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">Documentation</a></td>
+        <td style="border:none"><a data-hover-lift href="https://www.artstation.com/matthias-patscheider" target="_blank" rel="noopener noreferrer" style="transition:transform 0.25s ease; display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">ArtStation</a></td>
       </tr></tbody>
     </table>
     <p style="margin:18px 0 0; font-size:12px"><a href="/legal-notice.html" style="color:#9a9da6; text-decoration:none">Legal Notice</a></p>
