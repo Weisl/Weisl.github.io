@@ -14,7 +14,7 @@
       <script>
         // Current page data
         var mkdocs_page_name = "Release Notes";
-        var mkdocs_page_input_path = "simple_camera_manager/camera_manager_release_notes.md";
+        var mkdocs_page_input_path = "simple_camera_manager\\camera_manager_release_notes.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -100,7 +100,7 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Release Notes</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#simple-camera-manager-v170">Simple Camera Manager v1.7.0</a>
+    <li class="toctree-l2"><a class="reference internal" href="#simple-camera-manager-v171">Simple Camera Manager v1.7.1</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#features-improvements">Features &amp; Improvements</a>
     </li>
@@ -108,23 +108,31 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#simple-camera-manager-v170">Simple Camera Manager v1.7.0</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#features-improvements_1">Features &amp; Improvements</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#bug-fixes_1">Bug Fixes</a>
+    </li>
+        </ul>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#simple-camera-manager-v163">Simple Camera Manager v1.6.3</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#bug-fixes_1">Bug Fixes</a>
+    <li class="toctree-l3"><a class="reference internal" href="#bug-fixes_2">Bug Fixes</a>
     </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#simple-camera-manager-v162">Simple Camera Manager v1.6.2</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#features-improvements_1">Features &amp; Improvements</a>
+    <li class="toctree-l3"><a class="reference internal" href="#features-improvements_2">Features &amp; Improvements</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#bug-fixes_2">Bug Fixes</a>
+    <li class="toctree-l3"><a class="reference internal" href="#bug-fixes_3">Bug Fixes</a>
     </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#simple-camera-manager-v161">Simple Camera Manager v1.6.1</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#bug-fixes_3">Bug Fixes</a>
+    <li class="toctree-l3"><a class="reference internal" href="#bug-fixes_4">Bug Fixes</a>
     </li>
         </ul>
     </li>
@@ -132,19 +140,11 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#key-updates">Key Updates</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#features-improvements_2">Features &amp; Improvements</a>
+    <li class="toctree-l3"><a class="reference internal" href="#features-improvements_3">Features &amp; Improvements</a>
     </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#simple-camera-manager-v10">Simple Camera Manager v1.0</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#features-improvements_3">Features &amp; Improvements</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#bug-fixes_4">Bug Fixes</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#simple-camera-manager-v12">Simple Camera Manager v1.2</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#features-improvements_4">Features &amp; Improvements</a>
     </li>
@@ -152,7 +152,7 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#simple-camera-manager-v111">Simple Camera Manager v1.1.1</a>
+    <li class="toctree-l2"><a class="reference internal" href="#simple-camera-manager-v12">Simple Camera Manager v1.2</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#features-improvements_5">Features &amp; Improvements</a>
     </li>
@@ -160,11 +160,19 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#simple-camera-manager-v110">Simple Camera Manager v1.1.0</a>
+    <li class="toctree-l2"><a class="reference internal" href="#simple-camera-manager-v111">Simple Camera Manager v1.1.1</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#features-improvements_6">Features &amp; Improvements</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#bug-fixes_7">Bug Fixes</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#simple-camera-manager-v110">Simple Camera Manager v1.1.0</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#features-improvements_7">Features &amp; Improvements</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#bug-fixes_8">Bug Fixes</a>
     </li>
         </ul>
     </li>
@@ -231,9 +239,22 @@
             <div class="section" itemprop="articleBody">
               
                 <div><h1 id="release-notes">Release Notes</h1>
+<h3 id="simple-camera-manager-v171">Simple Camera Manager v1.7.1</h3>
+<p>This release fixes two Blender 5.0+ compatibility issues found during a compatibility audit, and adds a new operator to align an existing camera to the current viewport view.</p>
+<h4 id="features-improvements">Features &amp; Improvements</h4>
+<ul>
+<li>Added <strong>Align Camera to View</strong> (<code>camera.align_camera_to_view</code>) — snaps the active scene camera to match the current viewport view, without creating a new camera.</li>
+<li><a href="https://github.com/Weisl/simple_camera_manager/issues/151">#151</a>: The pie menu now shows <code>ortho_scale</code> instead of focal length for Orthographic cameras.</li>
+</ul>
+<h4 id="bug-fixes">Bug Fixes</h4>
+<ul>
+<li><a href="https://github.com/Weisl/simple_camera_manager/issues/152">#152</a>: Fixed <strong>Open Render Folder</strong> crashing on Blender 5.0+ — <code>bpy.ops.file.external_operation</code> dropped its <code>filepath</code> property in 5.0; switched to <code>bpy.ops.wm.path_open</code>.</li>
+<li><a href="https://github.com/Weisl/simple_camera_manager/issues/153">#153</a>: Fixed the camera properties panel being hidden on Blender 4.2–4.5 when using the default render engine, whose identifier was <code>BLENDER_EEVEE_NEXT</code> in that range instead of <code>BLENDER_EEVEE</code>.</li>
+</ul>
+<hr>
 <h3 id="simple-camera-manager-v170">Simple Camera Manager v1.7.0</h3>
 <p>This update brings per-camera Dolly Zoom controls, a new passepartout overlay, camera list sorting and filtering, focal length and resolution presets, several bug fixes, and full Blender 5.1 support.</p>
-<h4 id="features-improvements">Features &amp; Improvements</h4>
+<h4 id="features-improvements_1">Features &amp; Improvements</h4>
 <ul>
 <li><a href="https://github.com/Weisl/simple_camera_manager/issues/112">#112</a>: Dolly Zoom gizmo visibility and focus distance linkage are now stored per camera instead of as a global preference.</li>
 <li><a href="https://github.com/Weisl/simple_camera_manager/issues/122">#122</a>: Added focal length and resolution preset selectors to the pie menu and N-Panel.</li>
@@ -248,7 +269,7 @@
 <li><a href="https://github.com/Weisl/simple_camera_manager/issues/145">#145</a>: Added Reload Addon button to the N-Panel.</li>
 <li><a href="https://github.com/Weisl/simple_camera_manager/issues/148">#148</a>: Added update checker — the addon now notifies when a new version is available.</li>
 </ul>
-<h4 id="bug-fixes">Bug Fixes</h4>
+<h4 id="bug-fixes_1">Bug Fixes</h4>
 <ul>
 <li><a href="https://github.com/Weisl/simple_camera_manager/issues/126">#126</a>: Fixed add-on keybindings not working on Linux.</li>
 <li><a href="https://github.com/Weisl/simple_camera_manager/issues/131">#131</a>: Fixed crash when cycling to a camera that is in a disabled collection.</li>
@@ -259,20 +280,20 @@
 <hr>
 <h3 id="simple-camera-manager-v163">Simple Camera Manager v1.6.3</h3>
 <p>This is a hotfix release improving keymap reliability.</p>
-<h4 id="bug-fixes_1">Bug Fixes</h4>
+<h4 id="bug-fixes_2">Bug Fixes</h4>
 <ul>
 <li>Fixed keybindings being unreliable by switching keymap registration to use the active keyconfig instead of the addon keyconfig.</li>
 </ul>
 <hr>
 <h3 id="simple-camera-manager-v162">Simple Camera Manager v1.6.2</h3>
 <p>This update fixes broken keymaps, cleans up preferences, and improves the resolution overwrite workflow.</p>
-<h4 id="features-improvements_1">Features &amp; Improvements</h4>
+<h4 id="features-improvements_2">Features &amp; Improvements</h4>
 <ul>
 <li><a href="https://github.com/Weisl/simple_camera_manager/issues/118">#118</a>: Cleaned up the Support tab in preferences — improved layout, added a Discord link, and reorganized cross-promotion links.</li>
 <li>Added a <code>Resolution Overwrite</code> toggle per camera — the scene resolution is only applied when explicitly enabled, preventing unwanted resolution changes when switching cameras.</li>
 <li>Exposed the resolution overwrite toggle in the camera list and pie menu.</li>
 </ul>
-<h4 id="bug-fixes_2">Bug Fixes</h4>
+<h4 id="bug-fixes_3">Bug Fixes</h4>
 <ul>
 <li><a href="https://github.com/Weisl/simple_camera_manager/issues/117">#117</a>: Fixed broken keymap caused by incorrect module import order in <code>__init__.py</code>.</li>
 <li><a href="https://github.com/Weisl/simple_camera_manager/issues/119">#119</a>: Fixed error on add-on unregister caused by attempting to delete a non-existent scene property.</li>
@@ -280,7 +301,7 @@
 <hr>
 <h3 id="simple-camera-manager-v161">Simple Camera Manager v1.6.1</h3>
 <p>This is a hotfix release.</p>
-<h4 id="bug-fixes_3">Bug Fixes</h4>
+<h4 id="bug-fixes_4">Bug Fixes</h4>
 <ul>
 <li>Fixed broken Gumroad links in the preferences Support tab.</li>
 </ul>
@@ -293,7 +314,7 @@
 <li>Render multiple cameras at once for faster workflows.</li>
 <li>Easily select, filter, and manage cameras with new options like "Select All" and "Select None."</li>
 </ul>
-<h4 id="features-improvements_2">Features &amp; Improvements</h4>
+<h4 id="features-improvements_3">Features &amp; Improvements</h4>
 <ul>
 <li><strong>Render Multiple Cameras</strong> — Streamline your rendering process.</li>
 <li><strong>Fixed Filters</strong> — Ensured filters work correctly.</li>
@@ -307,12 +328,12 @@
 <hr>
 <h3 id="simple-camera-manager-v10">Simple Camera Manager v1.0</h3>
 <p>Rebranding to Simple Camera Manager.</p>
-<h4 id="features-improvements_3">Features &amp; Improvements</h4>
+<h4 id="features-improvements_4">Features &amp; Improvements</h4>
 <ul>
 <li>Converted to Extension (Blender 4.2+) — Now integrates as an extension for Blender 4.2 and beyond.</li>
 <li>UI Improvements — Improved layout for better usability.</li>
 </ul>
-<h4 id="bug-fixes_4">Bug Fixes</h4>
+<h4 id="bug-fixes_5">Bug Fixes</h4>
 <ul>
 <li>Camera Scene Panel — No longer forced on top.</li>
 <li>Unregister Warning — Removed unnecessary warnings.</li>
@@ -321,30 +342,30 @@
 <hr>
 <h3 id="simple-camera-manager-v12">Simple Camera Manager v1.2</h3>
 <p>Support for Blender 4.0 and keymap improvements.</p>
-<h4 id="features-improvements_4">Features &amp; Improvements</h4>
+<h4 id="features-improvements_5">Features &amp; Improvements</h4>
 <ul>
 <li>Blender 4.0 Support.</li>
 <li>UI Improvements.</li>
 <li>New Keymap UI.</li>
 </ul>
-<h4 id="bug-fixes_5">Bug Fixes</h4>
+<h4 id="bug-fixes_6">Bug Fixes</h4>
 <ul>
 <li>Custom Hotkeys.</li>
 </ul>
 <hr>
 <h3 id="simple-camera-manager-v111">Simple Camera Manager v1.1.1</h3>
-<h4 id="features-improvements_5">Features &amp; Improvements</h4>
+<h4 id="features-improvements_6">Features &amp; Improvements</h4>
 <ul>
 <li>Blender 3.1 Support.</li>
 <li><a href="https://github.com/Weisl/Cam-Manager/issues/81">#81</a>: Gizmos can be hidden when not used.</li>
 </ul>
-<h4 id="bug-fixes_6">Bug Fixes</h4>
+<h4 id="bug-fixes_7">Bug Fixes</h4>
 <ul>
 <li><a href="https://github.com/Weisl/Cam-Manager/issues/80">#80</a>: Gizmo can't be selected by the user in 3.1.</li>
 </ul>
 <hr>
 <h3 id="simple-camera-manager-v110">Simple Camera Manager v1.1.0</h3>
-<h4 id="features-improvements_6">Features &amp; Improvements</h4>
+<h4 id="features-improvements_7">Features &amp; Improvements</h4>
 <ul>
 <li>Dolly-Zoom operator with Viewport Gizmo.</li>
 <li>Blender 3.0 Support.</li>
@@ -352,7 +373,7 @@
 </ul>
 <p><img alt="img" src="../../images/simple_cam/dollyZoom_01_compressed.gif" width="600"></p>
 <p>The Dolly Zoom is the big feature of this release. It is not only a powerful tool in itself, it's also the first tool using a viewport Gizmo, paving the way for future, user-friendly and powerful tools in the addon.</p>
-<h4 id="bug-fixes_7">Bug Fixes</h4>
+<h4 id="bug-fixes_8">Bug Fixes</h4>
 <ul>
 <li><a href="https://github.com/Weisl/Cam-Manager/issues/57">#57</a>: The exposure of 0.00 is ignored when switching between cameras.</li>
 </ul>
