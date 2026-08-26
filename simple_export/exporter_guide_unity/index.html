@@ -89,6 +89,26 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#import-to-unity">Import to Unity</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exporting-animated-characters">Exporting Animated Characters</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#step-1-select-the-unity-animation-preset">Step 1: Select the Unity Animation Preset</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-2-create-an-export-collection_1">Step 2: Create an Export Collection</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-3-export-the-collection">Step 3: Export the Collection</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#importing-animated-characters-into-unity">Importing Animated Characters into Unity</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#step-1-set-the-avatar-definition">Step 1: Set the Avatar Definition</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-2-check-the-imported-clips">Step 2: Check the imported clips</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-3-create-an-animator-controller">Step 3: Create an Animator Controller</a>
+    </li>
+        </ul>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#the-simple-unity-export-preset">The Simple Unity Export Preset</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#general-settings">General Settings</a>
@@ -100,6 +120,8 @@
     <li class="toctree-l3"><a class="reference internal" href="#animation-related-settings">Animation Related Settings</a>
     </li>
         </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#the-simple-unity-animation-preset">The Simple Unity Animation Preset</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#furhter-references-and-resources">Furhter References and Resources:</a>
     </li>
@@ -223,6 +245,56 @@ that there are no weird rotaitons on the asset.</p>
 <li>Click <strong>"Apply"</strong> to save the changes</li>
 <li>Now you can drag and drop the model into your scene</li>
 </ol>
+<h2 id="exporting-animated-characters">Exporting Animated Characters</h2>
+<p>Rigged, animated characters (an armature with a skinned mesh and one or more Actions) use a separate preset from
+static meshes: <strong>Unity-animation</strong>. The static <code>Unity-default</code> preset intentionally exports no animation at all -
+using it on a rigged character will give you the mesh and skeleton with no motion. <code>Unity-animation</code> bakes every
+Action in the file as its own take, so Unity can split them back out into individual Animation Clips on import.</p>
+<h4 id="step-1-select-the-unity-animation-preset">Step 1: Select the Unity Animation Preset</h4>
+<p>Make sure <code>Unity-animation</code> is selected as the Export Collection Preset, instead of <code>Unity-default</code>.</p>
+<h4 id="step-2-create-an-export-collection_1">Step 2: Create an Export Collection</h4>
+<p>Select the armature (its mesh and any children are picked up automatically) and create an export collection, exactly
+as for a static mesh - the plus button in the Export List, right-click on the object in the Outliner, or right-click
+in the 3D Viewport.</p>
+<h4 id="step-3-export-the-collection">Step 3: Export the Collection</h4>
+<p>Export from the Export List, the Outliner, or by exporting all selected collections. Every Action currently in the
+file gets baked into the export - there is no separate step to pick which animations go out.</p>
+<div class="admonition tip">
+<p class="admonition-title">Multiple characters sharing one skeleton type</p>
+<p>If several characters share the same rig, keep the Actions you want in each character's own <code>.blend</code> file (or
+use Action assignment/filtering in your own pipeline) before exporting - <code>Unity-animation</code> exports <strong>every</strong>
+Action present in the file, not just the ones currently played back on the armature.</p>
+</div>
+<h2 id="importing-animated-characters-into-unity">Importing Animated Characters into Unity</h2>
+<p>Dragging the exported FBX into Unity gets you the mesh, skeleton and Animation Clips - but Unity does not
+automatically wire them up to anything playable. Three manual steps in the Unity Editor turn that into a character
+you can actually animate:</p>
+<h4 id="step-1-set-the-avatar-definition">Step 1: Set the Avatar Definition</h4>
+<p>Select the imported FBX and open the <strong>Rig</strong> tab in the Inspector.</p>
+<ul>
+<li><strong>Animation Type</strong>: <code>Generic</code> for most non-human or custom-proportioned rigs; <code>Humanoid</code> if the skeleton maps
+  cleanly onto Unity's Humanoid bone set and you want Humanoid-specific features (retargeting, Inverse Kinematics,
+  Avatar Masks).</li>
+<li><strong>Avatar Definition</strong>: <code>Create From This Model</code>.</li>
+</ul>
+<p>Click <strong>Apply</strong>. This is the step that is easy to miss: Unity's default Avatar Definition is <strong>No Avatar</strong>, even
+when Animation Type is already set to Generic - without explicitly changing it, the model imports with its
+Animation Clips present but with no Avatar and no Animator component on the prefab, so nothing can play them.</p>
+<p><img alt="Import_unity.jpg" src="../../images/simple_export/Import_unity.jpg"></p>
+<h4 id="step-2-check-the-imported-clips">Step 2: Check the imported clips</h4>
+<p>Still in the <strong>Rig</strong> tab (or the <strong>Animation</strong> tab, depending on your Unity version), confirm each Action came
+through as its own named clip. Every Action from the Blender file should be listed - if a clip is missing, check
+that its Action wasn't excluded before export.</p>
+<h4 id="step-3-create-an-animator-controller">Step 3: Create an Animator Controller</h4>
+<p>Unity never generates an Animator Controller automatically. Drag the character prefab into the scene, then:</p>
+<ol>
+<li>Right-click in the Project window → <strong>Create → Animator Controller</strong>.</li>
+<li>Double-click it to open the Animator window, drag your clips in as States, and wire up the Transitions you need
+   (a Blend Tree or simple bool/trigger parameters for something like Idle ↔ Walk).</li>
+<li>Assign the controller to the character's <strong>Animator</strong> component (added automatically once step 1 is applied).</li>
+</ol>
+<p>Only after this step will the character actually animate in Play Mode - importing the FBX alone only gets you the
+raw clips.</p>
 <h2 id="the-simple-unity-export-preset">The Simple Unity Export Preset</h2>
 <p>Here is a breakdown of the Unity preset settings. You should be able to have transparency over what happens with your
 assets on export.</p>
@@ -399,6 +471,41 @@ assets on export.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="the-simple-unity-animation-preset">The Simple Unity Animation Preset</h2>
+<p><code>Unity-animation</code> shares every setting above with <code>Unity-default</code> except the three that control animation baking.
+These are the only differences:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Setting</strong></th>
+<th><strong>Unity-default</strong></th>
+<th><strong>Unity-animation</strong></th>
+<th><strong>Notes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bake Anim</strong></td>
+<td>❌ <code>Disabled</code></td>
+<td>✅ <code>Enabled</code></td>
+<td>Turns on animation export at all - without this, nothing about any Action reaches the FBX file.</td>
+</tr>
+<tr>
+<td><strong>NLA Strips</strong></td>
+<td>✅ <code>Enabled</code></td>
+<td>❌ <code>Disabled</code></td>
+<td>Disabled so Actions are exported directly rather than through NLA strips, which this workflow doesn't rely on.</td>
+</tr>
+<tr>
+<td><strong>All Actions</strong></td>
+<td>❌ <code>Disabled</code></td>
+<td>✅ <code>Enabled</code></td>
+<td>Every Action in the file is baked as its own FBX take, which Unity then splits into separate Animation Clips.</td>
+</tr>
+</tbody>
+</table>
+<p>Everything else - object types, transformation settings, bone axis conventions, leaf bones - stays identical to the
+static preset, since none of that changes just because the mesh is now animated.</p>
 <hr>
 <h2 id="furhter-references-and-resources">Furhter References and Resources:</h2>
 <ul>
