@@ -18,7 +18,17 @@
 <meta name="twitter:description" content="1:1 mentoring, team training, and portfolio reviews in environment art, tech art, and pipelines — from a decade of AAA production experience.">
 <meta name="twitter:image" content="https://weisl.github.io/images/mentoring/hero_banner.jpg">
 <style>html,body { margin:0; padding:0; background:#16171c; }</style>
-<style type="text/css">@media (max-width: 640px) {
+<style type="text/css">[data-hover-lift]:hover {transform:scale(1.035) !important}
+@media (prefers-reduced-motion: reduce) {
+    [data-hover-lift]:hover {
+        transform: none !important;
+        transition: none !important
+        }
+    [data-parallax] {
+        background-attachment: scroll !important
+        }
+    }
+@media (max-width: 640px) {
     table[data-stack-grid] {
         display: block !important;
         width: 100% !important
@@ -154,7 +164,8 @@
        for brand consistency. Badge pill and chips get an explicit solid
        background now (not just a border) since they sit over a photo instead
        of a flat color. -->
-  <div style="position:relative;min-height:520px;background:#1c1e24 url('/images/mentoring/hero_banner.jpg') center 35%/cover no-repeat;">
+  <div style="position:relative;min-height:520px;overflow:hidden;">
+    <div data-parallax data-parallax-js style="position:absolute;top:-70px;right:0;bottom:-70px;left:0;background:#1c1e24 url('/images/mentoring/hero_banner.jpg') center 35%/cover no-repeat fixed;"></div>
     <div style="position:absolute;inset:0;background:linear-gradient(100deg, #1c1e24 0%, #1c1e24 48%, rgba(28,30,36,0.78) 70%, rgba(28,30,36,0.15) 100%);"></div>
     <div data-section-pad style="position:relative; max-width:660px; padding:88px 34px 84px 30px">
       <h1 style="margin:0 0 22px; line-height:1">
@@ -226,7 +237,8 @@
        wireframe, Geometry Nodes graph) sized to exactly match this
        container, so it's shown centered/uncropped rather than positioned
        like the hero's photo crop. -->
-  <div style="position:relative;width:100%;aspect-ratio:3/1;min-height:420px;display:flex;align-items:flex-end;justify-content:center;background:#1c1e24 url('/images/alpine_empire/GameBanner.jpg') center/cover no-repeat;">
+  <div style="position:relative;width:100%;aspect-ratio:3/1;min-height:420px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;">
+    <div data-parallax data-parallax-js style="position:absolute;top:-70px;right:0;bottom:-70px;left:0;background:#1c1e24 url('/images/alpine_empire/GameBanner.jpg') center/cover no-repeat fixed;"></div>
     <div style="position:absolute;inset:0;background:linear-gradient(0deg, rgba(28,30,36,0.94) 0%, rgba(28,30,36,0.55) 45%, rgba(28,30,36,0.08) 72%);"></div>
     <div data-section-pad style="position:relative; max-width:720px; padding:0 34px 46px; text-align:center">
       <div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#3b82f6; margin-bottom:10px; text-shadow:0 1px 8px rgba(0, 0, 0, 0.9)">WHO THIS IS FOR</div>
@@ -320,7 +332,8 @@
        wireframe, Geometry Nodes graph) sized to exactly match this
        container, so it's shown centered/uncropped rather than positioned
        like the hero's photo crop. -->
-  <div style="position:relative;width:100%;aspect-ratio:3/1;min-height:420px;display:flex;align-items:flex-end;justify-content:center;background:#1c1e24 url('/images/mentoring/Tech_Art_Banner.jpg') center/cover no-repeat;">
+  <div style="position:relative;width:100%;aspect-ratio:3/1;min-height:420px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;">
+    <div data-parallax data-parallax-js style="position:absolute;top:-70px;right:0;bottom:-70px;left:0;background:#1c1e24 url('/images/mentoring/Tech_Art_Banner.jpg') center/cover no-repeat fixed;"></div>
     <div style="position:absolute;inset:0;background:linear-gradient(0deg, rgba(28,30,36,0.94) 0%, rgba(28,30,36,0.55) 45%, rgba(28,30,36,0.08) 72%);"></div>
     <div data-section-pad style="position:relative; max-width:720px; padding:0 34px 46px; text-align:center">
       <div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#3b82f6; margin-bottom:10px; text-shadow:0 1px 8px rgba(0, 0, 0, 0.9)">THE TOOLS BEHIND 50,000+ DOWNLOADS</div>
@@ -442,7 +455,7 @@
       </div>
       <div style="background:#24262d; border:1px solid #34363e; border-left:3px solid #3b82f6; border-radius:8px; padding:14px 18px; font-size:14px; color:#d7d9e0; line-height:1.6; margin:0 0 20px">
 <strong style="color:#3b82f6">Safe Space</strong> — a judgment-free place to ask anything, from beginner questions to an honest look at where your portfolio actually stands.
-        <p style="margin:16px 0 0"><a href="https://cal.eu/matthiaspatscheider/15min" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:#3b82f6; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">Book a Free Intro Call ↗</a></p>
+        <p style="margin:16px 0 0"><a href="https://cal.eu/matthiaspatscheider/15min" data-hover-lift target="_blank" rel="noopener noreferrer" style="transition:transform 0.25s ease; display:inline-block; background:#3b82f6; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">Book a Free Intro Call ↗</a></p>
       </div>
       <div style="margin-bottom:20px">
         <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px">
@@ -522,25 +535,57 @@
         </tr>
       </tbody>
     </table>
-    <p style="text-align:center; margin:26px 0 0"><a href="https://holvi.com/shop/alpine-empire/" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:#3b82f6; text-decoration:none; padding:16px 36px; border-radius:8px; font-size:16px; font-weight:700; color:#fff !important">Book via the Holvi Store ↗</a></p>
+    <p style="text-align:center; margin:26px 0 0"><a href="https://holvi.com/shop/alpine-empire/" data-hover-lift target="_blank" rel="noopener noreferrer" style="transition:transform 0.25s ease; display:inline-block; background:#3b82f6; text-decoration:none; padding:16px 36px; border-radius:8px; font-size:16px; font-weight:700; color:#fff !important">Book via the Holvi Store ↗</a></p>
   </div>
 
   <!-- Footer CTA -->
   <div data-section-pad style="background:#16171c; border-top:2px solid #3b82f6; padding:46px 30px; text-align:center">
     <div style="font-size:20px; font-weight:900; color:#fff; margin-bottom:6px">Start With a Free 15-Minute Intro Call</div>
     <div style="font-size:14px; color:#9a9da6; margin-bottom:26px; max-width:520px; margin-left:auto; margin-right:auto">No strings attached — we'll figure out what you actually need before you pay for anything.</div>
-    <p style="margin:0 0 34px"><a href="https://cal.eu/matthiaspatscheider/15min" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:#3b82f6; text-decoration:none; padding:18px 42px; border-radius:8px; font-size:18px; font-weight:700; color:#fff !important">Book Your Free Intro Call</a></p>
+    <p style="margin:0 0 34px"><a data-hover-lift href="https://cal.eu/matthiaspatscheider/15min" target="_blank" rel="noopener noreferrer" style="transition:transform 0.25s ease; display:inline-block; background:#3b82f6; text-decoration:none; padding:18px 42px; border-radius:8px; font-size:18px; font-weight:700; color:#fff !important">Book Your Free Intro Call</a></p>
     <table role="presentation" data-stack-grid="pills" style="margin:0 auto; border-collapse:separate; border-spacing:10px 0; border:0">
       <tbody><tr>
-        <td style="border:none"><a href="https://www.artstation.com/matthias-patscheider" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Portfolio</a></td>
-        <td style="border:none"><a href="https://holvi.com/shop/alpine-empire/" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Store</a></td>
-        <td style="border:none"><a href="mailto:hello-alpineempire@poton.me" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Contact</a></td>
+        <td style="border:none"><a data-hover-lift href="https://www.artstation.com/matthias-patscheider" target="_blank" rel="noopener noreferrer" style="transition:transform 0.25s ease; display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Portfolio</a></td>
+        <td style="border:none"><a data-hover-lift href="https://holvi.com/shop/alpine-empire/" target="_blank" rel="noopener noreferrer" style="transition:transform 0.25s ease; display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Store</a></td>
+        <td style="border:none"><a data-hover-lift href="mailto:hello-alpineempire@poton.me" style="transition:transform 0.25s ease; display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Contact</a></td>
       </tr></tbody>
     </table>
     <p style="margin:18px 0 0; font-size:12px"><a href="/legal-notice.html" style="color:#9a9da6; text-decoration:none">Legal Notice</a></p>
   </div>
 
 </div>
+  <script>
+  (function () {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var layers = document.querySelectorAll('[data-parallax-js]');
+    if (!layers.length) return;
+    var MAX_OFFSET = 60;
+    var SPEED = 0.35;
+    var ticking = false;
+    function update() {
+      var viewportCenter = window.innerHeight / 2;
+      layers.forEach(function (el) {
+        var rect = el.parentElement.getBoundingClientRect();
+        var elementCenter = rect.top + rect.height / 2;
+        var delta = (viewportCenter - elementCenter) * SPEED;
+        if (delta > MAX_OFFSET) delta = MAX_OFFSET;
+        if (delta < -MAX_OFFSET) delta = -MAX_OFFSET;
+        el.style.transform = 'translateY(' + delta.toFixed(1) + 'px)';
+      });
+      ticking = false;
+    }
+    function onScroll() {
+      if (!ticking) {
+        window.requestAnimationFrame(update);
+        ticking = true;
+      }
+    }
+    layers.forEach(function (el) { el.style.backgroundAttachment = 'scroll'; });
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    update();
+  })();
+  </script>
 
 </body>
 </html>

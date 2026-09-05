@@ -18,7 +18,17 @@
 <meta name="twitter:description" content="Free Blender add-on trusted by 50,000+ users for fast, rule-based batch renaming of objects, materials, and more.">
 <meta name="twitter:image" content="https://weisl.github.io/images/simple_renaming/renaming_panel_main.jpg">
 <style>html,body { margin:0; padding:0; background:#16171c; }</style>
-<style type="text/css">@media (max-width: 640px) {
+<style type="text/css">[data-hover-lift]:hover {transform:scale(1.035) !important}
+@media (prefers-reduced-motion: reduce) {
+    [data-hover-lift]:hover {
+        transform: none !important;
+        transition: none !important
+        }
+    [data-parallax] {
+        background-attachment: scroll !important
+        }
+    }
+@media (max-width: 640px) {
     table[data-stack-grid] {
         display: block !important;
         width: 100% !important
@@ -163,7 +173,7 @@
         <p style="margin:0; max-width:460px; font-size:18px; color:#9a9da6; line-height:1.6">With over 50,000 downloads across multiple platforms, Simple Renaming is the go-to addon for batch renaming objects, materials, collections and more. It's fast, flexible and free!</p>
       </div>
       <div data-hero-stack="wedge" style="flex:1; position:relative; min-height:320px">
-        <div style="position:absolute; inset:0; clip-path:polygon(28% 0%, 100% 0%, 100% 100%, 0% 100%); background:linear-gradient(150deg, #1c1e24 0%, #0ea5e9 85%); overflow:hidden">
+        <div data-parallax style="position:absolute; inset:0; clip-path:polygon(28% 0%, 100% 0%, 100% 100%, 0% 100%); background:linear-gradient(150deg, #1c1e24 0%, #0ea5e9 85%); background-attachment:fixed; overflow:hidden">
           <!-- Wall of default Blender object names, packed with no gaps between words —
                the exact problem Simple Renaming solves. Matches the low-opacity numbering
                texture in the product's own keyart (SimpleBranding06.jpg). Rows are literal
@@ -176,7 +186,7 @@
                overflow:hidden clips whatever's left over, so oversizing here is free; the
                previous shorter/fewer rows left visible gaps of bare gradient at the right
                and bottom edges on anything wider than that original assumption. -->
-          <svg width="100%" height="100%" style="position:absolute; inset:0">
+          <svg width="100%" height="100%" data-parallax-js style="position:absolute; top:-70px; right:0; bottom:-70px; left:0">
             <g transform="rotate(-14 210 160)">
               <text x="-60" y="-48" font-family="'SF Mono', Consolas, monospace" font-size="13" fill="#ffffff" fill-opacity="0.28">Cube.001Cube.002Cube.003Sphere.001Cylinder.002Plane.003Torus.004Cone.005Icosphere.006Suzanne.007Empty.008Camera.002Light.003Material.004Mesh.005Curve.006BezierCircle.007Armature.002Text.003Grid.004Cube.009Cube.010Sphere.011Plane.012Cube.001Cube.002Cube.003Sphere.001Cylinder.002Plane.003Torus.004Cone.005Icosphere.006Suzanne.007Empty.008Camera.002Light.003Material.004Mesh.005Curve.006</text>
               <text x="-60" y="-26" font-family="'SF Mono', Consolas, monospace" font-size="13" fill="#ffffff" fill-opacity="0.28">Sphere.001Cylinder.002Plane.003Torus.004Cone.005Icosphere.006Suzanne.007Empty.008Camera.002Light.003Material.004Mesh.005Curve.006BezierCircle.007Armature.002Text.003Grid.004Cube.009Cube.010Sphere.011Plane.012Cube.001Cube.002Cube.003Sphere.001Cylinder.002Plane.003Torus.004Cone.005Icosphere.006Suzanne.007Empty.008Camera.002Light.003Material.004Mesh.005Curve.006BezierCircle.007Armature.002Text.003</text>
@@ -584,9 +594,9 @@
     </div>
     <table role="presentation" data-stack-grid="pills" style="margin:0 auto; border-collapse:separate; border-spacing:10px 0; border:0">
       <tbody><tr>
-        <td style="border:none"><a href="https://superhivemarket.com/products/simple-collider" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Simple Collider — 500+ users</a></td>
-        <td style="border:none"><a href="https://superhivemarket.com/products/simple-export" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Simple Export</a></td>
-        <td style="border:none"><a href="https://superhivemarket.com/products/simple-camera-manager" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Simple Camera Manager</a></td>
+        <td style="border:none"><a data-hover-lift href="https://superhivemarket.com/products/simple-collider" style="transition:transform 0.25s ease; display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Simple Collider — 500+ users</a></td>
+        <td style="border:none"><a data-hover-lift href="https://superhivemarket.com/products/simple-export" style="transition:transform 0.25s ease; display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Simple Export</a></td>
+        <td style="border:none"><a data-hover-lift href="https://superhivemarket.com/products/simple-camera-manager" style="transition:transform 0.25s ease; display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Simple Camera Manager</a></td>
       </tr></tbody>
     </table>
   </div>
@@ -597,15 +607,47 @@
     <div style="font-size:14px; color:#9a9da6; margin-bottom:26px; max-width:520px; margin-left:auto; margin-right:auto">Free and open on the Blender Extensions platform — batch rename objects, materials, collections, and more in seconds.</div>
     <table role="presentation" data-stack-grid="pills" style="margin:0 auto; border-collapse:separate; border-spacing:8px 0; border:0">
       <tbody><tr>
-        <td style="border:none"><a href="https://extensions.blender.org/add-ons/simple-renaming-panel/" style="display:inline-block; background:#0ea5e9; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#16171c !important">Download Free</a></td>
-        <td style="border:none"><a href="/simple_renaming/renaming_overview/" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">Documentation</a></td>
-        <td style="border:none"><a href="https://www.artstation.com/matthias-patscheider" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">ArtStation</a></td>
+        <td style="border:none"><a data-hover-lift href="https://extensions.blender.org/add-ons/simple-renaming-panel/" style="transition:transform 0.25s ease; display:inline-block; background:#0ea5e9; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#16171c !important">Download Free</a></td>
+        <td style="border:none"><a data-hover-lift href="/simple_renaming/renaming_overview/" style="transition:transform 0.25s ease; display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">Documentation</a></td>
+        <td style="border:none"><a data-hover-lift href="https://www.artstation.com/matthias-patscheider" target="_blank" rel="noopener noreferrer" style="transition:transform 0.25s ease; display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">ArtStation</a></td>
       </tr></tbody>
     </table>
     <p style="margin:18px 0 0; font-size:12px"><a href="/legal-notice.html" style="color:#9a9da6; text-decoration:none">Legal Notice</a></p>
   </div>
 
 </div>
+  <script>
+  (function () {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var layers = document.querySelectorAll('[data-parallax-js]');
+    if (!layers.length) return;
+    var MAX_OFFSET = 60;
+    var SPEED = 0.35;
+    var ticking = false;
+    function update() {
+      var viewportCenter = window.innerHeight / 2;
+      layers.forEach(function (el) {
+        var rect = el.parentElement.getBoundingClientRect();
+        var elementCenter = rect.top + rect.height / 2;
+        var delta = (viewportCenter - elementCenter) * SPEED;
+        if (delta > MAX_OFFSET) delta = MAX_OFFSET;
+        if (delta < -MAX_OFFSET) delta = -MAX_OFFSET;
+        el.style.transform = 'translateY(' + delta.toFixed(1) + 'px)';
+      });
+      ticking = false;
+    }
+    function onScroll() {
+      if (!ticking) {
+        window.requestAnimationFrame(update);
+        ticking = true;
+      }
+    }
+    layers.forEach(function (el) { el.style.backgroundAttachment = 'scroll'; });
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    update();
+  })();
+  </script>
 
 </body>
 </html>

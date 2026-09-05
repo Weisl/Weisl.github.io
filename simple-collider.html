@@ -18,7 +18,17 @@
 <meta name="twitter:description" content="Handle your entire Blender collision workflow — generate, manage, and export physics colliders ready for Unreal, Unity, and Godot.">
 <meta name="twitter:image" content="https://weisl.github.io/images/CollisionTools_Auto_convex.jpg">
 <style>html,body { margin:0; padding:0; background:#16171c; }</style>
-<style type="text/css">@media (max-width: 640px) {
+<style type="text/css">[data-hover-lift]:hover {transform:scale(1.035) !important}
+@media (prefers-reduced-motion: reduce) {
+    [data-hover-lift]:hover {
+        transform: none !important;
+        transition: none !important
+        }
+    [data-parallax] {
+        background-attachment: scroll !important
+        }
+    }
+@media (max-width: 640px) {
     table[data-stack-grid] {
         display: block !important;
         width: 100% !important
@@ -171,7 +181,7 @@
         <p style="margin:0; max-width:460px; font-size:18px; color:#9a9da6; line-height:1.6">Stop wasting time on collision setup. Generate Box, Sphere, Capsule, Convex, and Mesh colliders directly in the 3D Viewport — ready for Unreal, Unity, or Godot.</p>
       </div>
       <div data-hero-stack="wedge" style="flex:1; position:relative; min-height:320px">
-        <div style="position:absolute; inset:0; clip-path:polygon(28% 0%, 100% 0%, 100% 100%, 0% 100%); background:linear-gradient(150deg, #1c1e24 0%, #22c55e 85%)"></div>
+        <div data-parallax style="position:absolute; inset:0; clip-path:polygon(28% 0%, 100% 0%, 100% 100%, 0% 100%); background:linear-gradient(150deg, #1c1e24 0%, #22c55e 85%); background-attachment:fixed"></div>
       </div>
     </div>
   </div>
@@ -570,9 +580,9 @@
     </div>
     <table role="presentation" data-stack-grid="pills" style="margin:0 auto; border-collapse:separate; border-spacing:10px 0; border:0">
       <tbody><tr>
-        <td style="border:none"><a href="https://extensions.blender.org/add-ons/simple-renaming-panel/" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Simple Renaming — 50,000+ users</a></td>
-        <td style="border:none"><a href="https://superhivemarket.com/products/simple-export" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Simple Export</a></td>
-        <td style="border:none"><a href="https://superhivemarket.com/products/simple-camera-manager" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Simple Camera Manager</a></td>
+        <td style="border:none"><a data-hover-lift href="https://extensions.blender.org/add-ons/simple-renaming-panel/" style="transition:transform 0.25s ease; display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Simple Renaming — 50,000+ users</a></td>
+        <td style="border:none"><a data-hover-lift href="https://superhivemarket.com/products/simple-export" style="transition:transform 0.25s ease; display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Simple Export</a></td>
+        <td style="border:none"><a data-hover-lift href="https://superhivemarket.com/products/simple-camera-manager" style="transition:transform 0.25s ease; display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Simple Camera Manager</a></td>
       </tr></tbody>
     </table>
   </div>
@@ -583,10 +593,10 @@
     <div style="font-size:14px; color:#9a9da6; margin-bottom:26px; max-width:520px; margin-left:auto; margin-right:auto">Handle the entire collision workflow in Blender — so you can stay focused on the asset, not the setup. Actively trusted by indies and studios alike.</div>
     <table role="presentation" data-stack-grid="pills" style="margin:0 auto; border-collapse:separate; border-spacing:8px 0; border:0">
       <tbody><tr>
-        <td style="border:none"><a href="https://superhivemarket.com/products/simple-collider" style="display:inline-block; background:#22c55e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#16171c !important">Buy on Superhive</a></td>
-        <td style="border:none"><a href="/simple_collider/collider_overview/" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">Documentation</a></td>
-        <td style="border:none"><a href="https://superhivemarket.com/creators/matthias-patscheider" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">More by Matthias</a></td>
-        <td style="border:none"><a href="https://www.artstation.com/matthias-patscheider" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">ArtStation</a></td>
+        <td style="border:none"><a data-hover-lift href="https://superhivemarket.com/products/simple-collider" style="transition:transform 0.25s ease; display:inline-block; background:#22c55e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#16171c !important">Buy on Superhive</a></td>
+        <td style="border:none"><a data-hover-lift href="/simple_collider/collider_overview/" style="transition:transform 0.25s ease; display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">Documentation</a></td>
+        <td style="border:none"><a data-hover-lift href="https://superhivemarket.com/creators/matthias-patscheider" style="transition:transform 0.25s ease; display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">More by Matthias</a></td>
+        <td style="border:none"><a data-hover-lift href="https://www.artstation.com/matthias-patscheider" target="_blank" rel="noopener noreferrer" style="transition:transform 0.25s ease; display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">ArtStation</a></td>
       </tr></tbody>
     </table>
     <p style="margin:18px 0 0; font-size:12px"><a href="/legal-notice.html" style="color:#9a9da6; text-decoration:none">Legal Notice</a></p>

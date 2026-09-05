@@ -31,3 +31,40 @@ td {
     word-break: break-all;
     overflow-wrap: break-word !important;
 }
+
+/* Mobile nav drawer: the theme snaps it open/closed with no transition at
+   all, so give it a simple slide instead. Content wrap gets the same
+   transition since it shifts in lockstep with the drawer.
+
+   Below that: each product's page list has no collapse of its own on
+   mobile (see extra.js), so style the caption as a toggle with a chevron
+   and animate the list height when extra.js opens/closes it. */
+@media screen and (max-width: 768px) {
+  .wy-nav-side {
+    transition: left 0.25s ease;
+  }
+  .wy-nav-content-wrap {
+    transition: left 0.25s ease;
+  }
+
+  .wy-menu-vertical p.caption.nav-group-toggle {
+    cursor: pointer;
+    position: relative;
+    padding-right: 2em;
+  }
+  .wy-menu-vertical p.caption.nav-group-toggle:after {
+    content: "\25BE";
+    position: absolute;
+    right: 0.9em;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    transition: transform 0.2s ease;
+  }
+  .wy-menu-vertical p.caption.nav-group-toggle.nav-group-open:after {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  .wy-menu-vertical p.caption.nav-group-toggle + ul {
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+  }
+}
