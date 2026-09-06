@@ -166,31 +166,37 @@
        stay literal inline style="" — one-off values, and linear-gradient is
        the one thing this pipeline's cssutils note (top of common.css) says
        to route around a class for. Everything else here (the text column's
-       padding, both wordmark lines, the lede) is classed in
-       alpine-empire.css, verified to inline correctly. Unlike the product
-       pages, both wordmark lines are the same size/weight here: Alpine
-       Empire is the master brand, not a "SIMPLE + product name" pairing, so
-       there's no lesser word to de-emphasize. Full-bleed background is
-       Matthias's own "Verdant Realms" environment art (ArtStation) — not
-       stock/generic — chosen because it's literally alpine terrain.
-       Gradient overlay is a left-to-right dark→transparent wash (not the
-       old solid-panel split) so the photo reads across the whole hero while
-       the headline stays legible; stop percentages assume Superhive's
-       ~900px-ish product-page width. -->
-  <div style="position:relative;min-height:460px;overflow:hidden;">
+       padding, both wordmark lines, the lede) is classed in common.css,
+       shared with Mentoring's hero — verified to inline correctly. Unlike
+       the product pages, both wordmark lines are the same size/weight here:
+       Alpine Empire is the master brand, not a "SIMPLE + product name"
+       pairing, so there's no lesser word to de-emphasize. Full-bleed
+       background is Matthias's own "Verdant Realms" environment art
+       (ArtStation) — not stock/generic — chosen because it's literally
+       alpine terrain. Gradient overlay is a left-to-right dark→transparent
+       wash (not the old solid-panel split) so the photo reads across the
+       whole hero while the headline stays legible; stop percentages assume
+       Superhive's ~900px-ish product-page width. Mentoring's hero uses this
+       exact same wash recipe (see mentoring.html), so the two pages read as
+       one stylistic language instead of one looking like a photo and the
+       other like a flat panel. The photo sits on its own data-parallax
+       layer, oversized 70px past each edge with background-attachment:fixed
+       as the no-JS fallback, so deploy_to_docs.py's parallax script can move
+       it slower than scroll on docs/ (Superhive just gets the fixed look). -->
+  <div style="position:relative;min-height:480px;overflow:hidden;">
     <div data-parallax data-parallax-js style="position:absolute;top:-70px;right:0;bottom:-70px;left:0;background:#1c1e24 url('/images/alpine_empire/hero_banner.jpg') center 30%/cover no-repeat fixed;"></div>
     <div style="position:absolute;inset:0;background:linear-gradient(100deg, rgba(8,9,12,0.82) 0%, rgba(8,9,12,0.68) 45%, rgba(8,9,12,0.46) 68%, rgba(8,9,12,0.05) 100%);"></div>
-    <div data-section-pad style="position:relative; max-width:620px; padding:72px 34px 72px 30px">
+    <div data-section-pad style="position:relative; max-width:640px; padding:78px 34px 78px 30px">
       <h1 style="margin:0 0 22px; line-height:1">
         <span style="display:flex; align-items:center; gap:14px">
-          <span data-heading="display" style='font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-size:58px; font-weight:900; line-height:1; text-shadow:0 2px 14px rgba(0, 0, 0, 0.6); color:#3b82f6'>ALPINE</span>
+          <span data-heading="display" style='font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-size:58px; font-weight:900; line-height:1; color:#3b82f6; text-shadow:0 2px 14px rgba(0, 0, 0, 0.6)'>ALPINE</span>
           <svg width="42" height="42" viewbox="0 0 44 44" style="flex-shrink:0">
             <path d="M4 34 L15 14 L22 25 L28 16 L40 34 Z" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"></path>
           </svg>
         </span>
-        <span data-heading="display" style='font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-size:58px; font-weight:900; line-height:1; text-shadow:0 2px 14px rgba(0, 0, 0, 0.6); display:block; color:#fff; margin-top:4px'>EMPIRE</span>
+        <span data-heading="display" style='font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-size:58px; font-weight:900; line-height:1; color:#fff; text-shadow:0 2px 14px rgba(0, 0, 0, 0.6); display:block; margin-top:4px'>EMPIRE</span>
       </h1>
-      <p style="margin:0; max-width:460px; font-size:18px; color:#d7d9e0; line-height:1.6; text-shadow:0 1px 8px rgba(0, 0, 0, 0.7)">Drawing on a decade of experience in creating immersive, believable, and enjoyable game environments, I took a risk and established Alpine Empire. My professional project's goal is to create cutting-edge 3D environment art and game art tools, as well as to provide mentorship for the new generation of world builders.</p>
+      <p style="margin:0; max-width:480px; font-size:18px; color:#d7d9e0; line-height:1.6; text-shadow:0 1px 8px rgba(0, 0, 0, 0.7)">Drawing on a decade of experience in creating immersive, believable, and enjoyable game environments, I took a risk and established Alpine Empire. My professional project's goal is to create cutting-edge 3D environment art and game art tools, as well as to provide mentorship for the new generation of world builders.</p>
     </div>
   </div>
   <div style="height:3px; background:#3b82f6"></div>
@@ -276,8 +282,64 @@
   </div>
   <div style="height:3px; background:#3b82f6"></div>
 
+  <!-- What Collaborators Say: LinkedIn recommendations from the FBC: Firebreak
+       team at Remedy. Reuses common.css's .quote-list / .quote-card /
+       .quote-text — the same vocabulary as the Mentoring page's "What Mentees
+       Say" — so the two pages read as one system. Only the two-line byline is
+       page-specific (.quote-byline / .quote-name / .quote-role in
+       alpine-empire.css): a professional recommendation needs the
+       recommender's role and studio to carry weight, where the mentoring page
+       shows a bare name. --alt background + the following section's
+       section--hairline separate this from the plain-bg Skills section below
+       without another divider — same pattern as "Who Is Alpine Empire" →
+       "What I Offer" above. -->
+  <div data-section-pad style="background:#1c1e24; padding:56px 30px">
+    <h2 data-heading="title" style="margin:0 0 8px; font-size:32px; font-weight:900; color:#fff; text-align:center">What Collaborators Say</h2>
+    <p style="margin:0 0 36px; font-size:15px; color:#9a9da6; text-align:center">Recommendations from the art directors, leads, and designers I worked alongside at Remedy.</p>
+    <table role="presentation" style="max-width:820px; margin:0 auto; width:100%; border-collapse:separate; border-spacing:0 14px; border:0">
+      <tbody>
+        <tr><td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:22px 24px">
+          <p style="margin:0 0 14px; font-size:16px; color:#d7d9e0; line-height:1.6; font-style:italic">"I was Art Director for Matthias on FBC: Firebreak and its DLC, where he worked as an Environment Artist. He took real ownership of large parts of levels and carried them all the way, and his propping and visual storytelling gave those spaces a lot of character. Technically minded as well, he adapted workflows to suit whatever the levels needed and made production quicker for it. A clear communicator and a dependable artist to have on your team!"</p>
+          <div style="display:flex; align-items:center">
+            <div style="display:flex; flex-direction:column; gap:1px">
+              <span style="font-size:14px; font-weight:700; color:#e8e9ee">Patrik Rosander</span>
+              <span style="font-size:13px; color:#9a9da6; line-height:1.4">Art Director, Remedy Entertainment</span>
+            </div>
+          </div>
+        </td></tr>
+        <tr><td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:22px 24px">
+          <p style="margin:0 0 14px; font-size:16px; color:#d7d9e0; line-height:1.6; font-style:italic">"I had the pleasure of working with Matthias over several years and on multiple projects, and I can say without hesitation that it has been a privilege. Matthias brings both the technical knowledge and the artistic sensibility to be an excellent addition to any team, and his willingness to go the extra mile is something you really appreciate when working in a small team!"</p>
+          <div style="display:flex; align-items:center">
+            <div style="display:flex; flex-direction:column; gap:1px">
+              <span style="font-size:14px; font-weight:700; color:#e8e9ee">James Tottman</span>
+              <span style="font-size:13px; color:#9a9da6; line-height:1.4">Principal VFX Artist, Remedy Entertainment</span>
+            </div>
+          </div>
+        </td></tr>
+        <tr><td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:22px 24px">
+          <p style="margin:0 0 14px; font-size:16px; color:#d7d9e0; line-height:1.6; font-style:italic">"I had the pleasure of being the Lead Environment Artist for Matthias during the production of FBC: Firebreak at Remedy Entertainment. In a smaller team like ours, having someone like him with both high technical capabilities and artistical talent ended up being invaluable. It made a big difference to us as a team and helped push FBC: Firebreak beyond what we had hoped for. As a team member Matthias is sharp, very detail- and solutions-oriented, creative, passionate and self-driven. We had a really good and strong collaboration all throughout our time together on the project."</p>
+          <div style="display:flex; align-items:center">
+            <div style="display:flex; flex-direction:column; gap:1px">
+              <span style="font-size:14px; font-weight:700; color:#e8e9ee">Maikki Rinkkala</span>
+              <span style="font-size:13px; color:#9a9da6; line-height:1.4">Lead Environment Artist, Remedy Entertainment</span>
+            </div>
+          </div>
+        </td></tr>
+        <tr><td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:22px 24px">
+          <p style="margin:0 0 14px; font-size:16px; color:#d7d9e0; line-height:1.6; font-style:italic">"I had the absolute joy of collaborating with Matthias on three different projects at Remedy Entertainment. Matthias is a seasoned professional who brings deep knowledge of art and design to every discussion. He's also one of the strongest team players I've had the pleasure of working with, and a confident decision-maker. He possesses exceptional technical talent, attention to detail, and the grit to go the extra mile to realize his vision. On top of all this, his easygoing and pleasant personality makes collaboration a breeze! We tackled every creative challenge together and I feel I learned a great deal in the process."</p>
+          <div style="display:flex; align-items:center">
+            <div style="display:flex; flex-direction:column; gap:1px">
+              <span style="font-size:14px; font-weight:700; color:#e8e9ee">Teemu Huhtiniemi</span>
+              <span style="font-size:13px; color:#9a9da6; line-height:1.4">Principal Level Designer, Remedy Entertainment</span>
+            </div>
+          </div>
+        </td></tr>
+      </tbody>
+    </table>
+  </div>
+
   <!-- Skills -->
-  <div data-section-pad style="background:#16171c; padding:56px 30px">
+  <div data-section-pad style="background:#16171c; padding:56px 30px; border-top:1px solid #34363e">
     <h2 data-heading="title" style="margin:0 0 8px; font-size:32px; font-weight:900; color:#fff; text-align:center">Skills</h2>
     <p style="margin:0 0 36px; font-size:15px; color:#9a9da6; text-align:center">What I build, and how I work.</p>
 

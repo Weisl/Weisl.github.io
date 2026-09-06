@@ -161,16 +161,23 @@
        common.css. Full-bleed background is Matthias's own "Verdant Realms"
        environment art (ArtStation) — a different angle than the Alpine Empire
        homepage hero so the two pages don't look identical, same photo set
-       for brand consistency. Badge pill and chips get an explicit solid
-       background now (not just a border) since they sit over a photo instead
-       of a flat color. -->
-  <div style="position:relative;min-height:520px;overflow:hidden;">
+       for brand consistency. Chips get an explicit solid background (not
+       just a border) since they sit over a photo instead of a flat color.
+       Gradient overlay is byte-identical to Alpine Empire's hero wash (see
+       common.css's .hero-photo-content comment) — used to be an opaque
+       solid-color panel over the left half instead, which is why this photo
+       used to look effectively invisible next to Alpine Empire's. The photo
+       sits on its own data-parallax layer, oversized 70px past each edge
+       with background-attachment:fixed as the no-JS fallback, so
+       deploy_to_docs.py's parallax script can move it slower than scroll on
+       docs/ (Superhive just gets the fixed look). -->
+  <div style="position:relative;min-height:480px;overflow:hidden;">
     <div data-parallax data-parallax-js style="position:absolute;top:-70px;right:0;bottom:-70px;left:0;background:#1c1e24 url('/images/mentoring/hero_banner.jpg') center 35%/cover no-repeat fixed;"></div>
-    <div style="position:absolute;inset:0;background:linear-gradient(100deg, #1c1e24 0%, #1c1e24 48%, rgba(28,30,36,0.78) 70%, rgba(28,30,36,0.15) 100%);"></div>
-    <div data-section-pad style="position:relative; max-width:660px; padding:88px 34px 84px 30px">
+    <div style="position:absolute;inset:0;background:linear-gradient(100deg, rgba(8,9,12,0.82) 0%, rgba(8,9,12,0.68) 45%, rgba(8,9,12,0.46) 68%, rgba(8,9,12,0.05) 100%);"></div>
+    <div data-section-pad style="position:relative; max-width:640px; padding:78px 34px 78px 30px">
       <h1 style="margin:0 0 22px; line-height:1">
         <span style="display:flex; align-items:center; gap:14px">
-          <span data-heading="display" style='font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-size:50px; font-weight:900; color:#3b82f6; line-height:1; text-shadow:0 2px 14px rgba(0, 0, 0, 0.6)'>MENTORING</span>
+          <span data-heading="display" style='font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-size:58px; font-weight:900; line-height:1; color:#3b82f6; text-shadow:0 2px 14px rgba(0, 0, 0, 0.6)'>MENTORING</span>
           <svg width="40" height="40" viewbox="0 0 44 44" style="flex-shrink:0">
             <polygon points="4,16 22,6 40,16 22,26" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-linejoin="round"></polygon>
             <path d="M13,18 C13,29 31,29 31,18" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round"></path>
@@ -178,10 +185,10 @@
             <circle cx="38" cy="31" r="2" fill="#3b82f6"></circle>
           </svg>
         </span>
-        <span data-heading="title" style="display:block; font-size:36px; font-weight:500; color:#fff; line-height:1.15; margin-top:8px; text-shadow:0 2px 14px rgba(0, 0, 0, 0.6)">Mentoring, Workshops &amp; Speaking</span>
+        <span data-heading="title" style="display:block; font-size:32px; font-weight:900; color:#fff; line-height:1.2; margin-top:8px; text-shadow:0 2px 14px rgba(0, 0, 0, 0.6)">Mentoring, Workshops &amp; Speaking</span>
       </h1>
-      <p style="margin:0 0 26px; max-width:480px; font-size:19px; color:#d7d9e0; line-height:1.6; text-shadow:0 1px 8px rgba(0, 0, 0, 0.7)">Over a decade in game art, now teaching what actually works in production.</p>
-      <div style="display:flex; flex-wrap:wrap; gap:8px; max-width:480px">
+      <p style="margin:0; max-width:480px; font-size:18px; color:#d7d9e0; line-height:1.6; text-shadow:0 1px 8px rgba(0, 0, 0, 0.7)">Over a decade in game art, now teaching what actually works in production.</p>
+      <div style="display:flex; flex-wrap:wrap; gap:8px; max-width:480px; margin-top:22px">
         <span style="display:inline-block; background:#24262d; border:1px solid #34363e; border-radius:6px; padding:6px 12px; font-size:12px; font-weight:700; color:#e8e9ee">ALAN WAKE 2</span>
         <span style="display:inline-block; background:#24262d; border:1px solid #34363e; border-radius:6px; padding:6px 12px; font-size:12px; font-weight:700; color:#e8e9ee">FBC FIREBREAK</span>
         <span style="display:inline-block; background:#24262d; border:1px solid #34363e; border-radius:6px; padding:6px 12px; font-size:12px; font-weight:700; color:#e8e9ee">BLACK MIRROR</span>
