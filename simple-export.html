@@ -3,21 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Simple Export</title>
+<title>Simple Export — Batch FBX &amp; glTF Export for Blender</title>
 <meta name="description" content="Every export setting visible, documented, and saved directly in your .blend file — batch export from Blender to Unreal, Unity, and Godot.">
-<link rel="canonical" href="https://weisl.github.io/simple-export.html">
+<meta name="author" content="Matthias Patscheider">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="https://alpineempire.eu/simple-export.html">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2044%2044%22%3E%3Crect%20width%3D%2244%22%20height%3D%2244%22%20rx%3D%229%22%20fill%3D%22%2316171c%22/%3E%3Cpath%20d%3D%22M4%2034%20L15%2014%20L22%2025%20L28%2016%20L40%2034%20Z%22%20fill%3D%22none%22%20stroke%3D%22%233b82f6%22%20stroke-width%3D%223%22%20stroke-linejoin%3D%22round%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Alpine Empire">
+<meta property="og:locale" content="en_US">
 <meta property="og:title" content="Simple Export">
 <meta property="og:description" content="Every export setting visible, documented, and saved directly in your .blend file — batch export from Blender to Unreal, Unity, and Godot.">
-<meta property="og:url" content="https://weisl.github.io/simple-export.html">
-<meta property="og:image" content="https://weisl.github.io/images/simple_export/Simple_Exporter_attention.jpg">
+<meta property="og:url" content="https://alpineempire.eu/simple-export.html">
+<meta property="og:image" content="https://alpineempire.eu/images/simple_export/Simple_Exporter_attention.jpg">
+<meta property="og:image:alt" content="Simple Export key art with the Blender collection export panel">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Simple Export">
 <meta name="twitter:description" content="Every export setting visible, documented, and saved directly in your .blend file — batch export from Blender to Unreal, Unity, and Godot.">
-<meta name="twitter:image" content="https://weisl.github.io/images/simple_export/Simple_Exporter_attention.jpg">
+<meta name="twitter:image" content="https://alpineempire.eu/images/simple_export/Simple_Exporter_attention.jpg">
+<meta name="twitter:image:alt" content="Simple Export key art with the Blender collection export panel">
 <style>html,body { margin:0; padding:0; background:#16171c; }</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Alpine Empire", "item": "https://alpineempire.eu/"}, {"@type": "ListItem", "position": 2, "name": "Simple Export", "item": "https://alpineempire.eu/simple-export.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Simple Export", "description": "Every export setting visible, documented, and saved directly in your .blend file — batch export from Blender to Unreal, Unity, and Godot.", "url": "https://alpineempire.eu/simple-export.html", "image": "https://alpineempire.eu/images/simple_export/Simple_Exporter_attention.jpg", "applicationCategory": "DesignApplication", "operatingSystem": "Windows, macOS, Linux", "softwareRequirements": "Blender", "author": {"@type": "Person", "name": "Matthias Patscheider", "url": "https://alpineempire.eu/"}, "publisher": {"@type": "Organization", "name": "Alpine Empire", "url": "https://alpineempire.eu/"}, "sameAs": ["https://superhivemarket.com/products/simple-export", "https://superhivemarket.com/creators/matthias-patscheider"]}</script>
 <style type="text/css">[data-hover-lift]:hover {transform:scale(1.035) !important}
 @media (prefers-reduced-motion: reduce) {
     [data-hover-lift]:hover {
@@ -155,6 +162,7 @@
       </nav>
     </div>
   </header>
+  <main>
 
 <!-- Hero -->
   <div style="background:#1c1e24">
@@ -184,7 +192,7 @@
   <div data-section-pad style="background:#16171c; padding:56px 30px">
     <h2 data-heading="title" style="margin:0 0 16px; font-size:30px; font-weight:900; color:#fff; text-align:center">See It In Action</h2>
     <div style="position:relative; width:100%; max-width:960px; margin:0 auto; aspect-ratio:16/9; overflow:hidden; border-radius:14px; border:1px solid #34363e">
-      <video controls src="/videos/simple_export/Presets_Export_to_Unity.mp4" style="position:absolute; top:0; left:0; width:100%; height:100%; border:0; object-fit:cover"></video>
+      <video controls src="/videos/simple_export/Presets_Export_to_Unity.mp4" style="position:absolute; top:0; left:0; width:100%; height:100%; border:0; object-fit:cover" preload="none"></video>
     </div>
     <a data-hover-lift href="https://superhivemarket.com/products/simple-export" style="transition:transform 0.25s ease; display:block; background:#e8821e; border-radius:12px; padding:20px 24px; max-width:460px; margin:30px auto 0; text-align:center; font-size:18px; font-weight:900; text-decoration:none; color:#16171c !important">Get the Addon →</a>
   </div>
@@ -229,7 +237,7 @@
         <tr>
           <td style="vertical-align:middle; width:42%; padding-right:34px; border:none">
             <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
-              <img src="/images/simple_export/simple_export_list_01.jpg" alt="Simple Export collection list showing compact overview of multiple export collections" style="width:100%; display:block">
+              <img src="/images/simple_export/simple_export_list_01.jpg" alt="Simple Export collection list showing compact overview of multiple export collections" style="width:100%; display:block" loading="lazy" decoding="async">
             </div>
           </td>
           <td style="vertical-align:middle; width:58%; border:none">
@@ -262,7 +270,7 @@
         <tr>
           <td style="vertical-align:middle; width:42%; padding-right:34px; border:none">
             <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
-              <img src="/images/simple_export/PreExporOperations.jpg" alt="Pre-export operations panel showing triangulate and apply scale and rotation options" style="width:100%; display:block">
+              <img src="/images/simple_export/PreExporOperations.jpg" alt="Pre-export operations panel showing triangulate and apply scale and rotation options" style="width:100%; display:block" loading="lazy" decoding="async">
             </div>
           </td>
           <td style="vertical-align:middle; width:58%; border:none">
@@ -285,7 +293,7 @@
         <tr>
           <td style="vertical-align:middle; width:42%; padding-right:34px; border:none">
             <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
-              <img src="/images/simple_export/simple_exort_engines.jpg" alt="Simple Export preset options for Unreal, Unity, Godot, and baking workflows" style="width:100%; display:block">
+              <img src="/images/simple_export/simple_exort_engines.jpg" alt="Simple Export preset options for Unreal, Unity, Godot, and baking workflows" style="width:100%; display:block" loading="lazy" decoding="async">
             </div>
           </td>
           <td style="vertical-align:middle; width:58%; border:none">
@@ -317,7 +325,7 @@
         <tr>
           <td style="vertical-align:middle; width:42%; padding-right:34px; border:none">
             <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
-              <img src="/images/simple_export/export_path_relative.png" alt="Export path settings showing relative path configuration" style="width:100%; display:block">
+              <img src="/images/simple_export/export_path_relative.png" alt="Export path settings showing relative path configuration" style="width:100%; display:block" loading="lazy" decoding="async">
             </div>
           </td>
           <td style="vertical-align:middle; width:58%; border:none">
@@ -340,7 +348,7 @@
         <tr>
           <td style="vertical-align:middle; width:42%; padding-right:34px; border:none">
             <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
-              <img src="/images/simple_export/properties_preset_create.gif" alt="Animation showing creation of a custom export preset" style="width:100%; display:block">
+              <img src="/images/simple_export/properties_preset_create.gif" alt="Animation showing creation of a custom export preset" style="width:100%; display:block" loading="lazy" decoding="async">
             </div>
           </td>
           <td style="vertical-align:middle; width:58%; border:none">
@@ -357,7 +365,7 @@
     <table role="presentation" style="max-width:960px; margin:26px auto 0; width:100%; border-collapse:collapse; border:0">
       <tbody><tr><td style="border:none">
         <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
-          <img src="/images/simple_export/properties_preset_create_02.gif" alt="Animation showing further customization of an export preset" style="width:100%; display:block">
+          <img src="/images/simple_export/properties_preset_create_02.gif" alt="Animation showing further customization of an export preset" style="width:100%; display:block" loading="lazy" decoding="async">
         </div>
       </td></tr></tbody>
     </table>
@@ -432,7 +440,7 @@
         <tr><td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:22px 24px">
           <p style="margin:0 0 14px; font-size:16px; color:#d7d9e0; line-height:1.6; font-style:italic">"No more manually fiddling with export settings and wasting time browsing folders constantly on each export! Simple Exporter has become part of my everyday workflow, both on professional and personal projects — just hit a shortcut and the add-on takes care of everything. Everyone has a set of 'must have' add-ons for Blender. For me, this is one of them!"</p>
           <div style="display:flex; align-items:center">
-            <img src="/images/simple_export/mikael_kivi.png" alt="Mikael Kivi" style="width:40px; height:40px; border-radius:50%; vertical-align:middle; margin-right:12px">
+            <img src="/images/simple_export/mikael_kivi.png" alt="Mikael Kivi" style="width:40px; height:40px; border-radius:50%; vertical-align:middle; margin-right:12px" loading="lazy" decoding="async">
             <span style="font-size:14px; color:#9a9da6"><a href="https://www.artstation.com/designbykivi" target="_blank" rel="noopener noreferrer" style="color:#e8821e; text-decoration:none; font-weight:700">Mikael Kivi</a>, Environment Artist at Remedy Entertainment</span>
           </div>
         </td></tr>
@@ -474,6 +482,7 @@
     <p style="margin:18px 0 0; font-size:12px"><a href="/legal-notice.html" style="color:#9a9da6; text-decoration:none">Legal Notice</a></p>
   </div>
 
+  </main>
 </div>
 
 </body>
