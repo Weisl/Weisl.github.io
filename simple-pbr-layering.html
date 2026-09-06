@@ -23,81 +23,333 @@
 <meta name="twitter:image" content="https://alpineempire.eu/images/alpine_empire/hero_banner.jpg">
 <meta name="twitter:image:alt" content="Simple PBR Layering key art">
 <style>html,body { margin:0; padding:0; background:#16171c; }</style>
+<style>
+.top-nav { background: #1c1e24; border-bottom: 1px solid #34363e; padding: 10px 30px; display: flex; align-items: center; justify-content: space-between; }
+.top-nav-home { display: inline-block; color: #e8e9ee; text-decoration: none; font-size: 12px; font-weight: 700; border: 1px solid #34363e; border-radius: 6px; padding: 6px 12px; }
+.top-nav-docs { color: #ec4899; text-decoration: none; font-size: 12px; font-weight: 700; }
+.top-nav-label { display: inline-block; color: #9a9da6; font-size: 12px; font-weight: 700; }
+
+
+.hero-shell { background: #1c1e24; }
+.hero-row { display: flex; align-items: stretch; }
+.hero-left { flex: 0 0 56%; padding: 64px 34px 64px 30px; }
+.hero-heading { margin: 0 0 22px; line-height: 1; }
+.hero-icon { flex-shrink: 0; }
+.hero-wordmark { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; font-size: 62px; font-weight: 900; color: #ec4899; line-height: 1; }
+.hero-product-name { display: block; font-size: 32px; font-weight: 500; color: #ffffff; line-height: 1.15; margin-top: 6px; }
+.hero-subtitle { margin: 0; max-width: 460px; font-size: 18px; color: #9a9da6; line-height: 1.6; }
+.hero-wedge { flex: 1; position: relative; min-height: 320px; }
+
+.hero-wordmark-row { display: flex; align-items: center; gap: 14px; }
+.hero-wedge-fill { position: absolute; inset: 0; clip-path: polygon(28% 0%, 100% 0%, 100% 100%, 0% 100%); background: linear-gradient(150deg, #1c1e24 0%, #ec4899 85%); background-attachment: fixed; }
+.hero-eyebrow-pill { display: inline-block; padding: 8px 18px; border-radius: 20px; font-size: 11px; font-weight: 700; letter-spacing: 2px; margin-bottom: 22px; }
+
+
+.hero-photo-content { position: relative; max-width: 640px; padding: 78px 34px 78px 30px; }
+.hero-photo-heading { margin: 0 0 22px; line-height: 1; }
+.hero-icon-svg { flex-shrink: 0; }
+.hero-photo-lede { margin: 0; max-width: 480px; font-size: 18px; color: #d7d9e0; line-height: 1.6; text-shadow: 0 1px 8px rgba(0,0,0,0.7); }
+
+.hero-photo-word { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; font-size: 58px; font-weight: 900; line-height: 1; color: #ec4899; text-shadow: 0 2px 14px rgba(0,0,0,0.6); }
+.hero-photo-word--white { display: block; color: #ffffff; margin-top: 4px; }
+
+.hero-photo-subtitle-line { display: block; font-size: 32px; font-weight: 900; color: #ffffff; line-height: 1.2; margin-top: 8px; text-shadow: 0 2px 14px rgba(0,0,0,0.6); }
+.hero-chip-row { display: flex; flex-wrap: wrap; gap: 8px; max-width: 480px; margin-top: 22px; }
+.hero-chip { display: inline-block; background: #24262d; border: 1px solid #34363e; border-radius: 6px; padding: 6px 12px; font-size: 12px; font-weight: 700; color: #e8e9ee; }
+
+.page {
+  background: #16171c;
+  color: #e8e9ee;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+
+.section { background: #16171c; padding: 56px 30px; }
+.section--alt { background: #1c1e24; }
+.section--hairline { border-top: 1px solid #34363e; }
+
+
+.video-wrap { position: relative; width: 100%; max-width: 960px; margin: 0 auto; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 14px; border: 1px solid #34363e; }
+.video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+.video-wrap video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; object-fit: cover; }
+
+.video-wrap img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; object-fit: cover; display: block; }
+
+
+.section-inner { max-width: 960px; margin: 0 auto; width: 100%; border-collapse: collapse; border: 0; }
+.wide-inner { max-width: 920px; margin: 0 auto; width: 100%; border-collapse: separate; border-spacing: 10px; border: 0; }
+.fit-grid { max-width: 820px; margin: 0 auto; width: 100%; border-collapse: separate; border-spacing: 12px; border: 0; }
+.quote-list { max-width: 820px; margin: 0 auto; width: 100%; border-collapse: separate; border-spacing: 0 14px; border: 0; }
+.support-image-wrap { max-width: 960px; margin: 26px auto 0; width: 100%; border-collapse: collapse; border: 0; }
+
+.support-image-wrap--sm { max-width: 380px; }
+.support-image-wrap--md { max-width: 640px; }
+.support-image-cell { border: none; }
+.pill-row { margin: 0 auto; border-collapse: separate; border-spacing: 10px 0; border: 0; }
+.button-row { margin: 0 auto; border-collapse: separate; border-spacing: 8px 0; border: 0; }
+.link-cell { border: none; }
+
+
+.feature-media-cell { vertical-align: middle; width: 42%; padding-right: 34px; border: none; }
+.feature-content-cell { vertical-align: middle; width: 58%; border: none; }
+
+.feature-content-cell--full { width: 100%; }
+.feature-media { line-height: 0; border-radius: 14px; overflow: hidden; border: 1px solid #34363e; }
+.feature-media img { width: 100%; display: block; }
+.badge-row { border-collapse: collapse; border: 0; }
+.badge-row-cell { vertical-align: middle; padding-right: 14px; border: none; }
+.eyebrow-cell { vertical-align: middle; border: none; }
+.eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 3px; color: #ec4899; }
+
+
+.badge-node { width: 46px; height: 46px; background: #ec4899; border-radius: 50%; text-align: center; line-height: 46px; font-size: 20px; font-weight: 900; color: #16171c; }
+
+.badge-swatch { width: 46px; height: 46px; background: #ec4899; border-radius: 10px; text-align: center; line-height: 46px; font-size: 20px; font-weight: 900; color: #16171c; }
+
+
+.divider-accent { height: 3px; background: #ec4899; }
+.feature-title { margin: 16px 0 14px; font-size: 30px; font-weight: 900; color: #ffffff; line-height: 1.15; }
+.feature-body { margin: 0 0 18px; font-size: 16px; color: #9a9da6; line-height: 1.7; }
+.feature-body--tight { margin-bottom: 20px; }
+
+
+.step-list { max-width: 700px; margin: 0 auto; }
+.step-item { margin-bottom: 20px; }
+.step-title { margin: 0 0 6px; font-size: 17px; font-weight: 800; color: #ffffff; }
+.step-body { margin: 0; font-size: 14px; color: #9a9da6; line-height: 1.6; }
+.step-body a { color: #ec4899; font-weight: 700; text-decoration: none; }
+
+.callout {
+  background: #24262d;
+  border: 1px solid #34363e;
+  border-left: 3px solid #ec4899;
+  border-radius: 8px;
+  padding: 14px 18px;
+  font-size: 14px;
+  color: #d7d9e0;
+  line-height: 1.6;
+}
+.callout strong { color: #ec4899; }
+
+.project-credit { margin: 0; font-size: 14px; color: #9a9da6; }
+.project-credit a { color: #ec4899; text-decoration: none; font-weight: 700; }
+
+
+.checklist { width: 100%; border-collapse: separate; border-spacing: 0 6px; border: 0; }
+.checklist-item { background: #24262d; border: none; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #d7d9e0; }
+.checklist-item .check { color: #ec4899; font-weight: 900; }
+
+
+.shape-grid { border-spacing: 16px; }
+.shape-card { background: #24262d; border: 1px solid #34363e; border-radius: 12px; overflow: hidden; vertical-align: top; }
+.shape-card-media { line-height: 0; }
+.shape-card-media img { width: 100%; display: block; }
+.shape-card-body { padding: 18px 20px; }
+.shape-card-title { font-size: 16px; font-weight: 800; color: #ffffff; margin-bottom: 6px; }
+.shape-card-desc { font-size: 13px; color: #9a9da6; line-height: 1.55; }
+
+
+.grid-card { background: #24262d; border: 1px solid #34363e; border-radius: 12px; padding: 20px; vertical-align: top; }
+.grid-card--top { border-top: 3px solid #ec4899; }
+.grid-card--bottom { border-bottom: 3px solid #ec4899; border-radius: 10px; padding: 20px 22px; }
+.grid-card-title { font-size: 16px; font-weight: 800; color: #ffffff; margin-bottom: 6px; }
+.grid-card-title--tight { margin-bottom: 10px; }
+.grid-card-body { font-size: 13px; color: #9a9da6; line-height: 1.6; }
+.grid-card-body a { color: #ec4899; font-weight: 700; text-decoration: none; }
+.grid-card-body--wide { font-size: 14px; color: #9a9da6; line-height: 1.6; }
+.grid-card-body--tight { margin-bottom: 10px; }
+
+.grid-card-cta { margin: 10px 0 0; }
+.inline-accent-link { color: #ec4899; text-decoration: none; font-weight: 700; }
+.support-link { color: #ec4899; text-decoration: none; font-weight: 700; font-size: 13px; }
+
+
+.software-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.software-logo-badge { flex-shrink: 0; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; }
+.software-logo-img { width: 100%; height: 100%; object-fit: contain; display: block; }
+
+.w25 { width: 25%; }
+.w33 { width: 33%; }
+.w50 { width: 50%; }
+
+
+.chip {
+  display: inline-block;
+  background: #16171c;
+  border: 1px solid #34363e;
+  border-radius: 4px;
+  padding: 2px 7px;
+  font-family: 'SF Mono', 'Consolas', 'Courier New', monospace;
+  font-size: 12px;
+  color: #ec4899;
+}
+.chip-label { font-size: 12px; color: #9a9da6; }
+
+
+.section-title { margin: 0 0 8px; font-size: 32px; font-weight: 900; color: #ffffff; text-align: center; }
+.section-title-sm { margin: 0 0 16px; font-size: 30px; font-weight: 900; color: #ffffff; text-align: center; }
+.section-subtitle { margin: 0 0 30px; font-size: 15px; color: #9a9da6; text-align: center; }
+.section-subtitle--tight { margin: 0 0 36px; font-size: 15px; color: #9a9da6; text-align: center; }
+
+.tag-list-label { max-width: 920px; margin: 26px auto 0; font-size: 13px; font-weight: 700; letter-spacing: 1px; color: #9a9da6; text-align: center; }
+.tool-list-text { max-width: 640px; margin: 16px auto 0; font-size: 14px; color: #9a9da6; line-height: 1.7; text-align: center; }
+
+.support-note { text-align: center; font-size: 13px; color: #9a9da6; max-width: 560px; margin: 26px auto 0; }
+
+
+.quote-card { background: #24262d; border: 1px solid #34363e; border-radius: 12px; padding: 22px 24px; }
+.quote-text { margin: 0 0 14px; font-size: 16px; color: #d7d9e0; line-height: 1.6; font-style: italic; }
+.quote-text--tight { margin: 0 0 10px; }
+.avatar-row { display: flex; align-items: center; }
+.avatar { width: 40px; height: 40px; border-radius: 50%; vertical-align: middle; margin-right: 12px; }
+.quote-attribution { font-size: 14px; color: #9a9da6; }
+.quote-attribution a { color: #ec4899; text-decoration: none; font-weight: 700; }
+
+
+.brand-copy { margin: 0 auto 30px; max-width: 680px; font-size: 16px; color: #9a9da6; line-height: 1.7; text-align: center; }
+
+.brand-square-row { display: flex; max-width: 820px; margin: 0 auto 26px; border-radius: 14px; overflow: hidden; border: 1px solid #34363e; }
+.brand-square {
+  flex: 1 1 25%;
+  aspect-ratio: 1 / 1;
+  display: block;
+  background-image: url(/images/simple_export/branding_squares.jpg);
+  background-repeat: no-repeat;
+  background-size: 400% 100%;
+}
+.brand-square--renaming { background-position: 0% 0; }
+.brand-square--collider { background-position: 33.333% 0; }
+.brand-square--camera { background-position: 66.667% 0; }
+.brand-square--export { background-position: 100% 0; }
+.link-pill {
+  display: inline-block;
+  background: #24262d;
+  border: 1px solid #34363e;
+  color: #e8e9ee !important;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+.cta-banner {
+  display: block;
+  background: #ec4899;
+  border-radius: 12px;
+  padding: 20px 24px;
+  max-width: 460px;
+  margin: 30px auto 0;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 900;
+  text-decoration: none;
+  color: #16171c !important;
+}
+.cta-banner-support { margin: 12px auto 0; max-width: 460px; font-size: 13px; color: #9a9da6; text-align: center; }
+.cta-banner-support a { color: #9a9da6 !important; font-weight: 700; text-decoration: underline; }
+
+
+.footer { background: #16171c; border-top: 2px solid #ec4899; padding: 46px 30px; text-align: center; }
+.footer-title { font-size: 20px; font-weight: 900; color: #ffffff; margin-bottom: 6px; }
+.footer-copy { font-size: 14px; color: #9a9da6; margin-bottom: 26px; max-width: 520px; margin-left: auto; margin-right: auto; }
+.button-primary {
+  display: inline-block;
+  background: #ec4899;
+  color: #16171c !important;
+  text-decoration: none;
+  padding: 13px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.button-secondary {
+  display: inline-block;
+  background: #24262d;
+  border: 1px solid #34363e;
+  color: #ffffff !important;
+  text-decoration: none;
+  padding: 13px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+
+.footer-legal { margin: 18px 0 0; font-size: 12px; }
+.footer-legal-link { color: #9a9da6; text-decoration: none; }
+
+
+[data-hover-lift] { transition: transform .25s ease; }
+[data-hover-lift]:hover { transform: scale(1.035); }
+
+
+@media (prefers-reduced-motion: reduce) {
+  [data-hover-lift]:hover { transform: none !important; transition: none !important; }
+  [data-parallax] { background-attachment: scroll !important; }
+}
+
+
+@media (max-width: 640px) {
+  
+  table[data-stack-grid] { display: block !important; width: 100% !important; }
+  table[data-stack-grid] > tbody { display: block !important; }
+  table[data-stack-grid] > tbody > tr { display: block !important; }
+  table[data-stack-grid] > tbody > tr > td {
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding-right: 0 !important;
+    padding-bottom: 16px !important;
+  }
+  table[data-stack-grid] > tbody > tr:last-child > td:last-child { padding-bottom: 0 !important; }
+  
+  table[data-stack-grid="pills"] > tbody > tr > td { text-align: center !important; }
+
+  
+  div[data-stack-grid="flex"] { flex-direction: column !important; }
+  div[data-stack-grid="flex"] > [data-step="card"] {
+    flex: none !important;
+    width: 100% !important;
+    margin-bottom: 16px !important;
+  }
+  div[data-stack-grid="flex"] > [data-step="card"]:last-child { margin-bottom: 0 !important; }
+  div[data-stack-grid="flex"] > [data-step="connector"] { display: none !important; }
+  
+  div[data-stack-grid="flex"] [data-step="dot"] { display: none !important; }
+
+  
+  [data-hero-stack="wedge"] { display: none !important; }
+  [data-hero-stack="left"] { flex: 1 1 100% !important; width: 100% !important; }
+
+  
+  [data-heading="display"] { font-size: 34px !important; }
+  [data-heading="title"] { font-size: 24px !important; }
+
+  
+  [data-section-pad] { padding-left: 16px !important; padding-right: 16px !important; }
+}
+
+
+
+
+.hero-left--wide { flex: 0 0 58%; }
+.hero-eyebrow-pill--pbr { background: rgba(236,72,153,0.12); border: 1px solid rgba(236,72,153,0.35); color: #fbcfe8; }
+.hero-wordmark--sm { font-size: 56px; }
+.hero-product-name--sm { font-size: 30px; }
+.hero-subtitle--wide { max-width: 480px; }
+</style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Alpine Empire", "item": "https://alpineempire.eu/"}, {"@type": "ListItem", "position": 2, "name": "Simple PBR Layering", "item": "https://alpineempire.eu/simple-pbr-layering.html"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Simple PBR Layering", "description": "Non-destructive PBR material layering — masks, triplanar projection, and blend groups — without touching a single node.", "url": "https://alpineempire.eu/simple-pbr-layering.html", "image": "https://alpineempire.eu/images/alpine_empire/hero_banner.jpg", "applicationCategory": "DesignApplication", "operatingSystem": "Windows, macOS, Linux", "softwareRequirements": "Blender", "author": {"@type": "Person", "name": "Matthias Patscheider", "url": "https://alpineempire.eu/"}, "publisher": {"@type": "Organization", "name": "Alpine Empire", "url": "https://alpineempire.eu/"}}</script>
-<style type="text/css">[data-hover-lift]:hover {transform:scale(1.035) !important}
-@media (prefers-reduced-motion: reduce) {
-    [data-hover-lift]:hover {
-        transform: none !important;
-        transition: none !important
-        }
-    [data-parallax] {
-        background-attachment: scroll !important
-        }
-    }
-@media (max-width: 640px) {
-    table[data-stack-grid] {
-        display: block !important;
-        width: 100% !important
-        }
-    table[data-stack-grid] > tbody {
-        display: block !important
-        }
-    table[data-stack-grid] > tbody > tr {
-        display: block !important
-        }
-    table[data-stack-grid] > tbody > tr > td {
-        display: block !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-        padding-right: 0 !important;
-        padding-bottom: 16px !important
-        }
-    table[data-stack-grid] > tbody > tr:last-child > td:last-child {
-        padding-bottom: 0 !important
-        }
-    table[data-stack-grid="pills"] > tbody > tr > td {
-        text-align: center !important
-        }
-    div[data-stack-grid="flex"] {
-        flex-direction: column !important
-        }
-    div[data-stack-grid="flex"] > [data-step="card"] {
-        flex: none !important;
-        width: 100% !important;
-        margin-bottom: 16px !important
-        }
-    div[data-stack-grid="flex"] > [data-step="card"]:last-child {
-        margin-bottom: 0 !important
-        }
-    div[data-stack-grid="flex"] > [data-step="connector"] {
-        display: none !important
-        }
-    div[data-stack-grid="flex"] [data-step="dot"] {
-        display: none !important
-        }
-    [data-hero-stack="wedge"] {
-        display: none !important
-        }
-    [data-hero-stack="left"] {
-        flex: 1 1 100% !important;
-        width: 100% !important
-        }
-    [data-heading="display"] {
-        font-size: 34px !important
-        }
-    [data-heading="title"] {
-        font-size: 24px !important
-        }
-    [data-section-pad] {
-        padding-left: 16px !important;
-        padding-right: 16px !important
-        }
-    }</style>
 </head>
 <body>
-<!-- Generated from src/simple-pbr-layering.html + src/common.css + src/simple-pbr-layering.css — edit those, not this file. Rebuild with: venv/bin/python store_pages/src/build.py simple-pbr-layering -->
-<div style='background:#16171c; color:#e8e9ee; font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; padding:0; margin:0; max-width:100%; overflow:hidden'>
+<!-- Generated from src/simple-pbr-layering.html + src/common.css + src/simple-pbr-layering.css by deploy_to_docs.py — edit those, not this file. -->
+<div class="page">
   <style>
     .site-nav { position: sticky; top: 0; z-index: 100; background: #16171c; border-bottom: 1px solid #34363e; }
     .site-nav-inner { max-width: 1160px; margin: 0 auto; position: relative; display: flex; align-items: center; gap: 24px; padding: 12px 30px; }
@@ -167,51 +419,48 @@
 
   <!-- Hero: eyebrow pill carries real, decision-relevant info here (alpha
        status + version requirement), same justification as UV Nodes' eyebrow. -->
-  <div style="background:#1c1e24">
-    <div style="display:flex; align-items:stretch">
-      <div data-hero-stack="left" data-section-pad style="flex:0 0 58%; padding:64px 34px 64px 30px">
-        <div style="display:inline-block; padding:8px 18px; border-radius:20px; font-size:11px; font-weight:700; letter-spacing:2px; margin-bottom:22px; background:rgba(236, 72, 153, 0.12); border:1px solid rgba(236, 72, 153, 0.35); color:#fbcfe8">CLOSED ALPHA · BLENDER 4.2+</div>
-        <h1 style="margin:0 0 22px; line-height:1">
-          <span style="display:flex; align-items:center; gap:14px">
-            <span data-heading="display" style='font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-size:56px; font-weight:900; color:#ec4899; line-height:1'>SIMPLE</span>
-            <svg width="38" height="38" viewbox="0 0 40 40" style="flex-shrink:0">
+  <div class="hero-shell">
+    <div class="hero-row">
+      <div class="hero-left hero-left--wide" data-hero-stack="left" data-section-pad>
+        <div class="hero-eyebrow-pill hero-eyebrow-pill--pbr">CLOSED ALPHA · BLENDER 4.2+</div>
+        <h1 class="hero-heading">
+          <span class="hero-wordmark-row">
+            <span class="hero-wordmark hero-wordmark--sm" data-heading="display">SIMPLE</span>
+            <svg width="38" height="38" viewBox="0 0 40 40" class="hero-icon">
               <rect x="2" y="2" width="16" height="16" fill="#ec4899"></rect>
               <rect x="22" y="2" width="16" height="16" fill="none" stroke="#ec4899" stroke-width="2.5"></rect>
               <rect x="2" y="22" width="16" height="16" fill="none" stroke="#ec4899" stroke-width="2.5"></rect>
               <rect x="22" y="22" width="16" height="16" fill="#ec4899"></rect>
             </svg>
           </span>
-          <span data-heading="title" style="display:block; font-size:30px; font-weight:500; color:#fff; line-height:1.15; margin-top:6px">PBR Layering</span>
+          <span class="hero-product-name hero-product-name--sm" data-heading="title">PBR Layering</span>
         </h1>
-        <p style="margin:0; max-width:480px; font-size:18px; color:#9a9da6; line-height:1.6">Drop a folder in, and every texture connects itself. Non-destructive PBR material layering — masks, triplanar projection, and blend groups — without touching a single node.</p>
+        <p class="hero-subtitle hero-subtitle--wide">Drop a folder in, and every texture connects itself. Non-destructive PBR material layering — masks, triplanar projection, and blend groups — without touching a single node.</p>
       </div>
-      <div data-hero-stack="wedge" style="flex:1; position:relative; min-height:320px">
-        <div data-parallax style="position:absolute; inset:0; clip-path:polygon(28% 0%, 100% 0%, 100% 100%, 0% 100%); background:linear-gradient(150deg, #1c1e24 0%, #ec4899 85%); background-attachment:fixed"></div>
+      <div class="hero-wedge" data-hero-stack="wedge">
+        <div class="hero-wedge-fill" data-parallax></div>
       </div>
     </div>
   </div>
-  <div style="height:3px; background:#ec4899"></div>
+  <div class="divider-accent"></div>
 
   <!-- 01 Texture Import -->
-  <div data-section-pad style="background:#16171c; padding:56px 30px">
-    <table role="presentation" data-stack-grid="cards" style="max-width:960px; margin:0 auto; width:100%; border-collapse:collapse; border:0">
+  <div class="section" data-section-pad>
+    <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
-          <td style="vertical-align:middle; width:100%; border:none">
-            <table role="presentation" style="border-collapse:collapse; border:0"><tbody><tr>
-              <td style="vertical-align:middle; padding-right:14px; border:none"><div style="width:46px; height:46px; background:#ec4899; border-radius:10px; text-align:center; line-height:46px; font-size:20px; font-weight:900; color:#16171c">01</div></td>
-              <td style="vertical-align:middle; border:none"><div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#ec4899">TEXTURE IMPORT</div></td>
+          <td class="feature-content-cell feature-content-cell--full">
+            <table class="badge-row" role="presentation"><tbody><tr>
+              <td class="badge-row-cell"><div class="badge-swatch">01</div></td>
+              <td class="eyebrow-cell"><div class="eyebrow">TEXTURE IMPORT</div></td>
             </tr></tbody></table>
-            <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">One Folder In,<br>Every Channel Connected</h2>
-            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7; margin-bottom:20px">Scan a folder and every detected texture is loaded, matched to the right channel, and wired up automatically — no manual socket-plugging, no per-texture colorspace fixes.</p>
-            <table role="presentation" style="width:100%; border-collapse:separate; border-spacing:0 6px; border:0">
+            <h2 class="feature-title" data-heading="title">One Folder In,<br>Every Channel Connected</h2>
+            <p class="feature-body feature-body--tight">Scan a folder and every detected texture is loaded, matched to the right channel, and wired up automatically — no manual socket-plugging, no per-texture colorspace fixes.</p>
+            <table class="checklist" role="presentation">
               <tbody>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#ec4899; font-weight:900">✓</span> Base Color, Roughness, Metallic, Normal, AO, Displacement, Emission, Alpha, Specular IOR, and Transmission</td></tr>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#ec4899; font-weight:900">✓</span> Automatic colorspace assignment — sRGB for color, Non-Color for everything else</td></tr>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#ec4899; font-weight:900">✓</span> Custom suffix mappings in preferences, for any naming convention</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Base Color, Roughness, Metallic, Normal, AO, Displacement, Emission, Alpha, Specular IOR, and Transmission</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Automatic colorspace assignment — sRGB for color, Non-Color for everything else</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Custom suffix mappings in preferences, for any naming convention</td></tr>
               </tbody>
             </table>
           </td>
@@ -221,25 +470,22 @@
   </div>
 
   <!-- 02 UV-Free Material Creation -->
-  <div data-section-pad style="background:#1c1e24; padding:56px 30px; border-top:1px solid #34363e">
-    <table role="presentation" data-stack-grid="cards" style="max-width:960px; margin:0 auto; width:100%; border-collapse:collapse; border:0">
+  <div class="section section--alt section--hairline" data-section-pad>
+    <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
-          <td style="vertical-align:middle; width:100%; border:none">
-            <table role="presentation" style="border-collapse:collapse; border:0"><tbody><tr>
-              <td style="vertical-align:middle; padding-right:14px; border:none"><div style="width:46px; height:46px; background:#ec4899; border-radius:10px; text-align:center; line-height:46px; font-size:20px; font-weight:900; color:#16171c">02</div></td>
-              <td style="vertical-align:middle; border:none"><div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#ec4899">UV-FREE MATERIAL CREATION</div></td>
+          <td class="feature-content-cell feature-content-cell--full">
+            <table class="badge-row" role="presentation"><tbody><tr>
+              <td class="badge-row-cell"><div class="badge-swatch">02</div></td>
+              <td class="eyebrow-cell"><div class="eyebrow">UV-FREE MATERIAL CREATION</div></td>
             </tr></tbody></table>
-            <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">No UVs?<br>No Problem</h2>
-            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7; margin-bottom:20px">Texture and layer materials on any mesh — even one with no UV unwrap at all — using world-space projection instead.</p>
-            <table role="presentation" style="width:100%; border-collapse:separate; border-spacing:0 6px; border:0">
+            <h2 class="feature-title" data-heading="title">No UVs?<br>No Problem</h2>
+            <p class="feature-body feature-body--tight">Texture and layer materials on any mesh — even one with no UV unwrap at all — using world-space projection instead.</p>
+            <table class="checklist" role="presentation">
               <tbody>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#ec4899; font-weight:900">✓</span> Triplanar, Box UV, and World UV projection for fast, UV-free texturing</td></tr>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#ec4899; font-weight:900">✓</span> Decal UV projection for non-destructive damage, labels, and surface detail</td></tr>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#ec4899; font-weight:900">✓</span> Texture Bomb and Voronoi Bomb scatter textures without visible tiling</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Triplanar, Box UV, and World UV projection for fast, UV-free texturing</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Decal UV projection for non-destructive damage, labels, and surface detail</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Texture Bomb and Voronoi Bomb scatter textures without visible tiling</td></tr>
               </tbody>
             </table>
           </td>
@@ -249,25 +495,22 @@
   </div>
 
   <!-- 03 Procedural Masks -->
-  <div data-section-pad style="background:#16171c; padding:56px 30px">
-    <table role="presentation" data-stack-grid="cards" style="max-width:960px; margin:0 auto; width:100%; border-collapse:collapse; border:0">
+  <div class="section" data-section-pad>
+    <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
-          <td style="vertical-align:middle; width:100%; border:none">
-            <table role="presentation" style="border-collapse:collapse; border:0"><tbody><tr>
-              <td style="vertical-align:middle; padding-right:14px; border:none"><div style="width:46px; height:46px; background:#ec4899; border-radius:10px; text-align:center; line-height:46px; font-size:20px; font-weight:900; color:#16171c">03</div></td>
-              <td style="vertical-align:middle; border:none"><div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#ec4899">PROCEDURAL MASKS</div></td>
+          <td class="feature-content-cell feature-content-cell--full">
+            <table class="badge-row" role="presentation"><tbody><tr>
+              <td class="badge-row-cell"><div class="badge-swatch">03</div></td>
+              <td class="eyebrow-cell"><div class="eyebrow">PROCEDURAL MASKS</div></td>
             </tr></tbody></table>
-            <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">Blend Without<br>Ever Baking</h2>
-            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7; margin-bottom:20px">Seven procedural mask types drive non-destructive layering — add, remove, or adjust any of them at any point without rebuilding the material.</p>
-            <table role="presentation" style="width:100%; border-collapse:separate; border-spacing:0 6px; border:0">
+            <h2 class="feature-title" data-heading="title">Blend Without<br>Ever Baking</h2>
+            <p class="feature-body feature-body--tight">Seven procedural mask types drive non-destructive layering — add, remove, or adjust any of them at any point without rebuilding the material.</p>
+            <table class="checklist" role="presentation">
               <tbody>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#ec4899; font-weight:900">✓</span> Ambient Occlusion, Curvature, Position, Proximity, Triplanar, World Normal, Box Projector</td></tr>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#ec4899; font-weight:900">✓</span> Projection masks blend by surface orientation — grounding, directional wear</td></tr>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#ec4899; font-weight:900">✓</span> Curvature and AO masks highlight edges and crevices automatically</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Ambient Occlusion, Curvature, Position, Proximity, Triplanar, World Normal, Box Projector</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Projection masks blend by surface orientation — grounding, directional wear</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Curvature and AO masks highlight edges and crevices automatically</td></tr>
               </tbody>
             </table>
           </td>
@@ -277,25 +520,22 @@
   </div>
 
   <!-- 04 Material Layering & Adjustments -->
-  <div data-section-pad style="background:#1c1e24; padding:56px 30px; border-top:1px solid #34363e">
-    <table role="presentation" data-stack-grid="cards" style="max-width:960px; margin:0 auto; width:100%; border-collapse:collapse; border:0">
+  <div class="section section--alt section--hairline" data-section-pad>
+    <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
-          <td style="vertical-align:middle; width:100%; border:none">
-            <table role="presentation" style="border-collapse:collapse; border:0"><tbody><tr>
-              <td style="vertical-align:middle; padding-right:14px; border:none"><div style="width:46px; height:46px; background:#ec4899; border-radius:10px; text-align:center; line-height:46px; font-size:20px; font-weight:900; color:#16171c">04</div></td>
-              <td style="vertical-align:middle; border:none"><div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#ec4899">LAYERING &amp; ADJUSTMENTS</div></td>
+          <td class="feature-content-cell feature-content-cell--full">
+            <table class="badge-row" role="presentation"><tbody><tr>
+              <td class="badge-row-cell"><div class="badge-swatch">04</div></td>
+              <td class="eyebrow-cell"><div class="eyebrow">LAYERING &amp; ADJUSTMENTS</div></td>
             </tr></tbody></table>
-            <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">Stack Materials,<br>Fine-Tune Every Channel</h2>
-            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7; margin-bottom:20px">Blend groups layer multiple texture sets together non-destructively, with per-channel adjustments and a full set of normal map operators on top.</p>
-            <table role="presentation" style="width:100%; border-collapse:separate; border-spacing:0 6px; border:0">
+            <h2 class="feature-title" data-heading="title">Stack Materials,<br>Fine-Tune Every Channel</h2>
+            <p class="feature-body feature-body--tight">Blend groups layer multiple texture sets together non-destructively, with per-channel adjustments and a full set of normal map operators on top.</p>
+            <table class="checklist" role="presentation">
               <tbody>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#ec4899; font-weight:900">✓</span> Per-channel adjustments for Base Color, Roughness, Metallic, Normal, Displacement</td></tr>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#ec4899; font-weight:900">✓</span> Normal ops: Flip Y (DirectX↔OpenGL), Flip X, Rotate, Combine (Whiteout &amp; RNM), Normal to Cavity, Normal Noise</td></tr>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#ec4899; font-weight:900">✓</span> Debug AOV passes validate individual channels right in the viewport</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Per-channel adjustments for Base Color, Roughness, Metallic, Normal, Displacement</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Normal ops: Flip Y (DirectX↔OpenGL), Flip X, Rotate, Combine (Whiteout &amp; RNM), Normal to Cavity, Normal Noise</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Debug AOV passes validate individual channels right in the viewport</td></tr>
               </tbody>
             </table>
           </td>
@@ -305,25 +545,22 @@
   </div>
 
   <!-- 05 Geometry Nodes & Workflow -->
-  <div data-section-pad style="background:#16171c; padding:56px 30px">
-    <table role="presentation" data-stack-grid="cards" style="max-width:960px; margin:0 auto; width:100%; border-collapse:collapse; border:0">
+  <div class="section" data-section-pad>
+    <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
-          <td style="vertical-align:middle; width:100%; border:none">
-            <table role="presentation" style="border-collapse:collapse; border:0"><tbody><tr>
-              <td style="vertical-align:middle; padding-right:14px; border:none"><div style="width:46px; height:46px; background:#ec4899; border-radius:10px; text-align:center; line-height:46px; font-size:20px; font-weight:900; color:#16171c">05</div></td>
-              <td style="vertical-align:middle; border:none"><div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#ec4899">GEOMETRY NODES &amp; WORKFLOW</div></td>
+          <td class="feature-content-cell feature-content-cell--full">
+            <table class="badge-row" role="presentation"><tbody><tr>
+              <td class="badge-row-cell"><div class="badge-swatch">05</div></td>
+              <td class="eyebrow-cell"><div class="eyebrow">GEOMETRY NODES &amp; WORKFLOW</div></td>
             </tr></tbody></table>
-            <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">Everything Reachable<br>From the N-Panel</h2>
-            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7; margin-bottom:20px">Triplanar Displacement extends the same world-space projection to geometry, fully compatible with the triplanar material workflow — and a growing library of geometry node utilities lives right alongside it, all driven from one panel.</p>
-            <table role="presentation" style="width:100%; border-collapse:separate; border-spacing:0 6px; border:0">
+            <h2 class="feature-title" data-heading="title">Everything Reachable<br>From the N-Panel</h2>
+            <p class="feature-body feature-body--tight">Triplanar Displacement extends the same world-space projection to geometry, fully compatible with the triplanar material workflow — and a growing library of geometry node utilities lives right alongside it, all driven from one panel.</p>
+            <table class="checklist" role="presentation">
               <tbody>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#ec4899; font-weight:900">✓</span> Triplanar Displacement — no UV unwrap needed, matches the material projection</td></tr>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#ec4899; font-weight:900">✓</span> Context-aware Pie Menu in the Shader Editor for fast node group access</td></tr>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#ec4899; font-weight:900">✓</span> Linked asset library — every static node group in the addon, browsable in one place</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Triplanar Displacement — no UV unwrap needed, matches the material projection</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Context-aware Pie Menu in the Shader Editor for fast node group access</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Linked asset library — every static node group in the addon, browsable in one place</td></tr>
               </tbody>
             </table>
           </td>
@@ -332,40 +569,40 @@
     </table>
   </div>
 
-  <div style="height:3px; background:#ec4899"></div>
+  <div class="divider-accent"></div>
 
   <!-- Everything Inside -->
-  <div data-section-pad style="background:#16171c; padding:56px 30px">
-    <h2 data-heading="title" style="margin:0 0 8px; font-size:32px; font-weight:900; color:#fff; text-align:center">Everything Inside</h2>
-    <p style="margin:0 0 36px; font-size:15px; color:#9a9da6; text-align:center">One toolkit, the whole material workflow.</p>
-    <table role="presentation" data-stack-grid="cards" style="max-width:920px; margin:0 auto; width:100%; border-collapse:separate; border-spacing:10px; border:0">
+  <div class="section" data-section-pad>
+    <h2 class="section-title" data-heading="title">Everything Inside</h2>
+    <p class="section-subtitle--tight">One toolkit, the whole material workflow.</p>
+    <table class="wide-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #ec4899; width:33%">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Custom Suffix Mappings</div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Define your own suffix-to-channel rules in preferences to match any studio's naming convention.</div>
+          <td class="grid-card grid-card--top w33">
+            <div class="grid-card-title">Custom Suffix Mappings</div>
+            <div class="grid-card-body">Define your own suffix-to-channel rules in preferences to match any studio's naming convention.</div>
           </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #ec4899; width:33%">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Material Linking</div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Quickly link or propagate materials across objects.</div>
+          <td class="grid-card grid-card--top w33">
+            <div class="grid-card-title">Material Linking</div>
+            <div class="grid-card-body">Quickly link or propagate materials across objects.</div>
           </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #ec4899; width:33%">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Scan Preview</div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Review every detected texture-to-channel pairing before you commit to an import.</div>
+          <td class="grid-card grid-card--top w33">
+            <div class="grid-card-title">Scan Preview</div>
+            <div class="grid-card-body">Review every detected texture-to-channel pairing before you commit to an import.</div>
           </td>
         </tr>
         <tr>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #ec4899">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Position &amp; Proximity Masks</div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Drive material blending by world position or distance to other objects.</div>
+          <td class="grid-card grid-card--top">
+            <div class="grid-card-title">Position &amp; Proximity Masks</div>
+            <div class="grid-card-body">Drive material blending by world position or distance to other objects.</div>
           </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #ec4899">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Preferences Customization</div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Tune behavior and appearance to fit your own workflow.</div>
+          <td class="grid-card grid-card--top">
+            <div class="grid-card-title">Preferences Customization</div>
+            <div class="grid-card-body">Tune behavior and appearance to fit your own workflow.</div>
           </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #ec4899">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Native Blender 4.2+ Extension</div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Built as a native extension — no external dependencies to manage.</div>
+          <td class="grid-card grid-card--top">
+            <div class="grid-card-title">Native Blender 4.2+ Extension</div>
+            <div class="grid-card-body">Built as a native extension — no external dependencies to manage.</div>
           </td>
         </tr>
       </tbody>
@@ -373,29 +610,29 @@
   </div>
 
   <!-- Why Simple PBR Layering -->
-  <div data-section-pad style="background:#1c1e24; padding:56px 30px; border-top:1px solid #34363e">
-    <h2 data-heading="title" style="margin:0 0 16px; font-size:30px; font-weight:900; color:#fff; text-align:center">Why Simple PBR Layering?</h2>
-    <p style="margin:0 0 30px; font-size:15px; color:#9a9da6; text-align:center">Setting up PBR materials by hand means opening the Shader Editor, importing every texture one by one, and plugging each socket yourself — before you even get to a mesh with no UVs.</p>
-    <table role="presentation" data-stack-grid="cards" style="max-width:820px; margin:0 auto; width:100%; border-collapse:separate; border-spacing:12px; border:0">
+  <div class="section section--alt section--hairline" data-section-pad>
+    <h2 class="section-title-sm" data-heading="title">Why Simple PBR Layering?</h2>
+    <p class="section-subtitle">Setting up PBR materials by hand means opening the Shader Editor, importing every texture one by one, and plugging each socket yourself — before you even get to a mesh with no UVs.</p>
+    <table class="fit-grid" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:10px; padding:20px 22px; vertical-align:top; border-bottom:3px solid #ec4899; width:50%">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Import in Seconds</div>
-            <div style="font-size:14px; color:#9a9da6; line-height:1.6">Drop a folder path into the panel, press Import, and every detected texture is loaded and connected automatically.</div>
+          <td class="grid-card grid-card--bottom w50">
+            <div class="grid-card-title">Import in Seconds</div>
+            <div class="grid-card-body--wide">Drop a folder path into the panel, press Import, and every detected texture is loaded and connected automatically.</div>
           </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:10px; padding:20px 22px; vertical-align:top; border-bottom:3px solid #ec4899; width:50%">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">No UVs, No Problem</div>
-            <div style="font-size:14px; color:#9a9da6; line-height:1.6">Triplanar, box mapping, and projection masks let you texture and layer materials on any mesh, unwrapped or not.</div>
+          <td class="grid-card grid-card--bottom w50">
+            <div class="grid-card-title">No UVs, No Problem</div>
+            <div class="grid-card-body--wide">Triplanar, box mapping, and projection masks let you texture and layer materials on any mesh, unwrapped or not.</div>
           </td>
         </tr>
         <tr>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:10px; padding:20px 22px; vertical-align:top; border-bottom:3px solid #ec4899">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Non-Destructive by Design</div>
-            <div style="font-size:14px; color:#9a9da6; line-height:1.6">Masks and blend groups stack, reorder, and adjust at any time — without ever rebuilding the material from scratch.</div>
+          <td class="grid-card grid-card--bottom">
+            <div class="grid-card-title">Non-Destructive by Design</div>
+            <div class="grid-card-body--wide">Masks and blend groups stack, reorder, and adjust at any time — without ever rebuilding the material from scratch.</div>
           </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:10px; padding:20px 22px; vertical-align:top; border-bottom:3px solid #ec4899">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">N-Panel Workflow</div>
-            <div style="font-size:14px; color:#9a9da6; line-height:1.6">Every operator lives in the N-Panel in the Shader Editor — no hunting through menus or wiring nodes by hand.</div>
+          <td class="grid-card grid-card--bottom">
+            <div class="grid-card-title">N-Panel Workflow</div>
+            <div class="grid-card-body--wide">Every operator lives in the N-Panel in the Shader Editor — no hunting through menus or wiring nodes by hand.</div>
           </td>
         </tr>
       </tbody>
@@ -403,47 +640,47 @@
   </div>
 
   <!-- Closed Alpha status -->
-  <div data-section-pad style="background:#16171c; padding:56px 30px">
-    <h2 data-heading="title" style="margin:0 0 16px; font-size:30px; font-weight:900; color:#fff; text-align:center">Currently in Closed Alpha</h2>
-    <p style="margin:0 auto 30px; max-width:680px; font-size:16px; color:#9a9da6; line-height:1.7; text-align:center">Simple PBR Layering (v0.2.5) isn't publicly available yet — access is limited to a small group of testers while the core workflow gets battle-tested. Join the Discord to follow development, see it in action, and get notified the moment it opens up.</p>
-    <table role="presentation" data-stack-grid="pills" style="margin:0 auto; border-collapse:separate; border-spacing:8px 0; border:0">
+  <div class="section" data-section-pad>
+    <h2 class="section-title-sm" data-heading="title">Currently in Closed Alpha</h2>
+    <p class="brand-copy">Simple PBR Layering (v0.2.5) isn't publicly available yet — access is limited to a small group of testers while the core workflow gets battle-tested. Join the Discord to follow development, see it in action, and get notified the moment it opens up.</p>
+    <table class="button-row" role="presentation" data-stack-grid="pills">
       <tbody><tr>
-        <td style="border:none"><a data-hover-lift href="https://discord.gg/VRzdcFpczm" target="_blank" rel="noopener noreferrer" style="transition:transform 0.25s ease; display:inline-block; background:#ec4899; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#16171c !important">Join the Discord</a></td>
+        <td class="link-cell"><a class="button-primary" data-hover-lift href="https://discord.gg/VRzdcFpczm" target="_blank" rel="noopener noreferrer">Join the Discord</a></td>
       </tr></tbody>
     </table>
   </div>
 
   <!-- Why Trust -->
-  <div data-section-pad style="background:#1c1e24; padding:56px 30px; border-top:1px solid #34363e">
-    <h2 data-heading="title" style="margin:0 0 16px; font-size:30px; font-weight:900; color:#fff; text-align:center">Why Trust Simple PBR Layering?</h2>
-    <p style="margin:0 auto 30px; max-width:680px; font-size:16px; color:#9a9da6; line-height:1.7; text-align:center">Over a decade refining workflows for real-time engines. Simple Renaming, Simple Collider, Simple Export, and Simple Camera Manager are already used and trusted by thousands of artists and studios worldwide — PBR Layering is built to that same standard, currently in closed alpha with a small group of testers.</p>
-    <div style="display:flex; max-width:820px; margin:0 auto 26px; border-radius:14px; overflow:hidden; border:1px solid #34363e">
-      <a href="https://extensions.blender.org/add-ons/simple-renaming-panel/" aria-label="Simple Renaming" style="flex:1 1 25%; aspect-ratio:1/1; display:block; background-image:url(/images/simple_export/branding_squares.jpg); background-repeat:no-repeat; background-size:400% 100%; background-position:0% 0"></a>
-      <a href="https://superhivemarket.com/products/simple-collider" aria-label="Simple Collider" style="flex:1 1 25%; aspect-ratio:1/1; display:block; background-image:url(/images/simple_export/branding_squares.jpg); background-repeat:no-repeat; background-size:400% 100%; background-position:33.333% 0"></a>
-      <a href="https://superhivemarket.com/products/simple-camera-manager" aria-label="Simple Camera Manager" style="flex:1 1 25%; aspect-ratio:1/1; display:block; background-image:url(/images/simple_export/branding_squares.jpg); background-repeat:no-repeat; background-size:400% 100%; background-position:66.667% 0"></a>
-      <a href="https://superhivemarket.com/products/simple-export" aria-label="Simple Export" style="flex:1 1 25%; aspect-ratio:1/1; display:block; background-image:url(/images/simple_export/branding_squares.jpg); background-repeat:no-repeat; background-size:400% 100%; background-position:100% 0"></a>
+  <div class="section section--alt section--hairline" data-section-pad>
+    <h2 class="section-title-sm" data-heading="title">Why Trust Simple PBR Layering?</h2>
+    <p class="brand-copy">Over a decade refining workflows for real-time engines. Simple Renaming, Simple Collider, Simple Export, and Simple Camera Manager are already used and trusted by thousands of artists and studios worldwide — PBR Layering is built to that same standard, currently in closed alpha with a small group of testers.</p>
+    <div class="brand-square-row">
+      <a class="brand-square brand-square--renaming" href="https://extensions.blender.org/add-ons/simple-renaming-panel/" aria-label="Simple Renaming"></a>
+      <a class="brand-square brand-square--collider" href="https://superhivemarket.com/products/simple-collider" aria-label="Simple Collider"></a>
+      <a class="brand-square brand-square--camera" href="https://superhivemarket.com/products/simple-camera-manager" aria-label="Simple Camera Manager"></a>
+      <a class="brand-square brand-square--export" href="https://superhivemarket.com/products/simple-export" aria-label="Simple Export"></a>
     </div>
-    <table role="presentation" data-stack-grid="pills" style="margin:0 auto; border-collapse:separate; border-spacing:10px 0; border:0">
+    <table class="pill-row" role="presentation" data-stack-grid="pills">
       <tbody><tr>
-        <td style="border:none"><a data-hover-lift href="https://extensions.blender.org/add-ons/simple-renaming-panel/" style="transition:transform 0.25s ease; display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Simple Renaming — 50,000+ users</a></td>
-        <td style="border:none"><a data-hover-lift href="https://superhivemarket.com/products/simple-collider" style="transition:transform 0.25s ease; display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Simple Collider — 500+ users</a></td>
-        <td style="border:none"><a data-hover-lift href="https://superhivemarket.com/products/simple-export" style="transition:transform 0.25s ease; display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Simple Export</a></td>
-        <td style="border:none"><a data-hover-lift href="https://superhivemarket.com/products/simple-camera-manager" style="transition:transform 0.25s ease; display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Simple Camera Manager</a></td>
+        <td class="link-cell"><a class="link-pill" data-hover-lift href="https://extensions.blender.org/add-ons/simple-renaming-panel/">Simple Renaming — 50,000+ users</a></td>
+        <td class="link-cell"><a class="link-pill" data-hover-lift href="https://superhivemarket.com/products/simple-collider">Simple Collider — 500+ users</a></td>
+        <td class="link-cell"><a class="link-pill" data-hover-lift href="https://superhivemarket.com/products/simple-export">Simple Export</a></td>
+        <td class="link-cell"><a class="link-pill" data-hover-lift href="https://superhivemarket.com/products/simple-camera-manager">Simple Camera Manager</a></td>
       </tr></tbody>
     </table>
   </div>
 
   <!-- Footer CTA -->
-  <div data-section-pad style="background:#16171c; border-top:2px solid #ec4899; padding:46px 30px; text-align:center">
-    <div style="font-size:20px; font-weight:900; color:#fff; margin-bottom:6px">Stay in the Loop</div>
-    <div style="font-size:14px; color:#9a9da6; margin-bottom:26px; max-width:520px; margin-left:auto; margin-right:auto">Closed Alpha today, public release when the core workflow is ready. Join the Discord to follow along and get early access updates.</div>
-    <table role="presentation" data-stack-grid="pills" style="margin:0 auto; border-collapse:separate; border-spacing:8px 0; border:0">
+  <div class="footer" data-section-pad>
+    <div class="footer-title">Stay in the Loop</div>
+    <div class="footer-copy">Closed Alpha today, public release when the core workflow is ready. Join the Discord to follow along and get early access updates.</div>
+    <table class="button-row" role="presentation" data-stack-grid="pills">
       <tbody><tr>
-        <td style="border:none"><a data-hover-lift href="https://discord.gg/VRzdcFpczm" target="_blank" rel="noopener noreferrer" style="transition:transform 0.25s ease; display:inline-block; background:#ec4899; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#16171c !important">Join the Discord</a></td>
-        <td style="border:none"><a data-hover-lift href="https://www.artstation.com/matthias-patscheider" target="_blank" rel="noopener noreferrer" style="transition:transform 0.25s ease; display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">ArtStation</a></td>
+        <td class="link-cell"><a class="button-primary" data-hover-lift href="https://discord.gg/VRzdcFpczm" target="_blank" rel="noopener noreferrer">Join the Discord</a></td>
+        <td class="link-cell"><a class="button-secondary" data-hover-lift href="https://www.artstation.com/matthias-patscheider" target="_blank" rel="noopener noreferrer">ArtStation</a></td>
       </tr></tbody>
     </table>
-    <p style="margin:18px 0 0; font-size:12px"><a href="/legal-notice.html" style="color:#9a9da6; text-decoration:none">Legal Notice</a></p>
+    <p class="footer-legal"><a href="/legal-notice.html" class="footer-legal-link">Legal Notice</a></p>
   </div>
 
   </main>

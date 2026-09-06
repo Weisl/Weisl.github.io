@@ -23,81 +23,337 @@
 <meta name="twitter:image" content="https://alpineempire.eu/images/simple_renaming/SimpleBranding01.jpg">
 <meta name="twitter:image:alt" content="Simple Renaming key art with the Blender renaming panel">
 <style>html,body { margin:0; padding:0; background:#16171c; }</style>
+<style>
+.top-nav { background: #1c1e24; border-bottom: 1px solid #34363e; padding: 10px 30px; display: flex; align-items: center; justify-content: space-between; }
+.top-nav-home { display: inline-block; color: #e8e9ee; text-decoration: none; font-size: 12px; font-weight: 700; border: 1px solid #34363e; border-radius: 6px; padding: 6px 12px; }
+.top-nav-docs { color: #0ea5e9; text-decoration: none; font-size: 12px; font-weight: 700; }
+.top-nav-label { display: inline-block; color: #9a9da6; font-size: 12px; font-weight: 700; }
+
+
+.hero-shell { background: #1c1e24; }
+.hero-row { display: flex; align-items: stretch; }
+.hero-left { flex: 0 0 56%; padding: 64px 34px 64px 30px; }
+.hero-heading { margin: 0 0 22px; line-height: 1; }
+.hero-icon { flex-shrink: 0; }
+.hero-wordmark { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; font-size: 62px; font-weight: 900; color: #0ea5e9; line-height: 1; }
+.hero-product-name { display: block; font-size: 32px; font-weight: 500; color: #ffffff; line-height: 1.15; margin-top: 6px; }
+.hero-subtitle { margin: 0; max-width: 460px; font-size: 18px; color: #9a9da6; line-height: 1.6; }
+.hero-wedge { flex: 1; position: relative; min-height: 320px; }
+
+.hero-wordmark-row { display: flex; align-items: center; gap: 14px; }
+.hero-wedge-fill { position: absolute; inset: 0; clip-path: polygon(28% 0%, 100% 0%, 100% 100%, 0% 100%); background: linear-gradient(150deg, #1c1e24 0%, #0ea5e9 85%); background-attachment: fixed; }
+.hero-eyebrow-pill { display: inline-block; padding: 8px 18px; border-radius: 20px; font-size: 11px; font-weight: 700; letter-spacing: 2px; margin-bottom: 22px; }
+
+
+.hero-photo-content { position: relative; max-width: 640px; padding: 78px 34px 78px 30px; }
+.hero-photo-heading { margin: 0 0 22px; line-height: 1; }
+.hero-icon-svg { flex-shrink: 0; }
+.hero-photo-lede { margin: 0; max-width: 480px; font-size: 18px; color: #d7d9e0; line-height: 1.6; text-shadow: 0 1px 8px rgba(0,0,0,0.7); }
+
+.hero-photo-word { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; font-size: 58px; font-weight: 900; line-height: 1; color: #0ea5e9; text-shadow: 0 2px 14px rgba(0,0,0,0.6); }
+.hero-photo-word--white { display: block; color: #ffffff; margin-top: 4px; }
+
+.hero-photo-subtitle-line { display: block; font-size: 32px; font-weight: 900; color: #ffffff; line-height: 1.2; margin-top: 8px; text-shadow: 0 2px 14px rgba(0,0,0,0.6); }
+.hero-chip-row { display: flex; flex-wrap: wrap; gap: 8px; max-width: 480px; margin-top: 22px; }
+.hero-chip { display: inline-block; background: #24262d; border: 1px solid #34363e; border-radius: 6px; padding: 6px 12px; font-size: 12px; font-weight: 700; color: #e8e9ee; }
+
+.page {
+  background: #16171c;
+  color: #e8e9ee;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+
+.section { background: #16171c; padding: 56px 30px; }
+.section--alt { background: #1c1e24; }
+.section--hairline { border-top: 1px solid #34363e; }
+
+
+.video-wrap { position: relative; width: 100%; max-width: 960px; margin: 0 auto; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 14px; border: 1px solid #34363e; }
+.video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+.video-wrap video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; object-fit: cover; }
+
+.video-wrap img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; object-fit: cover; display: block; }
+
+
+.section-inner { max-width: 960px; margin: 0 auto; width: 100%; border-collapse: collapse; border: 0; }
+.wide-inner { max-width: 920px; margin: 0 auto; width: 100%; border-collapse: separate; border-spacing: 10px; border: 0; }
+.fit-grid { max-width: 820px; margin: 0 auto; width: 100%; border-collapse: separate; border-spacing: 12px; border: 0; }
+.quote-list { max-width: 820px; margin: 0 auto; width: 100%; border-collapse: separate; border-spacing: 0 14px; border: 0; }
+.support-image-wrap { max-width: 960px; margin: 26px auto 0; width: 100%; border-collapse: collapse; border: 0; }
+
+.support-image-wrap--sm { max-width: 380px; }
+.support-image-wrap--md { max-width: 640px; }
+.support-image-cell { border: none; }
+.pill-row { margin: 0 auto; border-collapse: separate; border-spacing: 10px 0; border: 0; }
+.button-row { margin: 0 auto; border-collapse: separate; border-spacing: 8px 0; border: 0; }
+.link-cell { border: none; }
+
+
+.feature-media-cell { vertical-align: middle; width: 42%; padding-right: 34px; border: none; }
+.feature-content-cell { vertical-align: middle; width: 58%; border: none; }
+
+.feature-content-cell--full { width: 100%; }
+.feature-media { line-height: 0; border-radius: 14px; overflow: hidden; border: 1px solid #34363e; }
+.feature-media img { width: 100%; display: block; }
+.badge-row { border-collapse: collapse; border: 0; }
+.badge-row-cell { vertical-align: middle; padding-right: 14px; border: none; }
+.eyebrow-cell { vertical-align: middle; border: none; }
+.eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 3px; color: #0ea5e9; }
+
+
+.badge-node { width: 46px; height: 46px; background: #0ea5e9; border-radius: 50%; text-align: center; line-height: 46px; font-size: 20px; font-weight: 900; color: #16171c; }
+
+.badge-swatch { width: 46px; height: 46px; background: #0ea5e9; border-radius: 10px; text-align: center; line-height: 46px; font-size: 20px; font-weight: 900; color: #16171c; }
+
+
+.divider-accent { height: 3px; background: #0ea5e9; }
+.feature-title { margin: 16px 0 14px; font-size: 30px; font-weight: 900; color: #ffffff; line-height: 1.15; }
+.feature-body { margin: 0 0 18px; font-size: 16px; color: #9a9da6; line-height: 1.7; }
+.feature-body--tight { margin-bottom: 20px; }
+
+
+.step-list { max-width: 700px; margin: 0 auto; }
+.step-item { margin-bottom: 20px; }
+.step-title { margin: 0 0 6px; font-size: 17px; font-weight: 800; color: #ffffff; }
+.step-body { margin: 0; font-size: 14px; color: #9a9da6; line-height: 1.6; }
+.step-body a { color: #0ea5e9; font-weight: 700; text-decoration: none; }
+
+.callout {
+  background: #24262d;
+  border: 1px solid #34363e;
+  border-left: 3px solid #0ea5e9;
+  border-radius: 8px;
+  padding: 14px 18px;
+  font-size: 14px;
+  color: #d7d9e0;
+  line-height: 1.6;
+}
+.callout strong { color: #0ea5e9; }
+
+.project-credit { margin: 0; font-size: 14px; color: #9a9da6; }
+.project-credit a { color: #0ea5e9; text-decoration: none; font-weight: 700; }
+
+
+.checklist { width: 100%; border-collapse: separate; border-spacing: 0 6px; border: 0; }
+.checklist-item { background: #24262d; border: none; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #d7d9e0; }
+.checklist-item .check { color: #0ea5e9; font-weight: 900; }
+
+
+.shape-grid { border-spacing: 16px; }
+.shape-card { background: #24262d; border: 1px solid #34363e; border-radius: 12px; overflow: hidden; vertical-align: top; }
+.shape-card-media { line-height: 0; }
+.shape-card-media img { width: 100%; display: block; }
+.shape-card-body { padding: 18px 20px; }
+.shape-card-title { font-size: 16px; font-weight: 800; color: #ffffff; margin-bottom: 6px; }
+.shape-card-desc { font-size: 13px; color: #9a9da6; line-height: 1.55; }
+
+
+.grid-card { background: #24262d; border: 1px solid #34363e; border-radius: 12px; padding: 20px; vertical-align: top; }
+.grid-card--top { border-top: 3px solid #0ea5e9; }
+.grid-card--bottom { border-bottom: 3px solid #0ea5e9; border-radius: 10px; padding: 20px 22px; }
+.grid-card-title { font-size: 16px; font-weight: 800; color: #ffffff; margin-bottom: 6px; }
+.grid-card-title--tight { margin-bottom: 10px; }
+.grid-card-body { font-size: 13px; color: #9a9da6; line-height: 1.6; }
+.grid-card-body a { color: #0ea5e9; font-weight: 700; text-decoration: none; }
+.grid-card-body--wide { font-size: 14px; color: #9a9da6; line-height: 1.6; }
+.grid-card-body--tight { margin-bottom: 10px; }
+
+.grid-card-cta { margin: 10px 0 0; }
+.inline-accent-link { color: #0ea5e9; text-decoration: none; font-weight: 700; }
+.support-link { color: #0ea5e9; text-decoration: none; font-weight: 700; font-size: 13px; }
+
+
+.software-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.software-logo-badge { flex-shrink: 0; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; }
+.software-logo-img { width: 100%; height: 100%; object-fit: contain; display: block; }
+
+.w25 { width: 25%; }
+.w33 { width: 33%; }
+.w50 { width: 50%; }
+
+
+.chip {
+  display: inline-block;
+  background: #16171c;
+  border: 1px solid #34363e;
+  border-radius: 4px;
+  padding: 2px 7px;
+  font-family: 'SF Mono', 'Consolas', 'Courier New', monospace;
+  font-size: 12px;
+  color: #0ea5e9;
+}
+.chip-label { font-size: 12px; color: #9a9da6; }
+
+
+.section-title { margin: 0 0 8px; font-size: 32px; font-weight: 900; color: #ffffff; text-align: center; }
+.section-title-sm { margin: 0 0 16px; font-size: 30px; font-weight: 900; color: #ffffff; text-align: center; }
+.section-subtitle { margin: 0 0 30px; font-size: 15px; color: #9a9da6; text-align: center; }
+.section-subtitle--tight { margin: 0 0 36px; font-size: 15px; color: #9a9da6; text-align: center; }
+
+.tag-list-label { max-width: 920px; margin: 26px auto 0; font-size: 13px; font-weight: 700; letter-spacing: 1px; color: #9a9da6; text-align: center; }
+.tool-list-text { max-width: 640px; margin: 16px auto 0; font-size: 14px; color: #9a9da6; line-height: 1.7; text-align: center; }
+
+.support-note { text-align: center; font-size: 13px; color: #9a9da6; max-width: 560px; margin: 26px auto 0; }
+
+
+.quote-card { background: #24262d; border: 1px solid #34363e; border-radius: 12px; padding: 22px 24px; }
+.quote-text { margin: 0 0 14px; font-size: 16px; color: #d7d9e0; line-height: 1.6; font-style: italic; }
+.quote-text--tight { margin: 0 0 10px; }
+.avatar-row { display: flex; align-items: center; }
+.avatar { width: 40px; height: 40px; border-radius: 50%; vertical-align: middle; margin-right: 12px; }
+.quote-attribution { font-size: 14px; color: #9a9da6; }
+.quote-attribution a { color: #0ea5e9; text-decoration: none; font-weight: 700; }
+
+
+.brand-copy { margin: 0 auto 30px; max-width: 680px; font-size: 16px; color: #9a9da6; line-height: 1.7; text-align: center; }
+
+.brand-square-row { display: flex; max-width: 820px; margin: 0 auto 26px; border-radius: 14px; overflow: hidden; border: 1px solid #34363e; }
+.brand-square {
+  flex: 1 1 25%;
+  aspect-ratio: 1 / 1;
+  display: block;
+  background-image: url(/images/simple_export/branding_squares.jpg);
+  background-repeat: no-repeat;
+  background-size: 400% 100%;
+}
+.brand-square--renaming { background-position: 0% 0; }
+.brand-square--collider { background-position: 33.333% 0; }
+.brand-square--camera { background-position: 66.667% 0; }
+.brand-square--export { background-position: 100% 0; }
+.link-pill {
+  display: inline-block;
+  background: #24262d;
+  border: 1px solid #34363e;
+  color: #e8e9ee !important;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+.cta-banner {
+  display: block;
+  background: #0ea5e9;
+  border-radius: 12px;
+  padding: 20px 24px;
+  max-width: 460px;
+  margin: 30px auto 0;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 900;
+  text-decoration: none;
+  color: #16171c !important;
+}
+.cta-banner-support { margin: 12px auto 0; max-width: 460px; font-size: 13px; color: #9a9da6; text-align: center; }
+.cta-banner-support a { color: #9a9da6 !important; font-weight: 700; text-decoration: underline; }
+
+
+.footer { background: #16171c; border-top: 2px solid #0ea5e9; padding: 46px 30px; text-align: center; }
+.footer-title { font-size: 20px; font-weight: 900; color: #ffffff; margin-bottom: 6px; }
+.footer-copy { font-size: 14px; color: #9a9da6; margin-bottom: 26px; max-width: 520px; margin-left: auto; margin-right: auto; }
+.button-primary {
+  display: inline-block;
+  background: #0ea5e9;
+  color: #16171c !important;
+  text-decoration: none;
+  padding: 13px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.button-secondary {
+  display: inline-block;
+  background: #24262d;
+  border: 1px solid #34363e;
+  color: #ffffff !important;
+  text-decoration: none;
+  padding: 13px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+
+.footer-legal { margin: 18px 0 0; font-size: 12px; }
+.footer-legal-link { color: #9a9da6; text-decoration: none; }
+
+
+[data-hover-lift] { transition: transform .25s ease; }
+[data-hover-lift]:hover { transform: scale(1.035); }
+
+
+@media (prefers-reduced-motion: reduce) {
+  [data-hover-lift]:hover { transform: none !important; transition: none !important; }
+  [data-parallax] { background-attachment: scroll !important; }
+}
+
+
+@media (max-width: 640px) {
+  
+  table[data-stack-grid] { display: block !important; width: 100% !important; }
+  table[data-stack-grid] > tbody { display: block !important; }
+  table[data-stack-grid] > tbody > tr { display: block !important; }
+  table[data-stack-grid] > tbody > tr > td {
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding-right: 0 !important;
+    padding-bottom: 16px !important;
+  }
+  table[data-stack-grid] > tbody > tr:last-child > td:last-child { padding-bottom: 0 !important; }
+  
+  table[data-stack-grid="pills"] > tbody > tr > td { text-align: center !important; }
+
+  
+  div[data-stack-grid="flex"] { flex-direction: column !important; }
+  div[data-stack-grid="flex"] > [data-step="card"] {
+    flex: none !important;
+    width: 100% !important;
+    margin-bottom: 16px !important;
+  }
+  div[data-stack-grid="flex"] > [data-step="card"]:last-child { margin-bottom: 0 !important; }
+  div[data-stack-grid="flex"] > [data-step="connector"] { display: none !important; }
+  
+  div[data-stack-grid="flex"] [data-step="dot"] { display: none !important; }
+
+  
+  [data-hero-stack="wedge"] { display: none !important; }
+  [data-hero-stack="left"] { flex: 1 1 100% !important; width: 100% !important; }
+
+  
+  [data-heading="display"] { font-size: 34px !important; }
+  [data-heading="title"] { font-size: 24px !important; }
+
+  
+  [data-section-pad] { padding-left: 16px !important; padding-right: 16px !important; }
+}
+
+
+
+
+
+
+
+.hero-texture-svg { position: absolute; top: -70px; right: 0; bottom: -70px; left: 0; }
+
+
+.pattern-example { font-family: 'SF Mono', Consolas, monospace; font-size: 14px; margin-bottom: 10px; }
+.pattern-example-arrow { margin-bottom: 14px; }
+.pattern-example-legend { font-size: 12px; line-height: 2; }
+</style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Alpine Empire", "item": "https://alpineempire.eu/"}, {"@type": "ListItem", "position": 2, "name": "Simple Renaming", "item": "https://alpineempire.eu/simple-renaming.html"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Simple Renaming", "description": "Free Blender add-on trusted by 50,000+ users for fast, rule-based batch renaming of objects, materials, and more.", "url": "https://alpineempire.eu/simple-renaming.html", "image": "https://alpineempire.eu/images/simple_renaming/SimpleBranding01.jpg", "applicationCategory": "DesignApplication", "operatingSystem": "Windows, macOS, Linux", "softwareRequirements": "Blender", "author": {"@type": "Person", "name": "Matthias Patscheider", "url": "https://alpineempire.eu/"}, "publisher": {"@type": "Organization", "name": "Alpine Empire", "url": "https://alpineempire.eu/"}, "sameAs": ["https://extensions.blender.org/add-ons/simple-renaming-panel/", "https://superhivemarket.com/products/simple-renaming-panel", "https://superhivemarket.com/creators/matthias-patscheider"], "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "url": "https://extensions.blender.org/add-ons/simple-renaming-panel/"}}</script>
-<style type="text/css">[data-hover-lift]:hover {transform:scale(1.035) !important}
-@media (prefers-reduced-motion: reduce) {
-    [data-hover-lift]:hover {
-        transform: none !important;
-        transition: none !important
-        }
-    [data-parallax] {
-        background-attachment: scroll !important
-        }
-    }
-@media (max-width: 640px) {
-    table[data-stack-grid] {
-        display: block !important;
-        width: 100% !important
-        }
-    table[data-stack-grid] > tbody {
-        display: block !important
-        }
-    table[data-stack-grid] > tbody > tr {
-        display: block !important
-        }
-    table[data-stack-grid] > tbody > tr > td {
-        display: block !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-        padding-right: 0 !important;
-        padding-bottom: 16px !important
-        }
-    table[data-stack-grid] > tbody > tr:last-child > td:last-child {
-        padding-bottom: 0 !important
-        }
-    table[data-stack-grid="pills"] > tbody > tr > td {
-        text-align: center !important
-        }
-    div[data-stack-grid="flex"] {
-        flex-direction: column !important
-        }
-    div[data-stack-grid="flex"] > [data-step="card"] {
-        flex: none !important;
-        width: 100% !important;
-        margin-bottom: 16px !important
-        }
-    div[data-stack-grid="flex"] > [data-step="card"]:last-child {
-        margin-bottom: 0 !important
-        }
-    div[data-stack-grid="flex"] > [data-step="connector"] {
-        display: none !important
-        }
-    div[data-stack-grid="flex"] [data-step="dot"] {
-        display: none !important
-        }
-    [data-hero-stack="wedge"] {
-        display: none !important
-        }
-    [data-hero-stack="left"] {
-        flex: 1 1 100% !important;
-        width: 100% !important
-        }
-    [data-heading="display"] {
-        font-size: 34px !important
-        }
-    [data-heading="title"] {
-        font-size: 24px !important
-        }
-    [data-section-pad] {
-        padding-left: 16px !important;
-        padding-right: 16px !important
-        }
-    }</style>
 </head>
 <body>
-<!-- Generated from src/simple-renaming.html + src/common.css + src/simple-renaming.css — edit those, not this file. Rebuild with: venv/bin/python store_pages/src/build.py simple-renaming -->
-<div style='background:#16171c; color:#e8e9ee; font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; padding:0; margin:0; max-width:100%; overflow:hidden'>
+<!-- Generated from src/simple-renaming.html + src/common.css + src/simple-renaming.css by deploy_to_docs.py — edit those, not this file. -->
+<div class="page">
   <style>
     .site-nav { position: sticky; top: 0; z-index: 100; background: #16171c; border-bottom: 1px solid #34363e; }
     .site-nav-inner { max-width: 1160px; margin: 0 auto; position: relative; display: flex; align-items: center; gap: 24px; padding: 12px 30px; }
@@ -165,23 +421,23 @@
   <main>
 
 <!-- Hero -->
-  <div style="background:#1c1e24">
-    <div style="display:flex; align-items:stretch">
-      <div data-hero-stack="left" data-section-pad style="flex:0 0 56%; padding:64px 34px 64px 30px">
-        <h1 style="margin:0 0 22px; line-height:1">
-          <span style="display:flex; align-items:center; gap:14px">
-            <span data-heading="display" style='font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-size:62px; font-weight:900; color:#0ea5e9; line-height:1'>SIMPLE</span>
-            <svg width="42" height="42" viewbox="0 0 44 44" style="flex-shrink:0">
+  <div class="hero-shell">
+    <div class="hero-row">
+      <div class="hero-left" data-hero-stack="left" data-section-pad>
+        <h1 class="hero-heading">
+          <span class="hero-wordmark-row">
+            <span class="hero-wordmark" data-heading="display">SIMPLE</span>
+            <svg width="42" height="42" viewBox="0 0 44 44" class="hero-icon">
               <path d="M9 35 L9 29 L28 10 L34 16 L15 35 Z" fill="none" stroke="#0ea5e9" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"></path>
               <line x1="9" y1="35" x2="15" y2="35" stroke="#0ea5e9" stroke-width="2.5" stroke-linecap="round"></line>
             </svg>
           </span>
-          <span data-heading="title" style="display:block; font-size:32px; font-weight:500; color:#fff; line-height:1.15; margin-top:6px">Renaming</span>
+          <span class="hero-product-name" data-heading="title">Renaming</span>
         </h1>
-        <p style="margin:0; max-width:460px; font-size:18px; color:#9a9da6; line-height:1.6">With over 50,000 downloads across multiple platforms, Simple Renaming is the go-to addon for batch renaming objects, materials, collections and more. It's fast, flexible and free!</p>
+        <p class="hero-subtitle">With over 50,000 downloads across multiple platforms, Simple Renaming is the go-to addon for batch renaming objects, materials, collections and more. It's fast, flexible and free!</p>
       </div>
-      <div data-hero-stack="wedge" style="flex:1; position:relative; min-height:320px">
-        <div data-parallax style="position:absolute; inset:0; clip-path:polygon(28% 0%, 100% 0%, 100% 100%, 0% 100%); background:linear-gradient(150deg, #1c1e24 0%, #0ea5e9 85%); background-attachment:fixed; overflow:hidden">
+      <div class="hero-wedge" data-hero-stack="wedge">
+        <div class="hero-wedge-fill" data-parallax style="overflow:hidden;">
           <!-- Wall of default Blender object names, packed with no gaps between words —
                the exact problem Simple Renaming solves. Matches the low-opacity numbering
                texture in the product's own keyart (SimpleBranding06.jpg). Rows are literal
@@ -194,7 +450,7 @@
                overflow:hidden clips whatever's left over, so oversizing here is free; the
                previous shorter/fewer rows left visible gaps of bare gradient at the right
                and bottom edges on anything wider than that original assumption. -->
-          <svg width="100%" height="100%" data-parallax-js style="position:absolute; top:-70px; right:0; bottom:-70px; left:0">
+          <svg width="100%" height="100%" class="hero-texture-svg" data-parallax-js>
             <g transform="rotate(-14 210 160)">
               <text x="-60" y="-48" font-family="'SF Mono', Consolas, monospace" font-size="13" fill="#ffffff" fill-opacity="0.28">Cube.001Cube.002Cube.003Sphere.001Cylinder.002Plane.003Torus.004Cone.005Icosphere.006Suzanne.007Empty.008Camera.002Light.003Material.004Mesh.005Curve.006BezierCircle.007Armature.002Text.003Grid.004Cube.009Cube.010Sphere.011Plane.012Cube.001Cube.002Cube.003Sphere.001Cylinder.002Plane.003Torus.004Cone.005Icosphere.006Suzanne.007Empty.008Camera.002Light.003Material.004Mesh.005Curve.006</text>
               <text x="-60" y="-26" font-family="'SF Mono', Consolas, monospace" font-size="13" fill="#ffffff" fill-opacity="0.28">Sphere.001Cylinder.002Plane.003Torus.004Cone.005Icosphere.006Suzanne.007Empty.008Camera.002Light.003Material.004Mesh.005Curve.006BezierCircle.007Armature.002Text.003Grid.004Cube.009Cube.010Sphere.011Plane.012Cube.001Cube.002Cube.003Sphere.001Cylinder.002Plane.003Torus.004Cone.005Icosphere.006Suzanne.007Empty.008Camera.002Light.003Material.004Mesh.005Curve.006BezierCircle.007Armature.002Text.003</text>
@@ -227,49 +483,43 @@
       </div>
     </div>
   </div>
-  <div style="height:3px; background:#0ea5e9"></div>
+  <div class="divider-accent"></div>
 
   <!-- Video -->
-  <div data-section-pad style="background:#16171c; padding:56px 30px">
-    <h2 data-heading="title" style="margin:0 0 16px; font-size:30px; font-weight:900; color:#fff; text-align:center">See It In Action</h2>
-    <div style="position:relative; width:100%; max-width:960px; margin:0 auto; aspect-ratio:16/9; overflow:hidden; border-radius:14px; border:1px solid #34363e">
-      <iframe frameborder="0" width="960" height="540" src="https://www.youtube.com/embed/YfC5GT5nVt0" title="Simple Renaming — demo video" loading="lazy" style="position:absolute; top:0; left:0; width:100%; height:100%; border:0"></iframe>
+  <div class="section" data-section-pad>
+    <h2 class="section-title-sm" data-heading="title">See It In Action</h2>
+    <div class="video-wrap">
+      <iframe frameborder="0" width="960" height="540" src="https://www.youtube.com/embed/YfC5GT5nVt0" title="Simple Renaming — demo video" loading="lazy"></iframe>
     </div>
-    <a data-hover-lift href="https://extensions.blender.org/add-ons/simple-renaming-panel/" style="transition:transform 0.25s ease; display:block; background:#0ea5e9; border-radius:12px; padding:20px 24px; max-width:460px; margin:30px auto 0; text-align:center; font-size:18px; font-weight:900; text-decoration:none; color:#16171c !important">Get the Addon →</a>
-    <p style="margin:12px auto 0; max-width:460px; font-size:13px; color:#9a9da6; text-align:center">Support the development! <a href="https://gumroad.com/weisl" style="font-weight:700; text-decoration:underline; color:#9a9da6 !important">Gumroad</a> · <a href="https://superhivemarket.com/products/simple-renaming-panel" style="font-weight:700; text-decoration:underline; color:#9a9da6 !important">Superhive</a></p>
+    <a class="cta-banner" data-hover-lift href="https://extensions.blender.org/add-ons/simple-renaming-panel/">Get the Addon &rarr;</a>
+    <p class="cta-banner-support">Support the development! <a href="https://gumroad.com/weisl">Gumroad</a> &middot; <a href="https://superhivemarket.com/products/simple-renaming-panel">Superhive</a></p>
   </div>
 
   <!-- 01 Replace, Number, Search & Replace -->
-  <div data-section-pad style="background:#1c1e24; padding:56px 30px; border-top:1px solid #34363e">
-    <table role="presentation" data-stack-grid="cards" style="max-width:960px; margin:0 auto; width:100%; border-collapse:collapse; border:0">
+  <div class="section section--alt section--hairline" data-section-pad>
+    <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
-          <td style="vertical-align:middle; width:42%; padding-right:34px; border:none">
-            <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
-              <img src="/images/simple_renaming/renaming_panel_main.jpg" alt="Simple Renaming panel showing rename, search and replace, and prefix/suffix controls" style="width:100%; display:block">
+          <td class="feature-media-cell">
+            <div class="feature-media">
+              <img src="/images/simple_renaming/renaming_panel_main.jpg" alt="Simple Renaming panel showing rename, search and replace, and prefix/suffix controls">
             </div>
           </td>
-          <td style="vertical-align:middle; width:58%; border:none">
-            <table role="presentation" style="border-collapse:collapse; border:0"><tbody><tr>
-              <td style="vertical-align:middle; padding-right:14px; border:none"><div style="width:46px; height:46px; background:#0ea5e9; border-radius:50%; text-align:center; line-height:46px; font-size:20px; font-weight:900; color:#16171c">01</div></td>
-              <td style="vertical-align:middle; border:none"><div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#0ea5e9">REPLACE, NUMBER, SEARCH &amp; REPLACE</div></td>
+          <td class="feature-content-cell">
+            <table class="badge-row" role="presentation"><tbody><tr>
+              <td class="badge-row-cell"><div class="badge-node">01</div></td>
+              <td class="eyebrow-cell"><div class="eyebrow">REPLACE, NUMBER, SEARCH &amp; REPLACE</div></td>
             </tr></tbody></table>
-            <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">One Panel to <br>Rename Them All</h2>
-            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7; margin-bottom:20px">Replace names and add sequential numbering, add prefixes and suffixes in one click, or run a full search-and-replace pass — with regex support and in-pattern case modifiers (<code>\u</code>, <code>\l</code>, <code>\U</code>, <code>\L</code>) for case transformations on the fly.</p>
-            <table role="presentation" style="width:100%; border-collapse:separate; border-spacing:0 6px; border:0">
+            <h2 class="feature-title" data-heading="title">One Panel to <br>Rename Them All</h2>
+            <p class="feature-body feature-body--tight">Replace names and add sequential numbering, add prefixes and suffixes in one click, or run a full search-and-replace pass — with regex support and in-pattern case modifiers (<code>\u</code>, <code>\l</code>, <code>\U</code>, <code>\L</code>) for case transformations on the fly.</p>
+            <table class="checklist" role="presentation">
               <tbody>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#0ea5e9; font-weight:900">✓</span> Add prefixes and suffixes in one click — no retyping the whole name</td></tr>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#0ea5e9; font-weight:900">✓</span> Select targets and rename them with sequential numbering, dynamic variables, and precise pattern matching</td></tr>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#0ea5e9; font-weight:900">✓</span> Drop <code>@</code>-variables into any field to pull in the object, its collection, parent, file name, date, or your own custom slots</td></tr>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#0ea5e9; font-weight:900">✓</span> Sync object names to their data-blocks — or rename linked mesh, curve, and light data to match</td></tr>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#0ea5e9; font-weight:900">✓</span> Search and select objects by name pattern before you touch anything</td></tr>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#0ea5e9; font-weight:900">✓</span> Full Regular Expression support for complex, pattern-based renames</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Add prefixes and suffixes in one click — no retyping the whole name</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Select targets and rename them with sequential numbering, dynamic variables, and precise pattern matching</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Drop <code>@</code>-variables into any field to pull in the object, its collection, parent, file name, date, or your own custom slots</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Sync object names to their data-blocks — or rename linked mesh, curve, and light data to match</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Search and select objects by name pattern before you touch anything</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Full Regular Expression support for complex, pattern-based renames</td></tr>
               </tbody>
             </table>
           </td>
@@ -279,30 +529,27 @@
   </div>
 
   <!-- 02 Target Selection -->
-  <div data-section-pad style="background:#16171c; padding:56px 30px">
-    <table role="presentation" data-stack-grid="cards" style="max-width:960px; margin:0 auto; width:100%; border-collapse:collapse; border:0">
+  <div class="section" data-section-pad>
+    <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
-          <td style="vertical-align:middle; width:42%; padding-right:34px; border:none">
-            <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
-              <img src="/images/simple_renaming/renaming_panel_target.jpg" alt="Target panel showing the object type filter and Only Selected toggle" style="width:100%; display:block" loading="lazy" decoding="async">
+          <td class="feature-media-cell">
+            <div class="feature-media">
+              <img src="/images/simple_renaming/renaming_panel_target.jpg" alt="Target panel showing the object type filter and Only Selected toggle" loading="lazy" decoding="async">
             </div>
           </td>
-          <td style="vertical-align:middle; width:58%; border:none">
-            <table role="presentation" style="border-collapse:collapse; border:0"><tbody><tr>
-              <td style="vertical-align:middle; padding-right:14px; border:none"><div style="width:46px; height:46px; background:#0ea5e9; border-radius:50%; text-align:center; line-height:46px; font-size:20px; font-weight:900; color:#16171c">02</div></td>
-              <td style="vertical-align:middle; border:none"><div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#0ea5e9">TARGET SELECTION</div></td>
+          <td class="feature-content-cell">
+            <table class="badge-row" role="presentation"><tbody><tr>
+              <td class="badge-row-cell"><div class="badge-node">02</div></td>
+              <td class="eyebrow-cell"><div class="eyebrow">TARGET SELECTION</div></td>
             </tr></tbody></table>
-            <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">Choose Exactly<br>What Gets Renamed</h2>
-            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7; margin-bottom:20px">Filter by object type, then decide whether changes apply to your current selection or the whole scene — narrow things down before a single name changes.</p>
-            <table role="presentation" style="width:100%; border-collapse:separate; border-spacing:0 6px; border:0">
+            <h2 class="feature-title" data-heading="title">Choose Exactly<br>What Gets Renamed</h2>
+            <p class="feature-body feature-body--tight">Filter by object type, then decide whether changes apply to your current selection or the whole scene — narrow things down before a single name changes.</p>
+            <table class="checklist" role="presentation">
               <tbody>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#0ea5e9; font-weight:900">✓</span> Filter to exactly the types you need: meshes, materials, empties, cameras, lights, curves, armatures, and more</td></tr>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#0ea5e9; font-weight:900">✓</span> Toggle Only Selected to scope every operation to your current selection instead of the whole scene</td></tr>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#0ea5e9; font-weight:900">✓</span> Use Search and Select to pre-select objects by name pattern before renaming</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Filter to exactly the types you need: meshes, materials, empties, cameras, lights, curves, armatures, and more</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Toggle Only Selected to scope every operation to your current selection instead of the whole scene</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Use Search and Select to pre-select objects by name pattern before renaming</td></tr>
               </tbody>
             </table>
           </td>
@@ -312,28 +559,26 @@
   </div>
 
   <!-- 03 Sorting -->
-  <div data-section-pad style="background:#1c1e24; padding:56px 30px; border-top:1px solid #34363e">
-    <table role="presentation" data-stack-grid="cards" style="max-width:960px; margin:0 auto; width:100%; border-collapse:collapse; border:0">
+  <div class="section section--alt section--hairline" data-section-pad>
+    <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
-          <td style="vertical-align:middle; width:42%; padding-right:34px; border:none">
-            <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
-              <img src="/images/simple_renaming/renaming_panel_sort.jpg" alt="Sort Target Objects option in the Simple Renaming panel" style="width:100%; display:block" loading="lazy" decoding="async">
+          <td class="feature-media-cell">
+            <div class="feature-media">
+              <img src="/images/simple_renaming/renaming_panel_sort.jpg" alt="Sort Target Objects option in the Simple Renaming panel" loading="lazy" decoding="async">
             </div>
           </td>
-          <td style="vertical-align:middle; width:58%; border:none">
-            <table role="presentation" style="border-collapse:collapse; border:0"><tbody><tr>
-              <td style="vertical-align:middle; padding-right:14px; border:none"><div style="width:46px; height:46px; background:#0ea5e9; border-radius:50%; text-align:center; line-height:46px; font-size:20px; font-weight:900; color:#16171c">03</div></td>
-              <td style="vertical-align:middle; border:none"><div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#0ea5e9">SORTING</div></td>
+          <td class="feature-content-cell">
+            <table class="badge-row" role="presentation"><tbody><tr>
+              <td class="badge-row-cell"><div class="badge-node">03</div></td>
+              <td class="eyebrow-cell"><div class="eyebrow">SORTING</div></td>
             </tr></tbody></table>
-            <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">Numbering That<br>Follows Your Order</h2>
-            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7; margin-bottom:20px">Sequential numbering doesn't have to follow the outliner. Sort your targets by selection, alphabetically, or by axis position — or take direct control with the interactive Select in Renaming Order tool.</p>
-            <table role="presentation" style="width:100%; border-collapse:separate; border-spacing:0 6px; border:0">
+            <h2 class="feature-title" data-heading="title">Numbering That<br>Follows Your Order</h2>
+            <p class="feature-body feature-body--tight">Sequential numbering doesn't have to follow the outliner. Sort your targets by selection, alphabetically, or by axis position — or take direct control with the interactive Select in Renaming Order tool.</p>
+            <table class="checklist" role="presentation">
               <tbody>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#0ea5e9; font-weight:900">✓</span> Sort by Selection, Alphabetical, or Axis order, with a one-click reverse</td></tr>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#0ea5e9; font-weight:900">✓</span> Select in Renaming Order: click objects or bones one by one in the viewport to set the exact numbering sequence, then confirm with Enter</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Sort by Selection, Alphabetical, or Axis order, with a one-click reverse</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Select in Renaming Order: click objects or bones one by one in the viewport to set the exact numbering sequence, then confirm with Enter</td></tr>
               </tbody>
             </table>
           </td>
@@ -343,44 +588,39 @@
   </div>
 
   <!-- 04 Renaming Variables -->
-  <div data-section-pad style="background:#16171c; padding:56px 30px">
-    <table role="presentation" data-stack-grid="cards" style="max-width:960px; margin:0 auto; width:100%; border-collapse:collapse; border:0">
+  <div class="section" data-section-pad>
+    <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
-          <td style="vertical-align:middle; width:42%; padding-right:34px; border:none">
-            <div style="background:#24262d; border:1px solid #34363e; border-left:3px solid #0ea5e9; border-radius:8px; padding:14px 18px; font-size:14px; color:#d7d9e0; line-height:1.6">
-              <div style='font-family:"SF Mono", Consolas, monospace; font-size:14px; margin-bottom:10px'>
-                <span style='display:inline-block; background:#16171c; border:1px solid #34363e; border-radius:4px; padding:2px 7px; font-family:"SF Mono", "Consolas", "Courier New", monospace; font-size:12px; color:#0ea5e9'>@f</span>_<span style='display:inline-block; background:#16171c; border:1px solid #34363e; border-radius:4px; padding:2px 7px; font-family:"SF Mono", "Consolas", "Courier New", monospace; font-size:12px; color:#0ea5e9'>@t</span>_object_<span style='display:inline-block; background:#16171c; border:1px solid #34363e; border-radius:4px; padding:2px 7px; font-family:"SF Mono", "Consolas", "Courier New", monospace; font-size:12px; color:#0ea5e9'>@i</span>
+          <td class="feature-media-cell">
+            <div class="callout">
+              <div class="pattern-example">
+                <span class="chip">@f</span>_<span class="chip">@t</span>_object_<span class="chip">@i</span>
               </div>
-              <div style="margin-bottom:14px">→ <code>myfile_MESH_object_1432</code>
-</div>
-              <div style="font-size:12px; line-height:2">
-                <span style='display:inline-block; background:#16171c; border:1px solid #34363e; border-radius:4px; padding:2px 7px; font-family:"SF Mono", "Consolas", "Courier New", monospace; font-size:12px; color:#0ea5e9'>@o</span> <span style="font-size:12px; color:#9a9da6">object</span> ·
-                <span style='display:inline-block; background:#16171c; border:1px solid #34363e; border-radius:4px; padding:2px 7px; font-family:"SF Mono", "Consolas", "Courier New", monospace; font-size:12px; color:#0ea5e9'>@c</span> <span style="font-size:12px; color:#9a9da6">collection</span> ·
-                <span style='display:inline-block; background:#16171c; border:1px solid #34363e; border-radius:4px; padding:2px 7px; font-family:"SF Mono", "Consolas", "Courier New", monospace; font-size:12px; color:#0ea5e9'>@p</span> <span style="font-size:12px; color:#9a9da6">parent</span><br>
-                <span style='display:inline-block; background:#16171c; border:1px solid #34363e; border-radius:4px; padding:2px 7px; font-family:"SF Mono", "Consolas", "Courier New", monospace; font-size:12px; color:#0ea5e9'>@n</span> <span style="font-size:12px; color:#9a9da6">number</span> ·
-                <span style='display:inline-block; background:#16171c; border:1px solid #34363e; border-radius:4px; padding:2px 7px; font-family:"SF Mono", "Consolas", "Courier New", monospace; font-size:12px; color:#0ea5e9'>@d</span> <span style="font-size:12px; color:#9a9da6">date</span> ·
-                <span style='display:inline-block; background:#16171c; border:1px solid #34363e; border-radius:4px; padding:2px 7px; font-family:"SF Mono", "Consolas", "Courier New", monospace; font-size:12px; color:#0ea5e9'>@r</span> <span style="font-size:12px; color:#9a9da6">random</span>
+              <div class="pattern-example-arrow">&rarr; <code>myfile_MESH_object_1432</code></div>
+              <div class="pattern-example-legend">
+                <span class="chip">@o</span> <span class="chip-label">object</span> &middot;
+                <span class="chip">@c</span> <span class="chip-label">collection</span> &middot;
+                <span class="chip">@p</span> <span class="chip-label">parent</span><br>
+                <span class="chip">@n</span> <span class="chip-label">number</span> &middot;
+                <span class="chip">@d</span> <span class="chip-label">date</span> &middot;
+                <span class="chip">@r</span> <span class="chip-label">random</span>
               </div>
             </div>
           </td>
-          <td style="vertical-align:middle; width:58%; border:none">
-            <table role="presentation" style="border-collapse:collapse; border:0"><tbody><tr>
-              <td style="vertical-align:middle; padding-right:14px; border:none"><div style="width:46px; height:46px; background:#0ea5e9; border-radius:50%; text-align:center; line-height:46px; font-size:20px; font-weight:900; color:#16171c">04</div></td>
-              <td style="vertical-align:middle; border:none"><div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#0ea5e9">RENAMING VARIABLES</div></td>
+          <td class="feature-content-cell">
+            <table class="badge-row" role="presentation"><tbody><tr>
+              <td class="badge-row-cell"><div class="badge-node">04</div></td>
+              <td class="eyebrow-cell"><div class="eyebrow">RENAMING VARIABLES</div></td>
             </tr></tbody></table>
-            <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">Dynamic Names, Built<br>From @-Variables</h2>
-            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7; margin-bottom:20px">Drop @-variables into any name field to pull in live data instead of typing it by hand — the object's own name, its collection, its parent, the current file, date, or a padded counter.</p>
-            <table role="presentation" style="width:100%; border-collapse:separate; border-spacing:0 6px; border:0">
+            <h2 class="feature-title" data-heading="title">Dynamic Names, Built<br>From @-Variables</h2>
+            <p class="feature-body feature-body--tight">Drop @-variables into any name field to pull in live data instead of typing it by hand — the object's own name, its collection, its parent, the current file, date, or a padded counter.</p>
+            <table class="checklist" role="presentation">
               <tbody>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#0ea5e9; font-weight:900">✓</span> <code>@o</code> object name, <code>@c</code> collection name, <code>@p</code> parent name, <code>@a</code> active object — reference exactly what's changing, automatically</td></tr>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#0ea5e9; font-weight:900">✓</span> <code>@n</code> padded counter, <code>@d</code> date, <code>@i</code> time, <code>@f</code> file name, <code>@r</code> random string</td></tr>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#0ea5e9; font-weight:900">✓</span> <code>@h</code>, <code>@l</code>, <code>@b</code>, <code>@u1</code>–<code>@u3</code> — your own custom slots for high-poly, low-poly, bake cage, or any convention you use</td></tr>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#0ea5e9; font-weight:900">✓</span> Combine variables with regular text in any field</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> <code>@o</code> object name, <code>@c</code> collection name, <code>@p</code> parent name, <code>@a</code> active object — reference exactly what's changing, automatically</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> <code>@n</code> padded counter, <code>@d</code> date, <code>@i</code> time, <code>@f</code> file name, <code>@r</code> random string</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> <code>@h</code>, <code>@l</code>, <code>@b</code>, <code>@u1</code>–<code>@u3</code> — your own custom slots for high-poly, low-poly, bake cage, or any convention you use</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Combine variables with regular text in any field</td></tr>
               </tbody>
             </table>
           </td>
@@ -390,30 +630,27 @@
   </div>
 
   <!-- 05 Prefix & Suffix -->
-  <div data-section-pad style="background:#1c1e24; padding:56px 30px; border-top:1px solid #34363e">
-    <table role="presentation" data-stack-grid="cards" style="max-width:960px; margin:0 auto; width:100%; border-collapse:collapse; border:0">
+  <div class="section section--alt section--hairline" data-section-pad>
+    <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
-          <td style="vertical-align:middle; width:42%; padding-right:34px; border:none">
-            <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
-              <img src="/images/simple_renaming/renaming_panel_add_prefix_suffix.jpg" alt="Add Prefix and Add Suffix fields in the Simple Renaming panel" style="width:100%; display:block" loading="lazy" decoding="async">
+          <td class="feature-media-cell">
+            <div class="feature-media">
+              <img src="/images/simple_renaming/renaming_panel_add_prefix_suffix.jpg" alt="Add Prefix and Add Suffix fields in the Simple Renaming panel" loading="lazy" decoding="async">
             </div>
           </td>
-          <td style="vertical-align:middle; width:58%; border:none">
-            <table role="presentation" style="border-collapse:collapse; border:0"><tbody><tr>
-              <td style="vertical-align:middle; padding-right:14px; border:none"><div style="width:46px; height:46px; background:#0ea5e9; border-radius:50%; text-align:center; line-height:46px; font-size:20px; font-weight:900; color:#16171c">05</div></td>
-              <td style="vertical-align:middle; border:none"><div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#0ea5e9">PREFIX &amp; SUFFIX</div></td>
+          <td class="feature-content-cell">
+            <table class="badge-row" role="presentation"><tbody><tr>
+              <td class="badge-row-cell"><div class="badge-node">05</div></td>
+              <td class="eyebrow-cell"><div class="eyebrow">PREFIX &amp; SUFFIX</div></td>
             </tr></tbody></table>
-            <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">Add Prefixes and<br>Suffixes in One Click</h2>
-            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7; margin-bottom:20px">The fastest way to tag a batch of objects — type a prefix or suffix once, add @-variables if you need them, and apply it to every selected object in a single click.</p>
-            <table role="presentation" style="width:100%; border-collapse:separate; border-spacing:0 6px; border:0">
+            <h2 class="feature-title" data-heading="title">Add Prefixes and<br>Suffixes in One Click</h2>
+            <p class="feature-body feature-body--tight">The fastest way to tag a batch of objects — type a prefix or suffix once, add @-variables if you need them, and apply it to every selected object in a single click.</p>
+            <table class="checklist" role="presentation">
               <tbody>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#0ea5e9; font-weight:900">✓</span> Dedicated Add Prefix and Add Suffix fields, applied independently</td></tr>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#0ea5e9; font-weight:900">✓</span> Combine with @-variables for dynamic tags — a collection name, a padded number, the current date</td></tr>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#0ea5e9; font-weight:900">✓</span> Works alongside Numerate and Search and Replace in the same pass</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Dedicated Add Prefix and Add Suffix fields, applied independently</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Combine with @-variables for dynamic tags — a collection name, a padded number, the current date</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Works alongside Numerate and Search and Replace in the same pass</td></tr>
               </tbody>
             </table>
           </td>
@@ -423,30 +660,27 @@
   </div>
 
   <!-- 06 Search & Replace -->
-  <div data-section-pad style="background:#16171c; padding:56px 30px">
-    <table role="presentation" data-stack-grid="cards" style="max-width:960px; margin:0 auto; width:100%; border-collapse:collapse; border:0">
+  <div class="section" data-section-pad>
+    <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
-          <td style="vertical-align:middle; width:42%; padding-right:34px; border:none">
-            <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
-              <img src="/images/simple_renaming/renaming_panel_search_replace.jpg" alt="Search and Replace panel with regex and match case options" style="width:100%; display:block" loading="lazy" decoding="async">
+          <td class="feature-media-cell">
+            <div class="feature-media">
+              <img src="/images/simple_renaming/renaming_panel_search_replace.jpg" alt="Search and Replace panel with regex and match case options" loading="lazy" decoding="async">
             </div>
           </td>
-          <td style="vertical-align:middle; width:58%; border:none">
-            <table role="presentation" style="border-collapse:collapse; border:0"><tbody><tr>
-              <td style="vertical-align:middle; padding-right:14px; border:none"><div style="width:46px; height:46px; background:#0ea5e9; border-radius:50%; text-align:center; line-height:46px; font-size:20px; font-weight:900; color:#16171c">06</div></td>
-              <td style="vertical-align:middle; border:none"><div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#0ea5e9">SEARCH &amp; REPLACE</div></td>
+          <td class="feature-content-cell">
+            <table class="badge-row" role="presentation"><tbody><tr>
+              <td class="badge-row-cell"><div class="badge-node">06</div></td>
+              <td class="eyebrow-cell"><div class="eyebrow">SEARCH &amp; REPLACE</div></td>
             </tr></tbody></table>
-            <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">Find Exactly What<br>You're Looking For</h2>
-            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7; margin-bottom:20px">Search and Select finds objects by name pattern before you touch anything; Search and Replace rewrites the matching part of the name — both with optional Match Case and full regex.</p>
-            <table role="presentation" style="width:100%; border-collapse:separate; border-spacing:0 6px; border:0">
+            <h2 class="feature-title" data-heading="title">Find Exactly What<br>You're Looking For</h2>
+            <p class="feature-body feature-body--tight">Search and Select finds objects by name pattern before you touch anything; Search and Replace rewrites the matching part of the name — both with optional Match Case and full regex.</p>
+            <table class="checklist" role="presentation">
               <tbody>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#0ea5e9; font-weight:900">✓</span> Full Regular Expression support for complex, pattern-based renames</td></tr>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#0ea5e9; font-weight:900">✓</span> Regex case modifiers on captured groups — <code>\u$1</code>, <code>\l$1</code>, <code>\U$1</code>, <code>\L$1</code> — e.g. <code>\u$1</code> to capitalize just the first letter</td></tr>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#0ea5e9; font-weight:900">✓</span> Match Case toggle for precise, case-sensitive matching</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Full Regular Expression support for complex, pattern-based renames</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Regex case modifiers on captured groups — <code>\u$1</code>, <code>\l$1</code>, <code>\U$1</code>, <code>\L$1</code> — e.g. <code>\u$1</code> to capitalize just the first letter</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Match Case toggle for precise, case-sensitive matching</td></tr>
               </tbody>
             </table>
           </td>
@@ -456,32 +690,28 @@
   </div>
 
   <!-- 07 More -->
-  <div data-section-pad style="background:#1c1e24; padding:56px 30px; border-top:1px solid #34363e">
-    <table role="presentation" data-stack-grid="cards" style="max-width:960px; margin:0 auto; width:100%; border-collapse:collapse; border:0">
+  <div class="section section--alt section--hairline" data-section-pad>
+    <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
-          <td style="vertical-align:middle; width:42%; padding-right:34px; border:none">
-            <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
-              <img src="/images/simple_renaming/renaming_panel_more.jpg" alt="Trim End of String, Numerate, and Data Name from Object controls" style="width:100%; display:block" loading="lazy" decoding="async">
+          <td class="feature-media-cell">
+            <div class="feature-media">
+              <img src="/images/simple_renaming/renaming_panel_more.jpg" alt="Trim End of String, Numerate, and Data Name from Object controls" loading="lazy" decoding="async">
             </div>
           </td>
-          <td style="vertical-align:middle; width:58%; border:none">
-            <table role="presentation" style="border-collapse:collapse; border:0"><tbody><tr>
-              <td style="vertical-align:middle; padding-right:14px; border:none"><div style="width:46px; height:46px; background:#0ea5e9; border-radius:50%; text-align:center; line-height:46px; font-size:20px; font-weight:900; color:#16171c">07</div></td>
-              <td style="vertical-align:middle; border:none"><div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#0ea5e9">MORE</div></td>
+          <td class="feature-content-cell">
+            <table class="badge-row" role="presentation"><tbody><tr>
+              <td class="badge-row-cell"><div class="badge-node">07</div></td>
+              <td class="eyebrow-cell"><div class="eyebrow">MORE</div></td>
             </tr></tbody></table>
-            <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">The Small Things<br>That Add Up</h2>
-            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7; margin-bottom:20px">Trim characters off the end of a name, reorder existing numbering without a full rename, and keep object data in sync — the details that keep a scene tidy.</p>
-            <table role="presentation" style="width:100%; border-collapse:separate; border-spacing:0 6px; border:0">
+            <h2 class="feature-title" data-heading="title">The Small Things<br>That Add Up</h2>
+            <p class="feature-body feature-body--tight">Trim characters off the end of a name, reorder existing numbering without a full rename, and keep object data in sync — the details that keep a scene tidy.</p>
+            <table class="checklist" role="presentation">
               <tbody>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#0ea5e9; font-weight:900">✓</span> Trim End of String — cut a fixed number of characters, e.g. to drop a stale ".001"</td></tr>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#0ea5e9; font-weight:900">✓</span> Numerate — reorder existing numbering without a full rename</td></tr>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#0ea5e9; font-weight:900">✓</span> Data Name from Object — sync mesh, curve, and light data names to their objects</td></tr>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#0ea5e9; font-weight:900">✓</span> Six one-click case converters: UPPERCASE, lowercase, PascalCase, camelCase, snake_case, kebab-case</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Trim End of String — cut a fixed number of characters, e.g. to drop a stale ".001"</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Numerate — reorder existing numbering without a full rename</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Data Name from Object — sync mesh, curve, and light data names to their objects</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Six one-click case converters: UPPERCASE, lowercase, PascalCase, camelCase, snake_case, kebab-case</td></tr>
               </tbody>
             </table>
           </td>
@@ -491,28 +721,26 @@
   </div>
 
   <!-- 08 Rename By Type -->
-  <div data-section-pad style="background:#16171c; padding:56px 30px">
-    <table role="presentation" data-stack-grid="cards" style="max-width:960px; margin:0 auto; width:100%; border-collapse:collapse; border:0">
+  <div class="section" data-section-pad>
+    <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
-          <td style="vertical-align:middle; width:42%; padding-right:34px; border:none">
-            <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
-              <img src="/images/simple_renaming/renaming_panel_prefix_suffix.jpg" alt="Prefix/Suffix by Type panel showing per-type rename fields for meshes, materials, cameras, and more" style="width:100%; display:block" loading="lazy" decoding="async">
+          <td class="feature-media-cell">
+            <div class="feature-media">
+              <img src="/images/simple_renaming/renaming_panel_prefix_suffix.jpg" alt="Prefix/Suffix by Type panel showing per-type rename fields for meshes, materials, cameras, and more" loading="lazy" decoding="async">
             </div>
           </td>
-          <td style="vertical-align:middle; width:58%; border:none">
-            <table role="presentation" style="border-collapse:collapse; border:0"><tbody><tr>
-              <td style="vertical-align:middle; padding-right:14px; border:none"><div style="width:46px; height:46px; background:#0ea5e9; border-radius:50%; text-align:center; line-height:46px; font-size:20px; font-weight:900; color:#16171c">08</div></td>
-              <td style="vertical-align:middle; border:none"><div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#0ea5e9">RENAME BY TYPE</div></td>
+          <td class="feature-content-cell">
+            <table class="badge-row" role="presentation"><tbody><tr>
+              <td class="badge-row-cell"><div class="badge-node">08</div></td>
+              <td class="eyebrow-cell"><div class="eyebrow">RENAME BY TYPE</div></td>
             </tr></tbody></table>
-            <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">Rename Anything,<br>By Type</h2>
-            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7; margin-bottom:20px">Objects, materials, collections, Node Groups, Point Clouds, UV maps, and more — filter to exactly the types you need, and apply changes to everything or just your current selection.</p>
-            <table role="presentation" style="width:100%; border-collapse:separate; border-spacing:0 6px; border:0">
+            <h2 class="feature-title" data-heading="title">Rename Anything,<br>By Type</h2>
+            <p class="feature-body feature-body--tight">Objects, materials, collections, Node Groups, Point Clouds, UV maps, and more — filter to exactly the types you need, and apply changes to everything or just your current selection.</p>
+            <table class="checklist" role="presentation">
               <tbody>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#0ea5e9; font-weight:900">✓</span> Toggle between Prefix and Suffix mode, and choose Only Selected Objects to scope the batch</td></tr>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#0ea5e9; font-weight:900">✓</span> Save and reuse Type Presets across different projects and naming conventions</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Toggle between Prefix and Suffix mode, and choose Only Selected Objects to scope the batch</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Save and reuse Type Presets across different projects and naming conventions</td></tr>
               </tbody>
             </table>
           </td>
@@ -521,104 +749,104 @@
     </table>
   </div>
 
-  <div style="height:3px; background:#0ea5e9"></div>
+  <div class="divider-accent"></div>
 
   <!-- Everything Inside -->
-  <div data-section-pad style="background:#16171c; padding:56px 30px">
-    <h2 data-heading="title" style="margin:0 0 8px; font-size:32px; font-weight:900; color:#fff; text-align:center">Everything Inside</h2>
-    <p style="margin:0 0 36px; font-size:15px; color:#9a9da6; text-align:center">One addon, the whole renaming workflow.</p>
-    <table role="presentation" data-stack-grid="cards" style="max-width:920px; margin:0 auto; width:100%; border-collapse:separate; border-spacing:10px; border:0">
+  <div class="section" data-section-pad>
+    <h2 class="section-title" data-heading="title">Everything Inside</h2>
+    <p class="section-subtitle--tight">One addon, the whole renaming workflow.</p>
+    <table class="wide-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #0ea5e9; width:33%">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">@-Variables</div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Insert dynamic values anywhere in a name pattern — <code>@o</code> object name, <code>@n</code> padded counter, <code>@f</code>/<code>@d</code>/<code>@i</code> file and date info, plus user-defined <code>@h</code>/<code>@l</code>/<code>@b</code>/<code>@u</code> slots.</div>
+          <td class="grid-card grid-card--top w33">
+            <div class="grid-card-title">@-Variables</div>
+            <div class="grid-card-body">Insert dynamic values anywhere in a name pattern — <code>@o</code> object name, <code>@n</code> padded counter, <code>@f</code>/<code>@d</code>/<code>@i</code> file and date info, plus user-defined <code>@h</code>/<code>@l</code>/<code>@b</code>/<code>@u</code> slots.</div>
           </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #0ea5e9; width:33%">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Built for Big Scenes</div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">O(1) lookups replace linear algorithms, so scenes with 500+ objects rename significantly faster.</div>
+          <td class="grid-card grid-card--top w33">
+            <div class="grid-card-title">Built for Big Scenes</div>
+            <div class="grid-card-body">O(1) lookups replace linear algorithms, so scenes with 500+ objects rename significantly faster.</div>
           </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #0ea5e9; width:33%">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Custom Hotkeys</div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Clear before/after feedback on every rename, with shortcuts you can remap to fit your own workflow.</div>
+          <td class="grid-card grid-card--top w33">
+            <div class="grid-card-title">Custom Hotkeys</div>
+            <div class="grid-card-body">Clear before/after feedback on every rename, with shortcuts you can remap to fit your own workflow.</div>
           </td>
         </tr>
         <tr>
-          <td colspan="3" style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #0ea5e9">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Keeping the Overview</div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">A popup panel lists exactly what's been renamed after every operation — object by object — so you can review the results at a glance instead of hunting through the outliner.</div>
+          <td class="grid-card grid-card--top" colspan="3">
+            <div class="grid-card-title">Keeping the Overview</div>
+            <div class="grid-card-body">A popup panel lists exactly what's been renamed after every operation — object by object — so you can review the results at a glance instead of hunting through the outliner.</div>
           </td>
         </tr>
       </tbody>
     </table>
-    <p style="text-align:center; font-size:13px; color:#9a9da6; max-width:560px; margin:26px auto 0">Free on the Blender Extensions platform. If Simple Renaming saves you time, consider supporting development on <a href="https://gumroad.com/weisl" style="color:#0ea5e9; text-decoration:none; font-weight:700; font-size:13px">Gumroad</a>.</p>
+    <p class="support-note">Free on the Blender Extensions platform. If Simple Renaming saves you time, consider supporting development on <a href="https://gumroad.com/weisl" class="support-link">Gumroad</a>.</p>
   </div>
 
   <!-- What Users Say -->
-  <div data-section-pad style="background:#1c1e24; padding:56px 30px; border-top:1px solid #34363e">
-    <h2 data-heading="title" style="margin:0 0 16px; font-size:30px; font-weight:900; color:#fff; text-align:center">What Users Say</h2>
-    <table role="presentation" style="max-width:820px; margin:0 auto; width:100%; border-collapse:separate; border-spacing:0 14px; border:0">
+  <div class="section section--alt section--hairline" data-section-pad>
+    <h2 class="section-title-sm" data-heading="title">What Users Say</h2>
+    <table class="quote-list" role="presentation">
       <tbody>
-        <tr><td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:22px 24px">
-          <p style="margin:0 0 14px; font-size:16px; color:#d7d9e0; line-height:1.6; font-style:italic">"Absolutely indispensable for me and my Blender workflow. This really should be a part of Blender at a base level... the biggest lifeline and time saver you will ever find. Highly recommend."</p>
-          <div style="display:flex; align-items:center">
-            <span style="font-size:14px; color:#9a9da6">— Arianna, Superhive</span>
+        <tr><td class="quote-card">
+          <p class="quote-text">"Absolutely indispensable for me and my Blender workflow. This really should be a part of Blender at a base level... the biggest lifeline and time saver you will ever find. Highly recommend."</p>
+          <div class="avatar-row">
+            <span class="quote-attribution">— Arianna, Superhive</span>
           </div>
         </td></tr>
-        <tr><td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:22px 24px">
-          <p style="margin:0 0 14px; font-size:16px; color:#d7d9e0; line-height:1.6; font-style:italic">"Superb, finally I can name the mesh the same as the data block without having to copy and paste every single time I create an object."</p>
-          <div style="display:flex; align-items:center">
-            <span style="font-size:14px; color:#9a9da6">— Akira Furball, Gumroad</span>
+        <tr><td class="quote-card">
+          <p class="quote-text">"Superb, finally I can name the mesh the same as the data block without having to copy and paste every single time I create an object."</p>
+          <div class="avatar-row">
+            <span class="quote-attribution">— Akira Furball, Gumroad</span>
           </div>
         </td></tr>
-        <tr><td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:22px 24px">
-          <p style="margin:0 0 14px; font-size:16px; color:#d7d9e0; line-height:1.6; font-style:italic">"Amazing addon, something Blender is missing with all this depth. It has helped me to keep my scenes tidy and tight, and in a very efficient way."</p>
-          <div style="display:flex; align-items:center">
-            <span style="font-size:14px; color:#9a9da6">— hombrezoo, Gumroad</span>
+        <tr><td class="quote-card">
+          <p class="quote-text">"Amazing addon, something Blender is missing with all this depth. It has helped me to keep my scenes tidy and tight, and in a very efficient way."</p>
+          <div class="avatar-row">
+            <span class="quote-attribution">— hombrezoo, Gumroad</span>
           </div>
         </td></tr>
       </tbody>
     </table>
-    <table role="presentation" style="max-width:960px; margin:26px auto 0; width:100%; border-collapse:collapse; border:0">
-      <tbody><tr><td style="border:none">
-        <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
-          <img src="/images/simple_renaming/SimpleBranding06.jpg" alt="Rating breakdown showing 534 ratings, 97% five stars, with user reviews" style="width:100%; display:block" loading="lazy" decoding="async">
+    <table class="support-image-wrap" role="presentation">
+      <tbody><tr><td class="support-image-cell">
+        <div class="feature-media">
+          <img src="/images/simple_renaming/SimpleBranding06.jpg" alt="Rating breakdown showing 534 ratings, 97% five stars, with user reviews" loading="lazy" decoding="async">
         </div>
       </td></tr></tbody>
     </table>
   </div>
 
   <!-- Why Trust -->
-  <div data-section-pad style="background:#16171c; padding:56px 30px; border-top:1px solid #34363e">
-    <h2 data-heading="title" style="margin:0 0 16px; font-size:30px; font-weight:900; color:#fff; text-align:center">Why Trust Simple Renaming?</h2>
-    <p style="margin:0 auto 30px; max-width:680px; font-size:16px; color:#9a9da6; line-height:1.7; text-align:center">Over a decade refining workflows for real-time engines. Simple Renaming, Simple Collider, Simple Export, and Simple Camera Manager are used and trusted by thousands of artists and studios worldwide.</p>
-    <div style="display:flex; max-width:820px; margin:0 auto 26px; border-radius:14px; overflow:hidden; border:1px solid #34363e">
-      <div role="img" aria-label="Simple Renaming" style="flex:1 1 25%; aspect-ratio:1/1; display:block; background-image:url(/images/simple_export/branding_squares.jpg); background-repeat:no-repeat; background-size:400% 100%; background-position:0% 0"></div>
-      <a href="https://superhivemarket.com/products/simple-collider" aria-label="Simple Collider" style="flex:1 1 25%; aspect-ratio:1/1; display:block; background-image:url(/images/simple_export/branding_squares.jpg); background-repeat:no-repeat; background-size:400% 100%; background-position:33.333% 0"></a>
-      <a href="https://superhivemarket.com/products/simple-camera-manager" aria-label="Simple Camera Manager" style="flex:1 1 25%; aspect-ratio:1/1; display:block; background-image:url(/images/simple_export/branding_squares.jpg); background-repeat:no-repeat; background-size:400% 100%; background-position:66.667% 0"></a>
-      <a href="https://superhivemarket.com/products/simple-export" aria-label="Simple Export" style="flex:1 1 25%; aspect-ratio:1/1; display:block; background-image:url(/images/simple_export/branding_squares.jpg); background-repeat:no-repeat; background-size:400% 100%; background-position:100% 0"></a>
+  <div class="section section--hairline" data-section-pad>
+    <h2 class="section-title-sm" data-heading="title">Why Trust Simple Renaming?</h2>
+    <p class="brand-copy">Over a decade refining workflows for real-time engines. Simple Renaming, Simple Collider, Simple Export, and Simple Camera Manager are used and trusted by thousands of artists and studios worldwide.</p>
+    <div class="brand-square-row">
+      <div class="brand-square brand-square--renaming" role="img" aria-label="Simple Renaming"></div>
+      <a class="brand-square brand-square--collider" href="https://superhivemarket.com/products/simple-collider" aria-label="Simple Collider"></a>
+      <a class="brand-square brand-square--camera" href="https://superhivemarket.com/products/simple-camera-manager" aria-label="Simple Camera Manager"></a>
+      <a class="brand-square brand-square--export" href="https://superhivemarket.com/products/simple-export" aria-label="Simple Export"></a>
     </div>
-    <table role="presentation" data-stack-grid="pills" style="margin:0 auto; border-collapse:separate; border-spacing:10px 0; border:0">
+    <table class="pill-row" role="presentation" data-stack-grid="pills">
       <tbody><tr>
-        <td style="border:none"><a data-hover-lift href="https://superhivemarket.com/products/simple-collider" style="transition:transform 0.25s ease; display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Simple Collider — 500+ users</a></td>
-        <td style="border:none"><a data-hover-lift href="https://superhivemarket.com/products/simple-export" style="transition:transform 0.25s ease; display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Simple Export</a></td>
-        <td style="border:none"><a data-hover-lift href="https://superhivemarket.com/products/simple-camera-manager" style="transition:transform 0.25s ease; display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Simple Camera Manager</a></td>
+        <td class="link-cell"><a class="link-pill" data-hover-lift href="https://superhivemarket.com/products/simple-collider">Simple Collider — 500+ users</a></td>
+        <td class="link-cell"><a class="link-pill" data-hover-lift href="https://superhivemarket.com/products/simple-export">Simple Export</a></td>
+        <td class="link-cell"><a class="link-pill" data-hover-lift href="https://superhivemarket.com/products/simple-camera-manager">Simple Camera Manager</a></td>
       </tr></tbody>
     </table>
   </div>
 
   <!-- Footer CTA -->
-  <div data-section-pad style="background:#16171c; border-top:2px solid #0ea5e9; padding:46px 30px; text-align:center">
-    <div style="font-size:20px; font-weight:900; color:#fff; margin-bottom:6px">Get Simple Renaming</div>
-    <div style="font-size:14px; color:#9a9da6; margin-bottom:26px; max-width:520px; margin-left:auto; margin-right:auto">Free and open on the Blender Extensions platform — batch rename objects, materials, collections, and more in seconds.</div>
-    <table role="presentation" data-stack-grid="pills" style="margin:0 auto; border-collapse:separate; border-spacing:8px 0; border:0">
+  <div class="footer" data-section-pad>
+    <div class="footer-title">Get Simple Renaming</div>
+    <div class="footer-copy">Free and open on the Blender Extensions platform — batch rename objects, materials, collections, and more in seconds.</div>
+    <table class="button-row" role="presentation" data-stack-grid="pills">
       <tbody><tr>
-        <td style="border:none"><a data-hover-lift href="https://extensions.blender.org/add-ons/simple-renaming-panel/" style="transition:transform 0.25s ease; display:inline-block; background:#0ea5e9; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#16171c !important">Download Free</a></td>
-        <td style="border:none"><a data-hover-lift href="/simple_renaming/renaming_overview/" style="transition:transform 0.25s ease; display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">Documentation</a></td>
-        <td style="border:none"><a data-hover-lift href="https://www.artstation.com/matthias-patscheider" target="_blank" rel="noopener noreferrer" style="transition:transform 0.25s ease; display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">ArtStation</a></td>
+        <td class="link-cell"><a class="button-primary" data-hover-lift href="https://extensions.blender.org/add-ons/simple-renaming-panel/">Download Free</a></td>
+        <td class="link-cell"><a class="button-secondary" data-hover-lift href="/simple_renaming/renaming_overview/">Documentation</a></td>
+        <td class="link-cell"><a class="button-secondary" data-hover-lift href="https://www.artstation.com/matthias-patscheider" target="_blank" rel="noopener noreferrer">ArtStation</a></td>
       </tr></tbody>
     </table>
-    <p style="margin:18px 0 0; font-size:12px"><a href="/legal-notice.html" style="color:#9a9da6; text-decoration:none">Legal Notice</a></p>
+    <p class="footer-legal"><a href="/legal-notice.html" class="footer-legal-link">Legal Notice</a></p>
   </div>
 
   </main>
