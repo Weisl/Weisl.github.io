@@ -3,94 +3,346 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Simple Collider</title>
+<title>Simple Collider — Blender Colliders for Unreal, Unity &amp; Godot</title>
 <meta name="description" content="Handle your entire Blender collision workflow — generate, manage, and export physics colliders ready for Unreal, Unity, and Godot.">
-<link rel="canonical" href="https://weisl.github.io/simple-collider.html">
+<meta name="author" content="Matthias Patscheider">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="https://alpineempire.eu/simple-collider.html">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2044%2044%22%3E%3Crect%20width%3D%2244%22%20height%3D%2244%22%20rx%3D%229%22%20fill%3D%22%2316171c%22/%3E%3Cpath%20d%3D%22M4%2034%20L15%2014%20L22%2025%20L28%2016%20L40%2034%20Z%22%20fill%3D%22none%22%20stroke%3D%22%233b82f6%22%20stroke-width%3D%223%22%20stroke-linejoin%3D%22round%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Alpine Empire">
+<meta property="og:locale" content="en_US">
 <meta property="og:title" content="Simple Collider">
 <meta property="og:description" content="Handle your entire Blender collision workflow — generate, manage, and export physics colliders ready for Unreal, Unity, and Godot.">
-<meta property="og:url" content="https://weisl.github.io/simple-collider.html">
-<meta property="og:image" content="https://weisl.github.io/images/CollisionTools_Auto_convex.jpg">
+<meta property="og:url" content="https://alpineempire.eu/simple-collider.html">
+<meta property="og:image" content="https://alpineempire.eu/images/simple_collider/SimpleBranding10.jpg">
+<meta property="og:image:alt" content="Simple Collider key art with the Blender collider panel">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Simple Collider">
 <meta name="twitter:description" content="Handle your entire Blender collision workflow — generate, manage, and export physics colliders ready for Unreal, Unity, and Godot.">
-<meta name="twitter:image" content="https://weisl.github.io/images/CollisionTools_Auto_convex.jpg">
+<meta name="twitter:image" content="https://alpineempire.eu/images/simple_collider/SimpleBranding10.jpg">
+<meta name="twitter:image:alt" content="Simple Collider key art with the Blender collider panel">
 <style>html,body { margin:0; padding:0; background:#16171c; }</style>
-<style type="text/css">[data-hover-lift]:hover {transform:scale(1.035) !important}
+<style>
+.top-nav { background: #1c1e24; border-bottom: 1px solid #34363e; padding: 10px 30px; display: flex; align-items: center; justify-content: space-between; }
+.top-nav-home { display: inline-block; color: #e8e9ee; text-decoration: none; font-size: 12px; font-weight: 700; border: 1px solid #34363e; border-radius: 6px; padding: 6px 12px; }
+.top-nav-docs { color: #22c55e; text-decoration: none; font-size: 12px; font-weight: 700; }
+
+
+.hero-shell { background: #1c1e24; }
+.hero-row { display: flex; align-items: stretch; }
+.hero-left { flex: 0 0 56%; padding: 64px 34px 64px 30px; }
+.hero-heading { margin: 0 0 22px; line-height: 1; }
+.hero-icon { flex-shrink: 0; }
+.hero-wordmark { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; font-size: 62px; font-weight: 900; color: #22c55e; line-height: 1; }
+.hero-product-name { display: block; font-size: 32px; font-weight: 500; color: #ffffff; line-height: 1.15; margin-top: 6px; }
+.hero-subtitle { margin: 0; max-width: 460px; font-size: 18px; color: #9a9da6; line-height: 1.6; }
+.hero-wedge { flex: 1; position: relative; min-height: 320px; }
+
+.hero-wordmark-row { display: flex; align-items: center; gap: 14px; }
+.hero-wedge-fill { position: absolute; inset: 0; clip-path: polygon(28% 0%, 100% 0%, 100% 100%, 0% 100%); background: linear-gradient(150deg, #1c1e24 0%, #22c55e 85%); background-attachment: fixed; }
+.hero-eyebrow-pill { display: inline-block; padding: 8px 18px; border-radius: 20px; font-size: 11px; font-weight: 700; letter-spacing: 2px; margin-bottom: 22px; }
+
+
+.hero-photo-content { position: relative; max-width: 640px; padding: 78px 34px 78px 30px; }
+.hero-photo-heading { margin: 0 0 22px; line-height: 1; }
+.hero-icon-svg { flex-shrink: 0; }
+.hero-photo-lede { margin: 0; max-width: 480px; font-size: 18px; color: #d7d9e0; line-height: 1.6; text-shadow: 0 1px 8px rgba(0,0,0,0.7); }
+
+.hero-photo-word { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; font-size: 58px; font-weight: 900; line-height: 1; color: #22c55e; text-shadow: 0 2px 14px rgba(0,0,0,0.6); }
+.hero-photo-word--white { display: block; color: #ffffff; margin-top: 4px; }
+
+.hero-photo-subtitle-line { display: block; font-size: 32px; font-weight: 900; color: #ffffff; line-height: 1.2; margin-top: 8px; text-shadow: 0 2px 14px rgba(0,0,0,0.6); }
+.hero-chip-row { display: flex; flex-wrap: wrap; gap: 8px; max-width: 480px; margin-top: 22px; }
+.hero-chip { display: inline-block; background: #24262d; border: 1px solid #34363e; border-radius: 6px; padding: 6px 12px; font-size: 12px; font-weight: 700; color: #e8e9ee; }
+
+.page {
+  background: #16171c;
+  color: #e8e9ee;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+
+.section { background: #16171c; padding: 56px 30px; }
+.section--alt { background: #1c1e24; }
+.section--hairline { border-top: 1px solid #34363e; }
+
+
+.video-wrap { position: relative; width: 100%; max-width: 960px; margin: 0 auto; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 14px; border: 1px solid #34363e; }
+.video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+.video-wrap video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; object-fit: cover; }
+
+.video-wrap img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; object-fit: cover; display: block; }
+
+
+.section-inner { max-width: 960px; margin: 0 auto; width: 100%; border-collapse: collapse; border: 0; }
+.wide-inner { max-width: 920px; margin: 0 auto; width: 100%; border-collapse: separate; border-spacing: 10px; border: 0; }
+.fit-grid { max-width: 820px; margin: 0 auto; width: 100%; border-collapse: separate; border-spacing: 12px; border: 0; }
+.quote-list { max-width: 820px; margin: 0 auto; width: 100%; border-collapse: separate; border-spacing: 0 14px; border: 0; }
+.support-image-wrap { max-width: 960px; margin: 26px auto 0; width: 100%; border-collapse: collapse; border: 0; }
+
+.support-image-wrap--sm { max-width: 380px; }
+.support-image-wrap--md { max-width: 640px; }
+.support-image-cell { border: none; }
+.pill-row { margin: 0 auto; border-collapse: separate; border-spacing: 10px 0; border: 0; }
+.button-row { margin: 0 auto; border-collapse: separate; border-spacing: 8px 0; border: 0; }
+.link-cell { border: none; }
+
+
+.feature-media-cell { vertical-align: middle; width: 42%; padding-right: 34px; border: none; }
+.feature-content-cell { vertical-align: middle; width: 58%; border: none; }
+
+.feature-content-cell--full { width: 100%; }
+.feature-media { line-height: 0; border-radius: 14px; overflow: hidden; border: 1px solid #34363e; }
+.feature-media img { width: 100%; display: block; }
+.badge-row { border-collapse: collapse; border: 0; }
+.badge-row-cell { vertical-align: middle; padding-right: 14px; border: none; }
+.eyebrow-cell { vertical-align: middle; border: none; }
+.eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 3px; color: #22c55e; }
+
+
+.badge-node { width: 46px; height: 46px; background: #22c55e; border-radius: 50%; text-align: center; line-height: 46px; font-size: 20px; font-weight: 900; color: #16171c; }
+
+.badge-swatch { width: 46px; height: 46px; background: #22c55e; border-radius: 10px; text-align: center; line-height: 46px; font-size: 20px; font-weight: 900; color: #16171c; }
+
+
+.divider-accent { height: 3px; background: #22c55e; }
+.feature-title { margin: 16px 0 14px; font-size: 30px; font-weight: 900; color: #ffffff; line-height: 1.15; }
+.feature-body { margin: 0 0 18px; font-size: 16px; color: #9a9da6; line-height: 1.7; }
+.feature-body--tight { margin-bottom: 20px; }
+
+
+.step-list { max-width: 700px; margin: 0 auto; }
+.step-item { margin-bottom: 20px; }
+.step-title { margin: 0 0 6px; font-size: 17px; font-weight: 800; color: #ffffff; }
+.step-body { margin: 0; font-size: 14px; color: #9a9da6; line-height: 1.6; }
+.step-body a { color: #22c55e; font-weight: 700; text-decoration: none; }
+
+.callout {
+  background: #24262d;
+  border: 1px solid #34363e;
+  border-left: 3px solid #22c55e;
+  border-radius: 8px;
+  padding: 14px 18px;
+  font-size: 14px;
+  color: #d7d9e0;
+  line-height: 1.6;
+}
+.callout strong { color: #22c55e; }
+
+.project-credit { margin: 0; font-size: 14px; color: #9a9da6; }
+.project-credit a { color: #22c55e; text-decoration: none; font-weight: 700; }
+
+
+.checklist { width: 100%; border-collapse: separate; border-spacing: 0 6px; border: 0; }
+.checklist-item { background: #24262d; border: none; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #d7d9e0; }
+.checklist-item .check { color: #22c55e; font-weight: 900; }
+
+
+.shape-grid { border-spacing: 16px; }
+.shape-card { background: #24262d; border: 1px solid #34363e; border-radius: 12px; overflow: hidden; vertical-align: top; }
+.shape-card-media { line-height: 0; }
+.shape-card-media img { width: 100%; display: block; }
+.shape-card-body { padding: 18px 20px; }
+.shape-card-title { font-size: 16px; font-weight: 800; color: #ffffff; margin-bottom: 6px; }
+.shape-card-desc { font-size: 13px; color: #9a9da6; line-height: 1.55; }
+
+
+.grid-card { background: #24262d; border: 1px solid #34363e; border-radius: 12px; padding: 20px; vertical-align: top; }
+.grid-card--top { border-top: 3px solid #22c55e; }
+.grid-card--bottom { border-bottom: 3px solid #22c55e; border-radius: 10px; padding: 20px 22px; }
+.grid-card-title { font-size: 16px; font-weight: 800; color: #ffffff; margin-bottom: 6px; }
+.grid-card-title--tight { margin-bottom: 10px; }
+.grid-card-body { font-size: 13px; color: #9a9da6; line-height: 1.6; }
+.grid-card-body a { color: #22c55e; font-weight: 700; text-decoration: none; }
+.grid-card-body--wide { font-size: 14px; color: #9a9da6; line-height: 1.6; }
+.grid-card-body--tight { margin-bottom: 10px; }
+
+.grid-card-cta { margin: 10px 0 0; }
+.inline-accent-link { color: #22c55e; text-decoration: none; font-weight: 700; }
+.support-link { color: #22c55e; text-decoration: none; font-weight: 700; font-size: 13px; }
+
+
+.software-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.software-logo-badge { flex-shrink: 0; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; }
+.software-logo-img { width: 100%; height: 100%; object-fit: contain; display: block; }
+
+.w25 { width: 25%; }
+.w33 { width: 33%; }
+.w50 { width: 50%; }
+
+
+.chip {
+  display: inline-block;
+  background: #16171c;
+  border: 1px solid #34363e;
+  border-radius: 4px;
+  padding: 2px 7px;
+  font-family: 'SF Mono', 'Consolas', 'Courier New', monospace;
+  font-size: 12px;
+  color: #22c55e;
+}
+.chip-label { font-size: 12px; color: #9a9da6; }
+
+
+.section-title { margin: 0 0 8px; font-size: 32px; font-weight: 900; color: #ffffff; text-align: center; }
+.section-title-sm { margin: 0 0 16px; font-size: 30px; font-weight: 900; color: #ffffff; text-align: center; }
+.section-subtitle { margin: 0 0 30px; font-size: 15px; color: #9a9da6; text-align: center; }
+.section-subtitle--tight { margin: 0 0 36px; font-size: 15px; color: #9a9da6; text-align: center; }
+
+.tag-list-label { max-width: 920px; margin: 26px auto 0; font-size: 13px; font-weight: 700; letter-spacing: 1px; color: #9a9da6; text-align: center; }
+.tool-list-text { max-width: 640px; margin: 16px auto 0; font-size: 14px; color: #9a9da6; line-height: 1.7; text-align: center; }
+
+.support-note { text-align: center; font-size: 13px; color: #9a9da6; max-width: 560px; margin: 26px auto 0; }
+
+
+.quote-card { background: #24262d; border: 1px solid #34363e; border-radius: 12px; padding: 22px 24px; }
+.quote-text { margin: 0 0 14px; font-size: 16px; color: #d7d9e0; line-height: 1.6; font-style: italic; }
+.quote-text--tight { margin: 0 0 10px; }
+.avatar-row { display: flex; align-items: center; }
+.avatar { width: 40px; height: 40px; border-radius: 50%; vertical-align: middle; margin-right: 12px; }
+.quote-attribution { font-size: 14px; color: #9a9da6; }
+.quote-attribution a { color: #22c55e; text-decoration: none; font-weight: 700; }
+
+
+.brand-copy { margin: 0 auto 30px; max-width: 680px; font-size: 16px; color: #9a9da6; line-height: 1.7; text-align: center; }
+
+.brand-square-row { display: flex; max-width: 820px; margin: 0 auto 26px; border-radius: 14px; overflow: hidden; border: 1px solid #34363e; }
+.brand-square { flex: 1 1 25%; aspect-ratio: 1 / 1; display: block; }
+.brand-square img { width: 100%; height: auto; display: block; }
+.link-pill {
+  display: inline-block;
+  background: #24262d;
+  border: 1px solid #34363e;
+  color: #e8e9ee !important;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+.cta-banner {
+  display: block;
+  background: #22c55e;
+  border-radius: 12px;
+  padding: 20px 24px;
+  max-width: 460px;
+  margin: 30px auto 0;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 900;
+  text-decoration: none;
+  color: #16171c !important;
+}
+.cta-banner-support { margin: 12px auto 0; max-width: 460px; font-size: 13px; color: #9a9da6; text-align: center; }
+.cta-banner-support a { color: #9a9da6 !important; font-weight: 700; text-decoration: underline; }
+
+
+.footer { background: #16171c; border-top: 2px solid #22c55e; padding: 46px 30px; text-align: center; }
+.footer-title { font-size: 20px; font-weight: 900; color: #ffffff; margin-bottom: 6px; }
+.footer-copy { font-size: 14px; color: #9a9da6; margin-bottom: 26px; max-width: 520px; margin-left: auto; margin-right: auto; }
+.button-primary {
+  display: inline-block;
+  background: #22c55e;
+  color: #16171c !important;
+  text-decoration: none;
+  padding: 13px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.button-secondary {
+  display: inline-block;
+  background: #24262d;
+  border: 1px solid #34363e;
+  color: #ffffff !important;
+  text-decoration: none;
+  padding: 13px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+
+.footer-legal { margin: 18px 0 0; font-size: 12px; }
+.footer-legal-link { color: #9a9da6; text-decoration: none; }
+
+
+[data-hover-lift] { transition: transform .25s ease; }
+[data-hover-lift]:hover { transform: scale(1.035); }
+
+
 @media (prefers-reduced-motion: reduce) {
-    [data-hover-lift]:hover {
-        transform: none !important;
-        transition: none !important
-        }
-    [data-parallax] {
-        background-attachment: scroll !important
-        }
-    }
+  [data-hover-lift]:hover { transform: none !important; transition: none !important; }
+  [data-parallax] { background-attachment: scroll !important; }
+}
+
+
 @media (max-width: 640px) {
-    table[data-stack-grid] {
-        display: block !important;
-        width: 100% !important
-        }
-    table[data-stack-grid] > tbody {
-        display: block !important
-        }
-    table[data-stack-grid] > tbody > tr {
-        display: block !important
-        }
-    table[data-stack-grid] > tbody > tr > td {
-        display: block !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-        padding-right: 0 !important;
-        padding-bottom: 16px !important
-        }
-    table[data-stack-grid] > tbody > tr:last-child > td:last-child {
-        padding-bottom: 0 !important
-        }
-    table[data-stack-grid="pills"] > tbody > tr > td {
-        text-align: center !important
-        }
-    div[data-stack-grid="flex"] {
-        flex-direction: column !important
-        }
-    div[data-stack-grid="flex"] > [data-step="card"] {
-        flex: none !important;
-        width: 100% !important;
-        margin-bottom: 16px !important
-        }
-    div[data-stack-grid="flex"] > [data-step="card"]:last-child {
-        margin-bottom: 0 !important
-        }
-    div[data-stack-grid="flex"] > [data-step="connector"] {
-        display: none !important
-        }
-    div[data-stack-grid="flex"] [data-step="dot"] {
-        display: none !important
-        }
-    [data-hero-stack="wedge"] {
-        display: none !important
-        }
-    [data-hero-stack="left"] {
-        flex: 1 1 100% !important;
-        width: 100% !important
-        }
-    [data-heading="display"] {
-        font-size: 34px !important
-        }
-    [data-heading="title"] {
-        font-size: 24px !important
-        }
-    [data-section-pad] {
-        padding-left: 16px !important;
-        padding-right: 16px !important
-        }
-    }</style>
+  
+  table[data-stack-grid] { display: block !important; width: 100% !important; }
+  table[data-stack-grid] > tbody { display: block !important; }
+  table[data-stack-grid] > tbody > tr { display: block !important; }
+  table[data-stack-grid] > tbody > tr > td {
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding-right: 0 !important;
+    padding-bottom: 16px !important;
+  }
+  table[data-stack-grid] > tbody > tr:last-child > td:last-child { padding-bottom: 0 !important; }
+  
+  table[data-stack-grid="pills"] > tbody > tr > td { text-align: center !important; }
+
+  
+  div[data-stack-grid="flex"] { flex-direction: column !important; }
+  div[data-stack-grid="flex"] > [data-step="card"] {
+    flex: none !important;
+    width: 100% !important;
+    margin-bottom: 16px !important;
+  }
+  div[data-stack-grid="flex"] > [data-step="card"]:last-child { margin-bottom: 0 !important; }
+  div[data-stack-grid="flex"] > [data-step="connector"] { display: none !important; }
+  
+  div[data-stack-grid="flex"] [data-step="dot"] { display: none !important; }
+
+  
+  [data-hero-stack="wedge"] { display: none !important; }
+  [data-hero-stack="left"] { flex: 1 1 100% !important; width: 100% !important; }
+
+  
+  [data-heading="display"] { font-size: 34px !important; }
+  [data-heading="title"] { font-size: 24px !important; }
+
+  
+  [data-section-pad] { padding-left: 16px !important; padding-right: 16px !important; }
+}
+
+
+
+
+
+
+.badge-diamond { width: 46px; height: 46px; background: #22c55e; transform: rotate(45deg); text-align: center; color: #16171c; }
+.badge-diamond--inline { display: inline-block; }
+.badge-diamond-num { display: inline-block; transform: rotate(-45deg); line-height: 46px; font-size: 20px; font-weight: 900; }
+.badge-header-wrap { text-align: center; margin-bottom: 14px; }
+.badge-header-row { display: inline-flex; align-items: center; gap: 12px; }
+
+.avatar-row--spaced { margin-top: 14px; }
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Alpine Empire", "item": "https://alpineempire.eu/"}, {"@type": "ListItem", "position": 2, "name": "Simple Collider", "item": "https://alpineempire.eu/simple-collider.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Simple Collider", "description": "Handle your entire Blender collision workflow — generate, manage, and export physics colliders ready for Unreal, Unity, and Godot.", "url": "https://alpineempire.eu/simple-collider.html", "image": "https://alpineempire.eu/images/simple_collider/SimpleBranding10.jpg", "applicationCategory": "DesignApplication", "operatingSystem": "Windows, macOS, Linux", "softwareRequirements": "Blender", "author": {"@type": "Person", "name": "Matthias Patscheider", "url": "https://alpineempire.eu/"}, "publisher": {"@type": "Organization", "name": "Alpine Empire", "url": "https://alpineempire.eu/"}, "sameAs": ["https://superhivemarket.com/products/simple-collider", "https://superhivemarket.com/creators/matthias-patscheider"]}</script>
 </head>
 <body>
-<!-- Generated from src/simple-collider.html + src/common.css + src/simple-collider.css — edit those, not this file. Rebuild with: venv/bin/python store_pages/src/build.py simple-collider -->
-<div style='background:#16171c; color:#e8e9ee; font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; padding:0; margin:0; max-width:100%; overflow:hidden'>
+<!-- Generated from src/simple-collider.html + src/common.css + src/simple-collider.css by deploy_to_docs.py — edit those, not this file. -->
+<div class="page">
   <style>
     .site-nav { position: sticky; top: 0; z-index: 100; background: #16171c; border-bottom: 1px solid #34363e; }
     .site-nav-inner { max-width: 1160px; margin: 0 auto; position: relative; display: flex; align-items: center; gap: 24px; padding: 12px 30px; }
@@ -155,15 +407,16 @@
       </nav>
     </div>
   </header>
+  <main>
 
 <!-- Hero -->
-  <div style="background:#1c1e24">
-    <div style="display:flex; align-items:stretch">
-      <div data-hero-stack="left" data-section-pad style="flex:0 0 56%; padding:64px 34px 64px 30px">
-        <h1 style="margin:0 0 22px; line-height:1">
-          <span style="display:flex; align-items:center; gap:14px">
-            <span data-heading="display" style='font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-size:62px; font-weight:900; color:#22c55e; line-height:1'>SIMPLE</span>
-            <svg width="42" height="42" viewbox="0 0 44 44" style="flex-shrink:0">
+  <div class="hero-shell">
+    <div class="hero-row">
+      <div class="hero-left" data-hero-stack="left" data-section-pad>
+        <h1 class="hero-heading">
+          <span class="hero-wordmark-row">
+            <span class="hero-wordmark" data-heading="display">SIMPLE</span>
+            <svg width="42" height="42" viewBox="0 0 44 44" class="hero-icon">
               <polygon points="22,4 38,13 38,31 22,40 6,31 6,13" fill="none" stroke="#22c55e" stroke-width="2"></polygon>
               <line x1="22" y1="22" x2="22" y2="4" stroke="#22c55e" stroke-width="2"></line>
               <line x1="22" y1="22" x2="38" y2="31" stroke="#22c55e" stroke-width="2"></line>
@@ -176,96 +429,97 @@
               <circle cx="6" cy="13" r="2.5" fill="#22c55e"></circle>
             </svg>
           </span>
-          <span data-heading="title" style="display:block; font-size:32px; font-weight:500; color:#fff; line-height:1.15; margin-top:6px">Collider</span>
+          <span class="hero-product-name" data-heading="title">Collider</span>
         </h1>
-        <p style="margin:0; max-width:460px; font-size:18px; color:#9a9da6; line-height:1.6">Stop wasting time on collision setup. Generate Box, Sphere, Capsule, Convex, and Mesh colliders directly in the 3D Viewport — ready for Unreal, Unity, or Godot.</p>
+        <p class="hero-subtitle">Stop wasting time on collision setup. Generate Box, Sphere, Capsule, Convex, and Mesh colliders directly in the 3D Viewport — ready for Unreal, Unity, or Godot.</p>
       </div>
-      <div data-hero-stack="wedge" style="flex:1; position:relative; min-height:320px">
-        <div data-parallax style="position:absolute; inset:0; clip-path:polygon(28% 0%, 100% 0%, 100% 100%, 0% 100%); background:linear-gradient(150deg, #1c1e24 0%, #22c55e 85%); background-attachment:fixed"></div>
+      <div class="hero-wedge" data-hero-stack="wedge">
+        <div class="hero-wedge-fill" data-parallax></div>
       </div>
     </div>
   </div>
-  <div style="height:3px; background:#22c55e"></div>
+  <div class="divider-accent"></div>
 
   <!-- Video -->
-  <div data-section-pad style="background:#16171c; padding:56px 30px">
-    <h2 data-heading="title" style="margin:0 0 16px; font-size:30px; font-weight:900; color:#fff; text-align:center">See It In Action</h2>
-    <div style="position:relative; width:100%; max-width:960px; margin:0 auto; aspect-ratio:16/9; overflow:hidden; border-radius:14px; border:1px solid #34363e">
-      <iframe src="//www.youtube.com/embed/VfE2QvR6xjE" allowfullscreen style="position:absolute; top:0; left:0; width:100%; height:100%; border:0"></iframe>
+  <div class="section" data-section-pad>
+    <h2 class="section-title-sm" data-heading="title">See It In Action</h2>
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/VfE2QvR6xjE" title="Simple Collider — demo video" loading="lazy" allowfullscreen></iframe>
     </div>
+    <a class="cta-banner" data-hover-lift href="https://superhivemarket.com/products/simple-collider">Get the Addon &rarr;</a>
   </div>
 
   <!-- 01 Wide Shape Support -->
-  <div data-section-pad style="background:#1c1e24; padding:56px 30px; border-top:1px solid #34363e">
-    <div style="text-align:center; margin-bottom:14px">
-      <span style="display:inline-flex; align-items:center; gap:12px">
-        <span style="width:46px; height:46px; background:#22c55e; transform:rotate(45deg); text-align:center; color:#16171c; display:inline-block"><span style="display:inline-block; transform:rotate(-45deg); line-height:46px; font-size:20px; font-weight:900">01</span></span>
-        <span style="font-size:11px; font-weight:700; letter-spacing:3px; color:#22c55e">WIDE SHAPE SUPPORT</span>
+  <div class="section section--alt section--hairline" data-section-pad>
+    <div class="badge-header-wrap">
+      <span class="badge-header-row">
+        <span class="badge-diamond badge-diamond--inline"><span class="badge-diamond-num">01</span></span>
+        <span class="eyebrow">WIDE SHAPE SUPPORT</span>
       </span>
     </div>
-    <h2 data-heading="title" style="margin:0 0 8px; font-size:32px; font-weight:900; color:#fff; text-align:center">Every Shape,<br>One Toolset</h2>
-    <p style="margin:0 0 36px; font-size:15px; color:#9a9da6; text-align:center">Pick the collider type that fits — see each one in action.</p>
-    <table role="presentation" data-stack-grid="cards" style="max-width:920px; margin:0 auto; width:100%; border-collapse:separate; border-spacing:16px; border:0">
+    <h2 class="section-title" data-heading="title">Every Shape,<br>One Toolset</h2>
+    <p class="section-subtitle--tight">Pick the collider type that fits — see each one in action.</p>
+    <table class="wide-inner shape-grid" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; overflow:hidden; vertical-align:top; border-top:3px solid #22c55e; width:50%">
-            <div style="line-height:0"><img src="/images/simple_collider/Cubes_02_small.gif" alt="Animation showing box collider creation around objects in a scene" style="width:100%; display:block"></div>
-            <div style="padding:18px 20px">
-              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Box</div>
-              <div style="font-size:13px; color:#9a9da6; line-height:1.55">Simple, efficient, covers a wide range of use-cases.</div>
+          <td class="shape-card grid-card--top w50">
+            <div class="shape-card-media"><img src="/images/simple_collider/Cubes_02_small.gif" alt="Animation showing box collider creation around objects in a scene"></div>
+            <div class="shape-card-body">
+              <div class="shape-card-title">Box</div>
+              <div class="shape-card-desc">Simple, efficient, covers a wide range of use-cases.</div>
             </div>
           </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; overflow:hidden; vertical-align:top; border-top:3px solid #22c55e; width:50%">
-            <div style="line-height:0"><img src="/images/simple_collider/Sphere_01_small.gif" alt="Animation showing sphere collider creation around objects" style="width:100%; display:block"></div>
-            <div style="padding:18px 20px">
-              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Sphere</div>
-              <div style="font-size:13px; color:#9a9da6; line-height:1.55">The most efficient shape — defined mathematically, not by polygons.</div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; overflow:hidden; vertical-align:top; border-top:3px solid #22c55e">
-            <div style="line-height:0"><img src="/images/simple_collider/Convex_01_small.gif" alt="Animation showing convex collider creation around objects" style="width:100%; display:block"></div>
-            <div style="padding:18px 20px">
-              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Convex</div>
-              <div style="font-size:13px; color:#9a9da6; line-height:1.55">Versatile and efficient, especially without native mesh collisions.</div>
-            </div>
-          </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; overflow:hidden; vertical-align:top; border-top:3px solid #22c55e">
-            <div style="line-height:0"><img src="/images/simple_collider/cylinder_collider_small.gif" alt="Animation showing cylindrical convex collider creation" style="width:100%; display:block"></div>
-            <div style="padding:18px 20px">
-              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Convex Cylinder</div>
-              <div style="font-size:13px; color:#9a9da6; line-height:1.55">A clean cylindrical convex shape for common manmade structures.</div>
+          <td class="shape-card grid-card--top w50">
+            <div class="shape-card-media"><img src="/images/simple_collider/Sphere_01_small.gif" alt="Animation showing sphere collider creation around objects" loading="lazy" decoding="async"></div>
+            <div class="shape-card-body">
+              <div class="shape-card-title">Sphere</div>
+              <div class="shape-card-desc">The most efficient shape — defined mathematically, not by polygons.</div>
             </div>
           </td>
         </tr>
         <tr>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; overflow:hidden; vertical-align:top; border-top:3px solid #22c55e">
-            <div style="line-height:0"><img src="/images/simple_collider/Mesh_02_small.gif" alt="Animation showing mesh collider creation" style="width:100%; display:block"></div>
-            <div style="padding:18px 20px">
-              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Mesh</div>
-              <div style="font-size:13px; color:#9a9da6; line-height:1.55">The most accurate and most expensive shape — static objects only.</div>
+          <td class="shape-card grid-card--top">
+            <div class="shape-card-media"><img src="/images/simple_collider/Convex_01_small.gif" alt="Animation showing convex collider creation around objects" loading="lazy" decoding="async"></div>
+            <div class="shape-card-body">
+              <div class="shape-card-title">Convex</div>
+              <div class="shape-card-desc">Versatile and efficient, especially without native mesh collisions.</div>
             </div>
           </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; overflow:hidden; vertical-align:top; border-top:3px solid #22c55e">
-            <div style="line-height:0"><img src="/images/simple_collider/re-mesh.gif" alt="Animation showing re-meshed collider creation" style="width:100%; display:block"></div>
-            <div style="padding:18px 20px">
-              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Re-Meshed</div>
-              <div style="font-size:13px; color:#9a9da6; line-height:1.55">Voxelates complex geometry to remove unnecessary interior faces.</div>
+          <td class="shape-card grid-card--top">
+            <div class="shape-card-media"><img src="/images/simple_collider/cylinder_collider_small.gif" alt="Animation showing cylindrical convex collider creation" loading="lazy" decoding="async"></div>
+            <div class="shape-card-body">
+              <div class="shape-card-title">Convex Cylinder</div>
+              <div class="shape-card-desc">A clean cylindrical convex shape for common manmade structures.</div>
             </div>
           </td>
         </tr>
         <tr>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; overflow:hidden; vertical-align:top; border-top:3px solid #22c55e">
-            <div style="padding:18px 20px">
-              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Capsule</div>
-              <div style="font-size:13px; color:#9a9da6; line-height:1.55">Efficient and simple — the usual choice for character colliders.</div>
+          <td class="shape-card grid-card--top">
+            <div class="shape-card-media"><img src="/images/simple_collider/Mesh_02_small.gif" alt="Animation showing mesh collider creation" loading="lazy" decoding="async"></div>
+            <div class="shape-card-body">
+              <div class="shape-card-title">Mesh</div>
+              <div class="shape-card-desc">The most accurate and most expensive shape — static objects only.</div>
             </div>
           </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; overflow:hidden; vertical-align:top; border-top:3px solid #22c55e">
-            <div style="padding:18px 20px">
-              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">K-DOP</div>
-              <div style="font-size:13px; color:#9a9da6; line-height:1.55">14- or 18-DOP slabs — tighter than a box, cheaper than a full hull.</div>
+          <td class="shape-card grid-card--top">
+            <div class="shape-card-media"><img src="/images/simple_collider/re-mesh.gif" alt="Animation showing re-meshed collider creation" loading="lazy" decoding="async"></div>
+            <div class="shape-card-body">
+              <div class="shape-card-title">Re-Meshed</div>
+              <div class="shape-card-desc">Voxelates complex geometry to remove unnecessary interior faces.</div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="shape-card grid-card--top">
+            <div class="shape-card-body">
+              <div class="shape-card-title">Capsule</div>
+              <div class="shape-card-desc">Efficient and simple — the usual choice for character colliders.</div>
+            </div>
+          </td>
+          <td class="shape-card grid-card--top">
+            <div class="shape-card-body">
+              <div class="shape-card-title">K-DOP</div>
+              <div class="shape-card-desc">14- or 18-DOP slabs — tighter than a box, cheaper than a full hull.</div>
             </div>
           </td>
         </tr>
@@ -274,103 +528,97 @@
   </div>
 
   <!-- 02 Object & Edit Mode Selection -->
-  <div data-section-pad style="background:#16171c; padding:56px 30px">
-    <table role="presentation" data-stack-grid="cards" style="max-width:960px; margin:0 auto; width:100%; border-collapse:collapse; border:0">
+  <div class="section" data-section-pad>
+    <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
-          <td style="vertical-align:middle; width:42%; padding-right:34px; border:none">
-            <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
-              <img src="/images/simple_collider/books_small.gif" alt="Animation showing collider generation per individual object across a selection" style="width:100%; display:block">
+          <td class="feature-media-cell">
+            <div class="feature-media">
+              <img src="/images/simple_collider/books_small.gif" alt="Animation showing collider generation per individual object across a selection" loading="lazy" decoding="async">
             </div>
           </td>
-          <td style="vertical-align:middle; width:58%; border:none">
-            <table role="presentation" style="border-collapse:collapse; border:0"><tbody><tr>
-              <td style="vertical-align:middle; padding-right:14px; border:none"><div style="width:46px; height:46px; background:#22c55e; transform:rotate(45deg); text-align:center; color:#16171c"><span style="display:inline-block; transform:rotate(-45deg); line-height:46px; font-size:20px; font-weight:900">02</span></div></td>
-              <td style="vertical-align:middle; border:none"><div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#22c55e">OBJECT &amp; EDIT MODE</div></td>
+          <td class="feature-content-cell">
+            <table class="badge-row" role="presentation"><tbody><tr>
+              <td class="badge-row-cell"><div class="badge-diamond"><span class="badge-diamond-num">02</span></div></td>
+              <td class="eyebrow-cell"><div class="eyebrow">OBJECT &amp; EDIT MODE</div></td>
             </tr></tbody></table>
-            <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">Whole Selections,<br>Individual Parts</h2>
-            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7; margin-bottom:20px">Create colliders in Object or Edit mode, for an entire selection or specific parts of a mesh — including multi-object Edit mode. Choose pre- or post-modifier mesh data for full control.</p>
-            <table role="presentation" style="width:100%; border-collapse:separate; border-spacing:0 6px; border:0">
+            <h2 class="feature-title" data-heading="title">Whole Selections,<br>Individual Parts</h2>
+            <p class="feature-body feature-body--tight">Create colliders in Object or Edit mode, for an entire selection or specific parts of a mesh — including multi-object Edit mode. Choose pre- or post-modifier mesh data for full control.</p>
+            <table class="checklist" role="presentation">
               <tbody>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#22c55e; font-weight:900">✓</span> Per-object, per-selection, or per-loose-part generation</td></tr>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#22c55e; font-weight:900">✓</span> World-aligned or object-aligned collisions for primitives</td></tr>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#22c55e; font-weight:900">✓</span> Adjust creation settings live from the 3D Viewport</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Per-object, per-selection, or per-loose-part generation</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> World-aligned or object-aligned collisions for primitives</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Adjust creation settings live from the 3D Viewport</td></tr>
               </tbody>
             </table>
           </td>
         </tr>
       </tbody>
     </table>
-    <table role="presentation" style="max-width:960px; margin:26px auto 0; width:100%; border-collapse:collapse; border:0">
-      <tbody><tr><td style="border:none">
-        <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
-          <img src="/images/OOBBOX-object_small.gif" alt="Animation illustrating collider creation based on Edit and Object mode selection" style="width:100%; display:block">
+    <table class="support-image-wrap" role="presentation">
+      <tbody><tr><td class="support-image-cell">
+        <div class="feature-media">
+          <img src="/images/OOBBOX-object_small.gif" alt="Animation illustrating collider creation based on Edit and Object mode selection" loading="lazy" decoding="async">
         </div>
       </td></tr></tbody>
     </table>
   </div>
 
   <!-- 03 Auto Convex Decomposition -->
-  <div data-section-pad style="background:#1c1e24; padding:56px 30px; border-top:1px solid #34363e">
-    <table role="presentation" data-stack-grid="cards" style="max-width:960px; margin:0 auto; width:100%; border-collapse:collapse; border:0">
+  <div class="section section--alt section--hairline" data-section-pad>
+    <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
-          <td style="vertical-align:middle; width:42%; padding-right:34px; border:none">
-            <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
-              <img src="/images/simple_collider/EditMode_autoConvex_small.gif" alt="Animation showing Auto Convex collider decomposition based on an Edit Mode selection" style="width:100%; display:block">
+          <td class="feature-media-cell">
+            <div class="feature-media">
+              <img src="/images/simple_collider/EditMode_autoConvex_small.gif" alt="Animation showing Auto Convex collider decomposition based on an Edit Mode selection" loading="lazy" decoding="async">
             </div>
           </td>
-          <td style="vertical-align:middle; width:58%; border:none">
-            <table role="presentation" style="border-collapse:collapse; border:0"><tbody><tr>
-              <td style="vertical-align:middle; padding-right:14px; border:none"><div style="width:46px; height:46px; background:#22c55e; transform:rotate(45deg); text-align:center; color:#16171c"><span style="display:inline-block; transform:rotate(-45deg); line-height:46px; font-size:20px; font-weight:900">03</span></div></td>
-              <td style="vertical-align:middle; border:none"><div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#22c55e">AUTO CONVEX DECOMPOSITION</div></td>
+          <td class="feature-content-cell">
+            <table class="badge-row" role="presentation"><tbody><tr>
+              <td class="badge-row-cell"><div class="badge-diamond"><span class="badge-diamond-num">03</span></div></td>
+              <td class="eyebrow-cell"><div class="eyebrow">AUTO CONVEX DECOMPOSITION</div></td>
             </tr></tbody></table>
-            <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">Break Complex Meshes<br>Into Convex Hulls</h2>
-            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7; margin-bottom:20px">Auto Convex decomposes complex, organic shapes — rocks, statues, rubble — into a set of convex colliders. Not a one-click fix for every asset, but built for exactly the geometry that resists simple shapes.</p>
-            <table role="presentation" style="width:100%; border-collapse:separate; border-spacing:0 6px; border:0">
+            <h2 class="feature-title" data-heading="title">Break Complex Meshes<br>Into Convex Hulls</h2>
+            <p class="feature-body feature-body--tight">Auto Convex decomposes complex, organic shapes — rocks, statues, rubble — into a set of convex colliders. Not a one-click fix for every asset, but built for exactly the geometry that resists simple shapes.</p>
+            <table class="checklist" role="presentation">
               <tbody>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#22c55e; font-weight:900">✓</span> Powered by the V-HACD library</td></tr>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#22c55e; font-weight:900">✓</span> Windows, Linux, and macOS — including Apple Silicon</td></tr>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#22c55e; font-weight:900">✓</span> Depth setting trades hull count against accuracy</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Powered by the V-HACD library</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Windows, Linux, and macOS — including Apple Silicon</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Depth setting trades hull count against accuracy</td></tr>
               </tbody>
             </table>
           </td>
         </tr>
       </tbody>
     </table>
-    <table role="presentation" style="max-width:960px; margin:26px auto 0; width:100%; border-collapse:collapse; border:0">
-      <tbody><tr><td style="border:none">
-        <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
-          <img src="/images/CollisionTools_Auto_convex.jpg" alt="Example of Auto Convex collider generation showing how different depth settings affect the number of created colliders" style="width:100%; display:block">
+    <table class="support-image-wrap" role="presentation">
+      <tbody><tr><td class="support-image-cell">
+        <div class="feature-media">
+          <img src="/images/simple_collider/auto_convex_small.gif" alt="Auto Convex panel in Blender with Depth and Verts per Piece settings, generating convex colliders for a complex mesh" loading="lazy" decoding="async">
         </div>
       </td></tr></tbody>
     </table>
   </div>
 
   <!-- 04 Oriented Minimum Bounding Box -->
-  <div data-section-pad style="background:#16171c; padding:56px 30px">
-    <table role="presentation" data-stack-grid="cards" style="max-width:960px; margin:0 auto; width:100%; border-collapse:collapse; border:0">
+  <div class="section" data-section-pad>
+    <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
-          <td style="vertical-align:middle; width:42%; padding-right:34px; border:none">
-            <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
-              <img src="/images/simple_collider/OABBox_small.gif" alt="Animation showing Oriented Minimum Bounding Box collider generation" style="width:100%; display:block">
+          <td class="feature-media-cell">
+            <div class="feature-media">
+              <img src="/images/simple_collider/OABBox_small.gif" alt="Animation showing Oriented Minimum Bounding Box collider generation" loading="lazy" decoding="async">
             </div>
           </td>
-          <td style="vertical-align:middle; width:58%; border:none">
-            <table role="presentation" style="border-collapse:collapse; border:0"><tbody><tr>
-              <td style="vertical-align:middle; padding-right:14px; border:none"><div style="width:46px; height:46px; background:#22c55e; transform:rotate(45deg); text-align:center; color:#16171c"><span style="display:inline-block; transform:rotate(-45deg); line-height:46px; font-size:20px; font-weight:900">04</span></div></td>
-              <td style="vertical-align:middle; border:none"><div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#22c55e">ORIENTED MINIMUM BOX</div></td>
+          <td class="feature-content-cell">
+            <table class="badge-row" role="presentation"><tbody><tr>
+              <td class="badge-row-cell"><div class="badge-diamond"><span class="badge-diamond-num">04</span></div></td>
+              <td class="eyebrow-cell"><div class="eyebrow">ORIENTED MINIMUM BOX</div></td>
             </tr></tbody></table>
-            <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">The Tightest Box,<br>Automatically</h2>
-            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7">An automatically-oriented box collider with the lowest possible volume — same output as a regular box collider, indistinguishable to the engine, just tighter around the mesh.</p>
-            <div style="background:#24262d; border:1px solid #34363e; border-left:3px solid #22c55e; border-radius:8px; padding:14px 18px; font-size:14px; color:#d7d9e0; line-height:1.6">Implementation based on code by <strong style="color:#22c55e">Iyad Ahmed</strong>, used with permission.</div>
+            <h2 class="feature-title" data-heading="title">The Tightest Box,<br>Automatically</h2>
+            <p class="feature-body">An automatically-oriented box collider with the lowest possible volume — same output as a regular box collider, indistinguishable to the engine, just tighter around the mesh.</p>
+            <div class="callout">Implementation based on code by <strong>Iyad Ahmed</strong>, used with permission.</div>
           </td>
         </tr>
       </tbody>
@@ -378,99 +626,99 @@
   </div>
 
   <!-- 05 Naming Presets -->
-  <div data-section-pad style="background:#1c1e24; padding:56px 30px; border-top:1px solid #34363e">
-    <table role="presentation" data-stack-grid="cards" style="max-width:960px; margin:0 auto; width:100%; border-collapse:collapse; border:0">
+  <div class="section section--alt section--hairline" data-section-pad>
+    <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
-          <td style="vertical-align:middle; width:42%; padding-right:34px; border:none">
-            <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
-              <img src="/images/simple_collider/Naming_Presets.gif" alt="Animation showing creation and management of collider naming presets" style="width:100%; display:block">
+          <td class="feature-media-cell">
+            <div class="feature-media">
+              <img src="/images/simple_collider/Naming_Presets.gif" alt="Animation showing creation and management of collider naming presets" loading="lazy" decoding="async">
             </div>
           </td>
-          <td style="vertical-align:middle; width:58%; border:none">
-            <table role="presentation" style="border-collapse:collapse; border:0"><tbody><tr>
-              <td style="vertical-align:middle; padding-right:14px; border:none"><div style="width:46px; height:46px; background:#22c55e; transform:rotate(45deg); text-align:center; color:#16171c"><span style="display:inline-block; transform:rotate(-45deg); line-height:46px; font-size:20px; font-weight:900">05</span></div></td>
-              <td style="vertical-align:middle; border:none"><div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#22c55e">NAMING PRESETS</div></td>
+          <td class="feature-content-cell">
+            <table class="badge-row" role="presentation"><tbody><tr>
+              <td class="badge-row-cell"><div class="badge-diamond"><span class="badge-diamond-num">05</span></div></td>
+              <td class="eyebrow-cell"><div class="eyebrow">NAMING PRESETS</div></td>
             </tr></tbody></table>
-            <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">Name It Once,<br>Every Engine</h2>
-            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7">Save naming settings as presets, switch between them per project, and share the preset files with your team. Ships with read-only UE-default and Unity presets — pin one to load automatically on startup.</p>
+            <h2 class="feature-title" data-heading="title">Name It Once,<br>Every Engine</h2>
+            <p class="feature-body">Save naming settings as presets, switch between them per project, and share the preset files with your team. Ships with read-only UE-default and Unity presets — pin one to load automatically on startup.</p>
           </td>
         </tr>
       </tbody>
     </table>
-    <table role="presentation" style="max-width:380px; margin:26px auto 0; width:100%; border-collapse:collapse; border:0">
-      <tbody><tr><td style="border:none">
-        <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
-          <img src="/images/simple_collider/collider_presets.gif" alt="Animation showing collider naming presets being selected" style="width:100%; display:block">
+    <table class="support-image-wrap support-image-wrap--sm" role="presentation">
+      <tbody><tr><td class="support-image-cell">
+        <div class="feature-media">
+          <img src="/images/simple_collider/collider_presets.gif" alt="Animation showing collider naming presets being selected" loading="lazy" decoding="async">
         </div>
       </td></tr></tbody>
     </table>
   </div>
 
   <!-- 06 Convert Workflow -->
-  <div data-section-pad style="background:#16171c; padding:56px 30px">
-    <table role="presentation" data-stack-grid="cards" style="max-width:960px; margin:0 auto; width:100%; border-collapse:collapse; border:0">
+  <div class="section" data-section-pad>
+    <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
-          <td style="vertical-align:middle; width:42%; padding-right:34px; border:none">
-            <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
-              <img src="/images/simple_collider/convert_MeshToCollider_small.gif" alt="Animation showing mesh to collider conversion" style="width:100%; display:block">
+          <td class="feature-media-cell">
+            <div class="feature-media">
+              <img src="/images/simple_collider/convert_MeshToCollider_small.gif" alt="Animation showing mesh to collider conversion" loading="lazy" decoding="async">
             </div>
           </td>
-          <td style="vertical-align:middle; width:58%; border:none">
-            <table role="presentation" style="border-collapse:collapse; border:0"><tbody><tr>
-              <td style="vertical-align:middle; padding-right:14px; border:none"><div style="width:46px; height:46px; background:#22c55e; transform:rotate(45deg); text-align:center; color:#16171c"><span style="display:inline-block; transform:rotate(-45deg); line-height:46px; font-size:20px; font-weight:900">06</span></div></td>
-              <td style="vertical-align:middle; border:none"><div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#22c55e">CONVERT WORKFLOW</div></td>
+          <td class="feature-content-cell">
+            <table class="badge-row" role="presentation"><tbody><tr>
+              <td class="badge-row-cell"><div class="badge-diamond"><span class="badge-diamond-num">06</span></div></td>
+              <td class="eyebrow-cell"><div class="eyebrow">CONVERT WORKFLOW</div></td>
             </tr></tbody></table>
-            <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">Mesh, Collider,<br>or Empty — Any Direction</h2>
-            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7">Convert any mesh to a collider, or any collider back to a regular mesh object, complete with renaming and collection assignment. Convert to lightweight Empty objects for engines that support empty-based collision.</p>
+            <h2 class="feature-title" data-heading="title">Mesh, Collider,<br>or Empty — Any Direction</h2>
+            <p class="feature-body">Convert any mesh to a collider, or any collider back to a regular mesh object, complete with renaming and collection assignment. Convert to lightweight Empty objects for engines that support empty-based collision.</p>
           </td>
         </tr>
       </tbody>
     </table>
-    <table role="presentation" style="max-width:640px; margin:26px auto 0; width:100%; border-collapse:collapse; border:0">
-      <tbody><tr><td style="border:none">
-        <div style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
-          <img src="/images/simple_collider/convert_ColliderToMesh_small.gif" alt="Animation showing collider to mesh conversion" style="width:100%; display:block">
+    <table class="support-image-wrap support-image-wrap--md" role="presentation">
+      <tbody><tr><td class="support-image-cell">
+        <div class="feature-media">
+          <img src="/images/simple_collider/convert_ColliderToMesh_small.gif" alt="Animation showing collider to mesh conversion" loading="lazy" decoding="async">
         </div>
       </td></tr></tbody>
     </table>
   </div>
 
-  <div style="height:3px; background:#22c55e"></div>
+  <div class="divider-accent"></div>
 
   <!-- Everything Inside -->
-  <div data-section-pad style="background:#16171c; padding:56px 30px">
-    <h2 data-heading="title" style="margin:0 0 8px; font-size:32px; font-weight:900; color:#fff; text-align:center">Everything Inside</h2>
-    <p style="margin:0 0 36px; font-size:15px; color:#9a9da6; text-align:center">One toolset, the whole collision workflow.</p>
-    <table role="presentation" data-stack-grid="cards" style="max-width:920px; margin:0 auto; width:100%; border-collapse:separate; border-spacing:10px; border:0">
+  <div class="section" data-section-pad>
+    <h2 class="section-title" data-heading="title">Everything Inside</h2>
+    <p class="section-subtitle--tight">One toolset, the whole collision workflow.</p>
+    <table class="wide-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #22c55e; width:33%">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Re-Meshed Colliders</div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Voxelates complex, intersecting geometry before generating the collider, eliminating interior faces regular mesh colliders can't avoid.</div>
+          <td class="grid-card grid-card--top w33">
+            <div class="grid-card-title">Re-Meshed Colliders</div>
+            <div class="grid-card-body">Voxelates complex, intersecting geometry before generating the collider, eliminating interior faces regular mesh colliders can't avoid.</div>
           </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #22c55e; width:33%">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Collider Organization</div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Manage visibility, selection, and deletion for groups of colliders at once.</div>
+          <td class="grid-card grid-card--top w33">
+            <div class="grid-card-title">Collider Organization</div>
+            <div class="grid-card-body">Manage visibility, selection, and deletion for groups of colliders at once.</div>
           </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #22c55e; width:33%">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Physics Materials</div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Assign and organize materials for use as physics materials in-engine.</div>
+          <td class="grid-card grid-card--top w33">
+            <div class="grid-card-title">Physics Materials</div>
+            <div class="grid-card-body">Assign and organize materials for use as physics materials in-engine.</div>
           </td>
         </tr>
         <tr>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #22c55e">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Flexible Naming</div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Custom naming schemes for UE4-5, Unity, Godot, and other engines with their own pipelines.</div>
+          <td class="grid-card grid-card--top">
+            <div class="grid-card-title">Flexible Naming</div>
+            <div class="grid-card-body">Custom naming schemes for UE4-5, Unity, Godot, and other engines with their own pipelines.</div>
           </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #22c55e">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Regenerate Names</div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Rebuild collider names from the active preset in one click.</div>
+          <td class="grid-card grid-card--top">
+            <div class="grid-card-title">Regenerate Names</div>
+            <div class="grid-card-body">Rebuild collider names from the active preset in one click.</div>
           </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #22c55e">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Edit-Mode Multi-Object</div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Generate compound colliders across several selected objects at once, in Edit mode.</div>
+          <td class="grid-card grid-card--top">
+            <div class="grid-card-title">Edit-Mode Multi-Object</div>
+            <div class="grid-card-body">Generate compound colliders across several selected objects at once, in Edit mode.</div>
           </td>
         </tr>
       </tbody>
@@ -478,32 +726,32 @@
   </div>
 
   <!-- Built For Your Engine -->
-  <div data-section-pad style="background:#1c1e24; padding:56px 30px; border-top:1px solid #34363e">
-    <h2 data-heading="title" style="margin:0 0 16px; font-size:30px; font-weight:900; color:#fff; text-align:center">Built For Your Engine</h2>
-    <p style="margin:0 0 30px; font-size:15px; color:#9a9da6; text-align:center">Simple Collider covers the Blender side — these guides cover the rest.</p>
-    <table role="presentation" data-stack-grid="cards" style="max-width:820px; margin:0 auto; width:100%; border-collapse:separate; border-spacing:12px; border:0">
+  <div class="section section--alt section--hairline" data-section-pad>
+    <h2 class="section-title-sm" data-heading="title">Built For Your Engine</h2>
+    <p class="section-subtitle">Simple Collider covers the Blender side — these guides cover the rest.</p>
+    <table class="fit-grid" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:10px; padding:20px 22px; vertical-align:top; border-bottom:3px solid #22c55e; width:50%">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Unreal Engine</div>
-            <div style="font-size:14px; color:#9a9da6; line-height:1.6">UE4 and UE5 import Simple, and partially Complex, collisions out of the box.</div>
-            <p style="margin:10px 0 0"><a href="/simple_collider/collider_ue_guidline/" style="color:#22c55e; text-decoration:none; font-weight:700; font-size:13px">Unreal Engine Guide ↗</a></p>
+          <td class="grid-card grid-card--bottom w50">
+            <div class="grid-card-title">Unreal Engine</div>
+            <div class="grid-card-body--wide">UE4 and UE5 import Simple, and partially Complex, collisions out of the box.</div>
+            <p class="grid-card-cta"><a href="/simple_collider/collider_ue_guidline/" class="support-link">Unreal Engine Guide ↗</a></p>
           </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:10px; padding:20px 22px; vertical-align:top; border-bottom:3px solid #22c55e; width:50%">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Unity</div>
-            <div style="font-size:14px; color:#9a9da6; line-height:1.6">Collider setup is automatic once meshes are named correctly — Simple Collider handles the naming.</div>
-            <p style="margin:10px 0 0"><a href="/simple_collider/collider_unity_guidline/" style="color:#22c55e; text-decoration:none; font-weight:700; font-size:13px">Unity Guide ↗</a></p>
+          <td class="grid-card grid-card--bottom w50">
+            <div class="grid-card-title">Unity</div>
+            <div class="grid-card-body--wide">Collider setup is automatic once meshes are named correctly — Simple Collider handles the naming.</div>
+            <p class="grid-card-cta"><a href="/simple_collider/collider_unity_guidline/" class="support-link">Unity Guide ↗</a></p>
           </td>
         </tr>
         <tr>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:10px; padding:20px 22px; vertical-align:top; border-bottom:3px solid #22c55e">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Godot</div>
-            <div style="font-size:14px; color:#9a9da6; line-height:1.6">Automatic <code>-colonly</code> / <code>-convcolonly</code> suffixes so Godot detects colliders on import.</div>
-            <p style="margin:10px 0 0"><a href="/simple_collider/collider_godot_guidline/" style="color:#22c55e; text-decoration:none; font-weight:700; font-size:13px">Godot Guide ↗</a></p>
+          <td class="grid-card grid-card--bottom">
+            <div class="grid-card-title">Godot</div>
+            <div class="grid-card-body--wide">Automatic <code>-colonly</code> / <code>-convcolonly</code> suffixes so Godot detects colliders on import.</div>
+            <p class="grid-card-cta"><a href="/simple_collider/collider_godot_guidline/" class="support-link">Godot Guide ↗</a></p>
           </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:10px; padding:20px 22px; vertical-align:top; border-bottom:3px solid #22c55e">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Custom / Other Engines</div>
-            <div style="font-size:14px; color:#9a9da6; line-height:1.6">Not on the list? Flexible naming presets mean Simple Collider isn't locked to UE, Unity, and Godot — build a custom naming scheme for any engine or in-house pipeline.</div>
+          <td class="grid-card grid-card--bottom">
+            <div class="grid-card-title">Custom / Other Engines</div>
+            <div class="grid-card-body--wide">Not on the list? Flexible naming presets mean Simple Collider isn't locked to UE, Unity, and Godot — build a custom naming scheme for any engine or in-house pipeline.</div>
           </td>
         </tr>
       </tbody>
@@ -511,57 +759,57 @@
   </div>
 
   <!-- What Experts Say -->
-  <div data-section-pad style="background:#16171c; padding:56px 30px; border-top:1px solid #34363e">
-    <h2 data-heading="title" style="margin:0 0 16px; font-size:30px; font-weight:900; color:#fff; text-align:center">What Experts Say</h2>
-    <p style="margin:0 0 30px; font-size:15px; color:#9a9da6; text-align:center">Trusted in production pipelines at studios including <a href="https://www.remedygames.com/" style="color:#22c55e; text-decoration:none; font-weight:700">Remedy Entertainment</a> and <a href="https://kitbash3d.com/" style="color:#22c55e; text-decoration:none; font-weight:700">KitBash3D</a>.</p>
-    <table role="presentation" style="max-width:820px; margin:0 auto; width:100%; border-collapse:separate; border-spacing:0 14px; border:0">
+  <div class="section section--hairline" data-section-pad>
+    <h2 class="section-title-sm" data-heading="title">What Experts Say</h2>
+    <p class="section-subtitle">Trusted in production pipelines at studios including <a href="https://www.remedygames.com/" class="inline-accent-link">Remedy Entertainment</a> and <a href="https://kitbash3d.com/" class="inline-accent-link">KitBash3D</a>.</p>
+    <table class="quote-list" role="presentation">
       <tbody>
-        <tr><td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:22px 24px">
-          <p style="margin:0 0 14px; font-size:16px; color:#d7d9e0; line-height:1.6; font-style:italic">"This addon is a must-have. It takes all the hassle and tedious work out of creating custom collision. So fast and easy to use, and it even takes care of naming and parenting with support for custom prefixes."</p>
-          <div style="display:flex; align-items:center">
-            <img src="/images/simple_collider/RichardCourt.jpg" alt="Richard Court" style="width:40px; height:40px; border-radius:50%; vertical-align:middle; margin-right:12px">
-            <span style="font-size:14px; color:#9a9da6"><a href="https://www.artstation.com/richardcourt" target="_blank" rel="noopener noreferrer" style="color:#22c55e; text-decoration:none; font-weight:700">Richard Court</a>, Principal Environment Artist at Studio Gobo</span>
+        <tr><td class="quote-card">
+          <p class="quote-text">"This addon is a must-have. It takes all the hassle and tedious work out of creating custom collision. So fast and easy to use, and it even takes care of naming and parenting with support for custom prefixes."</p>
+          <div class="avatar-row">
+            <img class="avatar" src="/images/simple_collider/RichardCourt.jpg" alt="Richard Court" loading="lazy" decoding="async">
+            <span class="quote-attribution"><a href="https://www.artstation.com/richardcourt" target="_blank" rel="noopener noreferrer">Richard Court</a>, Principal Environment Artist at Studio Gobo</span>
           </div>
         </td></tr>
-        <tr><td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:22px 24px">
-          <p style="margin:0 0 14px; font-size:16px; color:#d7d9e0; line-height:1.6; font-style:italic">"This is something that a lot of people overlook on how much time it can take up on a project. With its intuitive interface and support for complex shapes, it's impressive how quickly you can get usable results."</p>
-          <div style="display:flex; align-items:center">
-            <img src="/images/simple_collider/JeremyEstrellado.jpg" alt="Jeremiah Estrellado" style="width:40px; height:40px; border-radius:50%; vertical-align:middle; margin-right:12px">
-            <span style="font-size:14px; color:#9a9da6"><a href="https://www.artstation.com/dinusty" target="_blank" rel="noopener noreferrer" style="color:#22c55e; text-decoration:none; font-weight:700">Jeremiah Estrellado</a>, Associate Art Director &amp; Founder of The Dinusty Empire</span>
+        <tr><td class="quote-card">
+          <p class="quote-text">"This is something that a lot of people overlook on how much time it can take up on a project. With its intuitive interface and support for complex shapes, it's impressive how quickly you can get usable results."</p>
+          <div class="avatar-row">
+            <img class="avatar" src="/images/simple_collider/JeremyEstrellado.jpg" alt="Jeremiah Estrellado" loading="lazy" decoding="async">
+            <span class="quote-attribution"><a href="https://www.artstation.com/dinusty" target="_blank" rel="noopener noreferrer">Jeremiah Estrellado</a>, Associate Art Director &amp; Founder of The Dinusty Empire</span>
           </div>
         </td></tr>
-        <tr><td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:22px 24px">
-          <p style="margin:0 0 14px; font-size:16px; color:#d7d9e0; line-height:1.6; font-style:italic">"I am a huge fan of addons that reduce the steps and amount of clicks it takes me to do menial tasks. This addon is one of those. Its simple and clean and will save a lot of time for anyone making collision meshes in Blender for use in game engines like Unreal Engine. I wish I had this addon a lot sooner!"</p>
-          <div style="display:flex; align-items:center">
-            <img src="/images/simple_collider/Michael_Kinsey.jpg" alt="Michael Kinsey" style="width:40px; height:40px; border-radius:50%; vertical-align:middle; margin-right:12px">
-            <span style="font-size:14px; color:#9a9da6"><a href="https://www.artstation.com/michaelkinsey" target="_blank" rel="noopener noreferrer" style="color:#22c55e; text-decoration:none; font-weight:700">Michael Kinsey</a>, Senior Shader Technical Director at Thats No Moon Entertainment</span>
+        <tr><td class="quote-card">
+          <p class="quote-text">"I am a huge fan of addons that reduce the steps and amount of clicks it takes me to do menial tasks. This addon is one of those. Its simple and clean and will save a lot of time for anyone making collision meshes in Blender for use in game engines like Unreal Engine. I wish I had this addon a lot sooner!"</p>
+          <div class="avatar-row">
+            <img class="avatar" src="/images/simple_collider/Michael_Kinsey.jpg" alt="Michael Kinsey" loading="lazy" decoding="async">
+            <span class="quote-attribution"><a href="https://www.artstation.com/michaelkinsey" target="_blank" rel="noopener noreferrer">Michael Kinsey</a>, Senior Shader Technical Director at Thats No Moon Entertainment</span>
           </div>
         </td></tr>
-        <tr><td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:22px 24px">
-          <p style="margin:0 0 14px; font-size:16px; color:#d7d9e0; line-height:1.6; font-style:italic">"I have been lucky enough to be able to try Simple Collider in the past months and I can tell you that it became directly one of my favorite and most used add-ons. Everything is just so simple and powerful. Now I can create collisions in a matter of seconds for any assets or modular kit and spend all this extra saved time on more creative and fulfilling tasks!"</p>
-          <div style="display:flex; align-items:center">
-            <img src="/images/simple_collider/J%C3%A9r%C3%A9my_Cerisy.jpg" alt="Jérémy Cerisy" style="width:40px; height:40px; border-radius:50%; vertical-align:middle; margin-right:12px">
-            <span style="font-size:14px; color:#9a9da6"><a href="https://www.artstation.com/jcerisy" target="_blank" rel="noopener noreferrer" style="color:#22c55e; text-decoration:none; font-weight:700">Jérémy Cerisy</a>, Senior Environment Artist at Remedy Entertainment</span>
+        <tr><td class="quote-card">
+          <p class="quote-text">"I have been lucky enough to be able to try Simple Collider in the past months and I can tell you that it became directly one of my favorite and most used add-ons. Everything is just so simple and powerful. Now I can create collisions in a matter of seconds for any assets or modular kit and spend all this extra saved time on more creative and fulfilling tasks!"</p>
+          <div class="avatar-row">
+            <img class="avatar" src="/images/simple_collider/Jérémy_Cerisy.jpg" alt="Jérémy Cerisy" loading="lazy" decoding="async">
+            <span class="quote-attribution"><a href="https://www.artstation.com/jcerisy" target="_blank" rel="noopener noreferrer">Jérémy Cerisy</a>, Senior Environment Artist at Remedy Entertainment</span>
           </div>
         </td></tr>
-        <tr><td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:22px 24px">
-          <p style="margin:0 0 14px; font-size:16px; color:#d7d9e0; line-height:1.6; font-style:italic">"Making collisions is often the most annoying part of the art pipeline. I think anyone working in real-time 3D deserves to get through this moment the proper way. That's what this addon allows."</p>
-          <div style="display:flex; align-items:center">
-            <img src="/images/simple_collider/ArthurChamerois.jpg" alt="Arthur Chamerois" style="width:40px; height:40px; border-radius:50%; vertical-align:middle; margin-right:12px">
-            <span style="font-size:14px; color:#9a9da6"><a href="https://www.artstation.com/artcha" target="_blank" rel="noopener noreferrer" style="color:#22c55e; text-decoration:none; font-weight:700">Arthur Chamerois</a>, 3D Artist at Playdead</span>
+        <tr><td class="quote-card">
+          <p class="quote-text">"Making collisions is often the most annoying part of the art pipeline. I think anyone working in real-time 3D deserves to get through this moment the proper way. That's what this addon allows."</p>
+          <div class="avatar-row">
+            <img class="avatar" src="/images/simple_collider/ArthurChamerois.jpg" alt="Arthur Chamerois" loading="lazy" decoding="async">
+            <span class="quote-attribution"><a href="https://www.artstation.com/artcha" target="_blank" rel="noopener noreferrer">Arthur Chamerois</a>, 3D Artist at Playdead</span>
           </div>
         </td></tr>
-        <tr><td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:22px 24px">
-          <p style="margin:0 0 14px; font-size:16px; color:#d7d9e0; line-height:1.6; font-style:italic">"This addon was extremely useful and made creating collisions quick and efficient. The entire modeling team used it and were able to pick it up very quickly."</p>
-          <table role="presentation" style="width:100%; border-collapse:separate; border-spacing:0 6px; border:0">
+        <tr><td class="quote-card">
+          <p class="quote-text">"This addon was extremely useful and made creating collisions quick and efficient. The entire modeling team used it and were able to pick it up very quickly."</p>
+          <table class="checklist" role="presentation">
             <tbody>
-              <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">"Simple Collider has proven to be an indispensable tool for our workflow, making it easy to create and manage colliders to meet our needs. The pie menu and Oriented Minimum Bounding Box have been absurdly helpful!"</td></tr>
-              <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">"I love that if you have multiple objects selected, you can create colliders for all of them at the same time. This speeds up the process a lot."</td></tr>
+              <tr><td class="checklist-item">"Simple Collider has proven to be an indispensable tool for our workflow, making it easy to create and manage colliders to meet our needs. The pie menu and Oriented Minimum Bounding Box have been absurdly helpful!"</td></tr>
+              <tr><td class="checklist-item">"I love that if you have multiple objects selected, you can create colliders for all of them at the same time. This speeds up the process a lot."</td></tr>
             </tbody>
           </table>
-          <div style="display:flex; align-items:center; margin-top:14px">
-            <img src="/images/simple_collider/MikeReese.jpg" alt="Mike Reese" style="width:40px; height:40px; border-radius:50%; vertical-align:middle; margin-right:12px">
-            <span style="font-size:14px; color:#9a9da6"><a href="https://www.artstation.com/meltingface3d" target="_blank" rel="noopener noreferrer" style="color:#22c55e; text-decoration:none; font-weight:700">Mike Reese</a>, VP of Asset Production at KitBash3D</span>
+          <div class="avatar-row avatar-row--spaced">
+            <img class="avatar" src="/images/simple_collider/MikeReese.jpg" alt="Mike Reese" loading="lazy" decoding="async">
+            <span class="quote-attribution"><a href="https://www.artstation.com/meltingface3d" target="_blank" rel="noopener noreferrer">Mike Reese</a>, VP of Asset Production at KitBash3D</span>
           </div>
         </td></tr>
       </tbody>
@@ -569,39 +817,40 @@
   </div>
 
   <!-- Why Trust -->
-  <div data-section-pad style="background:#1c1e24; padding:56px 30px; border-top:1px solid #34363e">
-    <h2 data-heading="title" style="margin:0 0 16px; font-size:30px; font-weight:900; color:#fff; text-align:center">Why Trust Simple Collider?</h2>
-    <p style="margin:0 auto 30px; max-width:680px; font-size:16px; color:#9a9da6; line-height:1.7; text-align:center">Over a decade refining workflows for real-time engines. Simple Renaming, Simple Collider, Simple Export, and Simple Camera Manager are used and trusted by thousands of artists and studios worldwide.</p>
-    <div style="display:flex; max-width:820px; margin:0 auto 26px; border-radius:14px; overflow:hidden; border:1px solid #34363e">
-      <a href="https://extensions.blender.org/add-ons/simple-renaming-panel/" aria-label="Simple Renaming" style="flex:1 1 25%; aspect-ratio:1/1; display:block; background-image:url(/images/simple_export/branding_squares.jpg); background-repeat:no-repeat; background-size:400% 100%; background-position:0% 0"></a>
-      <div role="img" aria-label="Simple Collider" style="flex:1 1 25%; aspect-ratio:1/1; display:block; background-image:url(/images/simple_export/branding_squares.jpg); background-repeat:no-repeat; background-size:400% 100%; background-position:33.333% 0"></div>
-      <a href="https://superhivemarket.com/products/simple-camera-manager" aria-label="Simple Camera Manager" style="flex:1 1 25%; aspect-ratio:1/1; display:block; background-image:url(/images/simple_export/branding_squares.jpg); background-repeat:no-repeat; background-size:400% 100%; background-position:66.667% 0"></a>
-      <a href="https://superhivemarket.com/products/simple-export" aria-label="Simple Export" style="flex:1 1 25%; aspect-ratio:1/1; display:block; background-image:url(/images/simple_export/branding_squares.jpg); background-repeat:no-repeat; background-size:400% 100%; background-position:100% 0"></a>
+  <div class="section section--alt section--hairline" data-section-pad>
+    <h2 class="section-title-sm" data-heading="title">Why Trust Simple Collider?</h2>
+    <p class="brand-copy">Over a decade refining workflows for real-time engines. Simple Renaming, Simple Collider, Simple Export, and Simple Camera Manager are used and trusted by thousands of artists and studios worldwide.</p>
+    <div class="brand-square-row">
+      <a class="brand-square brand-square--renaming" href="https://extensions.blender.org/add-ons/simple-renaming-panel/" aria-label="Simple Renaming"><img src="/images/simple_export/branding_square_renaming.jpg" alt="" loading="lazy" decoding="async"></a>
+      <div class="brand-square brand-square--collider" role="img" aria-label="Simple Collider"><img src="/images/simple_export/branding_square_collider.jpg" alt="" loading="lazy" decoding="async"></div>
+      <a class="brand-square brand-square--camera" href="https://superhivemarket.com/products/simple-camera-manager" aria-label="Simple Camera Manager"><img src="/images/simple_export/branding_square_camera.jpg" alt="" loading="lazy" decoding="async"></a>
+      <a class="brand-square brand-square--export" href="https://superhivemarket.com/products/simple-export" aria-label="Simple Export"><img src="/images/simple_export/branding_square_export.jpg" alt="" loading="lazy" decoding="async"></a>
     </div>
-    <table role="presentation" data-stack-grid="pills" style="margin:0 auto; border-collapse:separate; border-spacing:10px 0; border:0">
+    <table class="pill-row" role="presentation" data-stack-grid="pills">
       <tbody><tr>
-        <td style="border:none"><a data-hover-lift href="https://extensions.blender.org/add-ons/simple-renaming-panel/" style="transition:transform 0.25s ease; display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Simple Renaming — 50,000+ users</a></td>
-        <td style="border:none"><a data-hover-lift href="https://superhivemarket.com/products/simple-export" style="transition:transform 0.25s ease; display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Simple Export</a></td>
-        <td style="border:none"><a data-hover-lift href="https://superhivemarket.com/products/simple-camera-manager" style="transition:transform 0.25s ease; display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Simple Camera Manager</a></td>
+        <td class="link-cell"><a class="link-pill" data-hover-lift href="https://extensions.blender.org/add-ons/simple-renaming-panel/">Simple Renaming — 50,000+ users</a></td>
+        <td class="link-cell"><a class="link-pill" data-hover-lift href="https://superhivemarket.com/products/simple-export">Simple Export</a></td>
+        <td class="link-cell"><a class="link-pill" data-hover-lift href="https://superhivemarket.com/products/simple-camera-manager">Simple Camera Manager</a></td>
       </tr></tbody>
     </table>
   </div>
 
   <!-- Footer CTA -->
-  <div data-section-pad style="background:#16171c; border-top:2px solid #22c55e; padding:46px 30px; text-align:center">
-    <div style="font-size:20px; font-weight:900; color:#fff; margin-bottom:6px">Get Simple Collider</div>
-    <div style="font-size:14px; color:#9a9da6; margin-bottom:26px; max-width:520px; margin-left:auto; margin-right:auto">Handle the entire collision workflow in Blender — so you can stay focused on the asset, not the setup. Actively trusted by indies and studios alike.</div>
-    <table role="presentation" data-stack-grid="pills" style="margin:0 auto; border-collapse:separate; border-spacing:8px 0; border:0">
+  <div class="footer" data-section-pad>
+    <div class="footer-title">Get Simple Collider</div>
+    <div class="footer-copy">Handle the entire collision workflow in Blender — so you can stay focused on the asset, not the setup. Actively trusted by indies and studios alike.</div>
+    <table class="button-row" role="presentation" data-stack-grid="pills">
       <tbody><tr>
-        <td style="border:none"><a data-hover-lift href="https://superhivemarket.com/products/simple-collider" style="transition:transform 0.25s ease; display:inline-block; background:#22c55e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#16171c !important">Buy on Superhive</a></td>
-        <td style="border:none"><a data-hover-lift href="/simple_collider/collider_overview/" style="transition:transform 0.25s ease; display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">Documentation</a></td>
-        <td style="border:none"><a data-hover-lift href="https://superhivemarket.com/creators/matthias-patscheider" style="transition:transform 0.25s ease; display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">More by Matthias</a></td>
-        <td style="border:none"><a data-hover-lift href="https://www.artstation.com/matthias-patscheider" target="_blank" rel="noopener noreferrer" style="transition:transform 0.25s ease; display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:13px 24px; border-radius:8px; font-size:14px; font-weight:700; color:#fff !important">ArtStation</a></td>
+        <td class="link-cell"><a class="button-primary" data-hover-lift href="https://superhivemarket.com/products/simple-collider">Buy on Superhive</a></td>
+        <td class="link-cell"><a class="button-secondary" data-hover-lift href="/simple_collider/collider_overview/">Documentation</a></td>
+        <td class="link-cell"><a class="button-secondary" data-hover-lift href="https://superhivemarket.com/creators/matthias-patscheider">More by Matthias</a></td>
+        <td class="link-cell"><a class="button-secondary" data-hover-lift href="https://www.artstation.com/matthias-patscheider" target="_blank" rel="noopener noreferrer">ArtStation</a></td>
       </tr></tbody>
     </table>
-    <p style="margin:18px 0 0; font-size:12px"><a href="/legal-notice.html" style="color:#9a9da6; text-decoration:none">Legal Notice</a></p>
+    <p class="footer-legal"><a href="/legal-notice.html" class="footer-legal-link">Legal Notice</a></p>
   </div>
 
+  </main>
 </div>
 
 </body>

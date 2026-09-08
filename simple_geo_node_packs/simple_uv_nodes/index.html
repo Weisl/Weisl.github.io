@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Matthias Patscheider" /><link rel="canonical" href="https://alpineempire.eu/simple_geo_node_packs/simple_uv_nodes/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Simple UV Nodes - Documentation</title>
+    <title>Simple UV Nodes - Alpine Empire Documentation</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -14,15 +14,30 @@
       <script>
         // Current page data
         var mkdocs_page_name = "Simple UV Nodes";
-        var mkdocs_page_input_path = "simple_geo_node_packs/simple_uv_nodes.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_input_path = "simple_geo_node_packs\\simple_uv_nodes.md";
+        var mkdocs_page_url = "/simple_geo_node_packs/simple_uv_nodes/";
       </script>
     
     <!--[if lt IE 9]>
       <script src="../../js/html5shiv.min.js"></script>
     <![endif]-->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-      <script>hljs.highlightAll();</script> 
+      <script>hljs.highlightAll();</script>
+  <meta name="description" content="Node reference and installation guide for Simple UV Nodes — non-destructive triplanar, box, cylindrical, spherical and camera UV projection in Geometry Nodes." />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Alpine Empire Documentation" />
+  <meta property="og:title" content="Simple UV Nodes - Alpine Empire Documentation" />
+  <meta property="og:description" content="Node reference and installation guide for Simple UV Nodes — non-destructive triplanar, box, cylindrical, spherical and camera UV projection in Geometry Nodes." />
+  <meta property="og:url" content="https://alpineempire.eu/simple_geo_node_packs/simple_uv_nodes/" />
+  <meta property="og:image" content="https://alpineempire.eu/images/alpine_empire/hero_banner.jpg" />
+  <meta property="og:locale" content="en_US" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Simple UV Nodes - Alpine Empire Documentation" />
+  <meta name="twitter:description" content="Node reference and installation guide for Simple UV Nodes — non-destructive triplanar, box, cylindrical, spherical and camera UV projection in Geometry Nodes." />
+  <meta name="twitter:image" content="https://alpineempire.eu/images/alpine_empire/hero_banner.jpg" />
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -31,8 +46,12 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href="../.." class="icon icon-home"> Documentation
-        </a>
+          <a href="../.." class="icon icon-home"> Alpine Empire Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
@@ -173,7 +192,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../..">Documentation</a>
+          <a href="../..">Alpine Empire Documentation</a>
         
       </nav>
       <div class="wy-nav-content">
@@ -191,7 +210,7 @@
             <div class="section" itemprop="articleBody">
               
                 <div><h1 id="simple-uv-nodes">Simple UV Nodes</h1>
-<p>Full node reference and installation guide. For what Simple UV Nodes does and why, see the <a href="https://weisl.github.io/simple-uv-nodes.html">product page</a>.</p>
+<p>Full node reference and installation guide. For what Simple UV Nodes does and why, see the <a href="/simple-uv-nodes.html">product page</a>.</p>
 <p><strong>Minimum Blender version: 4.5</strong></p>
 <hr>
 <h2 id="installation">Installation</h2>
@@ -400,7 +419,7 @@
 <td>UV Scale</td>
 <td>Menu</td>
 <td><code>Normalized</code></td>
-<td><em>Normalized</em>: maps the full sphere surface to the 0–1 UV square. <em>Real World Scale</em>: UV is in Blender units (arc length), centred at 0.5</td>
+<td><em>Normalized</em>: maps the full sphere surface to the 0–1 UV square. <em>Real World Scale</em>: UV is in Blender units (arc length), centered at 0.5</td>
 </tr>
 <tr>
 <td>Axis</td>
@@ -424,19 +443,19 @@
 <td>Rotate</td>
 <td>Float</td>
 <td><code>0°</code></td>
-<td>UV rotation angle, pivoted at the centre of UV space</td>
+<td>UV rotation angle, pivoted at the center of UV space</td>
 </tr>
 <tr>
 <td>Scale</td>
 <td>Vector</td>
 <td><code>1, 1</code></td>
-<td>UV scale applied from the centre of UV space. X scales horizontally, Y scales vertically</td>
+<td>UV scale applied from the center of UV space. X scales horizontally, Y scales vertically</td>
 </tr>
 </tbody>
 </table>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p><strong>Real World Scale</strong> keeps UV proportions consistent with the actual surface area of the sphere. Use it when tiling at a consistent texel density matters — for example, to match a spherical projection to a neighbouring planar projection on the same object.</p>
+<p><strong>Real World Scale</strong> keeps UV proportions consistent with the actual surface area of the sphere. Use it when tiling at a consistent texel density matters — for example, to match a spherical projection to a neighboring planar projection on the same object.</p>
 </div>
 <hr>
 <h3 id="uv-cylindrical-project">UV Cylindrical Project</h3>
@@ -602,13 +621,13 @@
 <td>Rotate</td>
 <td>Float</td>
 <td><code>0°</code></td>
-<td>UV rotation angle, pivoted at the centre of UV space</td>
+<td>UV rotation angle, pivoted at the center of UV space</td>
 </tr>
 <tr>
 <td>Scale</td>
 <td>Vector</td>
 <td><code>1, 1</code></td>
-<td>UV scale applied from the centre of UV space. X scales horizontally, Y scales vertically</td>
+<td>UV scale applied from the center of UV space. X scales horizontally, Y scales vertically</td>
 </tr>
 </tbody>
 </table>
@@ -932,7 +951,7 @@
 <td>Method</td>
 <td>Menu</td>
 <td><code>Exact Shape</code></td>
-<td><em>(only for 5.0+)</em> Packing algorithm: <em>Exact Shape</em> traces the actual island outline; <em>Bounding Box</em> &amp; <em>Convex Hull</em> are faster but less precisse</td>
+<td><em>(Blender 5.0+)</em> Packing algorithm: <em>Exact Shape</em> traces the actual island outline; <em>Bounding Box</em> &amp; <em>Convex Hull</em> are faster but less precise</td>
 </tr>
 </tbody>
 </table>
@@ -985,6 +1004,7 @@
     <script src="../../js/theme_extra.js"></script>
     <script src="../../js/theme.js"></script>
       <script src="../../extra.js"></script>
+      <script src="../../search/main.js"></script>
     <script>
         jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);

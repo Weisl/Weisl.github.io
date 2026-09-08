@@ -3,101 +3,441 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Matthias Patscheider — Alpine Empire</title>
+<title>Alpine Empire — Blender Add-ons &amp; 3D Environment Art</title>
 <meta name="description" content="Freelance 3D environment art, Blender pipeline tools, and 1:1 mentoring from a decade of AAA game development experience — Alan Wake 2, FBC Firebreak, Black Mirror.">
-<link rel="canonical" href="https://weisl.github.io/">
+<meta name="author" content="Matthias Patscheider">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="https://alpineempire.eu/">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2044%2044%22%3E%3Crect%20width%3D%2244%22%20height%3D%2244%22%20rx%3D%229%22%20fill%3D%22%2316171c%22/%3E%3Cpath%20d%3D%22M4%2034%20L15%2014%20L22%2025%20L28%2016%20L40%2034%20Z%22%20fill%3D%22none%22%20stroke%3D%22%233b82f6%22%20stroke-width%3D%223%22%20stroke-linejoin%3D%22round%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Alpine Empire">
-<meta property="og:title" content="Matthias Patscheider — Alpine Empire">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Alpine Empire">
 <meta property="og:description" content="Freelance 3D environment art, Blender pipeline tools, and 1:1 mentoring from a decade of AAA game development experience — Alan Wake 2, FBC Firebreak, Black Mirror.">
-<meta property="og:url" content="https://weisl.github.io/">
-<meta property="og:image" content="https://weisl.github.io/images/alpine_empire/hero_banner.jpg">
+<meta property="og:url" content="https://alpineempire.eu/">
+<meta property="og:image" content="https://alpineempire.eu/images/alpine_empire/hero_banner.jpg">
+<meta property="og:image:alt" content="Alpine Empire — Blender add-ons and 3D environment art">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Matthias Patscheider — Alpine Empire">
+<meta name="twitter:title" content="Alpine Empire">
 <meta name="twitter:description" content="Freelance 3D environment art, Blender pipeline tools, and 1:1 mentoring from a decade of AAA game development experience — Alan Wake 2, FBC Firebreak, Black Mirror.">
-<meta name="twitter:image" content="https://weisl.github.io/images/alpine_empire/hero_banner.jpg">
+<meta name="twitter:image" content="https://alpineempire.eu/images/alpine_empire/hero_banner.jpg">
+<meta name="twitter:image:alt" content="Alpine Empire — Blender add-ons and 3D environment art">
 <style>html,body { margin:0; padding:0; background:#16171c; }</style>
-<style type="text/css">[data-hover-lift]:hover {transform:scale(1.035) !important}
+<style>
+.top-nav { background: #1c1e24; border-bottom: 1px solid #34363e; padding: 10px 30px; display: flex; align-items: center; justify-content: space-between; }
+.top-nav-home { display: inline-block; color: #e8e9ee; text-decoration: none; font-size: 12px; font-weight: 700; border: 1px solid #34363e; border-radius: 6px; padding: 6px 12px; }
+.top-nav-docs { color: #3b82f6; text-decoration: none; font-size: 12px; font-weight: 700; }
+
+
+.hero-shell { background: #1c1e24; }
+.hero-row { display: flex; align-items: stretch; }
+.hero-left { flex: 0 0 56%; padding: 64px 34px 64px 30px; }
+.hero-heading { margin: 0 0 22px; line-height: 1; }
+.hero-icon { flex-shrink: 0; }
+.hero-wordmark { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; font-size: 62px; font-weight: 900; color: #3b82f6; line-height: 1; }
+.hero-product-name { display: block; font-size: 32px; font-weight: 500; color: #ffffff; line-height: 1.15; margin-top: 6px; }
+.hero-subtitle { margin: 0; max-width: 460px; font-size: 18px; color: #9a9da6; line-height: 1.6; }
+.hero-wedge { flex: 1; position: relative; min-height: 320px; }
+
+.hero-wordmark-row { display: flex; align-items: center; gap: 14px; }
+.hero-wedge-fill { position: absolute; inset: 0; clip-path: polygon(28% 0%, 100% 0%, 100% 100%, 0% 100%); background: linear-gradient(150deg, #1c1e24 0%, #3b82f6 85%); background-attachment: fixed; }
+.hero-eyebrow-pill { display: inline-block; padding: 8px 18px; border-radius: 20px; font-size: 11px; font-weight: 700; letter-spacing: 2px; margin-bottom: 22px; }
+
+
+.hero-photo-content { position: relative; max-width: 640px; padding: 78px 34px 78px 30px; }
+.hero-photo-heading { margin: 0 0 22px; line-height: 1; }
+.hero-icon-svg { flex-shrink: 0; }
+.hero-photo-lede { margin: 0; max-width: 480px; font-size: 18px; color: #d7d9e0; line-height: 1.6; text-shadow: 0 1px 8px rgba(0,0,0,0.7); }
+
+.hero-photo-word { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; font-size: 58px; font-weight: 900; line-height: 1; color: #3b82f6; text-shadow: 0 2px 14px rgba(0,0,0,0.6); }
+.hero-photo-word--white { display: block; color: #ffffff; margin-top: 4px; }
+
+.hero-photo-subtitle-line { display: block; font-size: 32px; font-weight: 900; color: #ffffff; line-height: 1.2; margin-top: 8px; text-shadow: 0 2px 14px rgba(0,0,0,0.6); }
+.hero-chip-row { display: flex; flex-wrap: wrap; gap: 8px; max-width: 480px; margin-top: 22px; }
+.hero-chip { display: inline-block; background: #24262d; border: 1px solid #34363e; border-radius: 6px; padding: 6px 12px; font-size: 12px; font-weight: 700; color: #e8e9ee; }
+
+.page {
+  background: #16171c;
+  color: #e8e9ee;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+
+.section { background: #16171c; padding: 56px 30px; }
+.section--alt { background: #1c1e24; }
+.section--hairline { border-top: 1px solid #34363e; }
+
+
+.video-wrap { position: relative; width: 100%; max-width: 960px; margin: 0 auto; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 14px; border: 1px solid #34363e; }
+.video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+.video-wrap video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; object-fit: cover; }
+
+.video-wrap img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; object-fit: cover; display: block; }
+
+
+.section-inner { max-width: 960px; margin: 0 auto; width: 100%; border-collapse: collapse; border: 0; }
+.wide-inner { max-width: 920px; margin: 0 auto; width: 100%; border-collapse: separate; border-spacing: 10px; border: 0; }
+.fit-grid { max-width: 820px; margin: 0 auto; width: 100%; border-collapse: separate; border-spacing: 12px; border: 0; }
+.quote-list { max-width: 820px; margin: 0 auto; width: 100%; border-collapse: separate; border-spacing: 0 14px; border: 0; }
+.support-image-wrap { max-width: 960px; margin: 26px auto 0; width: 100%; border-collapse: collapse; border: 0; }
+
+.support-image-wrap--sm { max-width: 380px; }
+.support-image-wrap--md { max-width: 640px; }
+.support-image-cell { border: none; }
+.pill-row { margin: 0 auto; border-collapse: separate; border-spacing: 10px 0; border: 0; }
+.button-row { margin: 0 auto; border-collapse: separate; border-spacing: 8px 0; border: 0; }
+.link-cell { border: none; }
+
+
+.feature-media-cell { vertical-align: middle; width: 42%; padding-right: 34px; border: none; }
+.feature-content-cell { vertical-align: middle; width: 58%; border: none; }
+
+.feature-content-cell--full { width: 100%; }
+.feature-media { line-height: 0; border-radius: 14px; overflow: hidden; border: 1px solid #34363e; }
+.feature-media img { width: 100%; display: block; }
+.badge-row { border-collapse: collapse; border: 0; }
+.badge-row-cell { vertical-align: middle; padding-right: 14px; border: none; }
+.eyebrow-cell { vertical-align: middle; border: none; }
+.eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 3px; color: #3b82f6; }
+
+
+.badge-node { width: 46px; height: 46px; background: #3b82f6; border-radius: 50%; text-align: center; line-height: 46px; font-size: 20px; font-weight: 900; color: #ffffff; }
+
+.badge-swatch { width: 46px; height: 46px; background: #3b82f6; border-radius: 10px; text-align: center; line-height: 46px; font-size: 20px; font-weight: 900; color: #ffffff; }
+
+
+.divider-accent { height: 3px; background: #3b82f6; }
+.feature-title { margin: 16px 0 14px; font-size: 30px; font-weight: 900; color: #ffffff; line-height: 1.15; }
+.feature-body { margin: 0 0 18px; font-size: 16px; color: #9a9da6; line-height: 1.7; }
+.feature-body--tight { margin-bottom: 20px; }
+
+
+.step-list { max-width: 700px; margin: 0 auto; }
+.step-item { margin-bottom: 20px; }
+.step-title { margin: 0 0 6px; font-size: 17px; font-weight: 800; color: #ffffff; }
+.step-body { margin: 0; font-size: 14px; color: #9a9da6; line-height: 1.6; }
+.step-body a { color: #3b82f6; font-weight: 700; text-decoration: none; }
+
+.callout {
+  background: #24262d;
+  border: 1px solid #34363e;
+  border-left: 3px solid #3b82f6;
+  border-radius: 8px;
+  padding: 14px 18px;
+  font-size: 14px;
+  color: #d7d9e0;
+  line-height: 1.6;
+}
+.callout strong { color: #3b82f6; }
+
+.project-credit { margin: 0; font-size: 14px; color: #9a9da6; }
+.project-credit a { color: #3b82f6; text-decoration: none; font-weight: 700; }
+
+
+.checklist { width: 100%; border-collapse: separate; border-spacing: 0 6px; border: 0; }
+.checklist-item { background: #24262d; border: none; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #d7d9e0; }
+.checklist-item .check { color: #3b82f6; font-weight: 900; }
+
+
+.shape-grid { border-spacing: 16px; }
+.shape-card { background: #24262d; border: 1px solid #34363e; border-radius: 12px; overflow: hidden; vertical-align: top; }
+.shape-card-media { line-height: 0; }
+.shape-card-media img { width: 100%; display: block; }
+.shape-card-body { padding: 18px 20px; }
+.shape-card-title { font-size: 16px; font-weight: 800; color: #ffffff; margin-bottom: 6px; }
+.shape-card-desc { font-size: 13px; color: #9a9da6; line-height: 1.55; }
+
+
+.grid-card { background: #24262d; border: 1px solid #34363e; border-radius: 12px; padding: 20px; vertical-align: top; }
+.grid-card--top { border-top: 3px solid #3b82f6; }
+.grid-card--bottom { border-bottom: 3px solid #3b82f6; border-radius: 10px; padding: 20px 22px; }
+.grid-card-title { font-size: 16px; font-weight: 800; color: #ffffff; margin-bottom: 6px; }
+.grid-card-title--tight { margin-bottom: 10px; }
+.grid-card-body { font-size: 13px; color: #9a9da6; line-height: 1.6; }
+.grid-card-body a { color: #3b82f6; font-weight: 700; text-decoration: none; }
+.grid-card-body--wide { font-size: 14px; color: #9a9da6; line-height: 1.6; }
+.grid-card-body--tight { margin-bottom: 10px; }
+
+.grid-card-cta { margin: 10px 0 0; }
+.inline-accent-link { color: #3b82f6; text-decoration: none; font-weight: 700; }
+.support-link { color: #3b82f6; text-decoration: none; font-weight: 700; font-size: 13px; }
+
+
+.software-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.software-logo-badge { flex-shrink: 0; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; }
+.software-logo-img { width: 100%; height: 100%; object-fit: contain; display: block; }
+
+.w25 { width: 25%; }
+.w33 { width: 33%; }
+.w50 { width: 50%; }
+
+
+.chip {
+  display: inline-block;
+  background: #16171c;
+  border: 1px solid #34363e;
+  border-radius: 4px;
+  padding: 2px 7px;
+  font-family: 'SF Mono', 'Consolas', 'Courier New', monospace;
+  font-size: 12px;
+  color: #3b82f6;
+}
+.chip-label { font-size: 12px; color: #9a9da6; }
+
+
+.section-title { margin: 0 0 8px; font-size: 32px; font-weight: 900; color: #ffffff; text-align: center; }
+.section-title-sm { margin: 0 0 16px; font-size: 30px; font-weight: 900; color: #ffffff; text-align: center; }
+.section-subtitle { margin: 0 0 30px; font-size: 15px; color: #9a9da6; text-align: center; }
+.section-subtitle--tight { margin: 0 0 36px; font-size: 15px; color: #9a9da6; text-align: center; }
+
+.tag-list-label { max-width: 920px; margin: 26px auto 0; font-size: 13px; font-weight: 700; letter-spacing: 1px; color: #9a9da6; text-align: center; }
+.tool-list-text { max-width: 640px; margin: 16px auto 0; font-size: 14px; color: #9a9da6; line-height: 1.7; text-align: center; }
+
+.support-note { text-align: center; font-size: 13px; color: #9a9da6; max-width: 560px; margin: 26px auto 0; }
+
+
+.quote-card { background: #24262d; border: 1px solid #34363e; border-radius: 12px; padding: 22px 24px; }
+.quote-text { margin: 0 0 14px; font-size: 16px; color: #d7d9e0; line-height: 1.6; font-style: italic; }
+.quote-text--tight { margin: 0 0 10px; }
+.avatar-row { display: flex; align-items: center; }
+.avatar { width: 40px; height: 40px; border-radius: 50%; vertical-align: middle; margin-right: 12px; }
+.quote-attribution { font-size: 14px; color: #9a9da6; }
+.quote-attribution a { color: #3b82f6; text-decoration: none; font-weight: 700; }
+
+
+.brand-copy { margin: 0 auto 30px; max-width: 680px; font-size: 16px; color: #9a9da6; line-height: 1.7; text-align: center; }
+
+.brand-square-row { display: flex; max-width: 820px; margin: 0 auto 26px; border-radius: 14px; overflow: hidden; border: 1px solid #34363e; }
+.brand-square { flex: 1 1 25%; aspect-ratio: 1 / 1; display: block; }
+.brand-square img { width: 100%; height: auto; display: block; }
+.link-pill {
+  display: inline-block;
+  background: #24262d;
+  border: 1px solid #34363e;
+  color: #e8e9ee !important;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+.cta-banner {
+  display: block;
+  background: #3b82f6;
+  border-radius: 12px;
+  padding: 20px 24px;
+  max-width: 460px;
+  margin: 30px auto 0;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 900;
+  text-decoration: none;
+  color: #ffffff !important;
+}
+.cta-banner-support { margin: 12px auto 0; max-width: 460px; font-size: 13px; color: #9a9da6; text-align: center; }
+.cta-banner-support a { color: #9a9da6 !important; font-weight: 700; text-decoration: underline; }
+
+
+.footer { background: #16171c; border-top: 2px solid #3b82f6; padding: 46px 30px; text-align: center; }
+.footer-title { font-size: 20px; font-weight: 900; color: #ffffff; margin-bottom: 6px; }
+.footer-copy { font-size: 14px; color: #9a9da6; margin-bottom: 26px; max-width: 520px; margin-left: auto; margin-right: auto; }
+.button-primary {
+  display: inline-block;
+  background: #3b82f6;
+  color: #ffffff !important;
+  text-decoration: none;
+  padding: 13px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.button-secondary {
+  display: inline-block;
+  background: #24262d;
+  border: 1px solid #34363e;
+  color: #ffffff !important;
+  text-decoration: none;
+  padding: 13px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+
+.footer-legal { margin: 18px 0 0; font-size: 12px; }
+.footer-legal-link { color: #9a9da6; text-decoration: none; }
+
+
+[data-hover-lift] { transition: transform .25s ease; }
+[data-hover-lift]:hover { transform: scale(1.035); }
+
+
 @media (prefers-reduced-motion: reduce) {
-    [data-hover-lift]:hover {
-        transform: none !important;
-        transition: none !important
-        }
-    [data-parallax] {
-        background-attachment: scroll !important
-        }
-    }
+  [data-hover-lift]:hover { transform: none !important; transition: none !important; }
+  [data-parallax] { background-attachment: scroll !important; }
+}
+
+
 @media (max-width: 640px) {
-    table[data-stack-grid] {
-        display: block !important;
-        width: 100% !important
-        }
-    table[data-stack-grid] > tbody {
-        display: block !important
-        }
-    table[data-stack-grid] > tbody > tr {
-        display: block !important
-        }
-    table[data-stack-grid] > tbody > tr > td {
-        display: block !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-        padding-right: 0 !important;
-        padding-bottom: 16px !important
-        }
-    table[data-stack-grid] > tbody > tr:last-child > td:last-child {
-        padding-bottom: 0 !important
-        }
-    table[data-stack-grid="pills"] > tbody > tr > td {
-        text-align: center !important
-        }
-    div[data-stack-grid="flex"] {
-        flex-direction: column !important
-        }
-    div[data-stack-grid="flex"] > [data-step="card"] {
-        flex: none !important;
-        width: 100% !important;
-        margin-bottom: 16px !important
-        }
-    div[data-stack-grid="flex"] > [data-step="card"]:last-child {
-        margin-bottom: 0 !important
-        }
-    div[data-stack-grid="flex"] > [data-step="connector"] {
-        display: none !important
-        }
-    div[data-stack-grid="flex"] [data-step="dot"] {
-        display: none !important
-        }
-    [data-hero-stack="wedge"] {
-        display: none !important
-        }
-    [data-hero-stack="left"] {
-        flex: 1 1 100% !important;
-        width: 100% !important
-        }
-    [data-heading="display"] {
-        font-size: 34px !important
-        }
-    [data-heading="title"] {
-        font-size: 24px !important
-        }
-    [data-section-pad] {
-        padding-left: 16px !important;
-        padding-right: 16px !important
-        }
-    }
-[data-hover-zoom]:hover img {transform:scale(1.04) !important}
+  
+  table[data-stack-grid] { display: block !important; width: 100% !important; }
+  table[data-stack-grid] > tbody { display: block !important; }
+  table[data-stack-grid] > tbody > tr { display: block !important; }
+  table[data-stack-grid] > tbody > tr > td {
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding-right: 0 !important;
+    padding-bottom: 16px !important;
+  }
+  table[data-stack-grid] > tbody > tr:last-child > td:last-child { padding-bottom: 0 !important; }
+  
+  table[data-stack-grid="pills"] > tbody > tr > td { text-align: center !important; }
+
+  
+  div[data-stack-grid="flex"] { flex-direction: column !important; }
+  div[data-stack-grid="flex"] > [data-step="card"] {
+    flex: none !important;
+    width: 100% !important;
+    margin-bottom: 16px !important;
+  }
+  div[data-stack-grid="flex"] > [data-step="card"]:last-child { margin-bottom: 0 !important; }
+  div[data-stack-grid="flex"] > [data-step="connector"] { display: none !important; }
+  
+  div[data-stack-grid="flex"] [data-step="dot"] { display: none !important; }
+
+  
+  [data-hero-stack="wedge"] { display: none !important; }
+  [data-hero-stack="left"] { flex: 1 1 100% !important; width: 100% !important; }
+
+  
+  [data-heading="display"] { font-size: 34px !important; }
+  [data-heading="title"] { font-size: 24px !important; }
+
+  
+  [data-section-pad] { padding-left: 16px !important; padding-right: 16px !important; }
+}
+
+
+
+
+
+
+.tool-card-link { position: absolute; inset: 0; z-index: 1; border-radius: 10px; }
+.tool-name { font-size: 18px; font-weight: 600; color: #ffffff; line-height: 1.2; margin: 3px 0 10px; }
+.link-sep { color: rgba(255,255,255,0.25); font-size: 13px; }
+.link-renaming { color: #0ea5e9; text-decoration: none; font-weight: 700; font-size: 13px; }
+.link-collider { color: #22c55e; text-decoration: none; font-weight: 700; font-size: 13px; }
+.link-export { color: #e8821e; text-decoration: none; font-weight: 700; font-size: 13px; }
+.link-camera { color: #f0c832; text-decoration: none; font-weight: 700; font-size: 13px; }
+.link-pbr { color: #ec4899; text-decoration: none; font-weight: 700; font-size: 13px; }
+.link-uv { color: #a855f7; text-decoration: none; font-weight: 700; font-size: 13px; }
+.link-brand { color: #3b82f6; text-decoration: none; font-weight: 700; font-size: 13px; }
+
+
+.pill-free { display: inline-block; background: rgba(34,197,94,0.14); border: 1px solid rgba(34,197,94,0.4); color: #bbf7d0; padding: 3px 10px; border-radius: 12px; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; }
+.pill-paid { display: inline-block; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); color: #d7d9e0; padding: 3px 10px; border-radius: 12px; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; }
+
+
+.skill-icon-badge { flex-shrink: 0; width: 44px; height: 44px; border-radius: 10px; background: rgba(59,130,246,0.14); border: 1px solid #3b82f6; display: flex; align-items: center; justify-content: center; }
+.grid-card-title--flush { margin-bottom: 0; }
+
+
+.credit-chip { display: inline-block; background: rgba(28,30,36,0.75); border: 1px solid #3b82f6; border-radius: 6px; padding: 6px 12px; margin: 0 4px 8px; font-size: 12px; font-weight: 700; color: #e8e9ee; }
+
+
+.quote-byline { display: flex; flex-direction: column; gap: 1px; }
+.quote-name { font-size: 14px; font-weight: 700; color: #e8e9ee; }
+.quote-name a { color: #3b82f6; text-decoration: none; font-weight: 700; }
+.quote-role { font-size: 13px; color: #9a9da6; line-height: 1.4; }
+
+
+.avatar-link { display: block; flex-shrink: 0; width: 40px; height: 40px; margin-right: 12px; border-radius: 50%; overflow: hidden; }
+.avatar-link .avatar { margin: 0; transition: transform .4s ease; }
+.avatar-link:hover .avatar { transform: scale(1.12); }
+
+
+
+
+.card-mentorship { background: #3b82f6; }
+.grid-card-body--on-accent { color: #ffffff; }
+.card-mentorship-cta { margin: 10px 0 0; }
+.link-on-accent { color: #ffffff; text-decoration: underline; font-weight: 700; font-size: 13px; }
+
+
+.past-projects-content { position: relative; max-width: 720px; padding: 0 34px 46px; text-align: center; }
+.past-projects-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 3px; color: #3b82f6; margin-bottom: 10px; text-shadow: 0 1px 8px rgba(0,0,0,0.9); }
+.past-projects-title { margin: 0 0 14px; font-size: 30px; font-weight: 900; color: #ffffff; line-height: 1.25; text-shadow: 0 2px 14px rgba(0,0,0,0.7); }
+.past-projects-body { margin: 0 0 20px; max-width: 600px; margin-left: auto; margin-right: auto; font-size: 16px; color: #d7d9e0; line-height: 1.6; text-shadow: 0 1px 8px rgba(0,0,0,0.7); }
+.past-projects-cta { margin: 16px 0 0; }
+.link-artstation { color: #3b82f6; text-decoration: none; font-weight: 700; font-size: 13px; text-shadow: 0 1px 8px rgba(0,0,0,0.9); }
+
+
+.skills-group-label { text-align: center; margin-bottom: 16px; }
+.skills-group-label--top { margin-top: 30px; }
+.skill-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+
+
+.tool-badge-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.tool-wordmark { font-size: 24px; font-weight: 900; line-height: 1; letter-spacing: 0.4px; }
+.tool-wordmark--renaming { color: #0ea5e9; }
+.tool-wordmark--collider { color: #22c55e; }
+.tool-wordmark--export { color: #e8821e; }
+.tool-wordmark--camera { color: #f0c832; }
+.tool-wordmark--pbr { color: #ec4899; }
+.tool-wordmark--uv { color: #a855f7; }
+.tool-wordmark--brand { font-size: 19px; color: #3b82f6; }
+.badge-closed-alpha { display: inline-block; background: rgba(236,72,153,0.14); border: 1px solid rgba(236,72,153,0.4); color: #fbcfe8; padding: 3px 10px; border-radius: 12px; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; }
+.icon-box { flex-shrink: 0; width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+.icon-box--renaming { background: rgba(14,165,233,0.16); border: 1px solid #0ea5e9; }
+.icon-box--collider { background: rgba(34,197,94,0.16); border: 1px solid #22c55e; }
+.icon-box--export { background: rgba(232,130,30,0.16); border: 1px solid #e8821e; }
+.icon-box--camera { background: rgba(240,200,50,0.16); border: 1px solid #f0c832; }
+.icon-box--pbr { background: rgba(236,72,153,0.16); border: 1px solid #ec4899; }
+.icon-box--uv { background: rgba(168,85,247,0.16); border: 1px solid #a855f7; }
+.tool-card-footer { position: relative; z-index: 2; display: flex; align-items: center; gap: 10px; margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.09); }
+.tool-card-footer--plain { position: relative; z-index: 2; display: flex; align-items: center; flex-wrap: wrap; row-gap: 6px; column-gap: 10px; margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.09); }
+
+.tool-card-footer--stacked { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.09); }
+.hairline-divider { height: 1px; background: rgba(255,255,255,0.09); margin: 36px 0; }
+.section-subtitle--pulled-up { margin-top: -6px; }
+.grid-card-body--spaced { margin-top: 8px; }
+.pill-row--spaced { margin-top: 24px; }
+
+
+.mentoring-cta { margin: 22px 0 0; }
+.button-primary--large { font-size: 16px; padding: 16px 36px; }
+
+
+.section--no-top-pad { padding-top: 0; }
+.discord-box { max-width: 720px; margin: 0 auto; background: #5865f2; border-radius: 14px; padding: 40px 34px; text-align: center; }
+.discord-logo { margin-bottom: 14px; }
+.discord-title { font-size: 22px; font-weight: 900; color: #ffffff; margin-bottom: 10px; }
+.discord-body { margin: 0 0 22px; max-width: 480px; margin-left: auto; margin-right: auto; font-size: 14px; color: #e3e5fc; line-height: 1.6; }
+.discord-button { display: inline-block; background: #ffffff; color: #5865f2 !important; text-decoration: none; padding: 13px 26px; border-radius: 8px; font-size: 14px; font-weight: 700; }
+.legal-footer { background: #000000; padding: 20px 30px; text-align: center; }
+.legal-footer-link { color: #9a9da6; text-decoration: none; font-size: 12px; }
+
+
+[data-hover-zoom] img { transition: transform .5s ease; }
+[data-hover-zoom]:hover img { transform: scale(1.04); }
 @media (prefers-reduced-motion: reduce) {
-    [data-hover-zoom]:hover img {
-        transform: none !important;
-        transition: none !important
-        }
-    }</style>
+  [data-hover-zoom]:hover img { transform: none !important; transition: none !important; }
+  .avatar-link:hover .avatar { transform: none !important; transition: none !important; }
+}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Alpine Empire", "url": "https://alpineempire.eu/", "founder": {"@type": "Person", "name": "Matthias Patscheider"}, "sameAs": ["https://www.artstation.com/matthias-patscheider", "https://superhivemarket.com/creators/matthias-patscheider", "https://github.com/Weisl", "https://gumroad.com/weisl", "https://discord.gg/VRzdcFpczm"]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Matthias Patscheider", "url": "https://alpineempire.eu/", "jobTitle": "3D Environment \u0026 Technical Artist", "worksFor": {"@type": "Organization", "name": "Alpine Empire"}, "sameAs": ["https://www.artstation.com/matthias-patscheider", "https://superhivemarket.com/creators/matthias-patscheider", "https://github.com/Weisl", "https://gumroad.com/weisl", "https://discord.gg/VRzdcFpczm"]}</script>
 </head>
 <body>
-<!-- Generated from src/alpine-empire.html + src/common.css + src/alpine-empire.css — edit those, not this file. Rebuild with: venv/bin/python store_pages/src/build.py alpine-empire -->
-<div style='background:#16171c; color:#e8e9ee; font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; padding:0; margin:0; max-width:100%; overflow:hidden'>
+<!-- Generated from src/alpine-empire.html + src/common.css + src/alpine-empire.css by deploy_to_docs.py — edit those, not this file. -->
+<div class="page">
   <style>
     .site-nav { position: sticky; top: 0; z-index: 100; background: #16171c; border-bottom: 1px solid #34363e; }
     .site-nav-inner { max-width: 1160px; margin: 0 auto; position: relative; display: flex; align-items: center; gap: 24px; padding: 12px 30px; }
@@ -161,58 +501,64 @@
       </nav>
     </div>
   </header>
+  <main>
 
   <!-- Hero: the two wrapper divs' own background (photo + gradient scrim)
        stay literal inline style="" — one-off values, and linear-gradient is
        the one thing this pipeline's cssutils note (top of common.css) says
        to route around a class for. Everything else here (the text column's
-       padding, both wordmark lines, the lede) is classed in
-       alpine-empire.css, verified to inline correctly. Unlike the product
-       pages, both wordmark lines are the same size/weight here: Alpine
-       Empire is the master brand, not a "SIMPLE + product name" pairing, so
-       there's no lesser word to de-emphasize. Full-bleed background is
-       Matthias's own "Verdant Realms" environment art (ArtStation) — not
-       stock/generic — chosen because it's literally alpine terrain.
-       Gradient overlay is a left-to-right dark→transparent wash (not the
-       old solid-panel split) so the photo reads across the whole hero while
-       the headline stays legible; stop percentages assume Superhive's
-       ~900px-ish product-page width. -->
-  <div style="position:relative;min-height:460px;overflow:hidden;">
+       padding, both wordmark lines, the lede) is classed in common.css,
+       shared with Mentoring's hero — verified to inline correctly. Unlike
+       the product pages, both wordmark lines are the same size/weight here:
+       Alpine Empire is the master brand, not a "SIMPLE + product name"
+       pairing, so there's no lesser word to de-emphasize. Full-bleed
+       background is Matthias's own "Verdant Realms" environment art
+       (ArtStation) — not stock/generic — chosen because it's literally
+       alpine terrain. Gradient overlay is a left-to-right dark→transparent
+       wash (not the old solid-panel split) so the photo reads across the
+       whole hero while the headline stays legible; stop percentages assume
+       Superhive's ~900px-ish product-page width. Mentoring's hero uses this
+       exact same wash recipe (see mentoring.html), so the two pages read as
+       one stylistic language instead of one looking like a photo and the
+       other like a flat panel. The photo sits on its own data-parallax
+       layer, oversized 70px past each edge with background-attachment:fixed
+       as the no-JS fallback, so deploy_to_docs.py's parallax script can move
+       it slower than scroll on docs/ (Superhive just gets the fixed look). -->
+  <div style="position:relative;min-height:480px;overflow:hidden;">
     <div data-parallax data-parallax-js style="position:absolute;top:-70px;right:0;bottom:-70px;left:0;background:#1c1e24 url('/images/alpine_empire/hero_banner.jpg') center 30%/cover no-repeat fixed;"></div>
     <div style="position:absolute;inset:0;background:linear-gradient(100deg, rgba(8,9,12,0.82) 0%, rgba(8,9,12,0.68) 45%, rgba(8,9,12,0.46) 68%, rgba(8,9,12,0.05) 100%);"></div>
-    <div data-section-pad style="position:relative; max-width:620px; padding:72px 34px 72px 30px">
-      <h1 style="margin:0 0 22px; line-height:1">
-        <span style="display:flex; align-items:center; gap:14px">
-          <span data-heading="display" style='font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-size:58px; font-weight:900; line-height:1; text-shadow:0 2px 14px rgba(0, 0, 0, 0.6); color:#3b82f6'>ALPINE</span>
-          <svg width="42" height="42" viewbox="0 0 44 44" style="flex-shrink:0">
+    <div class="hero-photo-content" data-section-pad>
+      <h1 class="hero-photo-heading">
+        <span class="hero-wordmark-row">
+          <span class="hero-photo-word" data-heading="display">ALPINE</span>
+          <svg width="42" height="42" viewBox="0 0 44 44" class="hero-icon-svg">
             <path d="M4 34 L15 14 L22 25 L28 16 L40 34 Z" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"></path>
           </svg>
         </span>
-        <span data-heading="display" style='font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-size:58px; font-weight:900; line-height:1; text-shadow:0 2px 14px rgba(0, 0, 0, 0.6); display:block; color:#fff; margin-top:4px'>EMPIRE</span>
+        <span class="hero-photo-word hero-photo-word--white" data-heading="display">EMPIRE</span>
       </h1>
-      <p style="margin:0; max-width:460px; font-size:18px; color:#d7d9e0; line-height:1.6; text-shadow:0 1px 8px rgba(0, 0, 0, 0.7)">Drawing on a decade of experience in creating immersive, believable, and enjoyable game environments, I took a risk and established Alpine Empire. My professional project's goal is to create cutting-edge 3D environment art and game art tools, as well as to provide mentorship for the new generation of world builders.</p>
+      <p class="hero-photo-lede">Drawing on a decade of experience in creating immersive, believable, and enjoyable game environments, I took a risk and established Alpine Empire. My professional project's goal is to create cutting-edge 3D environment art and game art tools, as well as to provide mentorship for the new generation of world builders.</p>
     </div>
   </div>
-  <div style="height:3px; background:#3b82f6"></div>
+  <div class="divider-accent"></div>
 
   <!-- Who Is Alpine Empire -->
-  <div data-section-pad style="background:#1c1e24; padding:56px 30px">
-    <table role="presentation" data-stack-grid="cards" style="max-width:960px; margin:0 auto; width:100%; border-collapse:collapse; border:0">
+  <div class="section section--alt" data-section-pad>
+    <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
-          <td style="vertical-align:middle; width:42%; padding-right:34px; border:none">
-            <div data-hover-zoom style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
-              <img src="/images/alpine_empire/aboutme_portrait_small.jpg" alt="Portrait of Matthias Patscheider" style="transition:transform 0.5s ease; width:100%; display:block">
+          <td class="feature-media-cell">
+            <div class="feature-media" data-hover-zoom>
+              <img src="/images/alpine_empire/aboutme_portrait_small.jpg" alt="Portrait of Matthias Patscheider">
             </div>
           </td>
-          <td style="vertical-align:middle; width:58%; border:none">
-            <div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#3b82f6">WHO IS ALPINE EMPIRE</div>
-            <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">Matthias<br>Patscheider</h2>
-            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7; margin-bottom:20px">Born and raised in the narrow, picturesque valleys of the Alps, among rugged peaks, historic farmhouses, and medieval castles — a landscape that shaped a lifelong passion for crafting believable worlds.</p>
-            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7; margin-bottom:20px">Alpine Empire is built on a decade of game development experience, from small startups to AAA titles, shaping worlds, levels, and pipelines at every stage of production. As an Environment Artist, I've contributed to titles such as Alan Wake 2, FBC Firebreak, Black Mirror, and Crossfire X, plus VR training projects.</p>
-            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7">World-building sits at the heart of it all: I research and understand environments to create spaces that feel authentic. I pair that with building workflows and tools that push what's possible, always in close collaboration with teams, directors, leads, and producers.</p>
-            <div style="background:#24262d; border:1px solid #34363e; border-left:3px solid #3b82f6; border-radius:8px; padding:14px 18px; font-size:14px; color:#d7d9e0; line-height:1.6">
-<strong style="color:#3b82f6">Open Source &amp; Knowledge Sharing.</strong> I use the best tool for the job, favoring open source and European alternatives where they hold up.</div>
+          <td class="feature-content-cell">
+            <div class="eyebrow">WHO IS ALPINE EMPIRE</div>
+            <h2 class="feature-title" data-heading="title">Matthias<br>Patscheider</h2>
+            <p class="feature-body feature-body--tight">Born and raised in the narrow, picturesque valleys of the Alps, among rugged peaks, historic farmhouses, and medieval castles — a landscape that shaped a lifelong passion for crafting believable worlds.</p>
+            <p class="feature-body feature-body--tight">Alpine Empire is built on a decade of game development experience, from small startups to AAA titles, shaping worlds, levels, and pipelines at every stage of production. As an Environment Artist, I've contributed to titles such as Alan Wake 2, FBC Firebreak, Black Mirror, and Crossfire X, plus VR training projects.</p>
+            <p class="feature-body">World-building sits at the heart of it all: I research and understand environments to create spaces that feel authentic. I pair that with building workflows and tools that push what's possible, always in close collaboration with teams, directors, leads, and producers.</p>
+            <div class="callout"><strong>Open Source &amp; Knowledge Sharing.</strong> I use the best tool for the job, favoring open source and European alternatives where they hold up.</div>
           </td>
         </tr>
       </tbody>
@@ -220,35 +566,35 @@
   </div>
 
   <!-- What I Do -->
-  <div data-section-pad style="background:#16171c; padding:56px 30px; border-top:1px solid #34363e">
-    <h2 data-heading="title" style="margin:0 0 8px; font-size:32px; font-weight:900; color:#fff; text-align:center">What I Offer</h2>
-    <p style="margin:0 0 36px; font-size:15px; color:#9a9da6; text-align:center">Four ways to collaborate.</p>
-    <table role="presentation" data-stack-grid="cards" style="max-width:920px; margin:0 auto; width:100%; border-collapse:separate; border-spacing:10px; border:0">
+  <div class="section section--hairline" data-section-pad>
+    <h2 class="section-title" data-heading="title">What I Offer</h2>
+    <p class="section-subtitle--tight">Four ways to collaborate.</p>
+    <table class="wide-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:25%">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Level Art</div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Crafting realistic, high-quality worlds with player experience in mind, from blockout to polish.</div>
+          <td class="grid-card grid-card--top w25">
+            <div class="grid-card-title">Level Art</div>
+            <div class="grid-card-body">Crafting realistic, high-quality worlds with player experience in mind, from blockout to polish.</div>
           </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:25%">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Environment Art</div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Creating 3D content: assets, modular kits, foliage, PBR materials, shaders and procedural tools optimized for performance.</div>
+          <td class="grid-card grid-card--top w25">
+            <div class="grid-card-title">Environment Art</div>
+            <div class="grid-card-body">Creating 3D content: assets, modular kits, foliage, PBR materials, shaders and procedural tools optimized for performance.</div>
           </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:25%">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Pipeline &amp; Tools</div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Ready-to-use Blender tools for common pipeline challenges, or custom pipelines, documentation, and tooling built for your studio.</div>
+          <td class="grid-card grid-card--top w25">
+            <div class="grid-card-title">Pipeline &amp; Tools</div>
+            <div class="grid-card-body">Ready-to-use Blender tools for common pipeline challenges, or custom pipelines, documentation, and tooling built for your studio.</div>
           </td>
-          <td style="background:#3b82f6; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:25%">
-            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:6px">Mentoring &amp; Workshops</div>
-            <div style="font-size:13px; color:#fff; line-height:1.6">1:1 mentoring, team training, or expert presentations on 3D content creation, world-building and pipelines.</div>
-            <p style="margin:10px 0 0"><a href="/mentoring.html" style="color:#fff; text-decoration:underline; font-weight:700; font-size:13px">Learn More ↗</a></p>
+          <td class="grid-card grid-card--top w25 card-mentorship">
+            <div class="grid-card-title">Mentoring &amp; Workshops</div>
+            <div class="grid-card-body grid-card-body--on-accent">1:1 mentoring, team training, or expert presentations on 3D content creation, world-building and pipelines.</div>
+            <p class="card-mentorship-cta"><a href="/mentoring.html" class="link-on-accent">Learn More ↗</a></p>
           </td>
         </tr>
       </tbody>
     </table>
-    <p style="text-align:center; font-size:13px; color:#9a9da6; max-width:560px; margin:26px auto 0">On game projects, I prefer working directly within teams, especially on long-term freelance or contract collaborations. Got a question or a project in mind? Feel free to <a href="#contact" style="color:#3b82f6; text-decoration:none; font-weight:700; font-size:13px">reach out</a>.</p>
+    <p class="support-note">On game projects, I prefer working directly within teams, especially on long-term freelance or contract collaborations. Got a question or a project in mind? Feel free to <a href="#contact" class="support-link">reach out</a>.</p>
   </div>
-  <div style="height:3px; background:#3b82f6"></div>
+  <div class="divider-accent"></div>
 
   <!-- Past Projects: same inline/class split as the hero above — photo +
        gradient scrim stay inline, the text column is classed. Background is
@@ -260,62 +606,148 @@
   <div style="position:relative;width:100%;aspect-ratio:3/1;min-height:460px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;">
     <div data-parallax data-parallax-js style="position:absolute;top:-70px;right:0;bottom:-70px;left:0;background:#1c1e24 url('/images/alpine_empire/GameBanner.jpg') center 42%/cover no-repeat fixed;"></div>
     <div style="position:absolute;inset:0;background:linear-gradient(0deg, rgba(8,9,12,0.94) 0%, rgba(8,9,12,0.5) 45%, rgba(8,9,12,0.05) 72%);"></div>
-    <div data-section-pad style="position:relative; max-width:720px; padding:0 34px 46px; text-align:center">
-      <div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#3b82f6; margin-bottom:10px; text-shadow:0 1px 8px rgba(0, 0, 0, 0.9)">PAST PROJECTS</div>
-      <h2 data-heading="title" style="margin:0 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.25; text-shadow:0 2px 14px rgba(0, 0, 0, 0.7)">A Decade Building Game Worlds</h2>
-      <p style="margin:0 0 20px; max-width:600px; margin-left:auto; margin-right:auto; font-size:16px; color:#d7d9e0; line-height:1.6; text-shadow:0 1px 8px rgba(0, 0, 0, 0.7)">Before Alpine Empire, I built worlds for the dark, surreal, New York-inspired streets of Alan Wake 2, the fractured Bureau of FBC Firebreak, and the haunted Victorian halls of the gothic horror-adventure Black Mirror.</p>
+    <div class="past-projects-content" data-section-pad>
+      <div class="past-projects-eyebrow">PAST PROJECTS</div>
+      <h2 class="past-projects-title" data-heading="title">A Decade Building Game Worlds</h2>
+      <p class="past-projects-body">Before Alpine Empire, I built worlds for the dark, surreal, New York-inspired streets of Alan Wake 2, the fractured Bureau of FBC Firebreak, and the haunted Victorian halls of the gothic horror-adventure Black Mirror.</p>
       <div>
-        <span style="display:inline-block; background:rgba(28, 30, 36, 0.75); border:1px solid #3b82f6; border-radius:6px; padding:6px 12px; margin:0 4px 8px; font-size:12px; font-weight:700; color:#e8e9ee">ALAN WAKE 2</span>
-        <span style="display:inline-block; background:rgba(28, 30, 36, 0.75); border:1px solid #3b82f6; border-radius:6px; padding:6px 12px; margin:0 4px 8px; font-size:12px; font-weight:700; color:#e8e9ee">FBC FIREBREAK</span>
-        <span style="display:inline-block; background:rgba(28, 30, 36, 0.75); border:1px solid #3b82f6; border-radius:6px; padding:6px 12px; margin:0 4px 8px; font-size:12px; font-weight:700; color:#e8e9ee">BLACK MIRROR</span>
-        <span style="display:inline-block; background:rgba(28, 30, 36, 0.75); border:1px solid #3b82f6; border-radius:6px; padding:6px 12px; margin:0 4px 8px; font-size:12px; font-weight:700; color:#e8e9ee">VR TRAININGS</span>
-        <span style="display:inline-block; background:rgba(28, 30, 36, 0.75); border:1px solid #3b82f6; border-radius:6px; padding:6px 12px; margin:0 4px 8px; font-size:12px; font-weight:700; color:#e8e9ee">...</span>
+        <span class="credit-chip">ALAN WAKE 2</span>
+        <span class="credit-chip">FBC FIREBREAK</span>
+        <span class="credit-chip">BLACK MIRROR</span>
+        <span class="credit-chip">VR TRAININGS</span>
+        <span class="credit-chip">...</span>
       </div>
-      <p style="margin:16px 0 0"><a href="https://www.artstation.com/matthias-patscheider" target="_blank" rel="noopener noreferrer" style="color:#3b82f6; text-decoration:none; font-weight:700; font-size:13px; text-shadow:0 1px 8px rgba(0, 0, 0, 0.9)">See the Full Portfolio on ArtStation ↗</a></p>
+      <p class="past-projects-cta"><a href="https://www.artstation.com/matthias-patscheider" class="link-artstation" target="_blank" rel="noopener noreferrer">See the Full Portfolio on ArtStation ↗</a></p>
     </div>
   </div>
-  <div style="height:3px; background:#3b82f6"></div>
+  <div class="divider-accent"></div>
+
+  <!-- What Collaborators Say: LinkedIn recommendations from directors, leads
+       and artists Matthias has worked with (the FBC: Firebreak team at Remedy,
+       plus colleagues from other studios). Reuses common.css's .quote-list / .quote-card /
+       .quote-text plus the shared .avatar-row / .avatar round portrait — the
+       same vocabulary as the Mentoring page's "What Mentees Say" and Simple
+       Collider's testimonials — so the pages read as one system. Only the
+       two-line byline is page-specific (.quote-byline / .quote-name /
+       .quote-role in alpine-empire.css): a professional recommendation needs
+       the recommender's role and studio to carry weight, where the mentoring
+       page shows a bare name. Both the name and the portrait (.avatar-link,
+       zooms on hover) link to that person's LinkedIn profile — the
+       recommendations originate there. Portraits live in
+       docs/images/alpine_empire/testimonials/ and are served from the
+       weisl.github.io host like every other image on this page. --alt
+       background + the following section's section--hairline separate this
+       from the plain-bg Skills section below without another divider — same
+       pattern as "Who Is Alpine Empire" → "What I Offer" above. -->
+  <div class="section section--alt" data-section-pad>
+    <h2 class="section-title" data-heading="title">What Collaborators Say</h2>
+    <p class="section-subtitle--tight">Recommendations from the art directors, leads, and designers I've worked alongside.</p>
+    <table class="quote-list" role="presentation">
+      <tbody>
+        <tr><td class="quote-card">
+          <p class="quote-text">"I was Art Director for Matthias on FBC: Firebreak and its DLC, where he worked as an Environment Artist. He took real ownership of large parts of levels and carried them all the way, and his propping and visual storytelling gave those spaces a lot of character. Technically minded as well, he adapted workflows to suit whatever the levels needed and made production quicker for it. A clear communicator and a dependable artist to have on your team!"</p>
+          <div class="avatar-row">
+            <a class="avatar-link" href="https://www.linkedin.com/in/patrikrosander" target="_blank" rel="noopener noreferrer" aria-label="Patrik Rosander on LinkedIn">
+              <img class="avatar" src="/images/alpine_empire/testimonials/patrick_rosander.jpg" alt="Patrik Rosander" loading="lazy" decoding="async">
+            </a>
+            <div class="quote-byline">
+              <span class="quote-name"><a href="https://www.linkedin.com/in/patrikrosander" target="_blank" rel="noopener noreferrer">Patrik Rosander</a></span>
+              <span class="quote-role">Art Director, Remedy Entertainment</span>
+            </div>
+          </div>
+        </td></tr>
+        <tr><td class="quote-card">
+          <p class="quote-text">"Matthias is one of the most talented, dedicated and spot-on 3D Artists I ever had the pleasure to work with. He quickly grasps the essentials of any assignment, has an excellent eye for detail and proportion and his work is always top-notch. Matthias is very dedicated to quality, a fast learner that rises up to any challenge. On top of that, he is just a wonderful human being who is a joy to work with."</p>
+          <div class="avatar-row">
+            <a class="avatar-link" href="https://www.linkedin.com/in/daniel-boesze-b50193139/" target="_blank" rel="noopener noreferrer" aria-label="Daniel Boesze on LinkedIn">
+              <img class="avatar" src="/images/alpine_empire/testimonials/daniel_boesze.jpg" alt="Daniel Boesze" loading="lazy" decoding="async">
+            </a>
+            <div class="quote-byline">
+              <span class="quote-name"><a href="https://www.linkedin.com/in/daniel-boesze-b50193139/" target="_blank" rel="noopener noreferrer">Daniel Boesze</a></span>
+              <span class="quote-role">Principal Environment Artist, Maverick Games</span>
+            </div>
+          </div>
+        </td></tr>
+        <tr><td class="quote-card">
+          <p class="quote-text">"I had the pleasure of being the Lead Environment Artist for Matthias during the production of FBC: Firebreak at Remedy Entertainment. In a smaller team like ours, having someone like him with both high technical capabilities and artistical talent ended up being invaluable. It made a big difference to us as a team and helped push FBC: Firebreak beyond what we had hoped for. As a team member Matthias is sharp, very detail- and solutions-oriented, creative, passionate and self-driven. We had a really good and strong collaboration all throughout our time together on the project."</p>
+          <div class="avatar-row">
+            <a class="avatar-link" href="https://www.linkedin.com/in/maikkiharju/" target="_blank" rel="noopener noreferrer" aria-label="Maikki Rinkkala on LinkedIn">
+              <img class="avatar" src="/images/alpine_empire/testimonials/maikki_rinkkala.jpg" alt="Maikki Rinkkala" loading="lazy" decoding="async">
+            </a>
+            <div class="quote-byline">
+              <span class="quote-name"><a href="https://www.linkedin.com/in/maikkiharju/" target="_blank" rel="noopener noreferrer">Maikki Rinkkala</a></span>
+              <span class="quote-role">Lead Environment Artist, Remedy Entertainment</span>
+            </div>
+          </div>
+        </td></tr>
+        <tr><td class="quote-card">
+          <p class="quote-text">"I had the absolute joy of collaborating with Matthias on three different projects at Remedy Entertainment. Matthias is a seasoned professional who brings deep knowledge of art and design to every discussion. He's also one of the strongest team players I've had the pleasure of working with, and a confident decision-maker. He possesses exceptional technical talent, attention to detail, and the grit to go the extra mile to realize his vision. On top of all this, his easygoing and pleasant personality makes collaboration a breeze! We tackled every creative challenge together and I feel I learned a great deal in the process."</p>
+          <div class="avatar-row">
+            <a class="avatar-link" href="https://www.linkedin.com/in/teemu-huhtiniemi-41997577/" target="_blank" rel="noopener noreferrer" aria-label="Teemu Huhtiniemi on LinkedIn">
+              <img class="avatar" src="/images/alpine_empire/testimonials/teemu_hyhtiniemi.jpg" alt="Teemu Huhtiniemi" loading="lazy" decoding="async">
+            </a>
+            <div class="quote-byline">
+              <span class="quote-name"><a href="https://www.linkedin.com/in/teemu-huhtiniemi-41997577/" target="_blank" rel="noopener noreferrer">Teemu Huhtiniemi</a></span>
+              <span class="quote-role">Principal Level Designer, Remedy Entertainment</span>
+            </div>
+          </div>
+        </td></tr>
+        <tr><td class="quote-card">
+          <p class="quote-text">"I had the pleasure of working with Matthias over several years and on multiple projects, and I can say without hesitation that it has been a privilege. Matthias brings both the technical knowledge and the artistic sensibility to be an excellent addition to any team, and his willingness to go the extra mile is something you really appreciate when working in a small team!"</p>
+          <div class="avatar-row">
+            <a class="avatar-link" href="https://www.linkedin.com/in/jtottman/" target="_blank" rel="noopener noreferrer" aria-label="James Tottman on LinkedIn">
+              <img class="avatar" src="/images/alpine_empire/testimonials/james_tottman.jpg" alt="James Tottman" loading="lazy" decoding="async">
+            </a>
+            <div class="quote-byline">
+              <span class="quote-name"><a href="https://www.linkedin.com/in/jtottman/" target="_blank" rel="noopener noreferrer">James Tottman</a></span>
+              <span class="quote-role">Principal VFX Artist, Remedy Entertainment</span>
+            </div>
+          </div>
+        </td></tr>
+      </tbody>
+    </table>
+  </div>
 
   <!-- Skills -->
-  <div data-section-pad style="background:#16171c; padding:56px 30px">
-    <h2 data-heading="title" style="margin:0 0 8px; font-size:32px; font-weight:900; color:#fff; text-align:center">Skills</h2>
-    <p style="margin:0 0 36px; font-size:15px; color:#9a9da6; text-align:center">What I build, and how I work.</p>
+  <div class="section section--hairline" data-section-pad>
+    <h2 class="section-title" data-heading="title">Skills</h2>
+    <p class="section-subtitle--tight">What I build, and how I work.</p>
 
-    <div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#3b82f6; text-align:center; margin-bottom:16px">HARD SKILLS</div>
-    <table role="presentation" data-stack-grid="cards" style="max-width:820px; margin:0 auto; width:100%; border-collapse:separate; border-spacing:12px; border:0">
+    <div class="eyebrow skills-group-label">HARD SKILLS</div>
+    <table class="fit-grid" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:33%">
-            <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px">
-              <span style="flex-shrink:0; width:44px; height:44px; border-radius:10px; background:rgba(59, 130, 246, 0.14); border:1px solid #3b82f6; display:flex; align-items:center; justify-content:center">
-                <svg width="22" height="22" viewbox="0 0 44 44">
+          <td class="grid-card grid-card--top w33">
+            <div class="skill-header">
+              <span class="skill-icon-badge">
+                <svg width="22" height="22" viewBox="0 0 44 44">
                   <rect x="6" y="6" width="32" height="32" rx="2" fill="none" stroke="#3b82f6" stroke-width="2.5"></rect>
                   <path d="M12 30 L18 20 L24 26 L32 12" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"></path>
                   <circle cx="32" cy="12" r="2.5" fill="#3b82f6"></circle>
                 </svg>
               </span>
-              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:0">Level Art &amp; Design</div>
+              <div class="grid-card-title grid-card-title--flush">Level Art &amp; Design</div>
             </div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Building gameplay-driven levels and modular kits, with combat, metrics, and player guidance in mind, from first blockout to final polish. I managed and shipped key levels for several games, including Alan Wake 2's Dark Place.</div>
+            <div class="grid-card-body">Building gameplay-driven levels and modular kits, with combat, metrics, and player guidance in mind, from first blockout to final polish. I managed and shipped key levels for several games, including Alan Wake 2's Dark Place.</div>
           </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:33%">
-            <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px">
-              <span style="flex-shrink:0; width:44px; height:44px; border-radius:10px; background:rgba(59, 130, 246, 0.14); border:1px solid #3b82f6; display:flex; align-items:center; justify-content:center">
-                <svg width="22" height="22" viewbox="0 0 44 44">
+          <td class="grid-card grid-card--top w33">
+            <div class="skill-header">
+              <span class="skill-icon-badge">
+                <svg width="22" height="22" viewBox="0 0 44 44">
                   <rect x="4" y="4" width="16" height="16" rx="2" fill="#3b82f6"></rect>
                   <rect x="24" y="4" width="16" height="16" rx="2" fill="none" stroke="#3b82f6" stroke-width="2.5"></rect>
                   <rect x="4" y="24" width="16" height="16" rx="2" fill="none" stroke="#3b82f6" stroke-width="2.5"></rect>
                   <rect x="24" y="24" width="16" height="16" rx="2" fill="#3b82f6"></rect>
                 </svg>
               </span>
-              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:0">Asset Creation</div>
+              <div class="grid-card-title grid-card-title--flush">Asset Creation</div>
             </div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Crafting modular architectural kits, PBR materials, hard-surface machinery, props and foliage, I can create highest quality assets and materials if needed, preferably using non-destructive workflows.</div>
+            <div class="grid-card-body">Crafting modular architectural kits, PBR materials, hard-surface machinery, props and foliage, I can create highest quality assets and materials if needed, preferably using non-destructive workflows.</div>
           </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:33%">
-            <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px">
-              <span style="flex-shrink:0; width:44px; height:44px; border-radius:10px; background:rgba(59, 130, 246, 0.14); border:1px solid #3b82f6; display:flex; align-items:center; justify-content:center">
-                <svg width="22" height="22" viewbox="0 0 44 44">
+          <td class="grid-card grid-card--top w33">
+            <div class="skill-header">
+              <span class="skill-icon-badge">
+                <svg width="22" height="22" viewBox="0 0 44 44">
                   <rect x="4" y="17" width="10" height="10" rx="2" fill="none" stroke="#3b82f6" stroke-width="2.5"></rect>
                   <rect x="30" y="6" width="10" height="10" rx="2" fill="none" stroke="#3b82f6" stroke-width="2.5"></rect>
                   <rect x="30" y="28" width="10" height="10" rx="2" fill="none" stroke="#3b82f6" stroke-width="2.5"></rect>
@@ -323,53 +755,53 @@
                   <line x1="14" y1="22" x2="30" y2="33" stroke="#3b82f6" stroke-width="2"></line>
                 </svg>
               </span>
-              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:0">Proceduralism</div>
+              <div class="grid-card-title grid-card-title--flush">Proceduralism</div>
             </div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">A systemic approach to content creation without compromising art directability. Creating bespoke solutions or a generic library of reusable tools with Houdini or Blender Geometry Nodes.</div>
+            <div class="grid-card-body">A systemic approach to content creation without compromising art directability. Creating bespoke solutions or a generic library of reusable tools with Houdini or Blender Geometry Nodes.</div>
           </td>
         </tr>
       </tbody>
     </table>
 
-    <div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#3b82f6; text-align:center; margin-bottom:16px; margin-top:30px">SOFT SKILLS</div>
-    <table role="presentation" data-stack-grid="cards" style="max-width:820px; margin:0 auto; width:100%; border-collapse:separate; border-spacing:12px; border:0">
+    <div class="eyebrow skills-group-label skills-group-label--top">SOFT SKILLS</div>
+    <table class="fit-grid" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:33%">
-            <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px">
-              <span style="flex-shrink:0; width:44px; height:44px; border-radius:10px; background:rgba(59, 130, 246, 0.14); border:1px solid #3b82f6; display:flex; align-items:center; justify-content:center">
-                <svg width="22" height="22" viewbox="0 0 44 44">
+          <td class="grid-card grid-card--top w33">
+            <div class="skill-header">
+              <span class="skill-icon-badge">
+                <svg width="22" height="22" viewBox="0 0 44 44">
                   <circle cx="22" cy="22" r="16" fill="none" stroke="#3b82f6" stroke-width="2.5"></circle>
                   <polyline points="14,22 20,28 32,14" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"></polyline>
                 </svg>
               </span>
-              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:0">Positive &amp; Solution-Oriented</div>
+              <div class="grid-card-title grid-card-title--flush">Positive &amp; Solution-Oriented</div>
             </div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Open, straightforward, and solution-oriented. I am proactively seeking feedback and staying constructive whenever a challenge shows up.</div>
+            <div class="grid-card-body">Open, straightforward, and solution-oriented. I am proactively seeking feedback and staying constructive whenever a challenge shows up.</div>
           </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:33%">
-            <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px">
-              <span style="flex-shrink:0; width:44px; height:44px; border-radius:10px; background:rgba(59, 130, 246, 0.14); border:1px solid #3b82f6; display:flex; align-items:center; justify-content:center">
-                <svg width="22" height="22" viewbox="0 0 44 44">
+          <td class="grid-card grid-card--top w33">
+            <div class="skill-header">
+              <span class="skill-icon-badge">
+                <svg width="22" height="22" viewBox="0 0 44 44">
                   <circle cx="16" cy="22" r="10" fill="none" stroke="#3b82f6" stroke-width="2.5"></circle>
                   <circle cx="28" cy="22" r="10" fill="none" stroke="#3b82f6" stroke-width="2.5"></circle>
                 </svg>
               </span>
-              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:0">Collaboration &amp; Innovation</div>
+              <div class="grid-card-title grid-card-title--flush">Collaboration &amp; Innovation</div>
             </div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">I work closely with directors, producers, and teams, staying open to new tools and pipelines, proposing better workflows and making sure the work aligns with the creative vision.</div>
+            <div class="grid-card-body">I work closely with directors, producers, and teams, staying open to new tools and pipelines, proposing better workflows and making sure the work aligns with the creative vision.</div>
           </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:33%">
-            <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px">
-              <span style="flex-shrink:0; width:44px; height:44px; border-radius:10px; background:rgba(59, 130, 246, 0.14); border:1px solid #3b82f6; display:flex; align-items:center; justify-content:center">
-                <svg width="22" height="22" viewbox="0 0 44 44">
+          <td class="grid-card grid-card--top w33">
+            <div class="skill-header">
+              <span class="skill-icon-badge">
+                <svg width="22" height="22" viewBox="0 0 44 44">
                   <path d="M22 5 L37 11 L37 22 C37 31 30 38 22 40 C14 38 7 31 7 22 L7 11 Z" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-linejoin="round"></path>
                   <polyline points="14,22 20,28 31,15" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"></polyline>
                 </svg>
               </span>
-              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:0">Ownership &amp; Responsibility</div>
+              <div class="grid-card-title grid-card-title--flush">Ownership &amp; Responsibility</div>
             </div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">I am a reliable, independent teammate who can take full ownership of levels and assets from start to finish, managing time and quality to meet deadlines.</div>
+            <div class="grid-card-body">I am a reliable, independent teammate who can take full ownership of levels and assets from start to finish, managing time and quality to meet deadlines.</div>
           </td>
         </tr>
       </tbody>
@@ -377,56 +809,56 @@
   </div>
 
   <!-- Software -->
-  <div data-section-pad style="background:#1c1e24; padding:56px 30px; border-top:1px solid #34363e">
-    <h2 data-heading="title" style="margin:0 0 8px; font-size:32px; font-weight:900; color:#fff; text-align:center">Software</h2>
-    <p style="margin:0 0 36px; font-size:15px; color:#9a9da6; text-align:center">Primary tools and engines.</p>
-    <table role="presentation" data-stack-grid="cards" style="max-width:920px; margin:0 auto; width:100%; border-collapse:separate; border-spacing:10px; border:0">
+  <div class="section section--alt section--hairline" data-section-pad>
+    <h2 class="section-title" data-heading="title">Software</h2>
+    <p class="section-subtitle--tight">Primary tools and engines.</p>
+    <table class="wide-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:25%">
-            <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px">
-              <span style="flex-shrink:0; width:32px; height:32px; display:flex; align-items:center; justify-content:center">
-                <img src="/images/mentoring/logos/blender.svg" alt="Blender" style="width:100%; height:100%; object-fit:contain; display:block">
+          <td class="grid-card grid-card--top w25">
+            <div class="software-header">
+              <span class="software-logo-badge">
+                <img src="/images/mentoring/logos/blender.svg" alt="Blender" class="software-logo-img" loading="lazy" decoding="async">
               </span>
-              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:0">Blender</div>
+              <div class="grid-card-title grid-card-title--flush">Blender</div>
             </div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Primary DCC, modeling, look dev, and addon development.</div>
+            <div class="grid-card-body">Primary DCC, modeling, look dev, and addon development.</div>
           </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:25%">
-            <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px">
-              <span style="flex-shrink:0; width:32px; height:32px; display:flex; align-items:center; justify-content:center">
-                <img src="/images/mentoring/logos/houdini.svg" alt="Houdini" style="width:100%; height:100%; object-fit:contain; display:block">
+          <td class="grid-card grid-card--top w25">
+            <div class="software-header">
+              <span class="software-logo-badge">
+                <img src="/images/mentoring/logos/houdini.svg" alt="Houdini" class="software-logo-img" loading="lazy" decoding="async">
               </span>
-              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:0">Houdini</div>
+              <div class="grid-card-title grid-card-title--flush">Houdini</div>
             </div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Procedural workflows for modular assets, VFX, and world generation.</div>
+            <div class="grid-card-body">Procedural workflows for modular assets, VFX, and world generation.</div>
           </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:25%">
-            <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px">
-              <span style="flex-shrink:0; width:32px; height:32px; display:flex; align-items:center; justify-content:center">
-                <img src="/images/mentoring/logos/substance.svg" alt="Substance" style="width:100%; height:100%; object-fit:contain; display:block">
+          <td class="grid-card grid-card--top w25">
+            <div class="software-header">
+              <span class="software-logo-badge">
+                <img src="/images/mentoring/logos/substance.svg" alt="Substance" class="software-logo-img" loading="lazy" decoding="async">
               </span>
-              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:0">Substance</div>
+              <div class="grid-card-title grid-card-title--flush">Substance</div>
             </div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Texturing and PBR material authoring.</div>
+            <div class="grid-card-body">Texturing and PBR material authoring.</div>
           </td>
-          <td style="background:#24262d; border:1px solid #34363e; border-radius:12px; padding:20px; vertical-align:top; border-top:3px solid #3b82f6; width:25%">
-            <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px">
-              <span style="flex-shrink:0; width:32px; height:32px; display:flex; align-items:center; justify-content:center">
-                <img src="/images/mentoring/logos/unreal.svg" alt="Unreal Engine" style="width:100%; height:100%; object-fit:contain; display:block">
+          <td class="grid-card grid-card--top w25">
+            <div class="software-header">
+              <span class="software-logo-badge">
+                <img src="/images/mentoring/logos/unreal.svg" alt="Unreal Engine" class="software-logo-img" loading="lazy" decoding="async">
               </span>
-              <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:0">Unreal Engine</div>
+              <div class="grid-card-title grid-card-title--flush">Unreal Engine</div>
             </div>
-            <div style="font-size:13px; color:#9a9da6; line-height:1.6">Level art/design, lighting, material setup, set dressing and performance optimization for a finished real-time scene.</div>
+            <div class="grid-card-body">Level art/design, lighting, material setup, set dressing and performance optimization for a finished real-time scene.</div>
           </td>
         </tr>
       </tbody>
     </table>
-    <p style="max-width:920px; margin:26px auto 0; font-size:13px; font-weight:700; letter-spacing:1px; color:#9a9da6; text-align:center">ADDITIONAL SOFTWARE</p>
-    <p style="max-width:640px; margin:16px auto 0; font-size:14px; color:#9a9da6; line-height:1.7; text-align:center">ZBrush, Speedtree, Gaea, Marvelous Designer, Marmoset Toolbag, Godot, Meshroom, RealityCapture, Agisoft, and Unity — happy to help you pick the right tool for what you're trying to achieve.</p>
+    <p class="tag-list-label">ADDITIONAL SOFTWARE</p>
+    <p class="tool-list-text">ZBrush, Speedtree, Gaea, Marvelous Designer, Marmoset Toolbag, Godot, Meshroom, RealityCapture, Agisoft, and Unity — happy to help you pick the right tool for what you're trying to achieve.</p>
   </div>
 
-  <div style="height:3px; background:#3b82f6"></div>
+  <div class="divider-accent"></div>
 
   <!-- Simple Tools / Simple Utilities: each card is one clickable square to
        the product page. The square itself is a position:relative box with a
@@ -440,43 +872,43 @@
        Simple Tools (standalone add-ons) and Simple Utilities (smaller,
        single-purpose Geometry Nodes packs) — since UV Nodes isn't a full
        add-on like the others. -->
-  <div data-section-pad style="background:#16171c; padding:56px 30px">
-    <h2 data-heading="title" style="margin:0 0 8px; font-size:32px; font-weight:900; color:#fff; text-align:center">Simple Tools</h2>
-    <p style="margin:0 0 30px; font-size:15px; color:#9a9da6; text-align:center">Purpose-built, straightforward tools that plug into any Blender pipeline.</p>
-    <table role="presentation" data-stack-grid="cards" style="max-width:820px; margin:0 auto; width:100%; border-collapse:separate; border-spacing:12px; border:0">
+  <div class="section" data-section-pad>
+    <h2 class="section-title" data-heading="title">Simple Tools</h2>
+    <p class="section-subtitle">Purpose-built, straightforward tools that plug into any Blender pipeline.</p>
+    <table class="fit-grid" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
-          <td data-hover-lift style="transition:transform 0.25s ease; background:linear-gradient(160deg, #2a2d35 0%, #24262d 42%, rgba(14, 165, 233, 0.22) 130%); border:1px solid #34363e; border-radius:10px; padding:20px 22px; vertical-align:top; border-bottom:3px solid #3b82f6; width:50%; position:relative">
-            <a href="/simple-renaming.html" aria-label="Simple Renaming product page" style="position:absolute; inset:0; z-index:1; border-radius:10px"></a>
-            <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap">
-              <div style="font-size:24px; font-weight:900; line-height:1; letter-spacing:0.4px; color:#0ea5e9">SIMPLE</div>
-              <span style="display:inline-block; background:rgba(34, 197, 94, 0.14); border:1px solid rgba(34, 197, 94, 0.4); color:#bbf7d0; padding:3px 10px; border-radius:12px; font-size:10px; font-weight:700; letter-spacing:1.5px">FREE</span>
+          <td class="grid-card grid-card--bottom w50" data-hover-lift style="position:relative;background:linear-gradient(160deg, #2a2d35 0%, #24262d 42%, rgba(14,165,233,0.22) 130%);">
+            <a href="/simple-renaming.html" aria-label="Simple Renaming product page" class="tool-card-link"></a>
+            <div class="tool-badge-row">
+              <div class="tool-wordmark tool-wordmark--renaming">SIMPLE</div>
+              <span class="pill-free">FREE</span>
             </div>
-            <div style="font-size:18px; font-weight:600; color:#fff; line-height:1.2; margin:3px 0 10px">Renaming</div>
-            <div style="font-size:14px; color:#9a9da6; line-height:1.6">Downloaded by 50,000+ Blender users, this is the go to tool for batch renaming in Blender.</div>
-            <div style="position:relative; z-index:2; display:flex; align-items:center; gap:10px; margin-top:16px; padding-top:14px; border-top:1px solid rgba(255, 255, 255, 0.09)">
-              <span style="flex-shrink:0; width:36px; height:36px; border-radius:8px; display:flex; align-items:center; justify-content:center; background:rgba(14, 165, 233, 0.16); border:1px solid #0ea5e9">
-                <svg width="18" height="18" viewbox="0 0 44 44">
+            <div class="tool-name">Renaming</div>
+            <div class="grid-card-body--wide">Downloaded by 50,000+ Blender users, this is the go to tool for batch renaming in Blender.</div>
+            <div class="tool-card-footer">
+              <span class="icon-box icon-box--renaming">
+                <svg width="18" height="18" viewBox="0 0 44 44">
                   <path d="M9 35 L9 29 L28 10 L34 16 L15 35 Z" fill="none" stroke="#0ea5e9" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"></path>
                   <line x1="9" y1="35" x2="15" y2="35" stroke="#0ea5e9" stroke-width="2.5" stroke-linecap="round"></line>
                 </svg>
               </span>
-              <a href="/simple-renaming.html" style="color:#0ea5e9; text-decoration:none; font-weight:700; font-size:13px">Product Page ↗</a>
-              <span style="color:rgba(255, 255, 255, 0.25); font-size:13px">·</span>
-              <a href="/simple_renaming/renaming_overview/" style="color:#0ea5e9; text-decoration:none; font-weight:700; font-size:13px">Documentation ↗</a>
+              <a href="/simple-renaming.html" class="link-renaming">Product Page ↗</a>
+              <span class="link-sep">·</span>
+              <a href="/simple_renaming/renaming_overview/" class="link-renaming">Documentation ↗</a>
             </div>
           </td>
-          <td data-hover-lift style="transition:transform 0.25s ease; background:linear-gradient(160deg, #2a2d35 0%, #24262d 42%, rgba(34, 197, 94, 0.22) 130%); border:1px solid #34363e; border-radius:10px; padding:20px 22px; vertical-align:top; border-bottom:3px solid #3b82f6; width:50%; position:relative">
-            <a href="/simple-collider.html" aria-label="Simple Collider product page" style="position:absolute; inset:0; z-index:1; border-radius:10px"></a>
-            <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap">
-              <div style="font-size:24px; font-weight:900; line-height:1; letter-spacing:0.4px; color:#22c55e">SIMPLE</div>
-              <span style="display:inline-block; background:rgba(255, 255, 255, 0.08); border:1px solid rgba(255, 255, 255, 0.18); color:#d7d9e0; padding:3px 10px; border-radius:12px; font-size:10px; font-weight:700; letter-spacing:1.5px">PAID</span>
+          <td class="grid-card grid-card--bottom w50" data-hover-lift style="position:relative;background:linear-gradient(160deg, #2a2d35 0%, #24262d 42%, rgba(34,197,94,0.22) 130%);">
+            <a href="/simple-collider.html" aria-label="Simple Collider product page" class="tool-card-link"></a>
+            <div class="tool-badge-row">
+              <div class="tool-wordmark tool-wordmark--collider">SIMPLE</div>
+              <span class="pill-paid">PAID</span>
             </div>
-            <div style="font-size:18px; font-weight:600; color:#fff; line-height:1.2; margin:3px 0 10px">Collider</div>
-            <div style="font-size:14px; color:#9a9da6; line-height:1.6">Handle the entire collision workflow in Blender, ready for UE, Unity, and Godot.</div>
-            <div style="position:relative; z-index:2; display:flex; align-items:center; gap:10px; margin-top:16px; padding-top:14px; border-top:1px solid rgba(255, 255, 255, 0.09)">
-              <span style="flex-shrink:0; width:36px; height:36px; border-radius:8px; display:flex; align-items:center; justify-content:center; background:rgba(34, 197, 94, 0.16); border:1px solid #22c55e">
-                <svg width="18" height="18" viewbox="0 0 44 44">
+            <div class="tool-name">Collider</div>
+            <div class="grid-card-body--wide">Handle the entire collision workflow in Blender, ready for UE, Unity, and Godot.</div>
+            <div class="tool-card-footer">
+              <span class="icon-box icon-box--collider">
+                <svg width="18" height="18" viewBox="0 0 44 44">
                   <polygon points="22,4 38,13 38,31 22,40 6,31 6,13" fill="none" stroke="#22c55e" stroke-width="2"></polygon>
                   <line x1="22" y1="22" x2="22" y2="4" stroke="#22c55e" stroke-width="2"></line>
                   <line x1="22" y1="22" x2="38" y2="31" stroke="#22c55e" stroke-width="2"></line>
@@ -489,108 +921,108 @@
                   <circle cx="6" cy="13" r="2.5" fill="#22c55e"></circle>
                 </svg>
               </span>
-              <a href="/simple-collider.html" style="color:#22c55e; text-decoration:none; font-weight:700; font-size:13px">Product Page ↗</a>
-              <span style="color:rgba(255, 255, 255, 0.25); font-size:13px">·</span>
-              <a href="/simple_collider/collider_overview/" style="color:#22c55e; text-decoration:none; font-weight:700; font-size:13px">Documentation ↗</a>
+              <a href="/simple-collider.html" class="link-collider">Product Page ↗</a>
+              <span class="link-sep">·</span>
+              <a href="/simple_collider/collider_overview/" class="link-collider">Documentation ↗</a>
             </div>
           </td>
         </tr>
         <tr>
-          <td data-hover-lift style="transition:transform 0.25s ease; background:linear-gradient(160deg, #2a2d35 0%, #24262d 42%, rgba(232, 130, 30, 0.22) 130%); border:1px solid #34363e; border-radius:10px; padding:20px 22px; vertical-align:top; border-bottom:3px solid #3b82f6; width:50%; position:relative">
-            <a href="/simple-export.html" aria-label="Simple Export product page" style="position:absolute; inset:0; z-index:1; border-radius:10px"></a>
-            <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap">
-              <div style="font-size:24px; font-weight:900; line-height:1; letter-spacing:0.4px; color:#e8821e">SIMPLE</div>
-              <span style="display:inline-block; background:rgba(255, 255, 255, 0.08); border:1px solid rgba(255, 255, 255, 0.18); color:#d7d9e0; padding:3px 10px; border-radius:12px; font-size:10px; font-weight:700; letter-spacing:1.5px">PAID</span>
+          <td class="grid-card grid-card--bottom w50" data-hover-lift style="position:relative;background:linear-gradient(160deg, #2a2d35 0%, #24262d 42%, rgba(232,130,30,0.22) 130%);">
+            <a href="/simple-export.html" aria-label="Simple Export product page" class="tool-card-link"></a>
+            <div class="tool-badge-row">
+              <div class="tool-wordmark tool-wordmark--export">SIMPLE</div>
+              <span class="pill-paid">PAID</span>
             </div>
-            <div style="font-size:18px; font-weight:600; color:#fff; line-height:1.2; margin:3px 0 10px">Export</div>
-            <div style="font-size:14px; color:#9a9da6; line-height:1.6">Every export setting visible, documented, and saved directly in your .blend file.</div>
-            <div style="position:relative; z-index:2; display:flex; align-items:center; gap:10px; margin-top:16px; padding-top:14px; border-top:1px solid rgba(255, 255, 255, 0.09)">
-              <span style="flex-shrink:0; width:36px; height:36px; border-radius:8px; display:flex; align-items:center; justify-content:center; background:rgba(232, 130, 30, 0.16); border:1px solid #e8821e">
-                <svg width="18" height="18" viewbox="0 0 44 44">
+            <div class="tool-name">Export</div>
+            <div class="grid-card-body--wide">Every export setting visible, documented, and saved directly in your .blend file.</div>
+            <div class="tool-card-footer">
+              <span class="icon-box icon-box--export">
+                <svg width="18" height="18" viewBox="0 0 44 44">
                   <rect x="5" y="14" width="22" height="22" fill="none" stroke="#e8821e" stroke-width="2.5"></rect>
                   <line x1="20" y1="20" x2="37" y2="6" stroke="#e8821e" stroke-width="2.5"></line>
                   <polyline points="25,6 37,6 37,18" fill="none" stroke="#e8821e" stroke-width="2.5"></polyline>
                 </svg>
               </span>
-              <a href="/simple-export.html" style="color:#e8821e; text-decoration:none; font-weight:700; font-size:13px">Product Page ↗</a>
-              <span style="color:rgba(255, 255, 255, 0.25); font-size:13px">·</span>
-              <a href="/simple_export/exporter_overview/" style="color:#e8821e; text-decoration:none; font-weight:700; font-size:13px">Documentation ↗</a>
+              <a href="/simple-export.html" class="link-export">Product Page ↗</a>
+              <span class="link-sep">·</span>
+              <a href="/simple_export/exporter_overview/" class="link-export">Documentation ↗</a>
             </div>
           </td>
-          <td data-hover-lift style="transition:transform 0.25s ease; background:linear-gradient(160deg, #2a2d35 0%, #24262d 42%, rgba(240, 200, 50, 0.22) 130%); border:1px solid #34363e; border-radius:10px; padding:20px 22px; vertical-align:top; border-bottom:3px solid #3b82f6; width:50%; position:relative">
-            <a href="/simple-camera-manager.html" aria-label="Simple Camera Manager product page" style="position:absolute; inset:0; z-index:1; border-radius:10px"></a>
-            <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap">
-              <div style="font-size:24px; font-weight:900; line-height:1; letter-spacing:0.4px; color:#f0c832">SIMPLE</div>
-              <span style="display:inline-block; background:rgba(255, 255, 255, 0.08); border:1px solid rgba(255, 255, 255, 0.18); color:#d7d9e0; padding:3px 10px; border-radius:12px; font-size:10px; font-weight:700; letter-spacing:1.5px">PAID</span>
+          <td class="grid-card grid-card--bottom w50" data-hover-lift style="position:relative;background:linear-gradient(160deg, #2a2d35 0%, #24262d 42%, rgba(240,200,50,0.22) 130%);">
+            <a href="/simple-camera-manager.html" aria-label="Simple Camera Manager product page" class="tool-card-link"></a>
+            <div class="tool-badge-row">
+              <div class="tool-wordmark tool-wordmark--camera">SIMPLE</div>
+              <span class="pill-paid">PAID</span>
             </div>
-            <div style="font-size:18px; font-weight:600; color:#fff; line-height:1.2; margin:3px 0 10px">Camera Manager</div>
-            <div style="font-size:14px; color:#9a9da6; line-height:1.6">Full control of your camera workflow — composition, dolly zoom, and presentation.</div>
-            <div style="position:relative; z-index:2; display:flex; align-items:center; gap:10px; margin-top:16px; padding-top:14px; border-top:1px solid rgba(255, 255, 255, 0.09)">
-              <span style="flex-shrink:0; width:36px; height:36px; border-radius:8px; display:flex; align-items:center; justify-content:center; background:rgba(240, 200, 50, 0.16); border:1px solid #f0c832">
-                <svg width="18" height="18" viewbox="0 0 44 44">
+            <div class="tool-name">Camera Manager</div>
+            <div class="grid-card-body--wide">Full control of your camera workflow — composition, dolly zoom, and presentation.</div>
+            <div class="tool-card-footer">
+              <span class="icon-box icon-box--camera">
+                <svg width="18" height="18" viewBox="0 0 44 44">
                   <polygon points="22,4 35,20 9,20" fill="#f0c832"></polygon>
                   <rect x="6" y="21" width="32" height="19" fill="none" stroke="#f0c832" stroke-width="2.5"></rect>
                   <line x1="6" y1="21" x2="38" y2="40" stroke="#f0c832" stroke-width="2.5"></line>
                   <line x1="38" y1="21" x2="6" y2="40" stroke="#f0c832" stroke-width="2.5"></line>
                 </svg>
               </span>
-              <a href="/simple-camera-manager.html" style="color:#f0c832; text-decoration:none; font-weight:700; font-size:13px">Product Page ↗</a>
-              <span style="color:rgba(255, 255, 255, 0.25); font-size:13px">·</span>
-              <a href="/simple_camera_manager/camera_manager_Overview/" style="color:#f0c832; text-decoration:none; font-weight:700; font-size:13px">Documentation ↗</a>
+              <a href="/simple-camera-manager.html" class="link-camera">Product Page ↗</a>
+              <span class="link-sep">·</span>
+              <a href="/simple_camera_manager/camera_manager_Overview/" class="link-camera">Documentation ↗</a>
             </div>
           </td>
         </tr>
         <tr>
-          <td data-hover-lift style="transition:transform 0.25s ease; background:linear-gradient(160deg, #2a2d35 0%, #24262d 42%, rgba(236, 72, 153, 0.22) 130%); border:1px solid #34363e; border-radius:10px; padding:20px 22px; vertical-align:top; border-bottom:3px solid #3b82f6; width:50%; position:relative">
-            <a href="/simple-pbr-layering.html" aria-label="Simple PBR Layering product page" style="position:absolute; inset:0; z-index:1; border-radius:10px"></a>
-            <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap">
-              <div style="font-size:24px; font-weight:900; line-height:1; letter-spacing:0.4px; color:#ec4899">SIMPLE</div>
-              <span style="display:inline-block; background:rgba(236, 72, 153, 0.14); border:1px solid rgba(236, 72, 153, 0.4); color:#fbcfe8; padding:3px 10px; border-radius:12px; font-size:10px; font-weight:700; letter-spacing:1.5px">CLOSED ALPHA</span>
+          <td class="grid-card grid-card--bottom w50" data-hover-lift style="position:relative;background:linear-gradient(160deg, #2a2d35 0%, #24262d 42%, rgba(236,72,153,0.22) 130%);">
+            <a href="/simple-pbr-layering.html" aria-label="Simple PBR Layering product page" class="tool-card-link"></a>
+            <div class="tool-badge-row">
+              <div class="tool-wordmark tool-wordmark--pbr">SIMPLE</div>
+              <span class="badge-closed-alpha">CLOSED ALPHA</span>
             </div>
-            <div style="font-size:18px; font-weight:600; color:#fff; line-height:1.2; margin:3px 0 10px">PBR Layering</div>
-            <div style="font-size:14px; color:#9a9da6; line-height:1.6">Non-destructive PBR material layering — masks, triplanar projection, and blend groups — without touching a single node.</div>
-            <div style="position:relative; z-index:2; display:flex; align-items:center; gap:10px; margin-top:16px; padding-top:14px; border-top:1px solid rgba(255, 255, 255, 0.09)">
-              <span style="flex-shrink:0; width:36px; height:36px; border-radius:8px; display:flex; align-items:center; justify-content:center; background:rgba(236, 72, 153, 0.16); border:1px solid #ec4899">
-                <svg width="18" height="18" viewbox="0 0 40 40">
+            <div class="tool-name">PBR Layering</div>
+            <div class="grid-card-body--wide">Non-destructive PBR material layering — masks, triplanar projection, and blend groups — without touching a single node.</div>
+            <div class="tool-card-footer">
+              <span class="icon-box icon-box--pbr">
+                <svg width="18" height="18" viewBox="0 0 40 40">
                   <rect x="2" y="2" width="16" height="16" fill="#ec4899"></rect>
                   <rect x="22" y="2" width="16" height="16" fill="none" stroke="#ec4899" stroke-width="2.5"></rect>
                   <rect x="2" y="22" width="16" height="16" fill="none" stroke="#ec4899" stroke-width="2.5"></rect>
                   <rect x="22" y="22" width="16" height="16" fill="#ec4899"></rect>
                 </svg>
               </span>
-              <a href="/simple-pbr-layering.html" style="color:#ec4899; text-decoration:none; font-weight:700; font-size:13px">Product Page ↗</a>
-              <span style="color:rgba(255, 255, 255, 0.25); font-size:13px">·</span>
-              <a href="/simple_pbr_layering/material_overview/" style="color:#ec4899; text-decoration:none; font-weight:700; font-size:13px">Documentation ↗</a>
+              <a href="/simple-pbr-layering.html" class="link-pbr">Product Page ↗</a>
+              <span class="link-sep">·</span>
+              <a href="/simple_pbr_layering/material_overview/" class="link-pbr">Documentation ↗</a>
             </div>
           </td>
         </tr>
       </tbody>
     </table>
-    <table role="presentation" data-stack-grid="pills" style="margin:0 auto; border-collapse:separate; border-spacing:10px 0; border:0; margin-top:24px">
+    <table class="pill-row pill-row--spaced" role="presentation" data-stack-grid="pills">
       <tbody><tr>
-        <td style="border:none"><a data-hover-lift href="https://superhivemarket.com/creators/matthias-patscheider" target="_blank" rel="noopener noreferrer" style="transition:transform 0.25s ease; display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Superhive</a></td>
-        <td style="border:none"><a data-hover-lift href="https://gumroad.com/weisl" target="_blank" rel="noopener noreferrer" style="transition:transform 0.25s ease; display:inline-block; background:#24262d; border:1px solid #34363e; text-decoration:none; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:700; color:#e8e9ee !important">Gumroad</a></td>
+        <td class="link-cell"><a class="link-pill" data-hover-lift href="https://superhivemarket.com/creators/matthias-patscheider" target="_blank" rel="noopener noreferrer">Superhive</a></td>
+        <td class="link-cell"><a class="link-pill" data-hover-lift href="https://gumroad.com/weisl" target="_blank" rel="noopener noreferrer">Gumroad</a></td>
       </tr></tbody>
     </table>
 
-    <div style="height:1px; background:rgba(255, 255, 255, 0.09); margin:36px 0"></div>
+    <div class="hairline-divider"></div>
 
-    <h2 data-heading="title" style="margin:0 0 16px; font-size:30px; font-weight:900; color:#fff; text-align:center">Simple Utilities</h2>
-    <p style="margin:0 0 30px; font-size:15px; color:#9a9da6; text-align:center; margin-top:-6px">Smaller, focused Geometry Nodes packs for specific workflows.</p>
-    <table role="presentation" data-stack-grid="cards" style="max-width:820px; margin:0 auto; width:100%; border-collapse:separate; border-spacing:12px; border:0">
+    <h2 class="section-title-sm" data-heading="title">Simple Utilities</h2>
+    <p class="section-subtitle section-subtitle--pulled-up">Smaller, focused Geometry Nodes packs for specific workflows.</p>
+    <table class="fit-grid" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
-          <td data-hover-lift style="transition:transform 0.25s ease; background:linear-gradient(160deg, #2a2d35 0%, #24262d 42%, rgba(168, 85, 247, 0.22) 130%); border:1px solid #34363e; border-radius:10px; padding:20px 22px; vertical-align:top; border-bottom:3px solid #3b82f6; width:50%; position:relative">
-            <a href="/simple-uv-nodes.html" aria-label="Simple UV Nodes product page" style="position:absolute; inset:0; z-index:1; border-radius:10px"></a>
-            <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap">
-              <div style="font-size:24px; font-weight:900; line-height:1; letter-spacing:0.4px; color:#a855f7">SIMPLE</div>
-              <span style="display:inline-block; background:rgba(236, 72, 153, 0.14); border:1px solid rgba(236, 72, 153, 0.4); color:#fbcfe8; padding:3px 10px; border-radius:12px; font-size:10px; font-weight:700; letter-spacing:1.5px">ALPHA</span>
+          <td class="grid-card grid-card--bottom w50" data-hover-lift style="position:relative;background:linear-gradient(160deg, #2a2d35 0%, #24262d 42%, rgba(168,85,247,0.22) 130%);">
+            <a href="/simple-uv-nodes.html" aria-label="Simple UV Nodes product page" class="tool-card-link"></a>
+            <div class="tool-badge-row">
+              <div class="tool-wordmark tool-wordmark--uv">SIMPLE</div>
+              <span class="badge-closed-alpha">ALPHA</span>
             </div>
-            <div style="font-size:18px; font-weight:600; color:#fff; line-height:1.2; margin:3px 0 10px">UV Nodes</div>
-            <div style="font-size:14px; color:#9a9da6; line-height:1.6">Non-destructive UV projection, live in your Geometry Nodes modifier stack.</div>
-            <div style="position:relative; z-index:2; display:flex; align-items:center; gap:10px; margin-top:16px; padding-top:14px; border-top:1px solid rgba(255, 255, 255, 0.09)">
-              <span style="flex-shrink:0; width:36px; height:36px; border-radius:8px; display:flex; align-items:center; justify-content:center; background:rgba(168, 85, 247, 0.16); border:1px solid #a855f7">
-                <svg width="18" height="18" viewbox="0 0 44 44">
+            <div class="tool-name">UV Nodes</div>
+            <div class="grid-card-body--wide">Non-destructive UV projection, live in your Geometry Nodes modifier stack.</div>
+            <div class="tool-card-footer">
+              <span class="icon-box icon-box--uv">
+                <svg width="18" height="18" viewBox="0 0 44 44">
                   <line x1="10" y1="12" x2="34" y2="22" stroke="#a855f7" stroke-width="2"></line>
                   <line x1="10" y1="32" x2="34" y2="22" stroke="#a855f7" stroke-width="2"></line>
                   <circle cx="10" cy="12" r="5" fill="none" stroke="#a855f7" stroke-width="2.5"></circle>
@@ -598,20 +1030,20 @@
                   <circle cx="34" cy="22" r="5" fill="#a855f7"></circle>
                 </svg>
               </span>
-              <a href="/simple-uv-nodes.html" style="color:#a855f7; text-decoration:none; font-weight:700; font-size:13px">Product Page ↗</a>
-              <span style="color:rgba(255, 255, 255, 0.25); font-size:13px">·</span>
-              <a href="/simple_geo_node_packs/simple_uv_nodes/" style="color:#a855f7; text-decoration:none; font-weight:700; font-size:13px">Documentation ↗</a>
+              <a href="/simple-uv-nodes.html" class="link-uv">Product Page ↗</a>
+              <span class="link-sep">·</span>
+              <a href="/simple_geo_node_packs/simple_uv_nodes/" class="link-uv">Documentation ↗</a>
             </div>
           </td>
-          <td data-hover-lift style="transition:transform 0.25s ease; background:linear-gradient(160deg, #2a2d35 0%, #24262d 42%, rgba(59, 130, 246, 0.22) 130%); border:1px solid #34363e; border-radius:10px; padding:20px 22px; vertical-align:top; border-bottom:3px solid #3b82f6; width:50%; position:relative">
-            <div style="font-size:19px; font-weight:900; line-height:1; letter-spacing:0.4px; color:#3b82f6">MORE FROM ME</div>
-            <div style="font-size:14px; color:#9a9da6; line-height:1.6; margin-top:8px">A few other things I've made along the way.</div>
-            <div style="position:relative; z-index:2; display:flex; flex-direction:column; align-items:flex-start; gap:8px; margin-top:16px; padding-top:14px; border-top:1px solid rgba(255, 255, 255, 0.09)">
-              <a href="https://github.com/Weisl/Master-Thesis-Material-Layering" target="_blank" rel="noopener noreferrer" style="color:#3b82f6; text-decoration:none; font-weight:700; font-size:13px">Master Thesis ↗ (Material Layering)</a>
-              <a href="https://github.com/Weisl/simple_scripts" target="_blank" rel="noopener noreferrer" style="color:#3b82f6; text-decoration:none; font-weight:700; font-size:13px">Simple Scripts ↗ (Random Blender Scripts)</a>
-              <a href="https://github.com/Weisl/ImageUtilities" target="_blank" rel="noopener noreferrer" style="color:#3b82f6; text-decoration:none; font-weight:700; font-size:13px">Image Utilities (Deprecated) ↗ (Texture Management)</a>
-              <a href="https://weisl.gumroad.com/l/Puzzle_Substance3DDesigner" target="_blank" rel="noopener noreferrer" style="color:#3b82f6; text-decoration:none; font-weight:700; font-size:13px">Puzzle – Substance 3D Designer ↗ (free PBR Material)</a>
-              <a href="https://gamesartist.co.uk/verdant-realms/" target="_blank" rel="noopener noreferrer" style="color:#3b82f6; text-decoration:none; font-weight:700; font-size:13px">"Verdant Realms" Article (Environment Breakdown)↗</a>
+          <td class="grid-card grid-card--bottom w50" data-hover-lift style="position:relative;background:linear-gradient(160deg, #2a2d35 0%, #24262d 42%, rgba(59,130,246,0.22) 130%);">
+            <div class="tool-wordmark tool-wordmark--brand">MORE FROM ME</div>
+            <div class="grid-card-body--wide grid-card-body--spaced">A few other things I've made along the way.</div>
+            <div class="tool-card-footer--stacked">
+              <a href="https://github.com/Weisl/Master-Thesis-Material-Layering" class="link-brand" target="_blank" rel="noopener noreferrer">Master Thesis ↗ (Material Layering)</a>
+              <a href="https://github.com/Weisl/simple_scripts" class="link-brand" target="_blank" rel="noopener noreferrer">Simple Scripts ↗ (Random Blender Scripts)</a>
+              <a href="https://github.com/Weisl/ImageUtilities" class="link-brand" target="_blank" rel="noopener noreferrer">Image Utilities (Deprecated) ↗ (Texture Management)</a>
+              <a href="https://weisl.gumroad.com/l/Puzzle_Substance3DDesigner" class="link-brand" target="_blank" rel="noopener noreferrer">Puzzle – Substance 3D Designer ↗ (free PBR Material)</a>
+              <a href="https://gamesartist.co.uk/verdant-realms/" class="link-brand" target="_blank" rel="noopener noreferrer">"Verdant Realms" Article (Environment Breakdown)↗</a>
             </div>
           </td>
         </tr>
@@ -623,30 +1055,27 @@
        Offer" above — same feature-media/feature-content pattern as "Who Is
        Alpine Empire", just not --alt, so it reads as a plain-bg section
        between that alt section and the Past Projects banner. -->
-  <div data-section-pad style="background:#16171c; padding:56px 30px; border-top:1px solid #34363e">
-    <table role="presentation" data-stack-grid="cards" style="max-width:960px; margin:0 auto; width:100%; border-collapse:collapse; border:0">
+  <div class="section section--hairline" data-section-pad>
+    <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
-          <td style="vertical-align:middle; width:42%; padding-right:34px; border:none">
-            <div data-hover-zoom style="line-height:0; border-radius:14px; overflow:hidden; border:1px solid #34363e">
-              <img src="/images/mentoring/hero_banner.jpg" alt="Mentoring session preview" style="transition:transform 0.5s ease; width:100%; display:block">
+          <td class="feature-media-cell">
+            <div class="feature-media" data-hover-zoom>
+              <img src="/images/mentoring/hero_banner.jpg" alt="Mentoring session preview" loading="lazy" decoding="async">
             </div>
           </td>
-          <td style="vertical-align:middle; width:58%; border:none">
-            <div style="font-size:11px; font-weight:700; letter-spacing:3px; color:#3b82f6">MENTORING</div>
-            <h2 data-heading="title" style="margin:16px 0 14px; font-size:30px; font-weight:900; color:#fff; line-height:1.15">Ten Years of Production,<br>Now Teaching It</h2>
-            <p style="margin:0 0 18px; font-size:16px; color:#9a9da6; line-height:1.7; margin-bottom:20px">Ten years of production experience with environment art, tech art, and tooling. I can assist and provide input on world-building, pipeline optimization, and portfolios that will catch recruiters' attention. Training is personalized and tailored to your current needs.</p>
-            <table role="presentation" style="width:100%; border-collapse:separate; border-spacing:0 6px; border:0">
+          <td class="feature-content-cell">
+            <div class="eyebrow">MENTORING</div>
+            <h2 class="feature-title" data-heading="title">Ten Years of Production,<br>Now Teaching It</h2>
+            <p class="feature-body feature-body--tight">Ten years of production experience with environment art, tech art, and tooling. I can assist and provide input on world-building, pipeline optimization, and portfolios that will catch recruiters' attention. Training is personalized and tailored to your current needs.</p>
+            <table class="checklist" role="presentation">
               <tbody>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#3b82f6; font-weight:900">✓</span> Free 15-minute intro call, no commitment</td></tr>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#3b82f6; font-weight:900">✓</span> 1:1 sessions, team training, or portfolio reviews</td></tr>
-                <tr><td style="background:#24262d; border:none; border-radius:6px; padding:10px 14px; font-size:13px; color:#d7d9e0">
-<span style="color:#3b82f6; font-weight:900">✓</span> Flexible scheduling across timezones</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Free 15-minute intro call, no commitment</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> 1:1 sessions, team training, or portfolio reviews</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Flexible scheduling across timezones</td></tr>
               </tbody>
             </table>
-            <p style="margin:22px 0 0"><a href="/mentoring.html" data-hover-lift style="transition:transform 0.25s ease; display:inline-block; background:#3b82f6; text-decoration:none; padding:16px 36px; border-radius:8px; font-size:16px; font-weight:700; color:#fff !important">Explore Mentoring ↗</a></p>
+            <p class="mentoring-cta"><a href="/mentoring.html" class="button-primary button-primary--large" data-hover-lift>Explore Mentoring ↗</a></p>
           </td>
         </tr>
       </tbody>
@@ -656,15 +1085,15 @@
   <!-- Discord CTA: standalone violet box in Discord's own brand color (not
        {{accent}}) so it reads as a distinct community touchpoint rather than
        another product-colored section, right before the closing footer CTA. -->
-  <div data-section-pad style="background:#16171c; padding:56px 30px; padding-top:0">
-    <div data-section-pad style="max-width:720px; margin:0 auto; background:#5865f2; border-radius:14px; padding:40px 34px; text-align:center">
-      <svg width="40" height="30" viewbox="0 0 245 240" style="margin-bottom:14px">
+  <div class="section section--no-top-pad" data-section-pad>
+    <div class="discord-box" data-section-pad>
+      <svg width="40" height="30" viewBox="0 0 245 240" class="discord-logo">
         <path fill="#ffffff" d="M104.4 103.9c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1.1-6.1-4.5-11.1-10.2-11.1zm38.6 0c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1s-4.5-11.1-10.2-11.1z"></path>
         <path fill="#ffffff" d="M189.5 20h-134C44.5 20 35 29.5 35 41.4v135.9c0 11.9 9.5 21.4 21.4 21.4h113.4l-5.3-18.5 12.8 11.9 12.1 11.2 21.5 19V41.4c.1-11.9-9.4-21.4-21.4-21.4zm-38.6 130.6s-3.6-4.3-6.6-8.1c13.1-3.7 18.1-11.9 18.1-11.9-4.1 2.7-8 4.6-11.5 5.9-5 2.1-9.8 3.5-14.5 4.3-9.6 1.8-18.4 1.3-25.9-.1-5.7-1.1-10.6-2.7-14.7-4.3-2.3-.9-4.8-2-7.3-3.4-.3-.2-.6-.3-.9-.5-.2-.1-.3-.2-.4-.3-1.8-1-2.8-1.7-2.8-1.7s4.8 8 17.5 11.8c-3 3.8-6.7 8.3-6.7 8.3-22.1-.7-30.5-15.2-30.5-15.2 0-32.2 14.4-58.3 14.4-58.3 14.4-10.8 28.1-10.5 28.1-10.5l1 1.2c-18 5.2-26.3 13.1-26.3 13.1s2.2-1.2 5.9-2.9c10.7-4.7 19.2-6 22.7-6.3.6-.1 1.1-.2 1.7-.2 6.1-.8 13-1 20.2-.2 9.5 1.1 19.7 3.9 30.1 9.6 0 0-7.9-7.5-24.9-12.7l1.4-1.6s13.7-.3 28.1 10.5c0 0 14.4 26.1 14.4 58.3 0 0-8.5 14.5-30.6 15.2z"></path>
       </svg>
-      <div style="font-size:22px; font-weight:900; color:#fff; margin-bottom:10px">Join the Alpine Empire Discord</div>
-      <p style="margin:0 0 22px; max-width:480px; margin-left:auto; margin-right:auto; font-size:14px; color:#e3e5fc; line-height:1.6">Come hang out with the community, discuss tools and world-building, and talk mentorship directly with me and other members.</p>
-      <a href="https://discord.gg/VRzdcFpczm" data-hover-lift target="_blank" rel="noopener noreferrer" style="transition:transform 0.25s ease; display:inline-block; background:#fff; text-decoration:none; padding:13px 26px; border-radius:8px; font-size:14px; font-weight:700; color:#5865f2 !important">Join Discord ↗</a>
+      <div class="discord-title">Join the Alpine Empire Discord</div>
+      <p class="discord-body">Come hang out with the community, discuss tools and world-building, and talk mentorship directly with me and other members.</p>
+      <a href="https://discord.gg/VRzdcFpczm" class="discord-button" data-hover-lift target="_blank" rel="noopener noreferrer">Join Discord ↗</a>
     </div>
   </div>
 
@@ -708,10 +1137,11 @@
   <!-- Legal footer: a distinct pure-black strip below the CTA (not .footer's
        charcoal bg) so it reads as the site's statutory utility footer rather
        than part of the CTA above it. -->
-  <div data-section-pad style="background:#000; padding:20px 30px; text-align:center">
-    <a href="/legal-notice.html" style="color:#9a9da6; text-decoration:none; font-size:12px">Legal Notice</a>
+  <div class="legal-footer" data-section-pad>
+    <a href="/legal-notice.html" class="legal-footer-link">Legal Notice</a>
   </div>
 
+  </main>
 </div>
   <script>
   (function () {
