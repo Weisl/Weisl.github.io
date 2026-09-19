@@ -3,10 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('has-js')</script>
 <title>Simple UV Nodes — Geometry Nodes UV Projection for Blender</title>
 <meta name="description" content="Non-destructive UV projection — triplanar, box, cylindrical, spherical, and camera projection — live in your Geometry Nodes modifier stack.">
 <meta name="author" content="Matthias Patscheider">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://weisl.github.io https://assets.superhivemarket.com; media-src 'self'; font-src 'self'; frame-src https://www.youtube.com; object-src 'none'; base-uri 'self'; form-action 'self'">
 <link rel="canonical" href="https://alpineempire.eu/simple-uv-nodes.html">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2044%2044%22%3E%3Crect%20width%3D%2244%22%20height%3D%2244%22%20rx%3D%229%22%20fill%3D%22%2316171c%22/%3E%3Cpath%20d%3D%22M4%2034%20L15%2014%20L22%2025%20L28%2016%20L40%2034%20Z%22%20fill%3D%22none%22%20stroke%3D%22%233b82f6%22%20stroke-width%3D%223%22%20stroke-linejoin%3D%22round%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
@@ -22,6 +24,7 @@
 <meta name="twitter:description" content="Non-destructive UV projection — triplanar, box, cylindrical, spherical, and camera projection — live in your Geometry Nodes modifier stack.">
 <meta name="twitter:image" content="https://alpineempire.eu/images/simple_uv/simple_uv_asset_library.jpg">
 <meta name="twitter:image:alt" content="Simple UV Nodes projecting a texture inside a Geometry Nodes modifier">
+<link rel="preload" href="/fonts/space-grotesk-700.woff2" as="font" type="font/woff2" crossorigin>
 <style>html,body { margin:0; padding:0; background:#16171c; }</style>
 <style>
 .top-nav { background: #1c1e24; border-bottom: 1px solid #34363e; padding: 10px 30px; display: flex; align-items: center; justify-content: space-between; }
@@ -54,7 +57,26 @@
 
 .hero-photo-subtitle-line { display: block; font-size: 32px; font-weight: 900; color: #ffffff; line-height: 1.2; margin-top: 8px; text-shadow: 0 2px 14px rgba(0,0,0,0.6); }
 .hero-chip-row { display: flex; flex-wrap: wrap; gap: 8px; max-width: 480px; margin-top: 22px; }
-.hero-chip { display: inline-block; background: #24262d; border: 1px solid #34363e; border-radius: 6px; padding: 6px 12px; font-size: 12px; font-weight: 700; color: #e8e9ee; }
+
+.hero-chip { display: inline-block; background: #24262d; border: 1px solid #34363e; border-radius: 6px; padding: 6px 12px; font-size: 12px; font-weight: 700; color: #e8e9ee; opacity: 0; transform: translateY(10px); animation: hero-chip-in .5s ease forwards; }
+.hero-chip-row .hero-chip:nth-child(1) { animation-delay: .5s; }
+.hero-chip-row .hero-chip:nth-child(2) { animation-delay: .62s; }
+.hero-chip-row .hero-chip:nth-child(3) { animation-delay: .74s; }
+.hero-chip-row .hero-chip:nth-child(4) { animation-delay: .86s; }
+.hero-chip-row .hero-chip:nth-child(5) { animation-delay: .98s; }
+.hero-chip-row .hero-chip:nth-child(6) { animation-delay: 1.1s; }
+.hero-chip-row .hero-chip:nth-child(7) { animation-delay: 1.22s; }
+
+.hero-chip--more { border-style: dashed; color: #d7d9e0; }
+@keyframes hero-chip-in {
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-chip { opacity: 1; transform: none; animation: none; }
+}
+
+.hero-chip-intro { margin: 22px 0 0; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: #d7d9e0; text-shadow: 0 1px 8px rgba(0,0,0,0.7); }
 
 .page {
   background: #16171c;
@@ -270,8 +292,15 @@
 }
 
 
-.footer-legal { margin: 18px 0 0; font-size: 12px; }
+.footer-legal { margin: 18px 0 0; font-size: 12px; text-align: center; }
 .footer-legal-link { color: #9a9da6; text-decoration: none; }
+
+
+.callout--disclosure { max-width: 640px; margin: 24px auto 0; }
+
+
+[data-hover-zoom] img { transition: transform .5s ease; }
+[data-hover-zoom]:hover img { transform: scale(1.04); }
 
 
 [data-hover-lift] { transition: transform .25s ease; }
@@ -279,6 +308,7 @@
 
 
 @media (prefers-reduced-motion: reduce) {
+  [data-hover-zoom]:hover img { transform: none !important; transition: none !important; }
   [data-hover-lift]:hover { transform: none !important; transition: none !important; }
   [data-parallax] { background-attachment: scroll !important; }
 }
@@ -356,6 +386,35 @@
 .step-dot { position: absolute; top: 50%; margin-top: -7px; width: 14px; height: 14px; border-radius: 50%; background: #a855f7; }
 .step-dot--left { left: -7px; }
 .step-dot--right { right: -7px; }
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/fonts/space-grotesk-700.woff2) format('woff2');
+}
+.hero-wordmark, .hero-photo-word, .hero-photo-subtitle-line, .feature-title,
+.section-title, .section-title-sm, .footer-title, .badge-node, .badge-swatch,
+.cta-banner, .stat-number {
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  font-weight: 700;
+}
+
+
+html.has-js [data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+html.has-js [data-reveal].is-revealed {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  html.has-js [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
+
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Alpine Empire", "item": "https://alpineempire.eu/"}, {"@type": "ListItem", "position": 2, "name": "Simple UV Nodes", "item": "https://alpineempire.eu/simple-uv-nodes.html"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Simple UV Nodes", "description": "Non-destructive UV projection — triplanar, box, cylindrical, spherical, and camera projection — live in your Geometry Nodes modifier stack.", "url": "https://alpineempire.eu/simple-uv-nodes.html", "image": "https://alpineempire.eu/images/simple_uv/simple_uv_asset_library.jpg", "applicationCategory": "DesignApplication", "operatingSystem": "Windows, macOS, Linux", "softwareRequirements": "Blender", "author": {"@type": "Person", "name": "Matthias Patscheider", "url": "https://alpineempire.eu/"}, "publisher": {"@type": "Organization", "name": "Alpine Empire", "url": "https://alpineempire.eu/"}, "sameAs": ["https://superhivemarket.com/creators/matthias-patscheider"]}</script>
@@ -464,7 +523,7 @@
          YouTube      <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Simple UV Nodes — demo video" loading="lazy" allowfullscreen></iframe>
          self-hosted  <video controls poster="/images/simple_uv/thumb_UV_Camera_Project.jpg" src="/videos/simple_uv/simple_uv_demo.mp4" preload="none"></video>
        (self-hosted mp4s live at weisl.github.io/videos/<product>/, same as Simple Export.) -->
-  <div class="section section--alt" data-section-pad>
+  <div class="section section--alt" data-reveal data-section-pad>
     <h2 class="section-title-sm" data-heading="title">See It Update Live</h2>
     <p class="section-subtitle">Change a parameter, move the camera, edit the mesh upstream — the projection re-runs in real time, right in the Geometry Nodes editor.</p>
     <div class="video-wrap">
@@ -475,12 +534,12 @@
   <!-- Asset Browser proof: replaces the "demo video" slot the other three products
        have here — a screenshot of the real Asset Browser makes "drag-and-drop, not
        an addon" better than a paragraph of copy could. -->
-  <div class="section" data-section-pad>
+  <div class="section" data-reveal data-section-pad>
     <h2 class="section-title-sm" data-heading="title">Every Node, One Asset Library</h2>
     <p class="section-subtitle">Drag straight out of Blender's Asset Browser into your modifier tree — no installer, no Preferences toggle to hunt for.</p>
     <table class="support-image-wrap" role="presentation">
       <tbody><tr><td class="support-image-cell">
-        <div class="feature-media">
+        <div class="feature-media" data-hover-zoom>
           <img src="/images/simple_uv/simple_uv_asset_library.jpg" alt="Blender Asset Browser showing all 11 Simple UV Nodes as drag-and-drop assets, each with a checker-pattern UV preview" loading="lazy" decoding="async">
         </div>
       </td></tr></tbody>
@@ -489,7 +548,7 @@
 
   <!-- Install steps: placed early, before feature depth — buyers need to understand
        this install model differs from an addon before deciding to buy, not after. -->
-  <div class="section section--alt section--hairline" data-section-pad>
+  <div class="section section--alt section--hairline" data-reveal data-section-pad>
     <h2 class="section-title-sm" data-heading="title">Install in Four Steps</h2>
     <!-- Steps wired together like nodes: sockets sit directly on each card's own
          edge (right edge = output, left edge = input), centered on the card via
@@ -498,7 +557,7 @@
          the row. Kept fully inline (flex + absolute positioning + negative margins),
          same convention as the hero, not a common.css class. -->
     <div class="steps-row" data-stack-grid="flex">
-      <div class="step-card-wrap" data-step="card">
+      <div class="step-card-wrap" data-step="card" data-reveal>
         <div class="grid-card grid-card--top step-card-inner">
           <div class="grid-card-title">1. Download</div>
           <div class="grid-card-body">Grab the release zip and extract it.</div>
@@ -508,7 +567,7 @@
       <div class="step-connector-wrap" data-step="connector">
         <div class="step-connector-line"></div>
       </div>
-      <div class="step-card-wrap" data-step="card">
+      <div class="step-card-wrap" data-step="card" data-reveal>
         <div class="grid-card grid-card--top step-card-inner">
           <div class="grid-card-title">2. Pick Your Version</div>
           <div class="grid-card-body">Choose the folder matching your Blender install, e.g. <em>Simple_UV_Nodes_4_5</em>.</div>
@@ -519,7 +578,7 @@
       <div class="step-connector-wrap" data-step="connector">
         <div class="step-connector-line"></div>
       </div>
-      <div class="step-card-wrap" data-step="card">
+      <div class="step-card-wrap" data-step="card" data-reveal>
         <div class="grid-card grid-card--top step-card-inner">
           <div class="grid-card-title">3. Register the Library</div>
           <div class="grid-card-body">In Preferences → File Paths → Asset Libraries, add that folder as a new Asset Library.</div>
@@ -530,7 +589,7 @@
       <div class="step-connector-wrap" data-step="connector">
         <div class="step-connector-line"></div>
       </div>
-      <div class="step-card-wrap" data-step="card">
+      <div class="step-card-wrap" data-step="card" data-reveal>
         <div class="grid-card grid-card--top step-card-inner">
           <div class="grid-card-title">4. Drag &amp; Drop</div>
           <div class="grid-card-body">Open the Asset Browser, set it to Simple UV Nodes, and drag any node into your tree.</div>
@@ -541,12 +600,12 @@
   </div>
 
   <!-- 01 Stays Live, Stays Procedural -->
-  <div class="section" data-section-pad>
+  <div class="section" data-reveal data-section-pad>
     <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
           <td class="feature-media-cell">
-            <div class="feature-media">
+            <div class="feature-media" data-hover-zoom>
               <img src="/images/simple_uv/thumb_UV_Box_Project.jpg" alt="UV Box Project node preview showing triplanar checker projection on a rock mesh" loading="lazy" decoding="async">
             </div>
           </td>
@@ -571,12 +630,12 @@
   </div>
 
   <!-- 02 Camera Projection -->
-  <div class="section section--alt section--hairline" data-section-pad>
+  <div class="section section--alt section--hairline" data-reveal data-section-pad>
     <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
           <td class="feature-media-cell">
-            <div class="feature-media">
+            <div class="feature-media" data-hover-zoom>
               <img src="/images/simple_uv/thumb_UV_Camera_Project.jpg" alt="UV Camera Project node preview showing a checker texture projected from a camera's point of view" loading="lazy" decoding="async">
             </div>
           </td>
@@ -601,12 +660,12 @@
   </div>
 
   <!-- 03 Built For Every Surface -->
-  <div class="section" data-section-pad>
+  <div class="section" data-reveal data-section-pad>
     <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
           <td class="feature-media-cell">
-            <div class="feature-media">
+            <div class="feature-media" data-hover-zoom>
               <img src="/images/simple_uv/UV_Cylindrical_Project.jpg" alt="UV Cylindrical Project node preview showing a checker texture wrapped around a cylindrical mesh" loading="lazy" decoding="async">
             </div>
           </td>
@@ -631,12 +690,12 @@
   </div>
 
   <!-- 04 Instance & Island Randomize -->
-  <div class="section section--alt section--hairline" data-section-pad>
+  <div class="section section--alt section--hairline" data-reveal data-section-pad>
     <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
           <td class="feature-media-cell">
-            <div class="feature-media">
+            <div class="feature-media" data-hover-zoom>
               <img src="/images/simple_uv/thumb_UV_Instance_Randomize.jpg" alt="UV Instance Randomize node preview showing randomized checker UV variation across scattered instances" loading="lazy" decoding="async">
             </div>
           </td>
@@ -660,12 +719,12 @@
   </div>
 
   <!-- 05 Automate the UV Pipeline -->
-  <div class="section" data-section-pad>
+  <div class="section" data-reveal data-section-pad>
     <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
           <td class="feature-media-cell">
-            <div class="feature-media">
+            <div class="feature-media" data-hover-zoom>
               <img src="/images/simple_uv/thumb_UV_Pack.jpg" alt="UV Pack to Channel node preview showing UV islands packed into a separate non-overlapping channel" loading="lazy" decoding="async">
             </div>
           </td>
@@ -700,12 +759,12 @@
        section earns its place instead of duplicating the screenshot. Every node
        has a real thumbnail except UV Attribute Transform, which has no image in
        the source docs either. -->
-  <div class="section" data-section-pad>
+  <div class="section" data-reveal data-section-pad>
     <h2 class="section-title" data-heading="title">All 11 Starter Nodes</h2>
     <p class="section-subtitle--tight">Every projection, transform, and utility node in the pack.</p>
     <table class="wide-inner shape-grid" role="presentation" data-stack-grid="cards">
       <tbody>
-        <tr>
+        <tr data-reveal>
           <td class="shape-card shape-card--compact grid-card--top w25">
             <div class="shape-card-media"><img src="/images/simple_uv/thumb_UV_Box_Project.jpg" alt="UV Box Project thumbnail" loading="lazy" decoding="async"></div>
             <div class="shape-card-body">
@@ -735,7 +794,7 @@
             </div>
           </td>
         </tr>
-        <tr>
+        <tr data-reveal>
           <td class="shape-card shape-card--compact grid-card--top w25">
             <div class="shape-card-media"><img src="/images/simple_uv/thumb_UV_Camera_Project.jpg" alt="UV Camera Project thumbnail" loading="lazy" decoding="async"></div>
             <div class="shape-card-body">
@@ -765,7 +824,7 @@
             </div>
           </td>
         </tr>
-        <tr>
+        <tr data-reveal>
           <td class="shape-card shape-card--compact grid-card--top w25">
             <div class="shape-card-media"><img src="/images/simple_uv/thumb_UV_UV%20Mark%20Edges.jpg" alt="UV Mark Edges thumbnail" loading="lazy" decoding="async"></div>
             <div class="shape-card-body">
@@ -795,18 +854,18 @@
   <!-- Starter-kit note: placed right after the node list, where a buyer wonders
        "is that everything?". Kept factual (planned, not promised on a schedule)
        per the house copy tone. -->
-  <div class="section section--alt section--hairline" data-section-pad>
+  <div class="section section--alt section--hairline" data-reveal data-section-pad>
     <h2 class="section-title-sm" data-heading="title">The Starter Kit</h2>
     <p class="brand-copy">These 11 nodes cover the essential UV workflow — projection, transform, randomization, and cleanup. This is the first release: more UV node groups are planned and will be added in future updates to the pack.</p>
   </div>
 
   <!-- Everything Inside -->
-  <div class="section section--alt section--hairline" data-section-pad>
+  <div class="section section--alt section--hairline" data-reveal data-section-pad>
     <h2 class="section-title" data-heading="title">Everything Inside</h2>
     <p class="section-subtitle--tight">One library, the whole UV workflow.</p>
     <table class="wide-inner" role="presentation" data-stack-grid="cards">
       <tbody>
-        <tr>
+        <tr data-reveal>
           <td class="grid-card grid-card--top w33">
             <div class="grid-card-title">Named UV Attributes</div>
             <div class="grid-card-body">Every node targets a user-specified UV attribute name, so you can create and manage multiple UV maps on one mesh.</div>
@@ -826,7 +885,7 @@
   </div>
 
   <!-- Why Trust -->
-  <div class="section" data-section-pad>
+  <div class="section" data-reveal data-section-pad>
     <h2 class="section-title-sm" data-heading="title">Why Trust Simple UV Nodes?</h2>
     <p class="brand-copy">Over a decade refining workflows for real-time engines. Simple Renaming, Simple Collider, Simple Export, and Simple Camera Manager are used and trusted by thousands of artists and studios worldwide.</p>
     <div class="brand-square-row">
@@ -843,6 +902,7 @@
         <td class="link-cell"><a class="link-pill" data-hover-lift href="https://superhivemarket.com/products/simple-camera-manager">Simple Camera Manager</a></td>
       </tr></tbody>
     </table>
+    <div class="callout callout--disclosure"><strong>AI Disclosure.</strong> These nodes are custom-built by me; I use AI only to proofread the documentation and to help track and document production progress. <a href="/legal-notice.html#ai-disclosure">Read more →</a></div>
   </div>
 
   <!-- Footer CTA -->
@@ -861,6 +921,50 @@
 
   </main>
 </div>
+  <script>
+  (function () {
+    var els = document.querySelectorAll('[data-reveal]');
+    if (!els.length) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-revealed');
+        io.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+  </script>
+  <script>
+  (function () {
+    var els = document.querySelectorAll('[data-count-up]');
+    if (!els.length) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var DURATION = 1400;
+    function animate(el) {
+      var target = parseInt(el.textContent.replace(/[^0-9]/g, ''), 10);
+      if (!target) return;
+      var start = null;
+      function tick(now) {
+        if (start === null) start = now;
+        var progress = Math.min((now - start) / DURATION, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(target * eased).toLocaleString('en-US');
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        animate(entry.target);
+        io.unobserve(entry.target);
+      });
+    }, { threshold: 0.6 });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+  </script>
 
 </body>
 </html>

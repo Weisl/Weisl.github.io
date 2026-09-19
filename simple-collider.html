@@ -3,10 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('has-js')</script>
 <title>Simple Collider — Blender Colliders for Unreal, Unity &amp; Godot</title>
 <meta name="description" content="Handle your entire Blender collision workflow — generate, manage, and export physics colliders ready for Unreal, Unity, and Godot.">
 <meta name="author" content="Matthias Patscheider">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://weisl.github.io https://assets.superhivemarket.com; media-src 'self'; font-src 'self'; frame-src https://www.youtube.com; object-src 'none'; base-uri 'self'; form-action 'self'">
 <link rel="canonical" href="https://alpineempire.eu/simple-collider.html">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2044%2044%22%3E%3Crect%20width%3D%2244%22%20height%3D%2244%22%20rx%3D%229%22%20fill%3D%22%2316171c%22/%3E%3Cpath%20d%3D%22M4%2034%20L15%2014%20L22%2025%20L28%2016%20L40%2034%20Z%22%20fill%3D%22none%22%20stroke%3D%22%233b82f6%22%20stroke-width%3D%223%22%20stroke-linejoin%3D%22round%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
@@ -22,6 +24,7 @@
 <meta name="twitter:description" content="Handle your entire Blender collision workflow — generate, manage, and export physics colliders ready for Unreal, Unity, and Godot.">
 <meta name="twitter:image" content="https://alpineempire.eu/images/simple_collider/SimpleBranding10.jpg">
 <meta name="twitter:image:alt" content="Simple Collider key art with the Blender collider panel">
+<link rel="preload" href="/fonts/space-grotesk-700.woff2" as="font" type="font/woff2" crossorigin>
 <style>html,body { margin:0; padding:0; background:#16171c; }</style>
 <style>
 .top-nav { background: #1c1e24; border-bottom: 1px solid #34363e; padding: 10px 30px; display: flex; align-items: center; justify-content: space-between; }
@@ -54,7 +57,26 @@
 
 .hero-photo-subtitle-line { display: block; font-size: 32px; font-weight: 900; color: #ffffff; line-height: 1.2; margin-top: 8px; text-shadow: 0 2px 14px rgba(0,0,0,0.6); }
 .hero-chip-row { display: flex; flex-wrap: wrap; gap: 8px; max-width: 480px; margin-top: 22px; }
-.hero-chip { display: inline-block; background: #24262d; border: 1px solid #34363e; border-radius: 6px; padding: 6px 12px; font-size: 12px; font-weight: 700; color: #e8e9ee; }
+
+.hero-chip { display: inline-block; background: #24262d; border: 1px solid #34363e; border-radius: 6px; padding: 6px 12px; font-size: 12px; font-weight: 700; color: #e8e9ee; opacity: 0; transform: translateY(10px); animation: hero-chip-in .5s ease forwards; }
+.hero-chip-row .hero-chip:nth-child(1) { animation-delay: .5s; }
+.hero-chip-row .hero-chip:nth-child(2) { animation-delay: .62s; }
+.hero-chip-row .hero-chip:nth-child(3) { animation-delay: .74s; }
+.hero-chip-row .hero-chip:nth-child(4) { animation-delay: .86s; }
+.hero-chip-row .hero-chip:nth-child(5) { animation-delay: .98s; }
+.hero-chip-row .hero-chip:nth-child(6) { animation-delay: 1.1s; }
+.hero-chip-row .hero-chip:nth-child(7) { animation-delay: 1.22s; }
+
+.hero-chip--more { border-style: dashed; color: #d7d9e0; }
+@keyframes hero-chip-in {
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-chip { opacity: 1; transform: none; animation: none; }
+}
+
+.hero-chip-intro { margin: 22px 0 0; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: #d7d9e0; text-shadow: 0 1px 8px rgba(0,0,0,0.7); }
 
 .page {
   background: #16171c;
@@ -270,8 +292,15 @@
 }
 
 
-.footer-legal { margin: 18px 0 0; font-size: 12px; }
+.footer-legal { margin: 18px 0 0; font-size: 12px; text-align: center; }
 .footer-legal-link { color: #9a9da6; text-decoration: none; }
+
+
+.callout--disclosure { max-width: 640px; margin: 24px auto 0; }
+
+
+[data-hover-zoom] img { transition: transform .5s ease; }
+[data-hover-zoom]:hover img { transform: scale(1.04); }
 
 
 [data-hover-lift] { transition: transform .25s ease; }
@@ -279,6 +308,7 @@
 
 
 @media (prefers-reduced-motion: reduce) {
+  [data-hover-zoom]:hover img { transform: none !important; transition: none !important; }
   [data-hover-lift]:hover { transform: none !important; transition: none !important; }
   [data-parallax] { background-attachment: scroll !important; }
 }
@@ -336,6 +366,35 @@
 .badge-header-row { display: inline-flex; align-items: center; gap: 12px; }
 
 .avatar-row--spaced { margin-top: 14px; }
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/fonts/space-grotesk-700.woff2) format('woff2');
+}
+.hero-wordmark, .hero-photo-word, .hero-photo-subtitle-line, .feature-title,
+.section-title, .section-title-sm, .footer-title, .badge-node, .badge-swatch,
+.cta-banner, .stat-number {
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  font-weight: 700;
+}
+
+
+html.has-js [data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+html.has-js [data-reveal].is-revealed {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  html.has-js [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
+
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Alpine Empire", "item": "https://alpineempire.eu/"}, {"@type": "ListItem", "position": 2, "name": "Simple Collider", "item": "https://alpineempire.eu/simple-collider.html"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Simple Collider", "description": "Handle your entire Blender collision workflow — generate, manage, and export physics colliders ready for Unreal, Unity, and Godot.", "url": "https://alpineempire.eu/simple-collider.html", "image": "https://alpineempire.eu/images/simple_collider/SimpleBranding10.jpg", "applicationCategory": "DesignApplication", "operatingSystem": "Windows, macOS, Linux", "softwareRequirements": "Blender", "author": {"@type": "Person", "name": "Matthias Patscheider", "url": "https://alpineempire.eu/"}, "publisher": {"@type": "Organization", "name": "Alpine Empire", "url": "https://alpineempire.eu/"}, "sameAs": ["https://superhivemarket.com/products/simple-collider", "https://superhivemarket.com/creators/matthias-patscheider"]}</script>
@@ -441,7 +500,7 @@
   <div class="divider-accent"></div>
 
   <!-- Video -->
-  <div class="section" data-section-pad>
+  <div class="section" data-reveal data-section-pad>
     <h2 class="section-title-sm" data-heading="title">See It In Action</h2>
     <div class="video-wrap">
       <iframe src="https://www.youtube.com/embed/VfE2QvR6xjE" title="Simple Collider — demo video" loading="lazy" allowfullscreen></iframe>
@@ -450,7 +509,7 @@
   </div>
 
   <!-- 01 Wide Shape Support -->
-  <div class="section section--alt section--hairline" data-section-pad>
+  <div class="section section--alt section--hairline" data-reveal data-section-pad>
     <div class="badge-header-wrap">
       <span class="badge-header-row">
         <span class="badge-diamond badge-diamond--inline"><span class="badge-diamond-num">01</span></span>
@@ -461,55 +520,55 @@
     <p class="section-subtitle--tight">Pick the collider type that fits — see each one in action.</p>
     <table class="wide-inner shape-grid" role="presentation" data-stack-grid="cards">
       <tbody>
-        <tr>
+        <tr data-reveal>
           <td class="shape-card grid-card--top w50">
-            <div class="shape-card-media"><img src="/images/simple_collider/Cubes_02_small.gif" alt="Animation showing box collider creation around objects in a scene"></div>
+            <div class="shape-card-media" data-hover-zoom><img src="/images/simple_collider/Cubes_02_small.gif" alt="Animation showing box collider creation around objects in a scene"></div>
             <div class="shape-card-body">
               <div class="shape-card-title">Box</div>
               <div class="shape-card-desc">Simple, efficient, covers a wide range of use-cases.</div>
             </div>
           </td>
           <td class="shape-card grid-card--top w50">
-            <div class="shape-card-media"><img src="/images/simple_collider/Sphere_01_small.gif" alt="Animation showing sphere collider creation around objects" loading="lazy" decoding="async"></div>
+            <div class="shape-card-media" data-hover-zoom><img src="/images/simple_collider/Sphere_01_small.gif" alt="Animation showing sphere collider creation around objects" loading="lazy" decoding="async"></div>
             <div class="shape-card-body">
               <div class="shape-card-title">Sphere</div>
               <div class="shape-card-desc">The most efficient shape — defined mathematically, not by polygons.</div>
             </div>
           </td>
         </tr>
-        <tr>
+        <tr data-reveal>
           <td class="shape-card grid-card--top">
-            <div class="shape-card-media"><img src="/images/simple_collider/Convex_01_small.gif" alt="Animation showing convex collider creation around objects" loading="lazy" decoding="async"></div>
+            <div class="shape-card-media" data-hover-zoom><img src="/images/simple_collider/Convex_01_small.gif" alt="Animation showing convex collider creation around objects" loading="lazy" decoding="async"></div>
             <div class="shape-card-body">
               <div class="shape-card-title">Convex</div>
               <div class="shape-card-desc">Versatile and efficient, especially without native mesh collisions.</div>
             </div>
           </td>
           <td class="shape-card grid-card--top">
-            <div class="shape-card-media"><img src="/images/simple_collider/cylinder_collider_small.gif" alt="Animation showing cylindrical convex collider creation" loading="lazy" decoding="async"></div>
+            <div class="shape-card-media" data-hover-zoom><img src="/images/simple_collider/cylinder_collider_small.gif" alt="Animation showing cylindrical convex collider creation" loading="lazy" decoding="async"></div>
             <div class="shape-card-body">
               <div class="shape-card-title">Convex Cylinder</div>
               <div class="shape-card-desc">A clean cylindrical convex shape for common manmade structures.</div>
             </div>
           </td>
         </tr>
-        <tr>
+        <tr data-reveal>
           <td class="shape-card grid-card--top">
-            <div class="shape-card-media"><img src="/images/simple_collider/Mesh_02_small.gif" alt="Animation showing mesh collider creation" loading="lazy" decoding="async"></div>
+            <div class="shape-card-media" data-hover-zoom><img src="/images/simple_collider/Mesh_02_small.gif" alt="Animation showing mesh collider creation" loading="lazy" decoding="async"></div>
             <div class="shape-card-body">
               <div class="shape-card-title">Mesh</div>
               <div class="shape-card-desc">The most accurate and most expensive shape — static objects only.</div>
             </div>
           </td>
           <td class="shape-card grid-card--top">
-            <div class="shape-card-media"><img src="/images/simple_collider/re-mesh.gif" alt="Animation showing re-meshed collider creation" loading="lazy" decoding="async"></div>
+            <div class="shape-card-media" data-hover-zoom><img src="/images/simple_collider/re-mesh.gif" alt="Animation showing re-meshed collider creation" loading="lazy" decoding="async"></div>
             <div class="shape-card-body">
               <div class="shape-card-title">Re-Meshed</div>
               <div class="shape-card-desc">Voxelates complex geometry to remove unnecessary interior faces.</div>
             </div>
           </td>
         </tr>
-        <tr>
+        <tr data-reveal>
           <td class="shape-card grid-card--top">
             <div class="shape-card-body">
               <div class="shape-card-title">Capsule</div>
@@ -528,12 +587,12 @@
   </div>
 
   <!-- 02 Object & Edit Mode Selection -->
-  <div class="section" data-section-pad>
+  <div class="section" data-reveal data-section-pad>
     <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
           <td class="feature-media-cell">
-            <div class="feature-media">
+            <div class="feature-media" data-hover-zoom>
               <img src="/images/simple_collider/books_small.gif" alt="Animation showing collider generation per individual object across a selection" loading="lazy" decoding="async">
             </div>
           </td>
@@ -557,7 +616,7 @@
     </table>
     <table class="support-image-wrap" role="presentation">
       <tbody><tr><td class="support-image-cell">
-        <div class="feature-media">
+        <div class="feature-media" data-hover-zoom>
           <img src="/images/OOBBOX-object_small.gif" alt="Animation illustrating collider creation based on Edit and Object mode selection" loading="lazy" decoding="async">
         </div>
       </td></tr></tbody>
@@ -565,12 +624,12 @@
   </div>
 
   <!-- 03 Auto Convex Decomposition -->
-  <div class="section section--alt section--hairline" data-section-pad>
+  <div class="section section--alt section--hairline" data-reveal data-section-pad>
     <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
           <td class="feature-media-cell">
-            <div class="feature-media">
+            <div class="feature-media" data-hover-zoom>
               <img src="/images/simple_collider/EditMode_autoConvex_small.gif" alt="Animation showing Auto Convex collider decomposition based on an Edit Mode selection" loading="lazy" decoding="async">
             </div>
           </td>
@@ -594,7 +653,7 @@
     </table>
     <table class="support-image-wrap" role="presentation">
       <tbody><tr><td class="support-image-cell">
-        <div class="feature-media">
+        <div class="feature-media" data-hover-zoom>
           <img src="/images/simple_collider/auto_convex_small.gif" alt="Auto Convex panel in Blender with Depth and Verts per Piece settings, generating convex colliders for a complex mesh" loading="lazy" decoding="async">
         </div>
       </td></tr></tbody>
@@ -602,12 +661,12 @@
   </div>
 
   <!-- 04 Oriented Minimum Bounding Box -->
-  <div class="section" data-section-pad>
+  <div class="section" data-reveal data-section-pad>
     <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
           <td class="feature-media-cell">
-            <div class="feature-media">
+            <div class="feature-media" data-hover-zoom>
               <img src="/images/simple_collider/OABBox_small.gif" alt="Animation showing Oriented Minimum Bounding Box collider generation" loading="lazy" decoding="async">
             </div>
           </td>
@@ -626,12 +685,12 @@
   </div>
 
   <!-- 05 Naming Presets -->
-  <div class="section section--alt section--hairline" data-section-pad>
+  <div class="section section--alt section--hairline" data-reveal data-section-pad>
     <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
           <td class="feature-media-cell">
-            <div class="feature-media">
+            <div class="feature-media" data-hover-zoom>
               <img src="/images/simple_collider/Naming_Presets.gif" alt="Animation showing creation and management of collider naming presets" loading="lazy" decoding="async">
             </div>
           </td>
@@ -648,7 +707,7 @@
     </table>
     <table class="support-image-wrap support-image-wrap--sm" role="presentation">
       <tbody><tr><td class="support-image-cell">
-        <div class="feature-media">
+        <div class="feature-media" data-hover-zoom>
           <img src="/images/simple_collider/collider_presets.gif" alt="Animation showing collider naming presets being selected" loading="lazy" decoding="async">
         </div>
       </td></tr></tbody>
@@ -656,12 +715,12 @@
   </div>
 
   <!-- 06 Convert Workflow -->
-  <div class="section" data-section-pad>
+  <div class="section" data-reveal data-section-pad>
     <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
           <td class="feature-media-cell">
-            <div class="feature-media">
+            <div class="feature-media" data-hover-zoom>
               <img src="/images/simple_collider/convert_MeshToCollider_small.gif" alt="Animation showing mesh to collider conversion" loading="lazy" decoding="async">
             </div>
           </td>
@@ -678,7 +737,7 @@
     </table>
     <table class="support-image-wrap support-image-wrap--md" role="presentation">
       <tbody><tr><td class="support-image-cell">
-        <div class="feature-media">
+        <div class="feature-media" data-hover-zoom>
           <img src="/images/simple_collider/convert_ColliderToMesh_small.gif" alt="Animation showing collider to mesh conversion" loading="lazy" decoding="async">
         </div>
       </td></tr></tbody>
@@ -688,12 +747,12 @@
   <div class="divider-accent"></div>
 
   <!-- Everything Inside -->
-  <div class="section" data-section-pad>
+  <div class="section" data-reveal data-section-pad>
     <h2 class="section-title" data-heading="title">Everything Inside</h2>
     <p class="section-subtitle--tight">One toolset, the whole collision workflow.</p>
     <table class="wide-inner" role="presentation" data-stack-grid="cards">
       <tbody>
-        <tr>
+        <tr data-reveal>
           <td class="grid-card grid-card--top w33">
             <div class="grid-card-title">Re-Meshed Colliders</div>
             <div class="grid-card-body">Voxelates complex, intersecting geometry before generating the collider, eliminating interior faces regular mesh colliders can't avoid.</div>
@@ -707,7 +766,7 @@
             <div class="grid-card-body">Assign and organize materials for use as physics materials in-engine.</div>
           </td>
         </tr>
-        <tr>
+        <tr data-reveal>
           <td class="grid-card grid-card--top">
             <div class="grid-card-title">Flexible Naming</div>
             <div class="grid-card-body">Custom naming schemes for UE4-5, Unity, Godot, and other engines with their own pipelines.</div>
@@ -726,12 +785,12 @@
   </div>
 
   <!-- Built For Your Engine -->
-  <div class="section section--alt section--hairline" data-section-pad>
+  <div class="section section--alt section--hairline" data-reveal data-section-pad>
     <h2 class="section-title-sm" data-heading="title">Built For Your Engine</h2>
     <p class="section-subtitle">Simple Collider covers the Blender side — these guides cover the rest.</p>
     <table class="fit-grid" role="presentation" data-stack-grid="cards">
       <tbody>
-        <tr>
+        <tr data-reveal>
           <td class="grid-card grid-card--bottom w50">
             <div class="grid-card-title">Unreal Engine</div>
             <div class="grid-card-body--wide">UE4 and UE5 import Simple, and partially Complex, collisions out of the box.</div>
@@ -743,7 +802,7 @@
             <p class="grid-card-cta"><a href="/simple_collider/collider_unity_guidline/" class="support-link">Unity Guide ↗</a></p>
           </td>
         </tr>
-        <tr>
+        <tr data-reveal>
           <td class="grid-card grid-card--bottom">
             <div class="grid-card-title">Godot</div>
             <div class="grid-card-body--wide">Automatic <code>-colonly</code> / <code>-convcolonly</code> suffixes so Godot detects colliders on import.</div>
@@ -759,47 +818,47 @@
   </div>
 
   <!-- What Experts Say -->
-  <div class="section section--hairline" data-section-pad>
+  <div class="section section--hairline" data-reveal data-section-pad>
     <h2 class="section-title-sm" data-heading="title">What Experts Say</h2>
     <p class="section-subtitle">Trusted in production pipelines at studios including <a href="https://www.remedygames.com/" class="inline-accent-link">Remedy Entertainment</a> and <a href="https://kitbash3d.com/" class="inline-accent-link">KitBash3D</a>.</p>
     <table class="quote-list" role="presentation">
       <tbody>
-        <tr><td class="quote-card">
+        <tr data-reveal><td class="quote-card">
           <p class="quote-text">"This addon is a must-have. It takes all the hassle and tedious work out of creating custom collision. So fast and easy to use, and it even takes care of naming and parenting with support for custom prefixes."</p>
           <div class="avatar-row">
             <img class="avatar" src="/images/simple_collider/RichardCourt.jpg" alt="Richard Court" loading="lazy" decoding="async">
             <span class="quote-attribution"><a href="https://www.artstation.com/richardcourt" target="_blank" rel="noopener noreferrer">Richard Court</a>, Principal Environment Artist at Studio Gobo</span>
           </div>
         </td></tr>
-        <tr><td class="quote-card">
+        <tr data-reveal><td class="quote-card">
           <p class="quote-text">"This is something that a lot of people overlook on how much time it can take up on a project. With its intuitive interface and support for complex shapes, it's impressive how quickly you can get usable results."</p>
           <div class="avatar-row">
             <img class="avatar" src="/images/simple_collider/JeremyEstrellado.jpg" alt="Jeremiah Estrellado" loading="lazy" decoding="async">
             <span class="quote-attribution"><a href="https://www.artstation.com/dinusty" target="_blank" rel="noopener noreferrer">Jeremiah Estrellado</a>, Associate Art Director &amp; Founder of The Dinusty Empire</span>
           </div>
         </td></tr>
-        <tr><td class="quote-card">
+        <tr data-reveal><td class="quote-card">
           <p class="quote-text">"I am a huge fan of addons that reduce the steps and amount of clicks it takes me to do menial tasks. This addon is one of those. Its simple and clean and will save a lot of time for anyone making collision meshes in Blender for use in game engines like Unreal Engine. I wish I had this addon a lot sooner!"</p>
           <div class="avatar-row">
             <img class="avatar" src="/images/simple_collider/Michael_Kinsey.jpg" alt="Michael Kinsey" loading="lazy" decoding="async">
             <span class="quote-attribution"><a href="https://www.artstation.com/michaelkinsey" target="_blank" rel="noopener noreferrer">Michael Kinsey</a>, Senior Shader Technical Director at Thats No Moon Entertainment</span>
           </div>
         </td></tr>
-        <tr><td class="quote-card">
+        <tr data-reveal><td class="quote-card">
           <p class="quote-text">"I have been lucky enough to be able to try Simple Collider in the past months and I can tell you that it became directly one of my favorite and most used add-ons. Everything is just so simple and powerful. Now I can create collisions in a matter of seconds for any assets or modular kit and spend all this extra saved time on more creative and fulfilling tasks!"</p>
           <div class="avatar-row">
             <img class="avatar" src="/images/simple_collider/Jérémy_Cerisy.jpg" alt="Jérémy Cerisy" loading="lazy" decoding="async">
             <span class="quote-attribution"><a href="https://www.artstation.com/jcerisy" target="_blank" rel="noopener noreferrer">Jérémy Cerisy</a>, Senior Environment Artist at Remedy Entertainment</span>
           </div>
         </td></tr>
-        <tr><td class="quote-card">
+        <tr data-reveal><td class="quote-card">
           <p class="quote-text">"Making collisions is often the most annoying part of the art pipeline. I think anyone working in real-time 3D deserves to get through this moment the proper way. That's what this addon allows."</p>
           <div class="avatar-row">
             <img class="avatar" src="/images/simple_collider/ArthurChamerois.jpg" alt="Arthur Chamerois" loading="lazy" decoding="async">
             <span class="quote-attribution"><a href="https://www.artstation.com/artcha" target="_blank" rel="noopener noreferrer">Arthur Chamerois</a>, 3D Artist at Playdead</span>
           </div>
         </td></tr>
-        <tr><td class="quote-card">
+        <tr data-reveal><td class="quote-card">
           <p class="quote-text">"This addon was extremely useful and made creating collisions quick and efficient. The entire modeling team used it and were able to pick it up very quickly."</p>
           <table class="checklist" role="presentation">
             <tbody>
@@ -817,7 +876,7 @@
   </div>
 
   <!-- Why Trust -->
-  <div class="section section--alt section--hairline" data-section-pad>
+  <div class="section section--alt section--hairline" data-reveal data-section-pad>
     <h2 class="section-title-sm" data-heading="title">Why Trust Simple Collider?</h2>
     <p class="brand-copy">Over a decade refining workflows for real-time engines. Simple Renaming, Simple Collider, Simple Export, and Simple Camera Manager are used and trusted by thousands of artists and studios worldwide.</p>
     <div class="brand-square-row">
@@ -833,6 +892,7 @@
         <td class="link-cell"><a class="link-pill" data-hover-lift href="https://superhivemarket.com/products/simple-camera-manager">Simple Camera Manager</a></td>
       </tr></tbody>
     </table>
+    <div class="callout callout--disclosure"><strong>AI Disclosure.</strong> I design this add-on and use AI to iterate faster on ideas and implementation; every result is still reviewed and tested by me before it ships. <a href="/legal-notice.html#ai-disclosure">Read more →</a></div>
   </div>
 
   <!-- Footer CTA -->
@@ -852,6 +912,50 @@
 
   </main>
 </div>
+  <script>
+  (function () {
+    var els = document.querySelectorAll('[data-reveal]');
+    if (!els.length) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-revealed');
+        io.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+  </script>
+  <script>
+  (function () {
+    var els = document.querySelectorAll('[data-count-up]');
+    if (!els.length) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var DURATION = 1400;
+    function animate(el) {
+      var target = parseInt(el.textContent.replace(/[^0-9]/g, ''), 10);
+      if (!target) return;
+      var start = null;
+      function tick(now) {
+        if (start === null) start = now;
+        var progress = Math.min((now - start) / DURATION, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(target * eased).toLocaleString('en-US');
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        animate(entry.target);
+        io.unobserve(entry.target);
+      });
+    }, { threshold: 0.6 });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+  </script>
 
 </body>
 </html>

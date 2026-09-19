@@ -3,10 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('has-js')</script>
 <title>Simple Renaming — Batch Rename Add-on for Blender</title>
 <meta name="description" content="Free Blender add-on trusted by 50,000+ users for fast, rule-based batch renaming of objects, materials, and more.">
 <meta name="author" content="Matthias Patscheider">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://weisl.github.io https://assets.superhivemarket.com; media-src 'self'; font-src 'self'; frame-src https://www.youtube.com; object-src 'none'; base-uri 'self'; form-action 'self'">
 <link rel="canonical" href="https://alpineempire.eu/simple-renaming.html">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2044%2044%22%3E%3Crect%20width%3D%2244%22%20height%3D%2244%22%20rx%3D%229%22%20fill%3D%22%2316171c%22/%3E%3Cpath%20d%3D%22M4%2034%20L15%2014%20L22%2025%20L28%2016%20L40%2034%20Z%22%20fill%3D%22none%22%20stroke%3D%22%233b82f6%22%20stroke-width%3D%223%22%20stroke-linejoin%3D%22round%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
@@ -22,6 +24,7 @@
 <meta name="twitter:description" content="Free Blender add-on trusted by 50,000+ users for fast, rule-based batch renaming of objects, materials, and more.">
 <meta name="twitter:image" content="https://alpineempire.eu/images/simple_renaming/SimpleBranding01.jpg">
 <meta name="twitter:image:alt" content="Simple Renaming key art with the Blender renaming panel">
+<link rel="preload" href="/fonts/space-grotesk-700.woff2" as="font" type="font/woff2" crossorigin>
 <style>html,body { margin:0; padding:0; background:#16171c; }</style>
 <style>
 .top-nav { background: #1c1e24; border-bottom: 1px solid #34363e; padding: 10px 30px; display: flex; align-items: center; justify-content: space-between; }
@@ -54,7 +57,26 @@
 
 .hero-photo-subtitle-line { display: block; font-size: 32px; font-weight: 900; color: #ffffff; line-height: 1.2; margin-top: 8px; text-shadow: 0 2px 14px rgba(0,0,0,0.6); }
 .hero-chip-row { display: flex; flex-wrap: wrap; gap: 8px; max-width: 480px; margin-top: 22px; }
-.hero-chip { display: inline-block; background: #24262d; border: 1px solid #34363e; border-radius: 6px; padding: 6px 12px; font-size: 12px; font-weight: 700; color: #e8e9ee; }
+
+.hero-chip { display: inline-block; background: #24262d; border: 1px solid #34363e; border-radius: 6px; padding: 6px 12px; font-size: 12px; font-weight: 700; color: #e8e9ee; opacity: 0; transform: translateY(10px); animation: hero-chip-in .5s ease forwards; }
+.hero-chip-row .hero-chip:nth-child(1) { animation-delay: .5s; }
+.hero-chip-row .hero-chip:nth-child(2) { animation-delay: .62s; }
+.hero-chip-row .hero-chip:nth-child(3) { animation-delay: .74s; }
+.hero-chip-row .hero-chip:nth-child(4) { animation-delay: .86s; }
+.hero-chip-row .hero-chip:nth-child(5) { animation-delay: .98s; }
+.hero-chip-row .hero-chip:nth-child(6) { animation-delay: 1.1s; }
+.hero-chip-row .hero-chip:nth-child(7) { animation-delay: 1.22s; }
+
+.hero-chip--more { border-style: dashed; color: #d7d9e0; }
+@keyframes hero-chip-in {
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-chip { opacity: 1; transform: none; animation: none; }
+}
+
+.hero-chip-intro { margin: 22px 0 0; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: #d7d9e0; text-shadow: 0 1px 8px rgba(0,0,0,0.7); }
 
 .page {
   background: #16171c;
@@ -270,8 +292,15 @@
 }
 
 
-.footer-legal { margin: 18px 0 0; font-size: 12px; }
+.footer-legal { margin: 18px 0 0; font-size: 12px; text-align: center; }
 .footer-legal-link { color: #9a9da6; text-decoration: none; }
+
+
+.callout--disclosure { max-width: 640px; margin: 24px auto 0; }
+
+
+[data-hover-zoom] img { transition: transform .5s ease; }
+[data-hover-zoom]:hover img { transform: scale(1.04); }
 
 
 [data-hover-lift] { transition: transform .25s ease; }
@@ -279,6 +308,7 @@
 
 
 @media (prefers-reduced-motion: reduce) {
+  [data-hover-zoom]:hover img { transform: none !important; transition: none !important; }
   [data-hover-lift]:hover { transform: none !important; transition: none !important; }
   [data-parallax] { background-attachment: scroll !important; }
 }
@@ -336,6 +366,35 @@
 .pattern-example { font-family: 'SF Mono', Consolas, monospace; font-size: 14px; margin-bottom: 10px; }
 .pattern-example-arrow { margin-bottom: 14px; }
 .pattern-example-legend { font-size: 12px; line-height: 2; }
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/fonts/space-grotesk-700.woff2) format('woff2');
+}
+.hero-wordmark, .hero-photo-word, .hero-photo-subtitle-line, .feature-title,
+.section-title, .section-title-sm, .footer-title, .badge-node, .badge-swatch,
+.cta-banner, .stat-number {
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  font-weight: 700;
+}
+
+
+html.has-js [data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+html.has-js [data-reveal].is-revealed {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  html.has-js [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
+
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Alpine Empire", "item": "https://alpineempire.eu/"}, {"@type": "ListItem", "position": 2, "name": "Simple Renaming", "item": "https://alpineempire.eu/simple-renaming.html"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Simple Renaming", "description": "Free Blender add-on trusted by 50,000+ users for fast, rule-based batch renaming of objects, materials, and more.", "url": "https://alpineempire.eu/simple-renaming.html", "image": "https://alpineempire.eu/images/simple_renaming/SimpleBranding01.jpg", "applicationCategory": "DesignApplication", "operatingSystem": "Windows, macOS, Linux", "softwareRequirements": "Blender", "author": {"@type": "Person", "name": "Matthias Patscheider", "url": "https://alpineempire.eu/"}, "publisher": {"@type": "Organization", "name": "Alpine Empire", "url": "https://alpineempire.eu/"}, "sameAs": ["https://extensions.blender.org/add-ons/simple-renaming-panel/", "https://superhivemarket.com/products/simple-renaming-panel", "https://superhivemarket.com/creators/matthias-patscheider"], "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "url": "https://extensions.blender.org/add-ons/simple-renaming-panel/"}}</script>
@@ -475,7 +534,7 @@
   <div class="divider-accent"></div>
 
   <!-- Video -->
-  <div class="section" data-section-pad>
+  <div class="section" data-reveal data-section-pad>
     <h2 class="section-title-sm" data-heading="title">See It In Action</h2>
     <div class="video-wrap">
       <iframe frameborder="0" width="960" height="540" src="https://www.youtube.com/embed/YfC5GT5nVt0" title="Simple Renaming — demo video" loading="lazy"></iframe>
@@ -485,12 +544,12 @@
   </div>
 
   <!-- 01 Replace, Number, Search & Replace -->
-  <div class="section section--alt section--hairline" data-section-pad>
+  <div class="section section--alt section--hairline" data-reveal data-section-pad>
     <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
           <td class="feature-media-cell">
-            <div class="feature-media">
+            <div class="feature-media" data-hover-zoom>
               <img src="/images/simple_renaming/renaming_panel_main.jpg" alt="Simple Renaming panel showing rename, search and replace, and prefix/suffix controls">
             </div>
           </td>
@@ -518,12 +577,12 @@
   </div>
 
   <!-- 02 Target Selection -->
-  <div class="section" data-section-pad>
+  <div class="section" data-reveal data-section-pad>
     <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
           <td class="feature-media-cell">
-            <div class="feature-media">
+            <div class="feature-media" data-hover-zoom>
               <img src="/images/simple_renaming/renaming_panel_target.jpg" alt="Target panel showing the object type filter and Only Selected toggle" loading="lazy" decoding="async">
             </div>
           </td>
@@ -548,12 +607,12 @@
   </div>
 
   <!-- 03 Sorting -->
-  <div class="section section--alt section--hairline" data-section-pad>
+  <div class="section section--alt section--hairline" data-reveal data-section-pad>
     <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
           <td class="feature-media-cell">
-            <div class="feature-media">
+            <div class="feature-media" data-hover-zoom>
               <img src="/images/simple_renaming/renaming_panel_sort.jpg" alt="Sort Target Objects option in the Simple Renaming panel" loading="lazy" decoding="async">
             </div>
           </td>
@@ -577,7 +636,7 @@
   </div>
 
   <!-- 04 Renaming Variables -->
-  <div class="section" data-section-pad>
+  <div class="section" data-reveal data-section-pad>
     <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
@@ -619,12 +678,12 @@
   </div>
 
   <!-- 05 Prefix & Suffix -->
-  <div class="section section--alt section--hairline" data-section-pad>
+  <div class="section section--alt section--hairline" data-reveal data-section-pad>
     <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
           <td class="feature-media-cell">
-            <div class="feature-media">
+            <div class="feature-media" data-hover-zoom>
               <img src="/images/simple_renaming/renaming_panel_add_prefix_suffix.jpg" alt="Add Prefix and Add Suffix fields in the Simple Renaming panel" loading="lazy" decoding="async">
             </div>
           </td>
@@ -649,12 +708,12 @@
   </div>
 
   <!-- 06 Search & Replace -->
-  <div class="section" data-section-pad>
+  <div class="section" data-reveal data-section-pad>
     <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
           <td class="feature-media-cell">
-            <div class="feature-media">
+            <div class="feature-media" data-hover-zoom>
               <img src="/images/simple_renaming/renaming_panel_search_replace.jpg" alt="Search and Replace panel with regex and match case options" loading="lazy" decoding="async">
             </div>
           </td>
@@ -679,12 +738,12 @@
   </div>
 
   <!-- 07 More -->
-  <div class="section section--alt section--hairline" data-section-pad>
+  <div class="section section--alt section--hairline" data-reveal data-section-pad>
     <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
           <td class="feature-media-cell">
-            <div class="feature-media">
+            <div class="feature-media" data-hover-zoom>
               <img src="/images/simple_renaming/renaming_panel_more.jpg" alt="Trim End of String, Numerate, and Data Name from Object controls" loading="lazy" decoding="async">
             </div>
           </td>
@@ -710,12 +769,12 @@
   </div>
 
   <!-- 08 Rename By Type -->
-  <div class="section" data-section-pad>
+  <div class="section" data-reveal data-section-pad>
     <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
           <td class="feature-media-cell">
-            <div class="feature-media">
+            <div class="feature-media" data-hover-zoom>
               <img src="/images/simple_renaming/renaming_panel_prefix_suffix.jpg" alt="Prefix/Suffix by Type panel showing per-type rename fields for meshes, materials, cameras, and more" loading="lazy" decoding="async">
             </div>
           </td>
@@ -741,12 +800,12 @@
   <div class="divider-accent"></div>
 
   <!-- Everything Inside -->
-  <div class="section" data-section-pad>
+  <div class="section" data-reveal data-section-pad>
     <h2 class="section-title" data-heading="title">Everything Inside</h2>
     <p class="section-subtitle--tight">One addon, the whole renaming workflow.</p>
     <table class="wide-inner" role="presentation" data-stack-grid="cards">
       <tbody>
-        <tr>
+        <tr data-reveal>
           <td class="grid-card grid-card--top w33">
             <div class="grid-card-title">@-Variables</div>
             <div class="grid-card-body">Insert dynamic values anywhere in a name pattern — <code>@o</code> object name, <code>@n</code> padded counter, <code>@f</code>/<code>@d</code>/<code>@i</code> file and date info, plus user-defined <code>@h</code>/<code>@l</code>/<code>@b</code>/<code>@u</code> slots.</div>
@@ -760,7 +819,7 @@
             <div class="grid-card-body">Clear before/after feedback on every rename, with shortcuts you can remap to fit your own workflow.</div>
           </td>
         </tr>
-        <tr>
+        <tr data-reveal>
           <td class="grid-card grid-card--top" colspan="3">
             <div class="grid-card-title">Keeping the Overview</div>
             <div class="grid-card-body">A popup panel lists exactly what's been renamed after every operation — object by object — so you can review the results at a glance instead of hunting through the outliner.</div>
@@ -772,23 +831,23 @@
   </div>
 
   <!-- What Users Say -->
-  <div class="section section--alt section--hairline" data-section-pad>
+  <div class="section section--alt section--hairline" data-reveal data-section-pad>
     <h2 class="section-title-sm" data-heading="title">What Users Say</h2>
     <table class="quote-list" role="presentation">
       <tbody>
-        <tr><td class="quote-card">
+        <tr data-reveal><td class="quote-card">
           <p class="quote-text">"Absolutely indispensable for me and my Blender workflow. This really should be a part of Blender at a base level... the biggest lifeline and time saver you will ever find. Highly recommend."</p>
           <div class="avatar-row">
             <span class="quote-attribution">— Arianna, Superhive</span>
           </div>
         </td></tr>
-        <tr><td class="quote-card">
+        <tr data-reveal><td class="quote-card">
           <p class="quote-text">"Superb, finally I can name the mesh the same as the data block without having to copy and paste every single time I create an object."</p>
           <div class="avatar-row">
             <span class="quote-attribution">— Akira Furball, Gumroad</span>
           </div>
         </td></tr>
-        <tr><td class="quote-card">
+        <tr data-reveal><td class="quote-card">
           <p class="quote-text">"Amazing addon, something Blender is missing with all this depth. It has helped me to keep my scenes tidy and tight, and in a very efficient way."</p>
           <div class="avatar-row">
             <span class="quote-attribution">— hombrezoo, Gumroad</span>
@@ -798,7 +857,7 @@
     </table>
     <table class="support-image-wrap" role="presentation">
       <tbody><tr><td class="support-image-cell">
-        <div class="feature-media">
+        <div class="feature-media" data-hover-zoom>
           <img src="/images/simple_renaming/SimpleBranding06.jpg" alt="Rating breakdown showing 534 ratings, 97% five stars, with user reviews" loading="lazy" decoding="async">
         </div>
       </td></tr></tbody>
@@ -806,7 +865,7 @@
   </div>
 
   <!-- Why Trust -->
-  <div class="section section--hairline" data-section-pad>
+  <div class="section section--hairline" data-reveal data-section-pad>
     <h2 class="section-title-sm" data-heading="title">Why Trust Simple Renaming?</h2>
     <p class="brand-copy">Over a decade refining workflows for real-time engines. Simple Renaming, Simple Collider, Simple Export, and Simple Camera Manager are used and trusted by thousands of artists and studios worldwide.</p>
     <div class="brand-square-row">
@@ -822,6 +881,7 @@
         <td class="link-cell"><a class="link-pill" data-hover-lift href="https://superhivemarket.com/products/simple-camera-manager">Simple Camera Manager</a></td>
       </tr></tbody>
     </table>
+    <div class="callout callout--disclosure"><strong>AI Disclosure.</strong> I design this add-on and use AI to iterate faster on ideas and implementation; every result is still reviewed and tested by me before it ships. <a href="/legal-notice.html#ai-disclosure">Read more →</a></div>
   </div>
 
   <!-- Footer CTA -->
@@ -870,6 +930,50 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll, { passive: true });
     update();
+  })();
+  </script>
+  <script>
+  (function () {
+    var els = document.querySelectorAll('[data-reveal]');
+    if (!els.length) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-revealed');
+        io.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+  </script>
+  <script>
+  (function () {
+    var els = document.querySelectorAll('[data-count-up]');
+    if (!els.length) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var DURATION = 1400;
+    function animate(el) {
+      var target = parseInt(el.textContent.replace(/[^0-9]/g, ''), 10);
+      if (!target) return;
+      var start = null;
+      function tick(now) {
+        if (start === null) start = now;
+        var progress = Math.min((now - start) / DURATION, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(target * eased).toLocaleString('en-US');
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        animate(entry.target);
+        io.unobserve(entry.target);
+      });
+    }, { threshold: 0.6 });
+    els.forEach(function (el) { io.observe(el); });
   })();
   </script>
 

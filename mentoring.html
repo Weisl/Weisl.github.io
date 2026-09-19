@@ -3,10 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('has-js')</script>
 <title>3D Art &amp; Pipeline Mentoring — Alpine Empire</title>
 <meta name="description" content="1:1 mentoring, team training, and portfolio reviews in environment art, tech art, and pipelines — from a decade of AAA production experience.">
 <meta name="author" content="Matthias Patscheider">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://weisl.github.io https://assets.superhivemarket.com; media-src 'self'; font-src 'self'; frame-src https://www.youtube.com; object-src 'none'; base-uri 'self'; form-action 'self'">
 <link rel="canonical" href="https://alpineempire.eu/mentoring.html">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2044%2044%22%3E%3Crect%20width%3D%2244%22%20height%3D%2244%22%20rx%3D%229%22%20fill%3D%22%2316171c%22/%3E%3Cpath%20d%3D%22M4%2034%20L15%2014%20L22%2025%20L28%2016%20L40%2034%20Z%22%20fill%3D%22none%22%20stroke%3D%22%233b82f6%22%20stroke-width%3D%223%22%20stroke-linejoin%3D%22round%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
@@ -22,6 +24,7 @@
 <meta name="twitter:description" content="1:1 mentoring, team training, and portfolio reviews in environment art, tech art, and pipelines — from a decade of AAA production experience.">
 <meta name="twitter:image" content="https://alpineempire.eu/images/mentoring/hero_banner.jpg">
 <meta name="twitter:image:alt" content="1:1 mentoring in environment art, tech art and pipelines">
+<link rel="preload" href="/fonts/space-grotesk-700.woff2" as="font" type="font/woff2" crossorigin>
 <style>html,body { margin:0; padding:0; background:#16171c; }</style>
 <style>
 .top-nav { background: #1c1e24; border-bottom: 1px solid #34363e; padding: 10px 30px; display: flex; align-items: center; justify-content: space-between; }
@@ -54,7 +57,26 @@
 
 .hero-photo-subtitle-line { display: block; font-size: 32px; font-weight: 900; color: #ffffff; line-height: 1.2; margin-top: 8px; text-shadow: 0 2px 14px rgba(0,0,0,0.6); }
 .hero-chip-row { display: flex; flex-wrap: wrap; gap: 8px; max-width: 480px; margin-top: 22px; }
-.hero-chip { display: inline-block; background: #24262d; border: 1px solid #34363e; border-radius: 6px; padding: 6px 12px; font-size: 12px; font-weight: 700; color: #e8e9ee; }
+
+.hero-chip { display: inline-block; background: #24262d; border: 1px solid #34363e; border-radius: 6px; padding: 6px 12px; font-size: 12px; font-weight: 700; color: #e8e9ee; opacity: 0; transform: translateY(10px); animation: hero-chip-in .5s ease forwards; }
+.hero-chip-row .hero-chip:nth-child(1) { animation-delay: .5s; }
+.hero-chip-row .hero-chip:nth-child(2) { animation-delay: .62s; }
+.hero-chip-row .hero-chip:nth-child(3) { animation-delay: .74s; }
+.hero-chip-row .hero-chip:nth-child(4) { animation-delay: .86s; }
+.hero-chip-row .hero-chip:nth-child(5) { animation-delay: .98s; }
+.hero-chip-row .hero-chip:nth-child(6) { animation-delay: 1.1s; }
+.hero-chip-row .hero-chip:nth-child(7) { animation-delay: 1.22s; }
+
+.hero-chip--more { border-style: dashed; color: #d7d9e0; }
+@keyframes hero-chip-in {
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-chip { opacity: 1; transform: none; animation: none; }
+}
+
+.hero-chip-intro { margin: 22px 0 0; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: #d7d9e0; text-shadow: 0 1px 8px rgba(0,0,0,0.7); }
 
 .page {
   background: #16171c;
@@ -270,8 +292,15 @@
 }
 
 
-.footer-legal { margin: 18px 0 0; font-size: 12px; }
+.footer-legal { margin: 18px 0 0; font-size: 12px; text-align: center; }
 .footer-legal-link { color: #9a9da6; text-decoration: none; }
+
+
+.callout--disclosure { max-width: 640px; margin: 24px auto 0; }
+
+
+[data-hover-zoom] img { transition: transform .5s ease; }
+[data-hover-zoom]:hover img { transform: scale(1.04); }
 
 
 [data-hover-lift] { transition: transform .25s ease; }
@@ -279,6 +308,7 @@
 
 
 @media (prefers-reduced-motion: reduce) {
+  [data-hover-zoom]:hover img { transform: none !important; transition: none !important; }
   [data-hover-lift]:hover { transform: none !important; transition: none !important; }
   [data-parallax] { background-attachment: scroll !important; }
 }
@@ -336,6 +366,18 @@
 .inline-cta { margin: 16px 0 0; }
 
 
+.mid-banner { position: relative; width: 100%; aspect-ratio: 3/1; min-height: 420px; display: flex; align-items: flex-end; justify-content: center; overflow: hidden; }
+.mid-banner-media { position: absolute; top: -70px; right: 0; bottom: -70px; left: 0; background-color: #1c1e24; background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed; }
+.mid-banner-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+
+.teaching-video-section { position: relative; overflow: hidden; min-height: 560px; display: flex; flex-direction: column; justify-content: center; }
+.teaching-banner-video { position: absolute; top: 0; right: 0; bottom: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+.teaching-video-scrim { position: absolute; inset: 0; background: rgba(22,23,28,0.82); }
+.teaching-video-content { position: relative; }
+.teaching-video-content .section-title { text-shadow: 0 2px 14px rgba(0,0,0,0.7); }
+
+
 .tag-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; max-width: 920px; margin: 16px auto 0; }
 .tag-outline { display: inline-block; background: transparent; border: 1px solid #3b82f6; border-radius: 6px; padding: 6px 12px; font-size: 12px; font-weight: 700; color: #3b82f6; }
 
@@ -356,7 +398,11 @@
 .tag-solid { display: inline-block; background: #3b82f6; border: 1px solid transparent; border-radius: 6px; padding: 6px 12px; font-size: 12px; font-weight: 700; color: #ffffff; }
 
 
-.grid-card--featured { border: 2px solid #3b82f6; background: rgba(59,130,246,0.06); }
+.grid-card--featured { border: 2px solid #3b82f6; background: rgba(59,130,246,0.06); animation: featured-card-glow 2.6s ease-in-out infinite; }
+@keyframes featured-card-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(59,130,246,0.25); }
+  50% { box-shadow: 0 0 24px 4px rgba(59,130,246,0.35); }
+}
 
 
 .pricing-cta { text-align: center; margin: 26px 0 0; }
@@ -371,10 +417,40 @@
 .avatar-link:hover .avatar { transform: scale(1.12); }
 @media (prefers-reduced-motion: reduce) {
   .avatar-link:hover .avatar { transform: none !important; transition: none !important; }
+  .grid-card--featured { animation: none; }
 }
 
 .footer-cta-wrap { margin: 0 0 34px; }
 .button-primary--xl { font-size: 18px; padding: 18px 42px; }
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/fonts/space-grotesk-700.woff2) format('woff2');
+}
+.hero-wordmark, .hero-photo-word, .hero-photo-subtitle-line, .feature-title,
+.section-title, .section-title-sm, .footer-title, .badge-node, .badge-swatch,
+.cta-banner, .stat-number {
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  font-weight: 700;
+}
+
+
+html.has-js [data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+html.has-js [data-reveal].is-revealed {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  html.has-js [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
+
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Alpine Empire", "item": "https://alpineempire.eu/"}, {"@type": "ListItem", "position": 2, "name": "Mentoring — Alpine Empire", "item": "https://alpineempire.eu/mentoring.html"}]}</script>
 </head>
@@ -463,8 +539,18 @@
        deploy_to_docs.py's parallax script can move it slower than scroll on
        docs/ (Superhive just gets the fixed look). -->
   <div style="position:relative;min-height:480px;overflow:hidden;">
-    <div data-parallax data-parallax-js style="position:absolute;top:-70px;right:0;bottom:-70px;left:0;background:#1c1e24 url('/images/mentoring/hero_banner.jpg') center 35%/cover no-repeat fixed;"></div>
-    <div style="position:absolute;inset:0;background:linear-gradient(100deg, rgba(8,9,12,0.82) 0%, rgba(8,9,12,0.68) 45%, rgba(8,9,12,0.46) 68%, rgba(8,9,12,0.05) 100%);"></div>
+    <!-- Verdant Realms footage as a muted/looped background, replacing the
+         static hero_banner.jpg parallax layer. No data-parallax here — full
+         top:0/right:0/bottom:0/left:0 + width:100%/height:100% + object-fit
+         is the same sizing recipe already proven on this page's own
+         .teaching-banner-video further down, deliberately not the
+         -70px-oversized parallax-transform box the old photo layer used
+         (video is a replaced element; that box only auto-sizes correctly
+         for a div). -->
+    <video class="hero-bg-video" autoplay muted loop playsinline preload="auto" poster="/images/mentoring/hero_banner.jpg" style="position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center 35%;background:#1c1e24;filter:brightness(0.92);">
+      <source src="/videos/website/verdant_clip_04.mp4" type="video/mp4">
+    </video>
+    <div style="position:absolute;inset:0;background:linear-gradient(100deg, rgba(8,9,12,0.85) 0px, rgba(8,9,12,0.65) 300px, rgba(8,9,12,0.25) 550px, rgba(8,9,12,0) 750px);"></div>
     <div class="hero-photo-content" data-section-pad>
       <h1 class="hero-photo-heading">
         <span class="hero-wordmark-row">
@@ -480,23 +566,24 @@
       </h1>
       <p class="hero-photo-lede">Over a decade in game art, now teaching what actually works in production.</p>
       <div class="hero-chip-row">
-        <span class="hero-chip">ALAN WAKE 2</span>
-        <span class="hero-chip">FBC FIREBREAK</span>
-        <span class="hero-chip">BLACK MIRROR</span>
-        <span class="hero-chip">CROSSFIRE X</span>
-        <span class="hero-chip">LINUX &amp; OPEN-SOURCE</span>
+        <span class="hero-chip">TECH ART</span>
+        <span class="hero-chip">LEVEL ART</span>
+        <span class="hero-chip">HARD SURFACE</span>
+        <span class="hero-chip">VEGETATION</span>
+        <span class="hero-chip">PROCEDURALISM</span>
+        <span class="hero-chip">MODULARITY</span>
       </div>
     </div>
   </div>
   <div class="divider-accent"></div>
 
   <!-- What I Offer -->
-  <div class="section" data-section-pad>
+  <div class="section" data-reveal data-section-pad>
     <h2 class="section-title" data-heading="title">What I Offer</h2>
     <p class="section-subtitle--tight">Personalized, individual training based on real production experience.</p>
     <table class="wide-inner" role="presentation" data-stack-grid="cards">
       <tbody>
-        <tr>
+        <tr data-reveal>
           <td class="grid-card grid-card--top w25">
             <div class="grid-card-title">Environment Art</div>
             <div class="grid-card-body">Experience in environment art on shipped titles, from startup to AAA: <em>Alan Wake 2</em>, <em>FBC Firebreak</em>, <em>Black Mirror</em>, <em>Crossfire X</em>, and more.</div>
@@ -531,14 +618,18 @@
     </div>
   </div>
 
-  <!-- Mid-page banner: a purpose-shot 3:1 collage (code, hard-surface
-       wireframe, Geometry Nodes graph) sized to exactly match this
-       container, so it's shown centered/uncropped rather than positioned
-       like the hero's photo crop. -->
-  <div style="position:relative;width:100%;aspect-ratio:3/1;min-height:420px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;">
-    <div data-parallax data-parallax-js style="position:absolute;top:-70px;right:0;bottom:-70px;left:0;background:#1c1e24 url('/images/alpine_empire/GameBanner.jpg') center/cover no-repeat fixed;"></div>
-    <div style="position:absolute;inset:0;background:linear-gradient(0deg, rgba(28,30,36,0.94) 0%, rgba(28,30,36,0.55) 45%, rgba(28,30,36,0.08) 72%);"></div>
-    <div class="mentee-banner-content" data-section-pad>
+  <!-- Mid-page banner: the modular mold kit shot from FBC Firebreak,
+       pre-cropped to this box's own 3:1 aspect (see mentoring.css:
+       .mid-banner and friends) so cover shows it centered/near-uncropped
+       rather than positioned like the hero's photo crop. .mid-banner is a
+       bare shell, not .section, so deploy_to_docs.py's enhance_reveal()
+       never reaches it — data-reveal on .mentee-banner-content itself is
+       what fades the heading/body in, so the moving parallax photo and the
+       arriving text read as one coordinated moment instead of motion under
+       always-static copy. -->
+  <div class="mid-banner">
+    <div class="mid-banner-media" data-parallax data-parallax-js style="background-image:url('/images/mentoring/firebreak/matthias-patscheider-mold-kit-banner.jpg');"></div>
+    <div class="mentee-banner-content" data-section-pad data-reveal>
       <div class="mentee-banner-eyebrow">WHO THIS IS FOR</div>
       <h2 class="mentee-banner-title" data-heading="title">Wherever You're Starting From<br>— Sessions Meet You There</h2>
       <p class="mentee-banner-body">Whether you're just starting out, switching fields, or sharpening a skill, you bring your work in progress and your actual questions. Sessions give honest, specific feedback on what to focus on next.</p>
@@ -547,13 +638,13 @@
   <div class="divider-accent"></div>
 
   <!-- Learn -->
-  <div class="section" data-section-pad>
+  <div class="section" data-reveal data-section-pad>
     <h2 class="section-title" data-heading="title">What You Learn</h2>
     <p class="section-subtitle--tight">Three tracks, mix and match based on what you need.</p>
   </div>
 
   <!-- Environment Art & World Building -->
-  <div class="section section--alt section--hairline" data-section-pad>
+  <div class="section section--alt section--hairline" data-reveal data-section-pad>
     <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
@@ -584,7 +675,7 @@
   </div>
 
   <!-- Tech Art, Tooling & Pipeline -->
-  <div class="section" data-section-pad>
+  <div class="section" data-reveal data-section-pad>
     <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
@@ -617,14 +708,18 @@
     </table>
   </div>
 
-  <!-- Mid-page banner: a purpose-shot 3:1 collage (code, hard-surface
-       wireframe, Geometry Nodes graph) sized to exactly match this
-       container, so it's shown centered/uncropped rather than positioned
-       like the hero's photo crop. -->
-  <div style="position:relative;width:100%;aspect-ratio:3/1;min-height:420px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;">
-    <div data-parallax data-parallax-js style="position:absolute;top:-70px;right:0;bottom:-70px;left:0;background:#1c1e24 url('/images/mentoring/Tech_Art_Banner.jpg') center/cover no-repeat fixed;"></div>
-    <div style="position:absolute;inset:0;background:linear-gradient(0deg, rgba(28,30,36,0.94) 0%, rgba(28,30,36,0.55) 45%, rgba(28,30,36,0.08) 72%);"></div>
-    <div class="mentee-banner-content" data-section-pad>
+  <!-- Mid-page banner: a looping clip of the mold kit's Geometry Nodes
+       growth setup melting through a test cube — self-hosted video instead
+       of the photo banner above, for the same replaced-element reasons as
+       the hero/teaching videos (object-fit:cover does the sizing, no
+       -70px-oversized parallax box; see .mid-banner-video in mentoring.css).
+       Pre-cropped and delogo'd to this box's 3:1 aspect so cover shows it
+       centered/near-uncropped, same as the photo banner above. -->
+  <div class="mid-banner">
+    <video class="mid-banner-video" autoplay muted loop playsinline preload="auto" poster="/images/mentoring/firebreak/matthias-patscheider-mold-cube-poster.jpg">
+      <source src="/videos/mentoring/firebreak/matthias-patscheider-mold-cube-banner.mp4" type="video/mp4">
+    </video>
+    <div class="mentee-banner-content" data-section-pad data-reveal>
       <div class="mentee-banner-eyebrow">THE TOOLS BEHIND 50,000+ DOWNLOADS</div>
       <h2 class="mentee-banner-title" data-heading="title">Python API, Geometry Nodes,<br>and Addons Built for Production</h2>
       <p class="mentee-banner-body">I build the Simple Pipeline Tools thousands of Blender artists rely on — Simple Renaming alone has 50,000+ downloads. You'll learn the same scripting and procedural workflows, aimed at real pipeline problems instead of toy examples.</p>
@@ -633,7 +728,7 @@
   <div class="divider-accent"></div>
 
   <!-- Portfolio & Career -->
-  <div class="section section--alt section--hairline" data-section-pad>
+  <div class="section section--alt section--hairline" data-reveal data-section-pad>
     <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
@@ -674,12 +769,12 @@
        portrait frame that zooms on hover. Portraits live in
        docs/images/mentoring/ and are served from the weisl.github.io host
        like every other image on this page. -->
-  <div class="section" data-section-pad>
+  <div class="section" data-reveal data-section-pad>
     <h2 class="section-title" data-heading="title">What Mentees Say</h2>
     <p class="section-subtitle--tight">Real feedback from mentees, as it comes in.</p>
     <table class="quote-list" role="presentation">
       <tbody>
-        <tr><td class="quote-card">
+        <tr data-reveal><td class="quote-card">
           <p class="quote-text">"Matthias brings a rare expertise in Blender for game art, and that makes him a uniquely valuable teacher for me. Matthias is versatile and adaptable. Whatever your needs as a mentee, he will fulfill."</p>
           <div class="avatar-row">
             <a class="avatar-link" href="https://www.artstation.com/jolanpiep" target="_blank" rel="noopener noreferrer" aria-label="Jolan Huijskes on ArtStation">
@@ -688,7 +783,7 @@
             <span class="quote-attribution"><a href="https://www.artstation.com/jolanpiep" target="_blank" rel="noopener noreferrer">Jolan Huijskes</a></span>
           </div>
         </td></tr>
-        <tr><td class="quote-card">
+        <tr data-reveal><td class="quote-card">
           <p class="quote-text">"Working with Matthias was incredibly valuable because of his structured and thoughtful approach. He came well prepared to every session and was the first mentor who thoroughly broke down both the technical and visual issues in my environment art while helping me improve my portfolio presentation, ArtStation, and interview skills through mock interviews. His guidance gave me a much stronger understanding of how to position myself as an environment artist and present my work professionally."</p>
           <div class="avatar-row">
             <a class="avatar-link" href="https://www.artstation.com/kateryna_kryshchenko" target="_blank" rel="noopener noreferrer" aria-label="Kateryna Kryshchenko on ArtStation">
@@ -701,52 +796,92 @@
     </table>
   </div>
 
-  <!-- Teaching Experience -->
-  <div class="section section--alt section--hairline" data-section-pad>
-    <h2 class="section-title" data-heading="title">Teaching Experience</h2>
-    <p class="section-subtitle--tight">Sharing what I know isn't new — it's how I already work.</p>
-    <table class="wide-inner" role="presentation" data-stack-grid="cards">
-      <tbody>
-        <tr>
-          <td class="grid-card grid-card--top w33">
-            <div class="grid-card-title">Blender Conference 2024</div>
-            <div class="grid-card-body grid-card-body--tight">"Game Art Insights: Art, Tech and Teamwork"</div>
-            <p class="project-credit"><a href="https://www.youtube.com/watch?v=hVF0UjFfHVo" target="_blank" rel="noopener noreferrer">Watch the talk ↗</a></p>
-          </td>
-          <td class="grid-card grid-card--top w33">
-            <div class="grid-card-title">Nordic Games 2026</div>
-            <div class="grid-card-body">"Worldbuilding 101: Creating Plausible Environments"</div>
-          </td>
-          <td class="grid-card grid-card--top w33">
-            <div class="grid-card-title">University &amp; Community Talks</div>
-            <div class="grid-card-body">Smaller sessions at universities and community events.</div>
-          </td>
-        </tr>
-        <tr>
-          <td class="grid-card grid-card--top w33">
-            <div class="grid-card-title">University Workshops</div>
-            <div class="grid-card-body">ZBrush Essentials and 3D Basics workshops at the University of Applied Sciences Upper Austria.</div>
-          </td>
-          <td class="grid-card grid-card--top w33">
-            <div class="grid-card-title">MIT</div>
-            <div class="grid-card-body">Guest speaker for architecture students at the Massachusetts Institute of Technology, talking about interactive worlds.</div>
-          </td>
-          <td class="grid-card grid-card--top w33">
-            <div class="grid-card-title">We in Games Finland</div>
-            <div class="grid-card-body grid-card-body--tight">Volunteer mentor for the We in Games Finland mentorship program.</div>
-            <p class="project-credit"><a href="https://weingames.fi/projects/mentorship-program/">Learn more ↗</a></p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <!-- Teaching Experience: the video is now this whole section's full-height
+       background (not a separate banner strip above it, per feedback on
+       the first version — see git history for that iteration) — no
+       standalone caption/title of its own, since it's ambient texture
+       behind the real content now, not a subject in its own right. The
+       section's own existing heading ("Teaching Experience") is the only
+       title; a specific "Speaking at Blender Conference 2024" caption
+       stopped making sense once the video sits behind all six credential
+       cards, not just that one.
+
+       Structural notes: .teaching-video-section (mentoring.css) makes this
+       .section a positioning root with overflow:hidden, so the video/scrim
+       — both position:absolute; inset:0 — cover the full padding box
+       edge-to-edge (ignoring .section's own padding, which normal-flow
+       content still respects). CSS stacking order paints positioned
+       descendants (the video/scrim) AFTER non-positioned in-flow ones by
+       default, which would put the video ON TOP of the heading/cards —
+       .teaching-video-content is position:relative specifically to opt
+       back into DOM-order stacking (later wins), landing it above the
+       video/scrim, same reasoning as .mentee-banner-content on the two
+       photo banners above. The card grid's own border-spacing gutters
+       (.wide-inner) let the video peek through between cards rather than
+       being fully hidden behind them — a deliberate texture, not a gap to
+       close. Video/poster/preload/autoplay reasoning is unchanged from the
+       original banner version (self-hosted for reliable autoplay + zero
+       JS video-sizing math via object-fit:cover; preload="auto" opts out
+       of enhance_media()'s preload="none" default, meant for the site's
+       other, non-autoplay <video preload="none"> use). -->
+  <div class="section section--hairline teaching-video-section" data-reveal data-section-pad>
+    <video class="teaching-banner-video" autoplay muted loop playsinline preload="auto" poster="/images/mentoring/teaching_banner_poster.jpg">
+      <source src="/videos/mentoring/blender_conference_2024_banner.mp4" type="video/mp4">
+    </video>
+    <div class="teaching-video-scrim"></div>
+    <div class="teaching-video-content">
+      <h2 class="section-title" data-heading="title">Teaching Experience</h2>
+      <p class="section-subtitle--tight">Sharing what I know isn't new — it's how I already work.</p>
+      <table class="wide-inner" role="presentation" data-stack-grid="cards">
+        <tbody>
+          <tr data-reveal>
+            <td class="grid-card grid-card--top w33">
+              <div class="grid-card-title">Blender Conference 2024</div>
+              <div class="grid-card-body grid-card-body--tight">"Game Art Insights: Art, Tech and Teamwork"</div>
+              <p class="project-credit"><a href="https://www.youtube.com/watch?v=hVF0UjFfHVo" target="_blank" rel="noopener noreferrer">Watch the talk ↗</a></p>
+            </td>
+            <td class="grid-card grid-card--top w33">
+              <div class="grid-card-title">Nordic Games 2026</div>
+              <div class="grid-card-body">"Worldbuilding 101: Creating Plausible Environments"</div>
+            </td>
+            <td class="grid-card grid-card--top w33">
+              <div class="grid-card-title">University &amp; Community Talks</div>
+              <div class="grid-card-body">Smaller sessions at universities and community events.</div>
+            </td>
+          </tr>
+          <tr data-reveal>
+            <td class="grid-card grid-card--top w33">
+              <div class="grid-card-title">University Workshops</div>
+              <div class="grid-card-body">ZBrush Essentials and 3D Basics workshops at the University of Applied Sciences Upper Austria.</div>
+            </td>
+            <td class="grid-card grid-card--top w33">
+              <div class="grid-card-title">MIT</div>
+              <div class="grid-card-body">Guest speaker for architecture students at the Massachusetts Institute of Technology, talking about interactive worlds.</div>
+            </td>
+            <td class="grid-card grid-card--top w33">
+              <div class="grid-card-title">We in Games Finland</div>
+              <div class="grid-card-body grid-card-body--tight">Volunteer mentor for the We in Games Finland mentorship program.</div>
+              <p class="project-credit"><a href="https://weingames.fi/projects/mentorship-program/">Learn more ↗</a></p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
+  <script>
+  (function () {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll('.teaching-banner-video, .hero-bg-video, .mid-banner-video').forEach(function (v) { v.pause(); });
+    }
+  })();
+  </script>
 
   <!-- How It Works -->
-  <div class="section" data-section-pad>
+  <div class="section" data-reveal data-section-pad>
     <h2 class="section-title" data-heading="title">How It Works</h2>
     <p class="section-subtitle--tight">From a free intro call to notes you can revisit after.</p>
     <div class="step-list">
-      <div class="step-item">
+      <div class="step-item" data-reveal>
         <div class="feature-header">
           <span class="badge-node">1</span>
           <div class="step-title" style="margin:0">Free Intro Call</div>
@@ -756,35 +891,35 @@
       <div class="callout" style="margin:0 0 20px"><strong>Safe Space</strong> — a judgment-free place to ask anything, from beginner questions to an honest look at where your portfolio actually stands.
         <p class="inline-cta"><a href="https://cal.eu/matthiaspatscheider/15min" class="button-primary" data-hover-lift target="_blank" rel="noopener noreferrer">Book a Free Intro Call ↗</a></p>
       </div>
-      <div class="step-item">
+      <div class="step-item" data-reveal>
         <div class="feature-header">
           <span class="badge-node">2</span>
           <div class="step-title" style="margin:0">Choose Your Package</div>
         </div>
         <div class="step-body">Pick a single session, the 6-session package, or studio/team training — whatever fits where you're headed. <a href="https://holvi.com/shop/alpine-empire/" target="_blank" rel="noopener noreferrer">Book via the Holvi store</a>.</div>
       </div>
-      <div class="step-item">
+      <div class="step-item" data-reveal>
         <div class="feature-header">
           <span class="badge-node">3</span>
           <div class="step-title" style="margin:0">Book a Time Slot</div>
         </div>
         <div class="step-body">Pick a time that works for you — evenings, weekends, and international timezones are no problem.</div>
       </div>
-      <div class="step-item">
+      <div class="step-item" data-reveal>
         <div class="feature-header">
           <span class="badge-node">4</span>
           <div class="step-title" style="margin:0">Send Your Work <span class="step-optional-tag">(optional)</span></div>
         </div>
         <div class="step-body">Upload screenshots or project files via a pCloud link so I can already take a look and prepare the session before we talk.</div>
       </div>
-      <div class="step-item">
+      <div class="step-item" data-reveal>
         <div class="feature-header">
           <span class="badge-node">5</span>
           <div class="step-title" style="margin:0">Session Call</div>
         </div>
         <div class="step-body">Usually 1.5 hours, live over Digital Samba, Zoom, or Teams — screen-shared, with live demos and direct feedback. Can be recorded on request.</div>
       </div>
-      <div class="step-item">
+      <div class="step-item" data-reveal>
         <div class="feature-header">
           <span class="badge-node">6</span>
           <div class="step-title" style="margin:0">Follow-Up Notes</div>
@@ -796,12 +931,12 @@
   <div class="divider-accent"></div>
 
   <!-- Pricing -->
-  <div class="section section--alt section--hairline" data-section-pad>
+  <div class="section section--alt section--hairline" data-reveal data-section-pad>
     <h2 class="section-title" data-heading="title">Pricing</h2>
     <p class="section-subtitle--tight">Pick what fits — single sessions, a package, or team training. A session is usually 1.5 hours.</p>
     <table class="wide-inner pricing-table" role="presentation" data-stack-grid="cards">
       <tbody>
-        <tr>
+        <tr data-reveal>
           <td class="grid-card grid-card--top w25">
             <div class="card-tag-slot"><span class="tag-outline card-tag">REDUCED RATE</span></div>
             <div class="grid-card-title">Student / Early-Career</div>
@@ -879,6 +1014,50 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll, { passive: true });
     update();
+  })();
+  </script>
+  <script>
+  (function () {
+    var els = document.querySelectorAll('[data-reveal]');
+    if (!els.length) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-revealed');
+        io.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+  </script>
+  <script>
+  (function () {
+    var els = document.querySelectorAll('[data-count-up]');
+    if (!els.length) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var DURATION = 1400;
+    function animate(el) {
+      var target = parseInt(el.textContent.replace(/[^0-9]/g, ''), 10);
+      if (!target) return;
+      var start = null;
+      function tick(now) {
+        if (start === null) start = now;
+        var progress = Math.min((now - start) / DURATION, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(target * eased).toLocaleString('en-US');
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        animate(entry.target);
+        io.unobserve(entry.target);
+      });
+    }, { threshold: 0.6 });
+    els.forEach(function (el) { io.observe(el); });
   })();
   </script>
 

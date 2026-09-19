@@ -14,7 +14,7 @@
       <script>
         // Current page data
         var mkdocs_page_name = "Godot Guide";
-        var mkdocs_page_input_path = "simple_export\\exporter_guide_godot.md";
+        var mkdocs_page_input_path = "simple_export/exporter_guide_godot.md";
         var mkdocs_page_url = "/simple_export/exporter_guide_godot/";
       </script>
     
@@ -25,6 +25,9 @@
       <script>hljs.highlightAll();</script>
   <meta name="description" content="Simple Export ships with the Godot - default preset." />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+  
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://weisl.github.io https://assets.superhivemarket.com; media-src 'self'; font-src 'self'; frame-src https://www.youtube.com; object-src 'none'; base-uri 'self'; form-action 'self'" />
 
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Alpine Empire Documentation" />
@@ -110,6 +113,26 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exporting-animated-characters">Exporting Animated Characters</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#step-1-select-the-godot-animation-preset">Step 1: Select the Godot Animation Preset</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-2-create-an-export-collection">Step 2: Create an Export Collection</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-3-export-the-collection">Step 3: Export the Collection</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#importing-animated-characters-into-godot">Importing Animated Characters into Godot</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#step-1-instance-the-character-in-a-scene">Step 1: Instance the Character in a Scene</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-2-check-the-imported-animation-names">Step 2: Check the Imported Animation Names</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-3-play-an-animation">Step 3: Play an Animation</a>
+    </li>
+        </ul>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#the-simple-exporter-godot-preset">The Simple Exporter Godot Preset</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#general-settings">General Settings</a>
@@ -123,6 +146,8 @@
     <li class="toctree-l3"><a class="reference internal" href="#animation-related-settings">Animation Related Settings</a>
     </li>
         </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#the-simple-godot-animation-preset">The Simple Godot Animation Preset</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#gltf-vs-glb">gltf vs glb</a>
     </li>
@@ -264,6 +289,55 @@ You can find an overview over the options here:</p>
 </ul>
 </li>
 </ol>
+<hr>
+<h2 id="exporting-animated-characters">Exporting Animated Characters</h2>
+<p>Rigged, animated characters (an armature with a skinned mesh and one or more Actions) use a separate preset from
+static meshes: <strong>Godot-animation</strong>. The static <code>Godot-default</code> preset intentionally exports no animation at all -
+using it on a rigged character will give you the mesh and skeleton with no motion. <code>Godot-animation</code> bakes every
+Action in the file as its own glTF animation, so Godot's importer splits them back out into individual entries in
+the imported <code>AnimationPlayer</code>.</p>
+<h4 id="step-1-select-the-godot-animation-preset">Step 1: Select the Godot Animation Preset</h4>
+<p>Make sure <code>Godot-animation</code> is selected as the Export Collection Preset, instead of <code>Godot-default</code>.</p>
+<h4 id="step-2-create-an-export-collection">Step 2: Create an Export Collection</h4>
+<p>Select the armature (its mesh and any children are picked up automatically) and create an export collection, exactly
+as for a static mesh - the plus button in the Export List, right-click on the object in the Outliner, or right-click
+in the 3D Viewport.</p>
+<h4 id="step-3-export-the-collection">Step 3: Export the Collection</h4>
+<p>Export from the Export List, the Outliner, or by exporting all selected collections. Every Action currently in the
+file gets baked into the export - there is no separate step to pick which animations go out.</p>
+<div class="admonition tip">
+<p class="admonition-title">Multiple characters sharing one skeleton type</p>
+<p>If several characters share the same rig, keep the Actions you want in each character's own <code>.blend</code> file (or
+use Action assignment/filtering in your own pipeline) before exporting - <code>Godot-animation</code> exports <strong>every</strong>
+Action present in the file, not just the ones currently played back on the armature.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">More than 4 bone influences per vertex</p>
+<p>Godot supports up to 4 bone weights per vertex. If a mesh has vertices weighted to more than 4 bones, Blender's
+glTF exporter keeps the 4 highest weights and renormalizes them, and prints a <code>There are more than 4 joint vertex
+influences</code> warning during export. This is expected and does not indicate a broken export.</p>
+</div>
+<h2 id="importing-animated-characters-into-godot">Importing Animated Characters into Godot</h2>
+<p>Unlike Unity, Godot's glTF importer imports animations by default and wires up the whole character automatically -
+dropping the exported <code>.gltf</code> into your project already gets you a ready-to-use scene with a <code>Skeleton3D</code>, a
+<code>MeshInstance3D</code> bound to it, and an <code>AnimationPlayer</code> holding every exported Action. There is no equivalent of
+Unity's "Avatar Definition defaults to No Avatar" trap to work around.</p>
+<h4 id="step-1-instance-the-character-in-a-scene">Step 1: Instance the Character in a Scene</h4>
+<p>Drag the imported <code>.gltf</code> file from the FileSystem dock into a scene (or right-click it and choose <strong>New Inherited
+Scene</strong>) to add the character as an instanced sub-scene. Its <code>AnimationPlayer</code> node is available immediately, with
+every Action from the Blender file listed as a separate animation.</p>
+<h4 id="step-2-check-the-imported-animation-names">Step 2: Check the Imported Animation Names</h4>
+<p>Godot's importer recognizes an <code>_Loop</code> (or <code>-loop</code>) suffix on an animation's name as a looping convention: an Action
+named <code>Idle_Loop</code> in Blender is imported as <code>Idle</code> in the <code>AnimationPlayer</code>, with <strong>Loop Mode</strong> already set to
+<strong>Linear</strong> - no suffix, and no manual step needed to make it loop. Actions without that suffix (<code>Punch_Cross</code>,
+<code>Sword_Attack</code>, and so on) come through with their name unchanged and <strong>Loop Mode: None</strong>. If you're looking for a
+clip by its Blender name and can't find it, check whether it originally ended in <code>_Loop</code>.</p>
+<h4 id="step-3-play-an-animation">Step 3: Play an Animation</h4>
+<p>Select the <code>AnimationPlayer</code> node and play any clip directly from the <strong>Animation</strong> panel to preview it in the
+editor, or call it at runtime:</p>
+<pre><code class="language-gdscript">$AnimationPlayer.play("Idle")
+</code></pre>
+<p>No Animator Controller equivalent is required - every imported clip is playable immediately.</p>
 <hr>
 <h2 id="the-simple-exporter-godot-preset">The Simple Exporter Godot Preset</h2>
 <p>An overview of all settings used in the preset:</p>
@@ -433,8 +507,8 @@ You can find an overview over the options here:</p>
 <tbody>
 <tr>
 <td><strong>Animations</strong></td>
-<td>✅ <code>Enabled</code></td>
-<td>Export actions/NLA tracks as glTF animations.</td>
+<td>❌ <code>Disabled</code></td>
+<td>Export actions/NLA tracks as glTF animations. Enabled on <code>Godot-animation</code>, see below.</td>
 </tr>
 <tr>
 <td><strong>Animation Mode</strong></td>
@@ -493,6 +567,29 @@ You can find an overview over the options here:</p>
 </tr>
 </tbody>
 </table>
+<h2 id="the-simple-godot-animation-preset">The Simple Godot Animation Preset</h2>
+<p><code>Godot-animation</code> shares every setting above with <code>Godot-default</code> except one. This is the only difference:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Setting</strong></th>
+<th><strong>Godot-default</strong></th>
+<th><strong>Godot-animation</strong></th>
+<th><strong>Notes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Animations</strong></td>
+<td>❌ <code>Disabled</code></td>
+<td>✅ <code>Enabled</code></td>
+<td>Turns on animation export at all - without this, none of the file's Actions reach the glTF file, even though every other animation-related setting (Animation Mode, Skinning, Bone Influences, and so on) is already configured correctly on both presets.</td>
+</tr>
+</tbody>
+</table>
+<p>Everything else - mesh settings, material settings, transformation settings, and every other row in the Animation
+Related Settings table above - stays identical to the static preset, since none of that changes just because the
+mesh is now animated.</p>
 <h2 id="gltf-vs-glb">gltf vs glb</h2>
 <ul>
 <li><code>.gltf</code> files are JSON-based and reference external binary and texture files. This makes them more human-readable and

@@ -3,10 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('has-js')</script>
 <title>Simple Export — Batch FBX &amp; glTF Export for Blender</title>
 <meta name="description" content="Every export setting visible, documented, and saved directly in your .blend file — batch export from Blender to Unreal, Unity, and Godot.">
 <meta name="author" content="Matthias Patscheider">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://weisl.github.io https://assets.superhivemarket.com; media-src 'self'; font-src 'self'; frame-src https://www.youtube.com; object-src 'none'; base-uri 'self'; form-action 'self'">
 <link rel="canonical" href="https://alpineempire.eu/simple-export.html">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2044%2044%22%3E%3Crect%20width%3D%2244%22%20height%3D%2244%22%20rx%3D%229%22%20fill%3D%22%2316171c%22/%3E%3Cpath%20d%3D%22M4%2034%20L15%2014%20L22%2025%20L28%2016%20L40%2034%20Z%22%20fill%3D%22none%22%20stroke%3D%22%233b82f6%22%20stroke-width%3D%223%22%20stroke-linejoin%3D%22round%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
@@ -22,6 +24,7 @@
 <meta name="twitter:description" content="Every export setting visible, documented, and saved directly in your .blend file — batch export from Blender to Unreal, Unity, and Godot.">
 <meta name="twitter:image" content="https://alpineempire.eu/images/simple_export/Simple_Exporter_attention.jpg">
 <meta name="twitter:image:alt" content="Simple Export key art with the Blender collection export panel">
+<link rel="preload" href="/fonts/space-grotesk-700.woff2" as="font" type="font/woff2" crossorigin>
 <style>html,body { margin:0; padding:0; background:#16171c; }</style>
 <style>
 .top-nav { background: #1c1e24; border-bottom: 1px solid #34363e; padding: 10px 30px; display: flex; align-items: center; justify-content: space-between; }
@@ -54,7 +57,26 @@
 
 .hero-photo-subtitle-line { display: block; font-size: 32px; font-weight: 900; color: #ffffff; line-height: 1.2; margin-top: 8px; text-shadow: 0 2px 14px rgba(0,0,0,0.6); }
 .hero-chip-row { display: flex; flex-wrap: wrap; gap: 8px; max-width: 480px; margin-top: 22px; }
-.hero-chip { display: inline-block; background: #24262d; border: 1px solid #34363e; border-radius: 6px; padding: 6px 12px; font-size: 12px; font-weight: 700; color: #e8e9ee; }
+
+.hero-chip { display: inline-block; background: #24262d; border: 1px solid #34363e; border-radius: 6px; padding: 6px 12px; font-size: 12px; font-weight: 700; color: #e8e9ee; opacity: 0; transform: translateY(10px); animation: hero-chip-in .5s ease forwards; }
+.hero-chip-row .hero-chip:nth-child(1) { animation-delay: .5s; }
+.hero-chip-row .hero-chip:nth-child(2) { animation-delay: .62s; }
+.hero-chip-row .hero-chip:nth-child(3) { animation-delay: .74s; }
+.hero-chip-row .hero-chip:nth-child(4) { animation-delay: .86s; }
+.hero-chip-row .hero-chip:nth-child(5) { animation-delay: .98s; }
+.hero-chip-row .hero-chip:nth-child(6) { animation-delay: 1.1s; }
+.hero-chip-row .hero-chip:nth-child(7) { animation-delay: 1.22s; }
+
+.hero-chip--more { border-style: dashed; color: #d7d9e0; }
+@keyframes hero-chip-in {
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-chip { opacity: 1; transform: none; animation: none; }
+}
+
+.hero-chip-intro { margin: 22px 0 0; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: #d7d9e0; text-shadow: 0 1px 8px rgba(0,0,0,0.7); }
 
 .page {
   background: #16171c;
@@ -270,8 +292,15 @@
 }
 
 
-.footer-legal { margin: 18px 0 0; font-size: 12px; }
+.footer-legal { margin: 18px 0 0; font-size: 12px; text-align: center; }
 .footer-legal-link { color: #9a9da6; text-decoration: none; }
+
+
+.callout--disclosure { max-width: 640px; margin: 24px auto 0; }
+
+
+[data-hover-zoom] img { transition: transform .5s ease; }
+[data-hover-zoom]:hover img { transform: scale(1.04); }
 
 
 [data-hover-lift] { transition: transform .25s ease; }
@@ -279,6 +308,7 @@
 
 
 @media (prefers-reduced-motion: reduce) {
+  [data-hover-zoom]:hover img { transform: none !important; transition: none !important; }
   [data-hover-lift]:hover { transform: none !important; transition: none !important; }
   [data-parallax] { background-attachment: scroll !important; }
 }
@@ -333,6 +363,35 @@
 .badge-chevron-num { display: inline-block; padding-right: 14px; line-height: 46px; font-size: 20px; font-weight: 900; }
 
 .chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/fonts/space-grotesk-700.woff2) format('woff2');
+}
+.hero-wordmark, .hero-photo-word, .hero-photo-subtitle-line, .feature-title,
+.section-title, .section-title-sm, .footer-title, .badge-node, .badge-swatch,
+.cta-banner, .stat-number {
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  font-weight: 700;
+}
+
+
+html.has-js [data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+html.has-js [data-reveal].is-revealed {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  html.has-js [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
+
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Alpine Empire", "item": "https://alpineempire.eu/"}, {"@type": "ListItem", "position": 2, "name": "Simple Export", "item": "https://alpineempire.eu/simple-export.html"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Simple Export", "description": "Every export setting visible, documented, and saved directly in your .blend file — batch export from Blender to Unreal, Unity, and Godot.", "url": "https://alpineempire.eu/simple-export.html", "image": "https://alpineempire.eu/images/simple_export/Simple_Exporter_attention.jpg", "applicationCategory": "DesignApplication", "operatingSystem": "Windows, macOS, Linux", "softwareRequirements": "Blender", "author": {"@type": "Person", "name": "Matthias Patscheider", "url": "https://alpineempire.eu/"}, "publisher": {"@type": "Organization", "name": "Alpine Empire", "url": "https://alpineempire.eu/"}, "sameAs": ["https://superhivemarket.com/products/simple-export", "https://superhivemarket.com/creators/matthias-patscheider"]}</script>
@@ -431,7 +490,7 @@
   <div class="divider-accent"></div>
 
   <!-- Video -->
-  <div class="section" data-section-pad>
+  <div class="section" data-reveal data-section-pad>
     <h2 class="section-title-sm" data-heading="title">See It In Action</h2>
     <div class="video-wrap">
       <video controls src="/videos/simple_export/Presets_Export_to_Unity.mp4" preload="none"></video>
@@ -440,12 +499,12 @@
   </div>
 
   <!-- 01 Total Transparency & Control -->
-  <div class="section section--alt section--hairline" data-section-pad>
+  <div class="section section--alt section--hairline" data-reveal data-section-pad>
     <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
           <td class="feature-media-cell">
-            <div class="feature-media">
+            <div class="feature-media" data-hover-zoom>
               <img src="/images/simple_export/Simple_Exporter_attention.jpg" alt="Simple Export addon panel showing export settings and collections">
             </div>
           </td>
@@ -470,12 +529,12 @@
   </div>
 
   <!-- 02 One-Click Batch Export -->
-  <div class="section" data-section-pad>
+  <div class="section" data-reveal data-section-pad>
     <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
           <td class="feature-media-cell">
-            <div class="feature-media">
+            <div class="feature-media" data-hover-zoom>
               <img src="/images/simple_export/simple_export_list_01.jpg" alt="Simple Export collection list showing compact overview of multiple export collections" loading="lazy" decoding="async">
             </div>
           </td>
@@ -500,12 +559,12 @@
   </div>
 
   <!-- 03 Pre-Export Pipeline -->
-  <div class="section section--alt section--hairline" data-section-pad>
+  <div class="section section--alt section--hairline" data-reveal data-section-pad>
     <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
           <td class="feature-media-cell">
-            <div class="feature-media">
+            <div class="feature-media" data-hover-zoom>
               <img src="/images/simple_export/PreExporOperations.jpg" alt="Pre-export operations panel showing triangulate and apply scale and rotation options" loading="lazy" decoding="async">
             </div>
           </td>
@@ -523,12 +582,12 @@
   </div>
 
   <!-- 04 Engine-Ready Presets -->
-  <div class="section" data-section-pad>
+  <div class="section" data-reveal data-section-pad>
     <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
           <td class="feature-media-cell">
-            <div class="feature-media">
+            <div class="feature-media" data-hover-zoom>
               <img src="/images/simple_export/simple_exort_engines.jpg" alt="Simple Export preset options for Unreal, Unity, Godot, and baking workflows" loading="lazy" decoding="async">
             </div>
           </td>
@@ -555,12 +614,12 @@
   </div>
 
   <!-- 05 Custom Export Paths -->
-  <div class="section section--alt section--hairline" data-section-pad>
+  <div class="section section--alt section--hairline" data-reveal data-section-pad>
     <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
           <td class="feature-media-cell">
-            <div class="feature-media">
+            <div class="feature-media" data-hover-zoom>
               <img src="/images/simple_export/export_path_relative.png" alt="Export path settings showing relative path configuration" loading="lazy" decoding="async">
             </div>
           </td>
@@ -578,12 +637,12 @@
   </div>
 
   <!-- 06 Create Presets Your Way -->
-  <div class="section" data-section-pad>
+  <div class="section" data-reveal data-section-pad>
     <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
           <td class="feature-media-cell">
-            <div class="feature-media">
+            <div class="feature-media" data-hover-zoom>
               <img src="/images/simple_export/properties_preset_create.gif" alt="Animation showing creation of a custom export preset" loading="lazy" decoding="async">
             </div>
           </td>
@@ -600,7 +659,7 @@
     </table>
     <table class="support-image-wrap" role="presentation">
       <tbody><tr><td class="support-image-cell">
-        <div class="feature-media">
+        <div class="feature-media" data-hover-zoom>
           <img src="/images/simple_export/properties_preset_create_02.gif" alt="Animation showing further customization of an export preset" loading="lazy" decoding="async">
         </div>
       </td></tr></tbody>
@@ -610,12 +669,12 @@
   <div class="divider-accent"></div>
 
   <!-- Everything Inside -->
-  <div class="section" data-section-pad>
+  <div class="section" data-reveal data-section-pad>
     <h2 class="section-title" data-heading="title">Everything Inside</h2>
     <p class="section-subtitle--tight">One exporter, the whole pipeline.</p>
     <table class="wide-inner" role="presentation" data-stack-grid="cards">
       <tbody>
-        <tr>
+        <tr data-reveal>
           <td class="grid-card grid-card--top w33">
             <div class="grid-card-title">User Groups</div>
             <div class="grid-card-body">Assign custom group labels like "Characters" or "Props" to organize collections and filter by category.</div>
@@ -635,12 +694,12 @@
   </div>
 
   <!-- Built For Your Pipeline -->
-  <div class="section section--alt section--hairline" data-section-pad>
+  <div class="section section--alt section--hairline" data-reveal data-section-pad>
     <h2 class="section-title-sm" data-heading="title">Built For Your Pipeline</h2>
     <p class="section-subtitle">Simple Export covers the Blender side — these guides cover the rest.</p>
     <table class="fit-grid" role="presentation" data-stack-grid="cards">
       <tbody>
-        <tr>
+        <tr data-reveal>
           <td class="grid-card grid-card--bottom w50">
             <div class="grid-card-title">Unreal Engine</div>
             <div class="grid-card-body--wide">Production-oriented presets and import guidance for UE4 and UE5.</div>
@@ -652,7 +711,7 @@
             <p class="grid-card-cta"><a href="/simple_export/exporter_guide_unity/" class="support-link">Unity Guide ↗</a></p>
           </td>
         </tr>
-        <tr>
+        <tr data-reveal>
           <td class="grid-card grid-card--bottom">
             <div class="grid-card-title">Godot</div>
             <div class="grid-card-body--wide">Export settings matched to Godot's expected format and structure.</div>
@@ -669,11 +728,11 @@
   </div>
 
   <!-- What Experts Say -->
-  <div class="section section--hairline" data-section-pad>
+  <div class="section section--hairline" data-reveal data-section-pad>
     <h2 class="section-title-sm" data-heading="title">What Experts Say</h2>
     <table class="quote-list" role="presentation">
       <tbody>
-        <tr><td class="quote-card">
+        <tr data-reveal><td class="quote-card">
           <p class="quote-text">"No more manually fiddling with export settings and wasting time browsing folders constantly on each export! Simple Exporter has become part of my everyday workflow, both on professional and personal projects — just hit a shortcut and the add-on takes care of everything. Everyone has a set of 'must have' add-ons for Blender. For me, this is one of them!"</p>
           <div class="avatar-row">
             <img class="avatar" src="/images/simple_export/mikael_kivi.png" alt="Mikael Kivi" loading="lazy" decoding="async">
@@ -685,7 +744,7 @@
   </div>
 
   <!-- Why Trust -->
-  <div class="section section--alt section--hairline" data-section-pad>
+  <div class="section section--alt section--hairline" data-reveal data-section-pad>
     <h2 class="section-title-sm" data-heading="title">Why Trust Simple Export?</h2>
     <p class="brand-copy">Over a decade refining workflows for real-time engines. Simple Renaming, Simple Collider, Simple Export, and Simple Camera Manager are used and trusted by thousands of artists and studios worldwide.</p>
     <div class="brand-square-row">
@@ -701,6 +760,7 @@
         <td class="link-cell"><a class="link-pill" data-hover-lift href="https://superhivemarket.com/products/simple-camera-manager">Simple Camera Manager</a></td>
       </tr></tbody>
     </table>
+    <div class="callout callout--disclosure"><strong>AI Disclosure.</strong> I design this add-on and use AI to iterate faster on ideas and implementation; every result is still reviewed and tested by me before it ships. <a href="/legal-notice.html#ai-disclosure">Read more →</a></div>
   </div>
 
   <!-- Footer CTA -->
@@ -720,6 +780,50 @@
 
   </main>
 </div>
+  <script>
+  (function () {
+    var els = document.querySelectorAll('[data-reveal]');
+    if (!els.length) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-revealed');
+        io.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+  </script>
+  <script>
+  (function () {
+    var els = document.querySelectorAll('[data-count-up]');
+    if (!els.length) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var DURATION = 1400;
+    function animate(el) {
+      var target = parseInt(el.textContent.replace(/[^0-9]/g, ''), 10);
+      if (!target) return;
+      var start = null;
+      function tick(now) {
+        if (start === null) start = now;
+        var progress = Math.min((now - start) / DURATION, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(target * eased).toLocaleString('en-US');
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        animate(entry.target);
+        io.unobserve(entry.target);
+      });
+    }, { threshold: 0.6 });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+  </script>
 
 </body>
 </html>

@@ -3,10 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('has-js')</script>
 <title>Simple Camera Manager — Blender Camera Workflow Add-on</title>
 <meta name="description" content="Full control of your Blender camera workflow — composition, dolly zoom, HDRI presentation, and batch rendering.">
 <meta name="author" content="Matthias Patscheider">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://weisl.github.io https://assets.superhivemarket.com; media-src 'self'; font-src 'self'; frame-src https://www.youtube.com; object-src 'none'; base-uri 'self'; form-action 'self'">
 <link rel="canonical" href="https://alpineempire.eu/simple-camera-manager.html">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2044%2044%22%3E%3Crect%20width%3D%2244%22%20height%3D%2244%22%20rx%3D%229%22%20fill%3D%22%2316171c%22/%3E%3Cpath%20d%3D%22M4%2034%20L15%2014%20L22%2025%20L28%2016%20L40%2034%20Z%22%20fill%3D%22none%22%20stroke%3D%22%233b82f6%22%20stroke-width%3D%223%22%20stroke-linejoin%3D%22round%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
@@ -22,6 +24,7 @@
 <meta name="twitter:description" content="Full control of your Blender camera workflow — composition, dolly zoom, HDRI presentation, and batch rendering.">
 <meta name="twitter:image" content="https://alpineempire.eu/images/simple_cam/Simple_Camera_main_Popup.jpg">
 <meta name="twitter:image:alt" content="Simple Camera Manager key art with the Blender camera panel">
+<link rel="preload" href="/fonts/space-grotesk-700.woff2" as="font" type="font/woff2" crossorigin>
 <style>html,body { margin:0; padding:0; background:#16171c; }</style>
 <style>
 .top-nav { background: #1c1e24; border-bottom: 1px solid #34363e; padding: 10px 30px; display: flex; align-items: center; justify-content: space-between; }
@@ -54,7 +57,26 @@
 
 .hero-photo-subtitle-line { display: block; font-size: 32px; font-weight: 900; color: #ffffff; line-height: 1.2; margin-top: 8px; text-shadow: 0 2px 14px rgba(0,0,0,0.6); }
 .hero-chip-row { display: flex; flex-wrap: wrap; gap: 8px; max-width: 480px; margin-top: 22px; }
-.hero-chip { display: inline-block; background: #24262d; border: 1px solid #34363e; border-radius: 6px; padding: 6px 12px; font-size: 12px; font-weight: 700; color: #e8e9ee; }
+
+.hero-chip { display: inline-block; background: #24262d; border: 1px solid #34363e; border-radius: 6px; padding: 6px 12px; font-size: 12px; font-weight: 700; color: #e8e9ee; opacity: 0; transform: translateY(10px); animation: hero-chip-in .5s ease forwards; }
+.hero-chip-row .hero-chip:nth-child(1) { animation-delay: .5s; }
+.hero-chip-row .hero-chip:nth-child(2) { animation-delay: .62s; }
+.hero-chip-row .hero-chip:nth-child(3) { animation-delay: .74s; }
+.hero-chip-row .hero-chip:nth-child(4) { animation-delay: .86s; }
+.hero-chip-row .hero-chip:nth-child(5) { animation-delay: .98s; }
+.hero-chip-row .hero-chip:nth-child(6) { animation-delay: 1.1s; }
+.hero-chip-row .hero-chip:nth-child(7) { animation-delay: 1.22s; }
+
+.hero-chip--more { border-style: dashed; color: #d7d9e0; }
+@keyframes hero-chip-in {
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-chip { opacity: 1; transform: none; animation: none; }
+}
+
+.hero-chip-intro { margin: 22px 0 0; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: #d7d9e0; text-shadow: 0 1px 8px rgba(0,0,0,0.7); }
 
 .page {
   background: #16171c;
@@ -270,8 +292,15 @@
 }
 
 
-.footer-legal { margin: 18px 0 0; font-size: 12px; }
+.footer-legal { margin: 18px 0 0; font-size: 12px; text-align: center; }
 .footer-legal-link { color: #9a9da6; text-decoration: none; }
+
+
+.callout--disclosure { max-width: 640px; margin: 24px auto 0; }
+
+
+[data-hover-zoom] img { transition: transform .5s ease; }
+[data-hover-zoom]:hover img { transform: scale(1.04); }
 
 
 [data-hover-lift] { transition: transform .25s ease; }
@@ -279,6 +308,7 @@
 
 
 @media (prefers-reduced-motion: reduce) {
+  [data-hover-zoom]:hover img { transform: none !important; transition: none !important; }
   [data-hover-lift]:hover { transform: none !important; transition: none !important; }
   [data-parallax] { background-attachment: scroll !important; }
 }
@@ -332,6 +362,35 @@
 .badge-hex { width: 46px; height: 46px; background: #f0c832; clip-path: polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%); text-align: center; line-height: 46px; font-size: 20px; font-weight: 900; color: #16171c; }
 
 .hotkey-list { display: flex; flex-direction: column; gap: 6px; }
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/fonts/space-grotesk-700.woff2) format('woff2');
+}
+.hero-wordmark, .hero-photo-word, .hero-photo-subtitle-line, .feature-title,
+.section-title, .section-title-sm, .footer-title, .badge-node, .badge-swatch,
+.cta-banner, .stat-number {
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  font-weight: 700;
+}
+
+
+html.has-js [data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+html.has-js [data-reveal].is-revealed {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  html.has-js [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
+
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Alpine Empire", "item": "https://alpineempire.eu/"}, {"@type": "ListItem", "position": 2, "name": "Simple Camera Manager", "item": "https://alpineempire.eu/simple-camera-manager.html"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Simple Camera Manager", "description": "Full control of your Blender camera workflow — composition, dolly zoom, HDRI presentation, and batch rendering.", "url": "https://alpineempire.eu/simple-camera-manager.html", "image": "https://alpineempire.eu/images/simple_cam/Simple_Camera_main_Popup.jpg", "applicationCategory": "DesignApplication", "operatingSystem": "Windows, macOS, Linux", "softwareRequirements": "Blender", "author": {"@type": "Person", "name": "Matthias Patscheider", "url": "https://alpineempire.eu/"}, "publisher": {"@type": "Organization", "name": "Alpine Empire", "url": "https://alpineempire.eu/"}, "sameAs": ["https://superhivemarket.com/products/simple-camera-manager", "https://superhivemarket.com/creators/matthias-patscheider"]}</script>
@@ -431,12 +490,12 @@
   <div class="divider-accent"></div>
 
   <!-- 01 Camera Overview -->
-  <div class="section" data-section-pad>
+  <div class="section" data-reveal data-section-pad>
     <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
           <td class="feature-media-cell">
-            <div class="feature-media">
+            <div class="feature-media" data-hover-zoom>
               <img src="/images/simple_cam/Simple_Camera_main_Popup.jpg" alt="Simple Camera Manager popup panel showing every camera's settings in a spreadsheet-style table">
             </div>
           </td>
@@ -461,12 +520,12 @@
   </div>
 
   <!-- 02 Batch Rendering -->
-  <div class="section section--alt section--hairline" data-section-pad>
+  <div class="section section--alt section--hairline" data-reveal data-section-pad>
     <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
           <td class="feature-media-cell">
-            <div class="feature-media">
+            <div class="feature-media" data-hover-zoom>
               <img src="https://assets.superhivemarket.com/cache/12b49dcfafd45d6eb36f30f496cc5671.gif" alt="Animation showing batch rendering of multiple cameras in Simple Camera Manager" loading="lazy" decoding="async">
             </div>
           </td>
@@ -492,12 +551,12 @@
   </div>
 
   <!-- 03 Custom Resolutions -->
-  <div class="section" data-section-pad>
+  <div class="section" data-reveal data-section-pad>
     <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
           <td class="feature-media-cell">
-            <div class="feature-media">
+            <div class="feature-media" data-hover-zoom>
               <img src="https://assets.superhivemarket.com/cache/ebcbbac8cae2701d62e2d8b06a3ca329.gif" alt="Animation showing per-camera resolution assignment in Simple Camera Manager" loading="lazy" decoding="async">
             </div>
           </td>
@@ -516,12 +575,12 @@
   </div>
 
   <!-- 04 Render Slots -->
-  <div class="section section--alt section--hairline" data-section-pad>
+  <div class="section section--alt section--hairline" data-reveal data-section-pad>
     <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
           <td class="feature-media-cell">
-            <div class="feature-media">
+            <div class="feature-media" data-hover-zoom>
               <img src="https://assets.superhivemarket.com/cache/68d46666a9b1411a72290c6a9dd4d62f.gif" alt="Animation showing render slot assignment per camera in Simple Camera Manager" loading="lazy" decoding="async">
             </div>
           </td>
@@ -539,12 +598,12 @@
   </div>
 
   <!-- 05 Dolly Zoom -->
-  <div class="section" data-section-pad>
+  <div class="section" data-reveal data-section-pad>
     <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
           <td class="feature-media-cell">
-            <div class="feature-media">
+            <div class="feature-media" data-hover-zoom>
               <img src="https://assets.superhivemarket.com/cache/f9fb3c79ed4f6892e81fb411e1026146.gif" alt="Animation showing the interactive dolly zoom feature in Simple Camera Manager" loading="lazy" decoding="async">
             </div>
           </td>
@@ -567,7 +626,7 @@
     </table>
     <table class="support-image-wrap" role="presentation">
       <tbody><tr><td class="support-image-cell">
-        <div class="feature-media">
+        <div class="feature-media" data-hover-zoom>
           <img src="https://assets.superhivemarket.com/cache/f5f901e7f60b156996b6e0e517c5706b.png" alt="Dolly zoom reference plane gizmo settings panel" loading="lazy" decoding="async">
         </div>
       </td></tr></tbody>
@@ -575,12 +634,12 @@
   </div>
 
   <!-- 06 Background Images -->
-  <div class="section section--alt section--hairline" data-section-pad>
+  <div class="section section--alt section--hairline" data-reveal data-section-pad>
     <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
           <td class="feature-media-cell">
-            <div class="feature-media">
+            <div class="feature-media" data-hover-zoom>
               <img src="https://assets.superhivemarket.com/cache/3aefda3906a876cf58f363d978b471d5.gif" alt="Animation showing background image management with camera switching in Simple Camera Manager" loading="lazy" decoding="async">
             </div>
           </td>
@@ -598,7 +657,7 @@
     </table>
     <table class="support-image-wrap" role="presentation">
       <tbody><tr><td class="support-image-cell">
-        <div class="feature-media">
+        <div class="feature-media" data-hover-zoom>
           <img src="https://assets.superhivemarket.com/cache/a38e9a4734e995dc4c2c543db4ba687c.png" alt="Camera background image settings panel in Simple Camera Manager" loading="lazy" decoding="async">
         </div>
       </td></tr></tbody>
@@ -606,7 +665,7 @@
   </div>
 
   <!-- 07 Camera State Overlay -->
-  <div class="section" data-section-pad>
+  <div class="section" data-reveal data-section-pad>
     <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
@@ -633,12 +692,12 @@
   <div class="divider-accent"></div>
 
   <!-- Everything Inside -->
-  <div class="section" data-section-pad>
+  <div class="section" data-reveal data-section-pad>
     <h2 class="section-title" data-heading="title">Everything Inside</h2>
     <p class="section-subtitle--tight">One panel, the whole camera workflow.</p>
     <table class="wide-inner" role="presentation" data-stack-grid="cards">
       <tbody>
-        <tr>
+        <tr data-reveal>
           <td class="grid-card grid-card--top w33">
             <div class="grid-card-title grid-card-title--tight">Quick Camera Switching</div>
             <div class="grid-card-body grid-card-body--tight">Jump straight to any camera without leaving the viewport.</div>
@@ -657,7 +716,7 @@
             <div class="grid-card-body">Overlay rule-of-thirds and other framing guides in the viewport, with the area outside the frame darkened.</div>
           </td>
         </tr>
-        <tr>
+        <tr data-reveal>
           <td class="grid-card grid-card--top">
             <div class="grid-card-title">Camera Management</div>
             <div class="grid-card-body">Lock/unlock all camera transforms and organize cameras into collections in one step.</div>
@@ -676,12 +735,12 @@
   </div>
 
   <!-- Who It's For -->
-  <div class="section section--alt section--hairline" data-section-pad>
+  <div class="section section--alt section--hairline" data-reveal data-section-pad>
     <h2 class="section-title-sm" data-heading="title">Who It's For</h2>
     <p class="section-subtitle">Artists and studios who build their pipeline around it.</p>
     <table class="fit-grid" role="presentation" data-stack-grid="cards">
       <tbody>
-        <tr>
+        <tr data-reveal>
           <td class="grid-card grid-card--bottom w50">
             <div class="grid-card-title">Freelancers &amp; Small Studios</div>
             <div class="grid-card-body--wide">Set up multiple cameras, adjust their settings, and batch render to show every angle fast for client review.</div>
@@ -691,7 +750,7 @@
             <div class="grid-card-body--wide">Unique resolutions per camera for headers, thumbnails, and social content — all rendered in one batch.</div>
           </td>
         </tr>
-        <tr>
+        <tr data-reveal>
           <td class="grid-card grid-card--bottom">
             <div class="grid-card-title">Archviz Artists</div>
             <div class="grid-card-body--wide">Dedicated render slots per view build a complete interior and exterior portfolio.</div>
@@ -706,18 +765,18 @@
   </div>
 
   <!-- What Users Say -->
-  <div class="section section--hairline" data-section-pad>
+  <div class="section section--hairline" data-reveal data-section-pad>
     <h2 class="section-title-sm" data-heading="title">What Users Say</h2>
     <table class="quote-list" role="presentation">
       <tbody>
-        <tr><td class="quote-card">
+        <tr data-reveal><td class="quote-card">
           <p class="quote-text">"Great addon, does everything I need without too much fluff."</p>
           <div class="avatar-row">
             <img class="avatar" src="/images/simple_cam/patrik_pulkkinen.jpg" alt="Patrik Pulkkinen" loading="lazy" decoding="async">
             <span class="quote-attribution"><a href="https://www.artstation.com/patrik" target="_blank" rel="noopener noreferrer">Patrik Pulkkinen</a>, Concept Artist at Remedy Entertainment</span>
           </div>
         </td></tr>
-        <tr><td class="quote-card">
+        <tr data-reveal><td class="quote-card">
           <p class="quote-text quote-text--tight">"This is the best addon for managing cameras I have found. Well worth the price! 5 stars."</p>
           <span class="quote-attribution">— Ken Kellett</span>
         </td></tr>
@@ -726,7 +785,7 @@
   </div>
 
   <!-- Why Trust -->
-  <div class="section section--alt section--hairline" data-section-pad>
+  <div class="section section--alt section--hairline" data-reveal data-section-pad>
     <h2 class="section-title-sm" data-heading="title">Why Trust Simple Camera Manager?</h2>
     <p class="brand-copy">Over a decade refining workflows for real-time engines. Simple Renaming, Simple Collider, Simple Export, and Simple Camera Manager are used and trusted by thousands of artists and studios worldwide.</p>
     <div class="brand-square-row">
@@ -742,6 +801,7 @@
         <td class="link-cell"><a class="link-pill" data-hover-lift href="https://superhivemarket.com/products/simple-export">Simple Export</a></td>
       </tr></tbody>
     </table>
+    <div class="callout callout--disclosure"><strong>AI Disclosure.</strong> I design this add-on and use AI to iterate faster on ideas and implementation; every result is still reviewed and tested by me before it ships. <a href="/legal-notice.html#ai-disclosure">Read more →</a></div>
   </div>
 
   <!-- Footer CTA -->
@@ -761,6 +821,50 @@
 
   </main>
 </div>
+  <script>
+  (function () {
+    var els = document.querySelectorAll('[data-reveal]');
+    if (!els.length) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-revealed');
+        io.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+  </script>
+  <script>
+  (function () {
+    var els = document.querySelectorAll('[data-count-up]');
+    if (!els.length) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var DURATION = 1400;
+    function animate(el) {
+      var target = parseInt(el.textContent.replace(/[^0-9]/g, ''), 10);
+      if (!target) return;
+      var start = null;
+      function tick(now) {
+        if (start === null) start = now;
+        var progress = Math.min((now - start) / DURATION, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(target * eased).toLocaleString('en-US');
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        animate(entry.target);
+        io.unobserve(entry.target);
+      });
+    }, { threshold: 0.6 });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+  </script>
 
 </body>
 </html>
