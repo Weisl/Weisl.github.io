@@ -469,6 +469,7 @@ html.has-js [data-reveal].is-revealed {
     .site-nav-links > a:hover, .site-nav-links > a.is-active { color: #e8e9ee; }
     .site-nav-docs-link { color: #3b82f6 !important; margin-left: auto; }
     .site-nav-dropdown { position: relative; }
+    .site-nav-dropdown-toggle-input { display: none; }
     .site-nav-dropdown-label { display: flex; align-items: center; gap: 5px; color: #9a9da6; font-size: 13px; font-weight: 700; cursor: pointer; }
     .site-nav-dropdown:hover .site-nav-dropdown-label, .site-nav-dropdown:focus-within .site-nav-dropdown-label, .site-nav-dropdown-label.is-active { color: #e8e9ee; }
     /* top: 100% with no margin — the box touches the label's bottom edge with
@@ -489,8 +490,17 @@ html.has-js [data-reveal].is-revealed {
       .site-nav-toggle-input:checked ~ .site-nav-links { display: flex; }
       .site-nav-links > a, .site-nav-dropdown-label { padding: 13px 0; border-bottom: 1px solid #24262d; }
       .site-nav-docs-link { margin-left: 0; }
-      .site-nav-dropdown-menu { display: block !important; position: static; box-shadow: none; border: none; background: none; padding: 0 0 4px 14px; margin-top: 0; }
+      /* Tools list collapses here too: the label is a <label> for the hidden
+         #site-nav-tools-toggle checkbox, same trick as the hamburger. The
+         !important on both states keeps the desktop :hover/:focus-within
+         rule (which a tap leaves stuck on touch screens) from overriding
+         the checkbox. Collapsed by default; the chevron flips when open. */
+      .site-nav-dropdown-menu { display: none !important; position: static; box-shadow: none; border: none; background: none; padding: 0 0 4px 14px; margin-top: 0; }
+      .site-nav-dropdown-toggle-input:checked ~ .site-nav-dropdown-menu { display: block !important; }
       .site-nav-dropdown-menu a { padding: 10px 0; font-size: 12px; }
+      .site-nav-dropdown-label { justify-content: space-between; }
+      .site-nav-dropdown-arrow { transition: transform 0.2s ease; }
+      .site-nav-dropdown-toggle-input:checked ~ .site-nav-dropdown-label .site-nav-dropdown-arrow { transform: rotate(180deg); }
     }
   </style>
   <header class="site-nav">
@@ -503,7 +513,8 @@ html.has-js [data-reveal].is-revealed {
       <label for="site-nav-toggle" class="site-nav-toggle-label" aria-label="Toggle menu"><span></span><span></span><span></span></label>
       <nav class="site-nav-links">
         <div class="site-nav-dropdown">
-          <span class="site-nav-dropdown-label">Tools <svg width="9" height="6" viewBox="0 0 9 6"><path d="M1 1 L4.5 5 L8 1" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+          <input type="checkbox" id="site-nav-tools-toggle" class="site-nav-dropdown-toggle-input">
+          <label for="site-nav-tools-toggle" class="site-nav-dropdown-label">Tools <svg class="site-nav-dropdown-arrow" width="9" height="6" viewBox="0 0 9 6"><path d="M1 1 L4.5 5 L8 1" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></label>
           <div class="site-nav-dropdown-menu">
           <a href="/simple-renaming.html">Simple Renaming</a>
           <a href="/simple-collider.html">Simple Collider</a>
@@ -896,7 +907,7 @@ html.has-js [data-reveal].is-revealed {
           <span class="badge-node">2</span>
           <div class="step-title" style="margin:0">Choose Your Package</div>
         </div>
-        <div class="step-body">Pick a single session, the 6-session package, or studio/team training — whatever fits where you're headed. <a href="https://holvi.com/shop/alpine-empire/" target="_blank" rel="noopener noreferrer">Book via the Holvi store</a>.</div>
+        <div class="step-body">Pick a single session, the 5-session package, or studio/team training — whatever fits where you're headed. <a href="https://holvi.com/shop/alpine-empire/" target="_blank" rel="noopener noreferrer">Book via the Holvi store</a>.</div>
       </div>
       <div class="step-item" data-reveal>
         <div class="feature-header">
@@ -959,7 +970,7 @@ html.has-js [data-reveal].is-revealed {
             <div class="card-tag-slot"></div>
             <div class="grid-card-title">Studio / Team Training</div>
             <div class="price-line">Custom<span class="price-unit"> pricing</span></div>
-            <div class="grid-card-body">Remote training sessions for multiple people at once. <a href="mailto:hello-alpineempire@poton.me">Get in touch</a> for a quote.</div>
+            <div class="grid-card-body">Remote training sessions for multiple people at once. <a href="mailto:hello-alpineempire@proton.me">Get in touch</a> for a quote.</div>
           </td>
         </tr>
       </tbody>
@@ -976,7 +987,7 @@ html.has-js [data-reveal].is-revealed {
       <tbody><tr>
         <td class="link-cell"><a class="link-pill" data-hover-lift href="https://www.artstation.com/matthias-patscheider" target="_blank" rel="noopener noreferrer">Portfolio</a></td>
         <td class="link-cell"><a class="link-pill" data-hover-lift href="https://holvi.com/shop/alpine-empire/" target="_blank" rel="noopener noreferrer">Store</a></td>
-        <td class="link-cell"><a class="link-pill" data-hover-lift href="mailto:hello-alpineempire@poton.me">Contact</a></td>
+        <td class="link-cell"><a class="link-pill" data-hover-lift href="mailto:hello-alpineempire@proton.me">Contact</a></td>
       </tr></tbody>
     </table>
     <p class="footer-legal"><a href="/legal-notice.html" class="footer-legal-link">Legal Notice</a></p>

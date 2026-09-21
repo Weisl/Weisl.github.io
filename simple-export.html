@@ -411,6 +411,7 @@ html.has-js [data-reveal].is-revealed {
     .site-nav-links > a:hover, .site-nav-links > a.is-active { color: #e8e9ee; }
     .site-nav-docs-link { color: #e8821e !important; margin-left: auto; }
     .site-nav-dropdown { position: relative; }
+    .site-nav-dropdown-toggle-input { display: none; }
     .site-nav-dropdown-label { display: flex; align-items: center; gap: 5px; color: #9a9da6; font-size: 13px; font-weight: 700; cursor: pointer; }
     .site-nav-dropdown:hover .site-nav-dropdown-label, .site-nav-dropdown:focus-within .site-nav-dropdown-label, .site-nav-dropdown-label.is-active { color: #e8e9ee; }
     /* top: 100% with no margin — the box touches the label's bottom edge with
@@ -431,8 +432,17 @@ html.has-js [data-reveal].is-revealed {
       .site-nav-toggle-input:checked ~ .site-nav-links { display: flex; }
       .site-nav-links > a, .site-nav-dropdown-label { padding: 13px 0; border-bottom: 1px solid #24262d; }
       .site-nav-docs-link { margin-left: 0; }
-      .site-nav-dropdown-menu { display: block !important; position: static; box-shadow: none; border: none; background: none; padding: 0 0 4px 14px; margin-top: 0; }
+      /* Tools list collapses here too: the label is a <label> for the hidden
+         #site-nav-tools-toggle checkbox, same trick as the hamburger. The
+         !important on both states keeps the desktop :hover/:focus-within
+         rule (which a tap leaves stuck on touch screens) from overriding
+         the checkbox. Collapsed by default; the chevron flips when open. */
+      .site-nav-dropdown-menu { display: none !important; position: static; box-shadow: none; border: none; background: none; padding: 0 0 4px 14px; margin-top: 0; }
+      .site-nav-dropdown-toggle-input:checked ~ .site-nav-dropdown-menu { display: block !important; }
       .site-nav-dropdown-menu a { padding: 10px 0; font-size: 12px; }
+      .site-nav-dropdown-label { justify-content: space-between; }
+      .site-nav-dropdown-arrow { transition: transform 0.2s ease; }
+      .site-nav-dropdown-toggle-input:checked ~ .site-nav-dropdown-label .site-nav-dropdown-arrow { transform: rotate(180deg); }
     }
   </style>
   <header class="site-nav">
@@ -445,7 +455,8 @@ html.has-js [data-reveal].is-revealed {
       <label for="site-nav-toggle" class="site-nav-toggle-label" aria-label="Toggle menu"><span></span><span></span><span></span></label>
       <nav class="site-nav-links">
         <div class="site-nav-dropdown">
-          <span class="site-nav-dropdown-label is-active">Tools <svg width="9" height="6" viewBox="0 0 9 6"><path d="M1 1 L4.5 5 L8 1" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+          <input type="checkbox" id="site-nav-tools-toggle" class="site-nav-dropdown-toggle-input">
+          <label for="site-nav-tools-toggle" class="site-nav-dropdown-label is-active">Tools <svg class="site-nav-dropdown-arrow" width="9" height="6" viewBox="0 0 9 6"><path d="M1 1 L4.5 5 L8 1" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></label>
           <div class="site-nav-dropdown-menu">
           <a href="/simple-renaming.html">Simple Renaming</a>
           <a href="/simple-collider.html">Simple Collider</a>
