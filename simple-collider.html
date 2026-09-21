@@ -423,9 +423,25 @@ html.has-js [data-reveal].is-revealed {
        classic "dropdown closes crossing the gap" bug: that empty strip
        belongs to neither element, so :hover drops before the pointer
        reaches the menu. padding-top (part of the menu's own box, so still
-       hoverable) gives the same visual breathing room without the gap. */
-    .site-nav-dropdown-menu { display: none; position: absolute; top: 100%; left: 0; min-width: 210px; background: #1c1e24; border: 1px solid #34363e; border-radius: 10px; padding: 14px 6px 6px; box-shadow: 0 14px 34px rgba(0,0,0,0.45); }
-    .site-nav-dropdown:hover .site-nav-dropdown-menu, .site-nav-dropdown:focus-within .site-nav-dropdown-menu { display: block; }
+       hoverable) gives the same visual breathing room without the gap.
+
+       Fade + a 10px drop-in on open. The menu is always display: block and
+       hidden with visibility/opacity instead of display: none (display
+       can't be transitioned); visibility still takes it out of hit-testing,
+       tab order and the accessibility tree while closed. It slides down
+       from above rather than up from below so the moving box never leaves a
+       gap under the label. The closed state's visibility delay lets the
+       fade-out finish before hiding, and the open state shows it at once
+       (a transition uses the destination state's timing). */
+    .site-nav-dropdown-menu { display: block; visibility: hidden; opacity: 0; transform: translateY(-10px); transition: opacity 0.26s ease, transform 0.26s ease, visibility 0s linear 0.26s; position: absolute; top: 100%; left: 0; min-width: 210px; background: #1c1e24; border: 1px solid #34363e; border-radius: 10px; padding: 14px 6px 6px; box-shadow: 0 14px 34px rgba(0,0,0,0.45); }
+    /* Desktop only: `not all and (max-width: 640px)` is the exact complement
+       of the mobile query below (a min-width: 641px would leave fractional
+       widths from browser zoom matching neither). Keeping :hover out of the
+       mobile layout also stops a tap's stuck :hover from reopening a list
+       the checkbox just collapsed. */
+    @media not all and (max-width: 640px) {
+      .site-nav-dropdown:hover .site-nav-dropdown-menu, .site-nav-dropdown:focus-within .site-nav-dropdown-menu { visibility: visible; opacity: 1; transform: none; transition: opacity 0.26s ease, transform 0.26s ease, visibility 0s; }
+    }
     .site-nav-dropdown-menu a { display: block; padding: 8px 10px; border-radius: 6px; color: #d7d9e0; text-decoration: none; font-size: 13px; font-weight: 600; white-space: nowrap; }
     .site-nav-dropdown-menu a:hover, .site-nav-dropdown-menu a.is-active { background: #24262d; color: #ffffff; }
     .nav-badge-alpha { display: inline-block; margin-left: 6px; background: rgba(236,72,153,0.14); border: 1px solid rgba(236,72,153,0.4); color: #fbcfe8; padding: 2px 6px; border-radius: 8px; font-size: 9px; font-weight: 700; letter-spacing: 1px; vertical-align: middle; }
@@ -436,16 +452,29 @@ html.has-js [data-reveal].is-revealed {
       .site-nav-links > a, .site-nav-dropdown-label { padding: 13px 0; border-bottom: 1px solid #24262d; }
       .site-nav-docs-link { margin-left: 0; }
       /* Tools list collapses here too: the label is a <label> for the hidden
-         #site-nav-tools-toggle checkbox, same trick as the hamburger. The
-         !important on both states keeps the desktop :hover/:focus-within
-         rule (which a tap leaves stuck on touch screens) from overriding
-         the checkbox. Collapsed by default; the chevron flips when open. */
-      .site-nav-dropdown-menu { display: none !important; position: static; box-shadow: none; border: none; background: none; padding: 0 0 4px 14px; margin-top: 0; }
-      .site-nav-dropdown-toggle-input:checked ~ .site-nav-dropdown-menu { display: block !important; }
+         #site-nav-tools-toggle checkbox, same trick as the hamburger.
+         Collapsed by default; the chevron flips when open.
+
+         display can't be transitioned, so the menu is always a one-row grid
+         and the row animates 0fr -> 1fr: it slides to the list's real
+         height, no JS measuring and no guessed max-height. The inner
+         wrapper (overflow: hidden, min-height: 0) is what lets the row
+         shrink to nothing. visibility hides the links from tab order and
+         screen readers once closed; its delay on the closed state waits for
+         the slide to finish before hiding, and the open state shows it
+         immediately (a transition uses the destination state's timing).
+         transform: none cancels the desktop drop-in offset. */
+      .site-nav-dropdown-menu { display: grid; grid-template-rows: 0fr; visibility: hidden; opacity: 0; transform: none; position: static; box-shadow: none; border: none; background: none; padding: 0 0 0 14px; margin-top: 0; transition: grid-template-rows 0.3s ease, opacity 0.25s ease, visibility 0s linear 0.3s; }
+      .site-nav-dropdown-toggle-input:checked ~ .site-nav-dropdown-menu { grid-template-rows: 1fr; visibility: visible; opacity: 1; transition: grid-template-rows 0.3s ease, opacity 0.25s ease 0.05s, visibility 0s; }
+      .site-nav-dropdown-menu-inner { overflow: hidden; min-height: 0; }
       .site-nav-dropdown-menu a { padding: 10px 0; font-size: 12px; }
+      .site-nav-dropdown-menu a:last-child { margin-bottom: 4px; }
       .site-nav-dropdown-label { justify-content: space-between; }
-      .site-nav-dropdown-arrow { transition: transform 0.2s ease; }
+      .site-nav-dropdown-arrow { transition: transform 0.3s ease; }
       .site-nav-dropdown-toggle-input:checked ~ .site-nav-dropdown-label .site-nav-dropdown-arrow { transform: rotate(180deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .site-nav-dropdown-menu, .site-nav-dropdown-arrow { transition: none !important; }
     }
   </style>
   <header class="site-nav">
@@ -461,12 +490,14 @@ html.has-js [data-reveal].is-revealed {
           <input type="checkbox" id="site-nav-tools-toggle" class="site-nav-dropdown-toggle-input">
           <label for="site-nav-tools-toggle" class="site-nav-dropdown-label is-active">Tools <svg class="site-nav-dropdown-arrow" width="9" height="6" viewBox="0 0 9 6"><path d="M1 1 L4.5 5 L8 1" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></label>
           <div class="site-nav-dropdown-menu">
+            <div class="site-nav-dropdown-menu-inner">
           <a href="/simple-renaming.html">Simple Renaming</a>
           <a href="/simple-collider.html" class="is-active">Simple Collider</a>
           <a href="/simple-export.html">Simple Export</a>
           <a href="/simple-camera-manager.html">Simple Camera Manager</a>
           <a href="/simple-pbr-layering.html">Simple PBR Layering <span class="nav-badge-alpha">ALPHA</span></a>
           <a href="/simple-uv-nodes.html">Simple UV Nodes <span class="nav-badge-alpha">ALPHA</span></a>
+            </div>
           </div>
         </div>
         <a href="/mentoring.html">Mentoring</a>
