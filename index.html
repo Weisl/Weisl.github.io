@@ -395,10 +395,9 @@
 
 
 
-.card-mentorship { background: #3b82f6; }
-.grid-card-body--on-accent { color: #ffffff; }
-.card-mentorship-cta { margin: 10px 0 0; }
-.link-on-accent { color: #ffffff; text-decoration: underline; font-weight: 700; font-size: 13px; }
+.card-mentorship { border: 2px solid #3b82f6; background: rgba(59,130,246,0.06); }
+
+.project-call-cta { text-align: center; margin: 18px 0 0; }
 
 
 .past-projects-content { position: relative; max-width: 720px; padding: 0 34px 46px; text-align: center; }
@@ -496,6 +495,15 @@
 @media (prefers-reduced-motion: reduce) {
   .skills-bg-video { display: none; }
 }
+
+
+.contact-email { margin: 0 0 32px; text-align: center; }
+.contact-email-link { font-size: 24px; font-weight: 900; color: #ffffff !important; text-decoration: none; border-bottom: 2px solid #3b82f6; padding-bottom: 2px; overflow-wrap: anywhere; }
+.contact-copy { font: inherit; font-size: 13px; font-weight: 700; color: #9a9da6; background: none; border: none; padding: 4px 6px; margin-left: 8px; cursor: pointer; text-decoration: underline; vertical-align: middle; }
+.contact-copy:hover { color: #ffffff; }
+.contact-calls-label { margin: 0 0 12px; font-size: 13px; color: #9a9da6; text-align: center; }
+.contact-calls { margin: 0; text-align: center; }
+.contact-calls a { margin: 4px; }
 
 @font-face {
   font-family: 'Space Grotesk';
@@ -750,15 +758,16 @@ html.has-js [data-reveal].is-revealed {
             <div class="grid-card-title">Pipeline &amp; Tools</div>
             <div class="grid-card-body">Ready-to-use Blender tools for common pipeline challenges, or custom pipelines, documentation, and tooling built for your studio.</div>
           </td>
-          <td class="grid-card grid-card--top w25 card-mentorship">
+          <td class="grid-card w25 card-mentorship">
             <div class="grid-card-title">Mentoring &amp; Workshops</div>
-            <div class="grid-card-body grid-card-body--on-accent">1:1 mentoring, team training, or expert presentations on 3D content creation, world-building and pipelines.</div>
-            <p class="card-mentorship-cta"><a href="/mentoring.html" class="link-on-accent">Learn More ↗</a></p>
+            <div class="grid-card-body">1:1 mentoring, team training, or expert presentations on 3D content creation, world-building and pipelines.</div>
+            <p class="grid-card-cta"><a href="/mentoring.html" class="support-link">Learn More ↗</a></p>
           </td>
         </tr>
       </tbody>
     </table>
-    <p class="support-note">On game projects, I prefer working directly within teams, especially on long-term freelance or contract collaborations. Got a question or a project in mind? Feel free to <a href="#contact" class="support-link">reach out</a>.</p>
+    <p class="support-note">On game projects, I prefer working directly within teams, especially on long-term freelance or contract collaborations. Got a project or collaboration in mind? Book a free 30-minute call to talk it through, or <a href="#contact" class="support-link">send me an email</a>.</p>
+    <p class="project-call-cta"><a href="https://zeeg.me/patscheidermatthias/project-call-30-min" class="button-primary" data-hover-lift target="_blank" rel="noopener noreferrer">Book a Free Project Call ↗</a></p>
   </div>
   <div class="divider-accent"></div>
 
@@ -876,6 +885,7 @@ html.has-js [data-reveal].is-revealed {
         </td></tr>
       </tbody>
     </table>
+    <p class="support-note">Working on something where I could help? <a href="https://zeeg.me/patscheidermatthias/project-call-30-min" class="support-link" target="_blank" rel="noopener noreferrer">Book a Project Call ↗</a></p>
   </div>
 
   <!-- Skills -->
@@ -1370,38 +1380,31 @@ html.has-js [data-reveal].is-revealed {
     </div>
   </div>
 
-    <div id="contact" style="background:#1c1e24; padding:56px 30px; border-top:1px solid #34363e">
-    <h2 style="margin:0 0 8px; font-size:32px; font-weight:900; color:#fff; text-align:center">Let's Create Something Extraordinary</h2>
-    <p style="margin:0 0 36px; font-size:15px; color:#9a9da6; text-align:center">Always excited to collaborate on new projects — whether that's environment art, tools, or a mentorship built around what you actually need.</p>
-    <form id="cf-alpine-empire" style="max-width:520px; margin:0 auto;">
-      <div style="margin-bottom:14px;">
-        <label for="cf-name" style="display:block;font-size:13px;font-weight:700;color:#d7d9e0;margin-bottom:6px;">Name</label>
-        <input type="text" id="cf-name" required style="width:100%;box-sizing:border-box;background:#24262d;border:1px solid #34363e;border-radius:8px;padding:12px 14px;color:#e8e9ee;font-size:14px;">
-      </div>
-      <div style="margin-bottom:14px;">
-        <label for="cf-email" style="display:block;font-size:13px;font-weight:700;color:#d7d9e0;margin-bottom:6px;">Your Email</label>
-        <input type="email" id="cf-email" required style="width:100%;box-sizing:border-box;background:#24262d;border:1px solid #34363e;border-radius:8px;padding:12px 14px;color:#e8e9ee;font-size:14px;">
-      </div>
-      <div style="margin-bottom:20px;">
-        <label for="cf-message" style="display:block;font-size:13px;font-weight:700;color:#d7d9e0;margin-bottom:6px;">Message</label>
-        <textarea id="cf-message" rows="5" required style="width:100%;box-sizing:border-box;background:#24262d;border:1px solid #34363e;border-radius:8px;padding:12px 14px;color:#e8e9ee;font-size:14px;resize:vertical;"></textarea>
-      </div>
-      <button type="submit" style="width:100%;background:#3b82f6;border:none;color:#fff;font-size:14px;font-weight:700;padding:13px 24px;border-radius:8px;cursor:pointer;">Send Message</button>
-      <p style="text-align:center;margin:10px 0 0;font-size:12px;color:#9a9da6;">Opens your email client with this pre-filled — nothing is sent from this page.</p>
-    </form>
-    <p style="text-align:center;margin-top:14px;font-size:13px;color:#9a9da6;">Prefer not to use your email client? Email <a href="mailto:hello-alpineempire@proton.me" style="color:#3b82f6;">hello-alpineempire@proton.me</a> directly.</p>
+    <div id="contact" class="section section--alt section--hairline" data-section-pad>
+    <h2 class="section-title">Let's Build Something Together</h2>
+    <p class="section-subtitle">Always excited to collaborate on new projects — whether that's environment art, tools, or a mentorship built around what you actually need.</p>
+    <p class="contact-email">
+      <a href="mailto:hello-alpineempire@proton.me" class="contact-email-link">hello-alpineempire@proton.me</a>
+      <button type="button" id="cf-copy-address" class="contact-copy" hidden>Copy</button>
+    </p>
+    <p class="contact-calls-label">Prefer to talk? Both calls are free.</p>
+    <p class="contact-calls">
+      <a href="https://zeeg.me/patscheidermatthias/project-call-30-min" class="button-primary" data-hover-lift target="_blank" rel="noopener noreferrer">Book a project call ↗</a>
+      <a href="https://zeeg.me/patscheidermatthias/15min_discovery" class="button-secondary" data-hover-lift target="_blank" rel="noopener noreferrer">Book a mentoring call ↗</a>
+    </p>
     <script>
     (function () {
-      var form = document.getElementById('cf-alpine-empire');
-      if (!form) return;
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        var name = document.getElementById('cf-name').value.trim();
-        var email = document.getElementById('cf-email').value.trim();
-        var message = document.getElementById('cf-message').value.trim();
-        var subject = encodeURIComponent('Website contact from ' + name);
-        var body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message);
-        window.location.href = 'mailto:hello-alpineempire@proton.me?subject=' + subject + '&body=' + body;
+      var button = document.getElementById('cf-copy-address');
+      if (!button || !(navigator.clipboard && navigator.clipboard.writeText)) return;
+      button.hidden = false;
+      button.addEventListener('click', function () {
+        navigator.clipboard.writeText('hello-alpineempire@proton.me').then(function () {
+          button.textContent = 'Copied!';
+        }, function () {
+          button.textContent = 'Copy failed';
+        }).then(function () {
+          setTimeout(function () { button.textContent = 'Copy'; }, 2000);
+        });
       });
     })();
     </script>
