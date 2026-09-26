@@ -567,30 +567,41 @@ html.has-js [data-reveal].is-revealed {
 <!-- Hero: bigger than the product pages (more padding, larger type, extra
        credibility strip) since this page sells a person, not a tool. Kept
        fully inline like every other product's hero — see note at top of
-       common.css. Full-bleed background is Matthias's own "Verdant Realms"
-       environment art (ArtStation) — a different angle than the Alpine Empire
-       homepage hero so the two pages don't look identical, same photo set
-       for brand consistency. Chips get an explicit solid background (not
-       just a border) since they sit over a photo instead of a flat color.
-       Gradient overlay is byte-identical to Alpine Empire's hero wash (see
-       common.css's .hero-photo-content comment) — used to be an opaque
-       solid-color panel over the left half instead, which is why this photo
-       used to look effectively invisible next to Alpine Empire's. The photo
-       sits on its own data-parallax layer, oversized 70px past each edge
-       with background-attachment:fixed as the no-JS fallback, so
-       deploy_to_docs.py's parallax script can move it slower than scroll on
-       docs/ (Superhive just gets the fixed look). -->
-  <div style="position:relative;min-height:480px;overflow:hidden;">
-    <!-- Verdant Realms footage as a muted/looped background, replacing the
-         static hero_banner.jpg parallax layer. No data-parallax here — full
+       common.css. Full-bleed background is the Blender Conference 2024 talk
+       footage — Matthias actually mentoring/teaching — rather than the
+       Verdant Realms environment art, which read as too similar to the
+       Alpine Empire homepage hero (that one now uses Verdant Realms clips;
+       this clip moved down to be Teaching Experience's ambient background).
+       Chips get an explicit solid background (not just a border) since they
+       sit over a photo instead of a flat color. Gradient overlay is
+       byte-identical to Alpine Empire's hero wash (see common.css's
+       .hero-photo-content comment). -->
+  <div style="position:relative;min-height:594px;overflow:hidden;">
+    <!-- Blender Conference 2024 footage as a muted/looped background,
+         replacing the static hero_banner.jpg parallax layer. It's a
+         1920x840 reframe of the talk's own 1080p50 footage (YouTube
+         hVF0UjFfHVo, 35:12-35:24 — a stretch where he's turned
+         toward the camera), ffmpeg: the
+         Blender window cropped tight — no black slide margins — and joined
+         to the speaker's blue-lit box, which moved from the far left of the
+         frame to the far right, hstack of [slides | speaker], because in the
+         original he sits exactly under this hero's left-aligned text and
+         the wash's darkest stop. He now faces the slides instead of away
+         from them. object-position is right-anchored (25% down, for
+         head-room) so that when a narrow viewport crops the sides, it's
+         the slide side that goes, not him. The wrapper's min-height is
+         Alpine Empire's hero height (~594px — that one is content-driven
+         by its long lede + chip intro, this one isn't), so the two pages'
+         heroes line up. No
+         data-parallax here — full
          top:0/right:0/bottom:0/left:0 + width:100%/height:100% + object-fit
          is the same sizing recipe already proven on this page's own
          .teaching-banner-video further down, deliberately not the
          -70px-oversized parallax-transform box the old photo layer used
          (video is a replaced element; that box only auto-sizes correctly
          for a div). -->
-    <video class="hero-bg-video" autoplay muted loop playsinline preload="auto" poster="/images/mentoring/hero_banner.jpg" style="position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center 35%;background:#1c1e24;filter:brightness(0.92);">
-      <source src="/videos/website/verdant_clip_04.mp4" type="video/mp4">
+    <video class="hero-bg-video" autoplay muted loop playsinline preload="auto" poster="/images/mentoring/mentoring_hero_1080p_v2_poster.jpg" style="position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;object-fit:cover;object-position:right 25%;background:#1c1e24;filter:brightness(0.92);">
+      <source src="/videos/mentoring/mentoring_hero_1080p_v2.mp4" type="video/mp4">
     </video>
     <div style="position:absolute;inset:0;background:linear-gradient(100deg, rgba(8,9,12,0.85) 0px, rgba(8,9,12,0.65) 300px, rgba(8,9,12,0.25) 550px, rgba(8,9,12,0) 750px);"></div>
     <div class="hero-photo-content" data-section-pad>
@@ -741,8 +752,7 @@ html.has-js [data-reveal].is-revealed {
                 <tr><td class="checklist-item"><span class="check">✓</span> Blender Python API fundamentals, applied to real production problems</td></tr>
                 <tr><td class="checklist-item"><span class="check">✓</span> Geometry Nodes for procedural, reusable workflows</td></tr>
                 <tr><td class="checklist-item"><span class="check">✓</span> Shader development — building complex, efficient shaders in Blender and Unreal</td></tr>
-                <tr><td class="checklist-item"><span class="check">✓</span> Houdini tools and procedural workflows for world building</td></tr>
-              </tbody>
+                <tr><td class="checklist-item"><span class="check">✓</span> Houdini tools and procedural workflows for world building</td></tr>              </tbody>
             </table>
           </td>
         </tr>
@@ -867,8 +877,8 @@ html.has-js [data-reveal].is-revealed {
        of enhance_media()'s preload="none" default, meant for the site's
        other, non-autoplay <video preload="none"> use). -->
   <div class="section section--hairline teaching-video-section" data-reveal data-section-pad>
-    <video class="teaching-banner-video" autoplay muted loop playsinline preload="auto" poster="/images/mentoring/teaching_banner_poster.jpg">
-      <source src="/videos/mentoring/blender_conference_2024_banner.mp4" type="video/mp4">
+    <video class="teaching-banner-video" autoplay muted loop playsinline preload="auto" poster="/images/mentoring/hero_banner.jpg">
+      <source src="/videos/website/verdant_clip_04.mp4" type="video/mp4">
     </video>
     <div class="teaching-video-scrim"></div>
     <div class="teaching-video-content">
