@@ -119,8 +119,12 @@
 .feature-content-cell { vertical-align: middle; width: 58%; border: none; }
 
 .feature-content-cell--full { width: 100%; }
+
+.feature-media-cell--full { width: 100%; padding-right: 0; padding-bottom: 30px; }
 .feature-media { line-height: 0; border-radius: 14px; overflow: hidden; border: 1px solid #34363e; }
 .feature-media img { width: 100%; display: block; }
+
+.feature-media video { width: 100%; display: block; }
 .badge-row { border-collapse: collapse; border: 0; }
 .badge-row-cell { vertical-align: middle; padding-right: 14px; border: none; }
 .eyebrow-cell { vertical-align: middle; border: none; }
@@ -169,6 +173,7 @@
 .shape-card { background: #24262d; border: 1px solid #34363e; border-radius: 12px; overflow: hidden; vertical-align: top; }
 .shape-card-media { line-height: 0; }
 .shape-card-media img { width: 100%; display: block; }
+.shape-card-media video { width: 100%; display: block; aspect-ratio: 1 / 1; object-fit: cover; }
 .shape-card-body { padding: 18px 20px; }
 .shape-card-title { font-size: 16px; font-weight: 800; color: #ffffff; margin-bottom: 6px; }
 .shape-card-desc { font-size: 13px; color: #9a9da6; line-height: 1.55; }
@@ -376,6 +381,26 @@
 .shape-card--compact .shape-card-body { padding: 14px 16px; }
 .shape-card--compact .shape-card-title { font-size: 14px; margin-bottom: 5px; }
 .shape-card--compact .shape-card-desc { font-size: 12px; line-height: 1.5; }
+
+
+.shape-card--compact { transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
+.shape-card--compact:hover { transform: translateY(-4px); border-color: #a855f7; box-shadow: 0 10px 24px rgba(0,0,0,0.35); }
+.shape-card--compact .shape-card-media { overflow: hidden; }
+.shape-card--compact .shape-card-media img, .shape-card--compact .shape-card-media video { transition: transform .4s ease; }
+.shape-card--compact:hover .shape-card-media img, .shape-card--compact:hover .shape-card-media video { transform: scale(1.06); }
+html.has-js tr[data-reveal]:not(.is-revealed) > .shape-card--compact { opacity: 0; }
+html.has-js tr[data-reveal].is-revealed > .shape-card--compact { animation: node-card-in .5s ease backwards; }
+html.has-js tr[data-reveal].is-revealed > .shape-card--compact:nth-child(2) { animation-delay: .08s; }
+html.has-js tr[data-reveal].is-revealed > .shape-card--compact:nth-child(3) { animation-delay: .16s; }
+html.has-js tr[data-reveal].is-revealed > .shape-card--compact:nth-child(4) { animation-delay: .24s; }
+@keyframes node-card-in {
+  from { opacity: 0; transform: translateY(18px) scale(.96); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html.has-js tr[data-reveal] > .shape-card--compact { opacity: 1 !important; animation: none !important; }
+  .shape-card--compact:hover, .shape-card--compact:hover .shape-card-media img, .shape-card--compact:hover .shape-card-media video { transform: none !important; }
+}
 
 
 .steps-row { display: flex; max-width: 960px; margin: 0 auto; }
@@ -626,7 +651,7 @@ html.has-js [data-reveal].is-revealed {
         </div>
         <div data-step="dot" class="step-dot step-dot--left"></div>
       </div>
-    </div>
+    </div><!-- /steps-row -->
   </div>
 
   <!-- 01 Stays Live, Stays Procedural -->
@@ -636,7 +661,7 @@ html.has-js [data-reveal].is-revealed {
         <tr>
           <td class="feature-media-cell">
             <div class="feature-media" data-hover-zoom>
-              <img src="/images/simple_uv/thumb_UV_Box_Project.jpg" alt="UV Box Project node preview showing triplanar checker projection on a rock mesh" loading="lazy" decoding="async">
+              <video autoplay muted loop playsinline aria-label="UV Box Project node preview showing triplanar checker projection animating live on a mesh" poster="/images/simple_uv/simple_uv_non_destructive_poster.jpg" src="/videos/simple_uv/simple_uv_non_destructive.mp4"></video>
             </div>
           </td>
           <td class="feature-content-cell">
@@ -666,7 +691,7 @@ html.has-js [data-reveal].is-revealed {
         <tr>
           <td class="feature-media-cell">
             <div class="feature-media" data-hover-zoom>
-              <img src="/images/simple_uv/thumb_UV_Camera_Project.jpg" alt="UV Camera Project node preview showing a checker texture projected from a camera's point of view" loading="lazy" decoding="async">
+              <video autoplay muted loop playsinline aria-label="UV Camera Project node preview showing a checker texture projected from a camera's point of view" poster="/images/simple_uv/simple_uv_camera_project_poster.jpg" src="/videos/simple_uv/simple_uv_camera_project.mp4"></video>
             </div>
           </td>
           <td class="feature-content-cell">
@@ -696,7 +721,7 @@ html.has-js [data-reveal].is-revealed {
         <tr>
           <td class="feature-media-cell">
             <div class="feature-media" data-hover-zoom>
-              <img src="/images/simple_uv/UV_Cylindrical_Project.jpg" alt="UV Cylindrical Project node preview showing a checker texture wrapped around a cylindrical mesh" loading="lazy" decoding="async">
+              <video autoplay muted loop playsinline aria-label="The Box, Planar, Spherical, and Cylindrical projection nodes in turn, each projecting a checker texture onto its own mesh" poster="/images/simple_uv/simple_uv_projections_poster.jpg" src="/videos/simple_uv/simple_uv_projections.mp4"></video>
             </div>
           </td>
           <td class="feature-content-cell">
@@ -719,14 +744,17 @@ html.has-js [data-reveal].is-revealed {
     </table>
   </div>
 
-  <!-- 04 Instance & Island Randomize -->
+  <!-- 04 Instance & Island Randomize
+       Standard media cell like 01/02/03/05/06: the 4:5 fence clip (from
+       marketing/simple_uv/clips/uv_fence_4x5.mp4) stacks the modifier panel
+       under the fence, so it no longer needs a full-width row. -->
   <div class="section section--alt section--hairline" data-reveal data-section-pad>
     <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
           <td class="feature-media-cell">
             <div class="feature-media" data-hover-zoom>
-              <img src="/images/simple_uv/thumb_UV_Instance_Randomize.jpg" alt="UV Instance Randomize node preview showing randomized checker UV variation across scattered instances" loading="lazy" decoding="async">
+              <video autoplay muted loop playsinline aria-label="UV Instance Randomize node preview showing a wood fence whose identically-mapped pickets are randomized per instance, above the live Blender modifier panel showing the parameter values change" poster="/images/simple_uv/simple_uv_fence_poster.jpg" src="/videos/simple_uv/simple_uv_fence.mp4"></video>
             </div>
           </td>
           <td class="feature-content-cell">
@@ -748,14 +776,17 @@ html.has-js [data-reveal].is-revealed {
     </table>
   </div>
 
-  <!-- 05 Automate the UV Pipeline -->
+  <!-- 05 Automate the UV Pipeline
+       Standard square media cell: the clip is laid out for a square (small 3D
+       mesh left, the real UV Pack to Channel panel top-right, UV1 morphing into
+       the packed UV2 bottom-right). -->
   <div class="section" data-reveal data-section-pad>
     <table class="section-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr>
           <td class="feature-media-cell">
-            <div class="feature-media" data-hover-zoom>
-              <img src="/images/simple_uv/thumb_UV_Pack.jpg" alt="UV Pack to Channel node preview showing UV islands packed into a separate non-overlapping channel" loading="lazy" decoding="async">
+            <div class="feature-media">
+              <video autoplay muted loop playsinline aria-label="UV Pack to Channel node preview: the modifier panel beside a mesh's overlapping UV1 layout morphing into the automatically packed, non-overlapping UV2 channel" poster="/images/simple_uv/simple_uv_pack_to_channel_poster.jpg" src="/videos/simple_uv/simple_uv_pack_to_channel.mp4"></video>
             </div>
           </td>
           <td class="feature-content-cell">
@@ -777,6 +808,38 @@ html.has-js [data-reveal].is-revealed {
     </table>
   </div>
 
+  <!-- 06 Object or World Space
+       Only Box and Planar Project have the Coordinates menu, so the copy names
+       them. The node's menu item is "Global"; the page says "World" by choice,
+       with one mention of the UI label so buyers can find it. -->
+  <div class="section section--alt section--hairline" data-reveal data-section-pad>
+    <table class="section-inner" role="presentation" data-stack-grid="cards">
+      <tbody>
+        <tr>
+          <td class="feature-media-cell">
+            <div class="feature-media" data-hover-zoom>
+              <video autoplay muted loop playsinline aria-label="Two identical walls of modular pieces with a checker texture, one mapped in Object space and one in World space; as the pieces pull apart, the Object texture travels with each piece while the World texture stays fixed in place" poster="/images/simple_uv/simple_uv_coordinates_poster.jpg" src="/videos/simple_uv/simple_uv_coordinates.mp4"></video>
+            </div>
+          </td>
+          <td class="feature-content-cell">
+            <table class="badge-row" role="presentation"><tbody><tr>
+              <td class="badge-row-cell"><div class="badge-node">06</div></td>
+              <td class="eyebrow-cell"><div class="eyebrow">OBJECT OR WORLD SPACE</div></td>
+            </tr></tbody></table>
+            <h2 class="feature-title" data-heading="title">One Texture Across<br>Modular Pieces</h2>
+            <p class="feature-body feature-body--tight">Box and Planar Project can map in Object or World space. Object space ties the texture to each piece, so it moves with it. World space fixes the texture in the scene, so modular pieces share one continuous pattern across their seams.</p>
+            <table class="checklist" role="presentation">
+              <tbody>
+                <tr><td class="checklist-item"><span class="check">✓</span> World — kit pieces and scattered copies line up without hand-offsetting UVs (listed as Global in the node's Coordinates menu)</td></tr>
+                <tr><td class="checklist-item"><span class="check">✓</span> Object — the texture stays put on a prop as you move, rotate, or animate it</td></tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
   <div class="divider-accent"></div>
 
   <!-- All 11 Nodes: reuses .shape-card verbatim from common.css (built for Collider's
@@ -788,7 +851,9 @@ html.has-js [data-reveal].is-revealed {
        behavior from the node docs instead of a one-line marketing gloss, so this
        section earns its place instead of duplicating the screenshot. Every node
        has a real thumbnail except UV Attribute Transform, which has no image in
-       the source docs either. -->
+       the source docs either. Cards are stills on purpose: animated loops were
+       tried (data-loop-video, deploy_to_docs.py enhance_loop_cards) and dropped
+       as too much motion; section 03 shows the projections in motion instead. -->
   <div class="section" data-reveal data-section-pad>
     <h2 class="section-title" data-heading="title">All 11 Starter Nodes</h2>
     <p class="section-subtitle--tight">Every projection, transform, and utility node in the pack.</p>
@@ -796,28 +861,28 @@ html.has-js [data-reveal].is-revealed {
       <tbody>
         <tr data-reveal>
           <td class="shape-card shape-card--compact grid-card--top w25">
-            <div class="shape-card-media"><img src="/images/simple_uv/thumb_UV_Box_Project.jpg" alt="UV Box Project thumbnail" loading="lazy" decoding="async"></div>
+            <div class="shape-card-media"><img src="/images/simple_uv/simple_uv_grid_box.jpg" alt="UV Box Project thumbnail" loading="lazy" decoding="async"></div>
             <div class="shape-card-body">
               <div class="shape-card-title">UV Box Project</div>
               <div class="shape-card-desc">Triplanar blend from all three axes, with independent offset, rotation, and scale per face — Object or World space.</div>
             </div>
           </td>
           <td class="shape-card shape-card--compact grid-card--top w25">
-            <div class="shape-card-media"><img src="/images/simple_uv/thumb_UV_Planar_Project.jpg" alt="UV Planar Project thumbnail" loading="lazy" decoding="async"></div>
+            <div class="shape-card-media"><img src="/images/simple_uv/simple_uv_grid_planar.jpg" alt="UV Planar Project thumbnail" loading="lazy" decoding="async"></div>
             <div class="shape-card-body">
               <div class="shape-card-title">UV Planar Project</div>
               <div class="shape-card-desc">Flat projection along a chosen X, Y, or Z axis, with its own offset, rotation, tiling, and scale.</div>
             </div>
           </td>
           <td class="shape-card shape-card--compact grid-card--top w25">
-            <div class="shape-card-media"><img src="/images/simple_uv/thumb_UV%20Spherical%20Project.jpg" alt="UV Spherical Project thumbnail" loading="lazy" decoding="async"></div>
+            <div class="shape-card-media"><img src="/images/simple_uv/simple_uv_grid_spherical.jpg" alt="UV Spherical Project thumbnail" loading="lazy" decoding="async"></div>
             <div class="shape-card-body">
               <div class="shape-card-title">UV Spherical Project</div>
               <div class="shape-card-desc">Equirectangular wrap, seam-corrected on any pole axis. Real World Scale keeps texel density consistent with a neighboring projection.</div>
             </div>
           </td>
           <td class="shape-card shape-card--compact grid-card--top w25">
-            <div class="shape-card-media"><img src="/images/simple_uv/UV_Cylindrical_Project.jpg" alt="UV Cylindrical Project thumbnail" loading="lazy" decoding="async"></div>
+            <div class="shape-card-media"><img src="/images/simple_uv/simple_uv_grid_cylindrical.jpg" alt="UV Cylindrical Project thumbnail" loading="lazy" decoding="async"></div>
             <div class="shape-card-body">
               <div class="shape-card-title">UV Cylindrical Project</div>
               <div class="shape-card-desc">Wraps around a chosen axis, with optional blended caps on end faces past a face-normal angle threshold. Rotate shifts the seam.</div>
@@ -826,28 +891,28 @@ html.has-js [data-reveal].is-revealed {
         </tr>
         <tr data-reveal>
           <td class="shape-card shape-card--compact grid-card--top w25">
-            <div class="shape-card-media"><img src="/images/simple_uv/thumb_UV_Camera_Project.jpg" alt="UV Camera Project thumbnail" loading="lazy" decoding="async"></div>
+            <div class="shape-card-media"><img src="/images/simple_uv/simple_uv_grid_camera.jpg" alt="UV Camera Project thumbnail" loading="lazy" decoding="async"></div>
             <div class="shape-card-body">
               <div class="shape-card-title">UV Camera Project</div>
               <div class="shape-card-desc">Reads a real Camera's focal length, sensor size, and lens type — including true parallel projection in Orthographic. Updates live.</div>
             </div>
           </td>
           <td class="shape-card shape-card--compact grid-card--top w25">
-            <div class="shape-card-media"><img src="/images/simple_uv/thumb_UV_Transform.jpg" alt="UV Transform thumbnail" loading="lazy" decoding="async"></div>
+            <div class="shape-card-media"><img src="/images/simple_uv/simple_uv_grid_transform.jpg" alt="UV Transform thumbnail" loading="lazy" decoding="async"></div>
             <div class="shape-card-body">
               <div class="shape-card-title">UV Transform</div>
               <div class="shape-card-desc">Non-destructively offset, rotate, scale, tile, and mirror any existing UV map — no re-projecting from scratch.</div>
             </div>
           </td>
           <td class="shape-card shape-card--compact grid-card--top w25">
-            <div class="shape-card-media"><img src="/images/simple_uv/thumb_UV_Instance_Randomize.jpg" alt="UV Instance Randomize thumbnail" loading="lazy" decoding="async"></div>
+            <div class="shape-card-media"><img src="/images/simple_uv/simple_uv_grid_instance.jpg" alt="UV Instance Randomize thumbnail" loading="lazy" decoding="async"></div>
             <div class="shape-card-body">
               <div class="shape-card-title">UV Instance Randomize</div>
               <div class="shape-card-desc">Seed-controlled offset, rotation, and scale per instance, pivoted on each UV island's center so placement stays predictable.</div>
             </div>
           </td>
           <td class="shape-card shape-card--compact grid-card--top w25">
-            <div class="shape-card-media"><img src="/images/simple_uv/thumb_UV_Instance_Randomize.jpg" alt="UV Island Randomize thumbnail" loading="lazy" decoding="async"></div>
+            <div class="shape-card-media"><img src="/images/simple_uv/simple_uv_grid_island.jpg" alt="UV Island Randomize thumbnail" loading="lazy" decoding="async"></div>
             <div class="shape-card-body">
               <div class="shape-card-title">UV Island Randomize</div>
               <div class="shape-card-desc">The same per-instance randomization, scoped to UV islands on one mesh — stack both for rock piles and brick walls.</div>
@@ -856,14 +921,14 @@ html.has-js [data-reveal].is-revealed {
         </tr>
         <tr data-reveal>
           <td class="shape-card shape-card--compact grid-card--top w25">
-            <div class="shape-card-media"><img src="/images/simple_uv/thumb_UV_UV%20Mark%20Edges.jpg" alt="UV Mark Edges thumbnail" loading="lazy" decoding="async"></div>
+            <div class="shape-card-media"><img src="/images/simple_uv/simple_uv_grid_mark_edges.jpg" alt="UV Mark Edges thumbnail" loading="lazy" decoding="async"></div>
             <div class="shape-card-body">
               <div class="shape-card-title">UV Mark Edges</div>
               <div class="shape-card-desc">Writes island boundaries to seams and/or sharp edges, with independent Clear toggles to replace or layer with existing marks.</div>
             </div>
           </td>
           <td class="shape-card shape-card--compact grid-card--top w25">
-            <div class="shape-card-media"><img src="/images/simple_uv/thumb_UV_Pack.jpg" alt="UV Pack to Channel thumbnail" loading="lazy" decoding="async"></div>
+            <div class="shape-card-media"><img src="/images/simple_uv/simple_uv_grid_pack.jpg" alt="UV Pack to Channel thumbnail" loading="lazy" decoding="async"></div>
             <div class="shape-card-body">
               <div class="shape-card-title">UV Pack to Channel</div>
               <div class="shape-card-desc">Packs islands into a destination map for lightmaps — Exact Shape packing traces the real outline, not just a bounding box.</div>
@@ -896,15 +961,11 @@ html.has-js [data-reveal].is-revealed {
     <table class="wide-inner" role="presentation" data-stack-grid="cards">
       <tbody>
         <tr data-reveal>
-          <td class="grid-card grid-card--top w33">
+          <td class="grid-card grid-card--top w50">
             <div class="grid-card-title">Named UV Attributes</div>
             <div class="grid-card-body">Every node targets a user-specified UV attribute name, so you can create and manage multiple UV maps on one mesh.</div>
           </td>
-          <td class="grid-card grid-card--top w33">
-            <div class="grid-card-title">Object or World Space</div>
-            <div class="grid-card-body">Choose the coordinate space for projections to keep UVs stable under object transforms or locked to the world.</div>
-          </td>
-          <td class="grid-card grid-card--top w33">
+          <td class="grid-card grid-card--top w50">
             <div class="grid-card-title">Pure Geometry Nodes</div>
             <div class="grid-card-body">No Python dependency, no operator to run — everything is a standard Geometry Nodes modifier.</div>
           </td>
