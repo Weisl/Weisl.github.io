@@ -160,7 +160,7 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#uv-transform">UV Transform</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#uv-attribute-transform">UV Attribute Transform</a>
+    <li class="toctree-l3"><a class="reference internal" href="#uv-transform-vector">UV Transform (Vector)</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#uv-instance-randomize">UV Instance Randomize</a>
     </li>
@@ -701,7 +701,7 @@
 </tbody>
 </table>
 <hr>
-<h3 id="uv-attribute-transform">UV Attribute Transform</h3>
+<h3 id="uv-transform-vector">UV Transform (Vector)</h3>
 <p>A lightweight pure-vector node that offsets, rotates, and scales a UV coordinate value. Has no Geometry socket — use it as a helper sub-node inside other projection setups or to pre-process a UV vector before feeding it into a texture.</p>
 <table>
 <thead>
@@ -736,6 +736,12 @@
 <td>Vector</td>
 <td><code>1, 1</code></td>
 <td>Scale</td>
+</tr>
+<tr>
+<td>Tiling</td>
+<td>Float</td>
+<td><code>1.0</code></td>
+<td>Uniform tiling multiplier</td>
 </tr>
 </tbody>
 </table>
@@ -966,7 +972,7 @@
 <h2 id="general-tips">General Tips</h2>
 <p><strong>UV Map name</strong> — The <em>UV Map</em> string socket must match the name of the UV attribute on your mesh exactly. Blender's default is <code>UVMap</code>. You can check the attribute name in the <em>Object Data Properties → UV Maps</em> panel.</p>
 <p><strong>Stacking nodes</strong> — <em>UV Planar Project</em>, <em>UV Box Project</em>, <em>UV Spherical Project</em>, <em>UV Cylindrical Project</em>, and <em>UV Camera Project</em> write a UV attribute from scratch. Feed the result into <em>UV Transform</em> if you need to adjust it afterwards without losing the projection setup.</p>
-<p><strong>UV Attribute Transform as a sub-node</strong> — Because this node only operates on a vector, you can use it directly inside a custom node group to build composite projection setups without adding a full geometry pass.</p></div>
+<p><strong>UV Transform (Vector) as a sub-node</strong> — Because this node only operates on a vector, you can use it directly inside a custom node group to build composite projection setups without adding a full geometry pass.</p></div>
               
             </div>
           </div><footer>

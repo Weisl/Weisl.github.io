@@ -254,6 +254,12 @@
 }
 
 
+.trust-stat-row { margin: 0 auto; border-collapse: separate; border-spacing: 28px 0; border: 0; }
+.trust-stat-cell { border: none; text-align: center; }
+.trust-stat-number { font-size: 26px; font-weight: 800; color: #a855f7; line-height: 1.2; }
+.trust-stat-label { font-size: 13px; color: #9a9da6; margin-top: 2px; }
+
+
 .cta-banner {
   display: block;
   background: #a855f7;
@@ -381,6 +387,11 @@
 .shape-card--compact .shape-card-body { padding: 14px 16px; }
 .shape-card--compact .shape-card-title { font-size: 14px; margin-bottom: 5px; }
 .shape-card--compact .shape-card-desc { font-size: 12px; line-height: 1.5; }
+
+.shape-card--more { background: transparent; border: 1px dashed #34363e; vertical-align: middle; text-align: center; padding: 22px 18px; }
+.shape-card-more-mark { font-size: 96px; font-weight: 800; line-height: 0.5; color: #a855f7; margin-bottom: 18px; }
+.shape-card--more .shape-card-title { font-size: 14px; margin-bottom: 5px; }
+.shape-card--more .shape-card-desc { font-size: 12px; line-height: 1.5; }
 
 
 .shape-card--compact { transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
@@ -850,8 +861,9 @@ html.has-js [data-reveal].is-revealed {
        at quarter width, and each description now names a real parameter or
        behavior from the node docs instead of a one-line marketing gloss, so this
        section earns its place instead of duplicating the screenshot. Every node
-       has a real thumbnail except UV Attribute Transform, which has no image in
-       the source docs either. Cards are stills on purpose: animated loops were
+       has a real thumbnail except UV Transform (Vector), which has no image in
+       the source docs either. The 12th slot is a "more on the way" card
+       (.shape-card--more) instead of an empty cell. Cards are stills on purpose: animated loops were
        tried (data-loop-video, deploy_to_docs.py enhance_loop_cards) and dropped
        as too much motion; section 03 shows the projections in motion instead. -->
   <div class="section" data-reveal data-section-pad>
@@ -936,11 +948,15 @@ html.has-js [data-reveal].is-revealed {
           </td>
           <td class="shape-card shape-card--compact grid-card--top w25">
             <div class="shape-card-body">
-              <div class="shape-card-title">UV Attribute Transform</div>
+              <div class="shape-card-title">UV Transform (Vector)</div>
               <div class="shape-card-desc">A pure-vector helper with no Geometry socket — offsets, rotates, and scales a UV coordinate inline inside custom node groups.</div>
             </div>
           </td>
-          <td class="link-cell w25"></td>
+          <td class="shape-card shape-card--more w25">
+            <div class="shape-card-more-mark" aria-hidden="true">&hellip;</div>
+            <div class="shape-card-title">More nodes on the way</div>
+            <div class="shape-card-desc">New UV node groups will join the pack in future updates.</div>
+          </td>
         </tr>
       </tbody>
     </table>
